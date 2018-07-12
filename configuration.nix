@@ -34,9 +34,10 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  # environment.systemPackages = with pkgs; [
-  #   wget vim
-  # ];
+  environment.systemPackages = with pkgs; [
+    emacs
+    git
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
