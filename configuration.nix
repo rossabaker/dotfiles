@@ -76,10 +76,12 @@
   # services.xserver.desktopManager.plasma5.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  # users.extraUsers.guest = {
-  #   isNormalUser = true;
-  #   uid = 1000;
-  # };
+  users.extraUsers.ross = {
+    isNormalUser = true;
+    uid = 1000;
+    description = "Ross A. Baker";
+    extraGroups = [ "wheel" "networkmanager" ];
+  };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
