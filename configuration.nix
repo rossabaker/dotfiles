@@ -75,7 +75,7 @@
   services.xserver.libinput.enable = true;
 
   services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
+  services.xserver.desktopManager.mate.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.ross = {
