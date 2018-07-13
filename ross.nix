@@ -7,5 +7,6 @@
     pkgs.chromium
     pkgs.google-chrome
     pkgs.slack
+    pkgs.spotify
   ];
 }
