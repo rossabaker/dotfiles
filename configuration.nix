@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/release-18.03.tar.gz}/nixos"
     ];
 
   # Default in 18.03 has problems with KMS on my Chromebook
@@ -78,12 +79,14 @@
   services.xserver.desktopManager.mate.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.extraUsers.ross = {
+  users.users.ross = {
     isNormalUser = true;
     uid = 1000;
     description = "Ross A. Baker";
     extraGroups = [ "wheel" "networkmanager" ];
   };
+  
+  home-manager.users.ross = import ./ross.nix;
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
