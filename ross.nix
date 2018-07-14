@@ -6,6 +6,7 @@
   home.packages = [
     pkgs.chromium
     pkgs.google-chrome
+    pkgs.networkmanagerapplet
     pkgs.slack
     pkgs.spotify
   ];
