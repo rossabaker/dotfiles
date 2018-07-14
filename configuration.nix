@@ -78,6 +78,19 @@
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.mate.enable = true;
 
+  services.xserver.windowManager = {
+    default = "xmonad";
+    xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      extraPackages = haskellPackages: [
+        haskellPackages.xmonad-contrib
+        haskellPackages.xmonad-extras
+        haskellPackages.xmonad
+      ];
+    };
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ross = {
     isNormalUser = true;

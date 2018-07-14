@@ -9,4 +9,8 @@
     pkgs.slack
     pkgs.spotify
   ];
+
+  home.file = {
+    ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
+  };
 }
