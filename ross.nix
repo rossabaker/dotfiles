@@ -13,10 +13,21 @@
 
   home.file = {
     ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
+
+    ".emacs.d/init.el".source = ./emacs/init.el;
   };
 
   # Broken, I think due to https://github.com/NixOS/nixos-channel-scripts/issues/9
   programs.command-not-found.enable = true;
+
+  programs.emacs = {
+    enable = true;
+    extraPackages = epkgs:
+      (with epkgs.melpaStablePackages; [
+        better-defaults
+        use-package
+      ]);
+  };
 
   programs.git = {
     enable = true;
