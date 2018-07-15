@@ -9,4 +9,10 @@
 
 (use-package better-defaults)
 
+(use-package desktop
+  :config
+  (desktop-save-mode t))
+
 (use-package haskell-mode)
+
+
