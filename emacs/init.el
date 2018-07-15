@@ -15,6 +15,9 @@
 
 (use-package haskell-mode)
 
+(use-package magit
+  :bind ("C-c m" . magit-status))
+
 (use-package nix-mode)
 
 (use-package restart-emacs)

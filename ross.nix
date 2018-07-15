@@ -26,6 +26,7 @@
       (with epkgs.melpaStablePackages; [
         better-defaults
         haskell-mode
+        magit
         nix-mode
         restart-emacs
         use-package
