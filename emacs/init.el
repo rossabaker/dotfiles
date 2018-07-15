@@ -15,6 +15,6 @@
 
 (use-package haskell-mode)
 
+(use-package nix-mode)
+
 (use-package restart-emacs)
-
-
