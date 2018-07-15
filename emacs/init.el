@@ -8,3 +8,5 @@
   (require 'use-package))
 
 (use-package better-defaults)
+
+(use-package haskell-mode)

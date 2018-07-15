@@ -25,6 +25,7 @@
     extraPackages = epkgs:
       (with epkgs.melpaStablePackages; [
         better-defaults
+        haskell-mode
         use-package
       ]);
   };
