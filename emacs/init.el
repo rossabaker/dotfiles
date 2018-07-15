@@ -15,4 +15,6 @@
 
 (use-package haskell-mode)
 
+(use-package restart-emacs)
+
 
