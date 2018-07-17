@@ -18,8 +18,8 @@ main = xmonad $
   }
   `additionalKeysP`
   [ ("M-p", spawn "rofi -show run")
-  , ("M-x e", runOrRaiseNext "emacs" (className =? "Emacs"))
-  , ("M-x s", runOrRaiseNext "slack" (className =? "Slack"))  
+  , ("M-x e", raiseMaybe (spawn "emacsclient -c") (className =? "Emacs"))
+  , ("M-x s", runOrRaiseNext "slack" (className =? "Slack"))
   ]
 
 myBorderWidth   = 6
