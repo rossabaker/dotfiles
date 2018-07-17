@@ -1,5 +1,6 @@
 import System.Taffybar.Hooks.PagerHints (pagerHints)
 import XMonad
+import XMonad.Actions.WindowGo
 import XMonad.Config.Mate
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.ManageDocks
@@ -17,6 +18,8 @@ main = xmonad $
   }
   `additionalKeysP`
   [ ("M-p", spawn "rofi -show run")
+  , ("M-x e", runOrRaiseNext "emacs" (className =? "Emacs"))
+  , ("M-x s", runOrRaiseNext "slack" (className =? "Slack"))  
   ]
 
 myBorderWidth   = 6
