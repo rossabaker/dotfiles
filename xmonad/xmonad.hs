@@ -6,7 +6,8 @@ import XMonad.Layout.Spacing
 
 main = xmonad mateConfig
   { borderWidth = 0                -- handled in myLayout with addTopBar
-  , layoutHook = myLayout
+  , layoutHook  = myLayout
+  , modMask     = mod4Mask
   }
 
 myBorderWidth   = 6
