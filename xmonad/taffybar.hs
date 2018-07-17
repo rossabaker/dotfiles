@@ -5,7 +5,7 @@ import System.Taffybar.TaffyPager
 import System.Taffybar.SimpleClock
 import System.Taffybar.FreedesktopNotifications
 import System.Taffybar.Weather
-import System.Taffybar.MPRIS
+import System.Taffybar.MPRIS2
 
 import System.Taffybar.Widgets.PollingBar
 import System.Taffybar.Widgets.PollingGraph
@@ -33,7 +33,7 @@ main = do
   let clock = textClockNew Nothing "<span fgcolor='orange'>%H:%M</span>" 1
       pager = taffyPagerNew defaultPagerConfig
       note = notifyAreaNew defaultNotificationConfig
-      mpris = mprisNew defaultMPRISConfig
+      mpris = mpris2New
       mem = pollingGraphNew memCfg 1 memCallback
       cpu = pollingGraphNew cpuCfg 0.5 cpuCallback
       tray = systrayNew
