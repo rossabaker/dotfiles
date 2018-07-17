@@ -14,6 +14,7 @@
     chromium
     google-chrome
     networkmanagerapplet
+    rofi
     slack
     spotify
     taffybar

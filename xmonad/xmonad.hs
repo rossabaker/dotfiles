@@ -5,6 +5,7 @@ import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.NoFrillsDecoration
 import XMonad.Layout.Spacing
+import XMonad.Util.EZConfig
 
 main = xmonad $
   ewmh $
@@ -14,6 +15,9 @@ main = xmonad $
   , layoutHook  = myLayout
   , modMask     = mod4Mask
   }
+  `additionalKeysP`
+  [ ("M-p", spawn "rofi -show run")
+  ]
 
 myBorderWidth   = 6
 myActiveColor   = "#cfb53b"
