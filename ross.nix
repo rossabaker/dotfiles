@@ -45,6 +45,22 @@
       ]);
   };
 
+  systemd.user.services.emacs-daemon = {
+    Unit = {
+      Description = "Emacs text editor";
+      Documentation = "info:emacs man:emacs(1) https://gnu.org/software/emacs/";
+    };
+    Service = {
+      Type = "forking";
+      ExecStart = "${pkgs.stdenv.shell} -l -c 'exec %h/.nix-profile/bin/emacs --daemon'";
+      ExecStop = "%h/.nix-profile/bin/emacsclient --eval '(kill-emacs)'";
+      Restart = "on-failure";
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+  };
+
   programs.git = {
     enable = true;
     userName = "Ross A. Baker";
