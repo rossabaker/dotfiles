@@ -26,7 +26,8 @@
     ".emacs.d/init.el".source = ./emacs/init.el;
 
     ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
-    ".xmonad/xmonad-session-rc".source = ./xmonad/xmonad-session-rc;
+
+    ".xprofile".source = ./X/xprofile;
   };
 
   # Broken, I think due to https://github.com/NixOS/nixos-channel-scripts/issues/9
