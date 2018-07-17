@@ -1,20 +1,31 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    packageOverrides = pkgs: {
+      unstable = import <nixos-unstable> {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
   
-  home.packages = [
-    pkgs.chromium
-    pkgs.google-chrome
-    pkgs.networkmanagerapplet
-    pkgs.slack
-    pkgs.spotify
+  home.packages = with pkgs; [
+    chromium
+    google-chrome
+    networkmanagerapplet
+    slack
+    spotify
+    taffybar
   ];
 
   home.file = {
-    ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
+    ".config/taffybar/taffybar.hs".source = ./xmonad/taffybar.hs;
 
     ".emacs.d/init.el".source = ./emacs/init.el;
+
+    ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
+    ".xmonad/xmonad-session-rc".source = ./xmonad/xmonad-session-rc;
   };
 
   # Broken, I think due to https://github.com/NixOS/nixos-channel-scripts/issues/9

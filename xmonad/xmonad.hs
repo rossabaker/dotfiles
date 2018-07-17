@@ -1,10 +1,15 @@
+import System.Taffybar.Hooks.PagerHints (pagerHints)
 import XMonad
 import XMonad.Config.Mate
+import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.NoFrillsDecoration
 import XMonad.Layout.Spacing
 
-main = xmonad mateConfig
+main = xmonad $
+  ewmh $
+  pagerHints $
+  mateConfig
   { borderWidth = 0                -- handled in myLayout with addTopBar
   , layoutHook  = myLayout
   , modMask     = mod4Mask

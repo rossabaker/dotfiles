@@ -88,6 +88,7 @@
       enable = true;
       enableContribAndExtras = true;
       extraPackages = haskellPackages: [
+        haskellPackages.taffybar
         haskellPackages.xmonad-contrib
         haskellPackages.xmonad-extras
         haskellPackages.xmonad
