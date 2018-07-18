@@ -1,3 +1,9 @@
 #!/bin/sh
 
+eval $(dbus-launch)
+
+xsettingsd &
+
+nm-applet &
+pasystray &
 taffybar &

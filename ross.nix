@@ -14,10 +14,14 @@
     chromium
     google-chrome
     networkmanagerapplet
+    pasystray
+    pavucontrol
     rofi
     slack
     spotify
     taffybar
+    termite
+    xsettingsd
   ];
 
   home.file = {
@@ -28,6 +32,7 @@
     ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
 
     ".xprofile".source = ./X/xprofile;
+    ".xsettingsd".source = ./X/xsettingsd;    
   };
 
   # Broken, I think due to https://github.com/NixOS/nixos-channel-scripts/issues/9
@@ -45,7 +50,31 @@
         use-package
       ]);
   };
-
+  
+  gtk = {
+    enable = true;
+    font = {
+      name = "Roboto 9.75";
+      package = pkgs.roboto;
+    };
+    iconTheme = {
+      name = "Paper";
+      package = pkgs.paper-icon-theme;
+    };
+    theme = {
+      name = "Adapta-Nokto-Eta";
+      package = pkgs.adapta-gtk-theme;
+    };
+    gtk2.extraConfig = ''
+      gtk-cursor-blink = 0
+      gtk-key-theme-name = "Emacs"
+    '';
+    gtk3.extraConfig = {
+      gtk-cursor-blink = false;
+      gtk-key-theme-name = "Emacs";
+    };
+  };
+  
   systemd.user.services.emacs-daemon = {
     Unit = {
       Description = "Emacs text editor";

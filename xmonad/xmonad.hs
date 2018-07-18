@@ -1,7 +1,6 @@
 import System.Taffybar.Hooks.PagerHints (pagerHints)
 import XMonad
 import XMonad.Actions.WindowGo
-import XMonad.Config.Mate
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.NoFrillsDecoration
@@ -11,10 +10,11 @@ import XMonad.Util.EZConfig
 main = xmonad $
   ewmh $
   pagerHints $
-  mateConfig
+  defaultConfig
   { borderWidth = 0                -- handled in myLayout with addTopBar
   , layoutHook  = myLayout
   , modMask     = mod4Mask
+  , terminal    = "termite"
   }
   `additionalKeysP`
   [ ("M-p", spawn "rofi -show run")
@@ -26,7 +26,7 @@ myBorderWidth   = 6
 myActiveColor   = "#cfb53b"
 myInactiveColor = "#808080"
 
-myLayout = addTopBar $ smartSpacingWithEdge (fromIntegral myBorderWidth) $ avoidStruts $ layoutHook mateConfig
+myLayout = addTopBar $ smartSpacingWithEdge (fromIntegral myBorderWidth) $ avoidStruts $ layoutHook defaultConfig
   where
     addTopBar = noFrillsDeco shrinkText topBarTheme
     topBarTheme = def
