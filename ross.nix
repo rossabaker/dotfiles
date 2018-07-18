@@ -13,6 +13,7 @@
   home.packages = with pkgs; [
     cbatticon
     chromium
+    firefox
     google-chrome
     networkmanagerapplet
     pasystray
