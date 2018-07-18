@@ -4,6 +4,8 @@ eval $(dbus-launch)
 
 xsettingsd &
 
+cbatticon -u 10 -c "systemctl suspend" -l 15 -r 3 &
 nm-applet &
 pasystray &
+
 taffybar &

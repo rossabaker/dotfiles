@@ -71,6 +71,8 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  services.upower.enable = true;
+  
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
