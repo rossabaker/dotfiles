@@ -24,9 +24,10 @@ main = xmonad $
   }
   `additionalKeysP`
   [ ("M-b", sendMessage ToggleStruts)
-  , ("M-m m", namedScratchpadAction myScratchpads "mixer")
+  , ("M-m m", namedScratchpadAction myScratchpads "spotify")
   , ("M-p", spawn "rofi -show run")
   , ("M-x e", raiseMaybe (spawn "emacsclient -c") (className =? "Emacs"))
+  , ("M-x m", namedScratchpadAction myScratchpads "mixer")
   , ("M-x s", runOrRaiseNext "slack" (className =? "Slack"))
   ]
 
@@ -55,7 +56,10 @@ myLayout = avoidStruts $ tall ||| full
 myManageHook = manageHook def <+>
   namedScratchpadManageHook myScratchpads
 
-myScratchpads = [ NS "mixer" "pavucontrol" (className =? "Pavucontrol") (customFloating $ W.RationalRect l t w h) ]
+myScratchpads =
+  [ NS "mixer" "pavucontrol" (className =? "Pavucontrol") (customFloating $ W.RationalRect l t w h)
+  , NS "spotify" "spotify" (stringProperty "WM_NAME" =? "Spotify") (customFloating $ W.RationalRect l t w h)
+  ]
   where
     h = 0.6
     w = 0.6
