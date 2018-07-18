@@ -63,7 +63,7 @@
       package = pkgs.paper-icon-theme;
     };
     theme = {
-      name = "Adapta-Nokto-Eta";
+      name = "Adapta-Nokto";
       package = pkgs.adapta-gtk-theme;
     };
     gtk2.extraConfig = ''
