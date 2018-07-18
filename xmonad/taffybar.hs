@@ -23,12 +23,16 @@ cpuCallback = do
 
 main = do
   let memCfg = defaultGraphConfig { graphDataColors = [(1, 0, 0, 1)]
-                                  , graphLabel = Just "mem"
+                                  , graphLabel = Nothing
+                                  , graphBorderColor = (0.0, 0.0, 0.0)
+                                  , graphDirection = RIGHT_TO_LEFT
                                   }
       cpuCfg = defaultGraphConfig { graphDataColors = [ (0, 1, 0, 1)
                                                       , (1, 0, 1, 0.5)
                                                       ]
-                                  , graphLabel = Just "cpu"
+                                  , graphLabel = Nothing
+                                  , graphBorderColor = (0.0, 0.0, 0.0)
+                                  , graphDirection = RIGHT_TO_LEFT
                                   }
   let clock = textClockNew Nothing "<span fgcolor='orange'>%H:%M</span>" 1
       pager = taffyPagerNew defaultPagerConfig
