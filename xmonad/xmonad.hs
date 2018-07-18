@@ -4,6 +4,7 @@ import XMonad.Actions.WindowGo
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.NoFrillsDecoration
+import XMonad.Layout.Renamed
 import XMonad.Layout.Spacing
 import XMonad.Util.EZConfig
 
@@ -27,8 +28,13 @@ myBorderWidth   = 6
 myActiveColor   = "#cfb53b"
 myInactiveColor = "#808080"
 
-myLayout = avoidStruts $ addTopBar $ smartSpacingWithEdge (fromIntegral myBorderWidth) $ layoutHook def
+myLayout = avoidStruts $ tall ||| full
   where
+    tall = renamed [Replace "tall"] $
+      addTopBar $
+      smartSpacingWithEdge (fromIntegral myBorderWidth) $
+      Tall 1 0.025 0.5
+    full = renamed [Replace "full"] $ Full
     addTopBar = noFrillsDeco shrinkText topBarTheme
     topBarTheme = def
       { decoHeight          = myBorderWidth
