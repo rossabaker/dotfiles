@@ -6,7 +6,11 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Layout.NoFrillsDecoration
 import XMonad.Layout.Renamed
 import XMonad.Layout.Spacing
+import XMonad.StackSet
 import XMonad.Util.EZConfig
+import XMonad.Util.NamedScratchpad
+
+import qualified XMonad.StackSet as W
 
 main = xmonad $
   ewmh $
@@ -14,11 +18,13 @@ main = xmonad $
   docks def
   { borderWidth = 0                -- handled in myLayout with addTopBar
   , layoutHook  = myLayout
+  , manageHook  = myManageHook
   , modMask     = mod4Mask
   , terminal    = "termite"
   }
   `additionalKeysP`
   [ ("M-b", sendMessage ToggleStruts)
+  , ("M-m m", namedScratchpadAction myScratchpads "mixer")
   , ("M-p", spawn "rofi -show run")
   , ("M-x e", raiseMaybe (spawn "emacsclient -c") (className =? "Emacs"))
   , ("M-x s", runOrRaiseNext "slack" (className =? "Slack"))
@@ -45,3 +51,13 @@ myLayout = avoidStruts $ tall ||| full
       , activeTextColor     = myActiveColor
       , activeBorderColor   = myActiveColor
       }
+
+myManageHook = manageHook def <+>
+  namedScratchpadManageHook myScratchpads
+
+myScratchpads = [ NS "mixer" "pavucontrol" (className =? "Pavucontrol") (customFloating $ W.RationalRect l t w h) ]
+  where
+    h = 0.6
+    w = 0.6
+    t = (1 - h) / 2
+    l = (1 - w) / 2
