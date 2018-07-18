@@ -10,14 +10,15 @@ import XMonad.Util.EZConfig
 main = xmonad $
   ewmh $
   pagerHints $
-  defaultConfig
+  docks def
   { borderWidth = 0                -- handled in myLayout with addTopBar
   , layoutHook  = myLayout
   , modMask     = mod4Mask
   , terminal    = "termite"
   }
   `additionalKeysP`
-  [ ("M-p", spawn "rofi -show run")
+  [ ("M-b", sendMessage ToggleStruts)
+  , ("M-p", spawn "rofi -show run")
   , ("M-x e", raiseMaybe (spawn "emacsclient -c") (className =? "Emacs"))
   , ("M-x s", runOrRaiseNext "slack" (className =? "Slack"))
   ]
@@ -26,7 +27,7 @@ myBorderWidth   = 6
 myActiveColor   = "#cfb53b"
 myInactiveColor = "#808080"
 
-myLayout = addTopBar $ smartSpacingWithEdge (fromIntegral myBorderWidth) $ avoidStruts $ layoutHook defaultConfig
+myLayout = avoidStruts $ addTopBar $ smartSpacingWithEdge (fromIntegral myBorderWidth) $ layoutHook def
   where
     addTopBar = noFrillsDeco shrinkText topBarTheme
     topBarTheme = def
