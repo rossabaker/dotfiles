@@ -57,11 +57,7 @@ myManageHook = manageHook def <+>
   namedScratchpadManageHook myScratchpads
 
 myScratchpads =
-  [ NS "mixer" "pavucontrol" (className =? "Pavucontrol") (customFloating $ W.RationalRect l t w h)
-  , NS "spotify" "spotify" (stringProperty "WM_NAME" =? "Spotify") (customFloating $ W.RationalRect l t w h)
+  [ NS "mixer" "pavucontrol" (className =? "Pavucontrol") (customFloating $ W.RationalRect 0.6 0.6 0.2 0.2)
+    -- May want to set app.window.position.saved=false in ~/.config/spotify/prefs
+  , NS "spotify" "spotify" (className =? "Spotify") (customFloating $ W.RationalRect 0.9 0.9 0.05 0.05)
   ]
-  where
-    h = 0.6
-    w = 0.6
-    t = (1 - h) / 2
-    l = (1 - w) / 2

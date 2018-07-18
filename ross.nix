@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  spotifywm = with pkgs; callPackage ./spotifywm.nix { };
+in
 {
   nixpkgs.config = {
     allowUnfree = true;
@@ -20,7 +23,7 @@
     pavucontrol
     rofi
     slack
-    spotify
+    spotifywm
     taffybar
     termite
     xsettingsd
