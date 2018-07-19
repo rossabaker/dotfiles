@@ -16,6 +16,7 @@ in {
   home.packages = with pkgs; [
     cbatticon
     chromium
+    evince
     firefox
     gitter
     google-chrome
@@ -91,7 +92,7 @@ in {
       Type = "forking";
       ExecStart = "${pkgs.stdenv.shell} -l -c 'exec %h/.nix-profile/bin/emacs --daemon'";
       ExecStop = "%h/.nix-profile/bin/emacsclient --eval '(kill-emacs)'";
-      Restart = "on-failure";
+      Restart = "always";
     };
     Install = {
       WantedBy = [ "default.target" ];
