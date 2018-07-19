@@ -69,6 +69,12 @@
   :config
   (projectile-global-mode t))
 
+(use-package recentf
+  :custom
+  (recentf-max-saved-items 100)
+  :config
+  (recentf-mode t))
+
 (use-package savehist
   :config
   (savehist-mode t))
