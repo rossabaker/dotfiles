@@ -82,6 +82,11 @@ in {
       gtk-key-theme-name = "Emacs";
     };
   };
+
+  services.gpg-agent = {
+    enable = true;
+    enableSshSupport = true;
+  };
   
   systemd.user.services.emacs-daemon = {
     Unit = {
