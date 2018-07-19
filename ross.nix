@@ -47,6 +47,13 @@ in {
   # Broken, I think due to https://github.com/NixOS/nixos-channel-scripts/issues/9
   programs.command-not-found.enable = true;
 
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      spotify = "spotify --force-device-scale-factor=1.75";
+    };
+  };
+  
   programs.emacs = {
     enable = true;
     package = pkgs.unstable.emacs;

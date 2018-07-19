@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, substituteAll, spotify, libX11 }:
+{ stdenv, fetchFromGitHub, makeWrapper, substituteAll, spotify, libX11 }:
 stdenv.mkDerivation rec {
   name = "spotifywm";
 
@@ -9,15 +9,13 @@ stdenv.mkDerivation rec {
     sha256 = "01z088i83410bpx1vbp7c6cq01r431v55l7340x3izp53lnpp379";
   }}";
 
-  buildInputs = [ spotify libX11 ];
+  buildInputs = [ spotify libX11 makeWrapper ];
 
   installPhase = ''
     make spotifywm
-    mkdir -p "$out"/lib
-    mkdir -p "$out"/bin
-    cp spotifywm.so "$out"/lib/spotifywm.so
-    echo LD_PRELOAD="$out"/lib/spotifywm.so ${spotify}/bin/spotify > "$out"/bin/spotify
-    chmod +x "$out"/bin/spotify
+    mkdir -p $out/bin $out/lib
+    cp spotifywm.so $out/lib/spotifywm.so
+    makeWrapper ${spotify}/bin/spotify $out/bin/spotify --set LD_PRELOAD $out/lib/spotifywm.so
   '';
 
   meta = with stdenv.lib; {
