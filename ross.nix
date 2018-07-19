@@ -49,6 +49,7 @@ in {
 
   programs.emacs = {
     enable = true;
+    package = pkgs.unstable.emacs;
     extraPackages = epkgs:
       (with epkgs.melpaStablePackages; [
         better-defaults
@@ -97,8 +98,8 @@ in {
       Documentation = "info:emacs man:emacs(1) https://gnu.org/software/emacs/";
     };
     Service = {
-      Type = "forking";
-      ExecStart = "${pkgs.stdenv.shell} -l -c 'exec %h/.nix-profile/bin/emacs --daemon'";
+      Type = "simple";
+      ExecStart = "${pkgs.stdenv.shell} -l -c 'exec %h/.nix-profile/bin/emacs --fg-daemon'";
       ExecStop = "%h/.nix-profile/bin/emacsclient --eval '(kill-emacs)'";
       Restart = "always";
     };
