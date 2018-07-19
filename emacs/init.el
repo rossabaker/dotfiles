@@ -9,6 +9,12 @@
 
 (use-package better-defaults)
 
+(use-package autorevert
+  :custom
+  (auto-revert-verbose nil)
+  :config
+  (global-auto-revert-mode))
+
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
          ("C-x C-f" . counsel-find-file)
