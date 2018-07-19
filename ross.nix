@@ -65,8 +65,8 @@ in {
       package = pkgs.roboto;
     };
     iconTheme = {
-      name = "Paper";
-      package = pkgs.paper-icon-theme;
+      name = "Papirus-Adapta-Nokto";
+      package = pkgs.papirus-icon-theme;
     };
     theme = {
       name = "Adapta-Nokto";
