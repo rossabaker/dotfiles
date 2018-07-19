@@ -32,6 +32,10 @@
   :after projectile
   :config (counsel-projectile-mode))
 
+(use-package delsel
+  :config
+  (delete-selection-mode t))
+
 (use-package desktop
   :config
   (desktop-save-mode t))
