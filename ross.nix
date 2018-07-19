@@ -25,6 +25,7 @@ in {
     networkmanagerapplet
     pasystray
     pavucontrol
+    ripgrep
     rofi
     scala
     slack
