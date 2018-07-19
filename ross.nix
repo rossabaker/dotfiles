@@ -59,6 +59,8 @@ in {
         nix-mode
         scala-mode
         sbt-mode
+      ]) ++
+      (with epkgs.melpaPackages; [
         use-package
       ]);
   };

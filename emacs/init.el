@@ -13,6 +13,9 @@
   :config
   (desktop-save-mode t))
 
+(use-package display-line-numbers
+  :hook ((prog-mode text-mode) . display-line-numbers-mode))
+
 (use-package haskell-mode
   :config
   (setq haskell-process-args-ghci '("-ferror-spans" "-fshow-loaded-modules"))
