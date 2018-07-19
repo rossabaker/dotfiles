@@ -51,6 +51,7 @@ in {
         better-defaults
         haskell-mode
         magit
+        material-theme
         nix-mode
         restart-emacs
         use-package
