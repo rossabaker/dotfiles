@@ -1,9 +1,9 @@
 { config, pkgs, ... }:
 
 let
-  spotifywm = with pkgs; callPackage ./spotifywm.nix { };
-in
-{
+  gitter = with pkgs; callPackage ./gitter.nix {};
+  spotifywm = with pkgs; callPackage ./spotifywm.nix {};
+in {
   nixpkgs.config = {
     allowUnfree = true;
     packageOverrides = pkgs: {
@@ -17,6 +17,7 @@ in
     cbatticon
     chromium
     firefox
+    gitter
     google-chrome
     networkmanagerapplet
     pasystray
