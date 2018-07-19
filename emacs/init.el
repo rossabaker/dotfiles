@@ -69,6 +69,10 @@
   :config
   (projectile-global-mode t))
 
+(use-package savehist
+  :config
+  (savehist-mode t))
+
 (use-package sbt-mode
   :commands sbt-start sbt-command
   :config
