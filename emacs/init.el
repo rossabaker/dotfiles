@@ -7,14 +7,6 @@
 (eval-when-compile
   (require 'use-package))
 
-(use-package material-theme
-  :ensure t
-  :config
-  (add-hook 'after-make-frame-functions
-            (lambda (frame)
-              (with-selected-frame frame
-                (load-theme 'material t)))))
-
 (use-package better-defaults)
 
 (use-package desktop
@@ -28,6 +20,14 @@
 
 (use-package magit
   :bind ("C-c m" . magit-status))
+
+(use-package material-theme
+  :ensure t
+  :config
+  (add-hook 'after-make-frame-functions
+            (lambda (frame)
+              (with-selected-frame frame
+                (load-theme 'material t)))))
 
 (use-package nix-mode)
 
