@@ -60,7 +60,8 @@
   :config
   (setq ivy-use-virtual-buffers t)
   (ivy-mode t)
-  :bind ("C-c C-r" . ivy-resume))
+  :bind (("C-c C-r" . ivy-resume)
+         ("C-x b" . ivy-switch-buffer)))
 
 (use-package magit
   :config
