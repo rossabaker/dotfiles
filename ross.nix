@@ -62,6 +62,7 @@ in {
       (with epkgs.melpaStablePackages; [
         better-defaults
         counsel
+        counsel-projectile        
         haskell-mode
         ivy
         magit

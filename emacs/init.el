@@ -22,6 +22,10 @@
          ("C-c k" . counsel-ag)
          ("C-c l" . counsel-locate)))
 
+(use-package counsel-projectile
+  :after projectile
+  :config (counsel-projectile-mode))
+
 (use-package desktop
   :config
   (desktop-save-mode t))
@@ -54,6 +58,10 @@
                 (load-theme 'material t)))))
 
 (use-package nix-mode)
+
+(use-package projectile
+  :config
+  (projectile-global-mode t))
 
 (use-package sbt-mode
   :commands sbt-start sbt-command
