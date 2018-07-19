@@ -25,6 +25,7 @@ in {
     pasystray
     pavucontrol
     rofi
+    scala
     slack
     spotifywm
     taffybar
@@ -54,7 +55,8 @@ in {
         magit
         material-theme
         nix-mode
-        restart-emacs
+        scala-mode
+        sbt-mode
         use-package
       ]);
   };
