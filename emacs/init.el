@@ -73,6 +73,10 @@
   :config
   (savehist-mode t))
 
+(use-package saveplace
+  :config
+  (save-place-mode t))
+
 (use-package sbt-mode
   :commands sbt-start sbt-command
   :config
