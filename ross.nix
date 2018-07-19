@@ -19,6 +19,7 @@ in {
     evince
     firefox
     gitter
+    gnupg
     google-chrome
     networkmanagerapplet
     pasystray
