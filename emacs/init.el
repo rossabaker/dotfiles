@@ -47,6 +47,10 @@
 (use-package display-line-numbers
   :hook ((prog-mode text-mode) . display-line-numbers-mode))
 
+(use-package guru-mode
+  :config
+  (guru-global-mode t))
+
 (use-package haskell-mode
   :config
   (setq haskell-process-args-ghci '("-ferror-spans" "-fshow-loaded-modules"))
