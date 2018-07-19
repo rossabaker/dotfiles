@@ -97,19 +97,6 @@
     dpi = 168;
 
     displayManager.lightdm.enable = true;
-    windowManager = {
-      default = "xmonad";
-      xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-        extraPackages = haskellPackages: [
-          haskellPackages.taffybar
-          haskellPackages.xmonad-contrib
-          haskellPackages.xmonad-extras
-          haskellPackages.xmonad
-        ];
-      };
-    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.

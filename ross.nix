@@ -38,7 +38,6 @@ in {
 
     ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
 
-    ".xprofile".source = ./X/xprofile;
     ".xsettingsd".source = ./X/xsettingsd;    
   };
 
@@ -112,5 +111,30 @@ in {
       "st" = "status --short";
     };
     ignores = [ "*~" "\#*#" "*.elc" ".\#*" ];
+  };
+
+  xsession = {
+    enable = true;
+
+    initExtra = ''
+      xsettingsd &
+
+      cbatticon -u 10 -c "systemctl suspend" -l 15 -r 3 &
+      nm-applet &
+      pasystray &
+
+      taffybar &
+    '';
+    
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+      extraPackages = haskellPackages: [
+        haskellPackages.taffybar
+        haskellPackages.xmonad-contrib
+        haskellPackages.xmonad-extras
+        haskellPackages.xmonad
+      ];
+    };
   };
 }
