@@ -60,12 +60,15 @@ in {
     extraPackages = epkgs:
       (with epkgs.melpaStablePackages; [
         better-defaults
+        counsel
         haskell-mode
+        ivy
         magit
         material-theme
         nix-mode
         scala-mode
         sbt-mode
+        swiper
       ]) ++
       (with epkgs.melpaPackages; [
         use-package

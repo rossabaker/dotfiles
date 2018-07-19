@@ -9,6 +9,19 @@
 
 (use-package better-defaults)
 
+(use-package counsel
+  :bind (("M-x" . counsel-M-x)
+         ("C-x C-f" . counsel-find-file)
+         ("C-h f" . counsel-describe-function)
+         ("C-h v" . counsel-describe-variable)
+         ("C-h l" . counsel-find-library)
+         ("C-h i" . counsel-info-lookup-symbol)
+         ("C-h u" . counsel-unicode-char)
+         ("C-c g" . counsel-git)
+         ("C-c j" . counsel-git-grep)
+         ("C-c k" . counsel-ag)
+         ("C-c l" . counsel-locate)))
+
 (use-package desktop
   :config
   (desktop-save-mode t))
@@ -21,7 +34,15 @@
   (setq haskell-process-args-ghci '("-ferror-spans" "-fshow-loaded-modules"))
   (add-hook 'haskell-mode-hook 'interactive-haskell-mode))
 
+(use-package ivy-mode
+  :config
+  (setq ivy-use-virtual-buffers t)
+  (ivy-mode t)
+  :bind ("C-c C-r" . ivy-resume))
+
 (use-package magit
+  :config
+  (setq magit-completing-read-function 'ivy-completing-read)
   :bind ("C-c m" . magit-status))
 
 (use-package material-theme
@@ -47,3 +68,6 @@
 (use-package scala-mode
   :interpreter
   ("scala" . scala-mode))
+
+(use-package swiper
+  :bind ("C-s" . swiper))
