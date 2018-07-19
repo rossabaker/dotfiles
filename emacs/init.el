@@ -21,7 +21,10 @@
   :config
   (desktop-save-mode t))
 
-(use-package haskell-mode)
+(use-package haskell-mode
+  :config
+  (setq haskell-process-args-ghci '("-ferror-spans" "-fshow-loaded-modules"))
+  (add-hook 'haskell-mode-hook 'interactive-haskell-mode))
 
 (use-package magit
   :bind ("C-c m" . magit-status))

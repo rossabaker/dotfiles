@@ -18,6 +18,7 @@ in {
     chromium
     evince
     firefox
+    ghc
     gitter
     gnupg
     google-chrome
