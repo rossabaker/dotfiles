@@ -16,6 +16,10 @@
 (use-package ace-window
   :bind ("M-o" . ace-window))
 
+(use-package aggressive-indent
+  :diminish
+  :hook (prog-mode . aggressive-indent-mode))
+
 (use-package autorevert
   :diminish auto-revert-mode
   :custom

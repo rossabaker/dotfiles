@@ -62,6 +62,7 @@ in {
       (with epkgs.melpaStablePackages; [
         ace-jump-mode
         ace-window
+        aggressive-indent
         better-defaults
         counsel
         counsel-projectile
