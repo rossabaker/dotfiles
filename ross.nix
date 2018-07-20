@@ -94,6 +94,7 @@ in {
       ]) ++ (with epkgs.melpaPackages; [
         avy-zap
         change-inner
+        restclient
         use-package
       ]);
   };

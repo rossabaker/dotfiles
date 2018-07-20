@@ -215,6 +215,8 @@
   :config
   (recentf-mode t))
 
+(use-package restclient)
+
 (use-package savehist
   :config
   (savehist-mode t))
