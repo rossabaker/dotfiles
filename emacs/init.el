@@ -30,6 +30,12 @@
   :config
   (avy-setup-default))
 
+(use-package avy-zap
+  :custom
+  (avy-zap-dwim-prefer-avy nil)
+  :bind (("M-z" . avy-zap-to-char-dwim)
+         ("M-Z" . avy-zap-up-to-char-dwim)))
+
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
          ("C-x C-f" . counsel-find-file)

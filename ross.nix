@@ -78,6 +78,7 @@ in {
         swiper
       ]) ++
       (with epkgs.melpaPackages; [
+        avy-zap
         use-package
       ]);
   };
