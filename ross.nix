@@ -63,6 +63,7 @@ in {
         better-defaults
         counsel
         counsel-projectile
+        diminish
         guru-mode
         haskell-mode
         ivy

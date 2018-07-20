@@ -10,6 +10,7 @@
 (use-package better-defaults)
 
 (use-package autorevert
+  :diminish auto-revert-mode
   :custom
   (auto-revert-verbose nil)
   :config
@@ -47,7 +48,11 @@
 (use-package display-line-numbers
   :hook ((prog-mode text-mode) . display-line-numbers-mode))
 
+(use-package eldoc
+  :diminish)
+
 (use-package guru-mode
+  :diminish
   :config
   (guru-global-mode t))
 
