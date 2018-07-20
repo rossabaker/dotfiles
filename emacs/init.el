@@ -166,6 +166,10 @@
               (with-selected-frame frame
                 (load-theme 'material t)))))
 
+(use-package markdown-mode
+  :mode (("\\.md\\'" . gfm-mode)
+         ("\\.markdown\\'" . gfm-mode)))
+
 (use-package nix-mode)
 
 (use-package projectile

@@ -82,6 +82,7 @@ in {
         ivy
         know-your-http-well
         magit
+        markdown-mode
         material-theme
         nix-mode
         scala-mode
