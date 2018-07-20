@@ -54,6 +54,11 @@
   :config
   (global-company-mode t))
 
+(use-package copy-as-format
+  :custom
+  (copy-as-format-default "github")
+  :bind ("C-c M-w" . copy-as-format))
+
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
          ("C-x C-f" . counsel-find-file)

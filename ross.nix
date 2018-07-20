@@ -66,6 +66,7 @@ in {
         beacon
         better-defaults
         company
+        copy-as-format
         counsel
         counsel-projectile
         diminish
