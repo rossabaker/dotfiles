@@ -91,6 +91,7 @@ in {
         scala-mode
         sbt-mode
         swiper
+        which-key
       ]) ++ (with epkgs.melpaPackages; [
         avy-zap
         change-inner

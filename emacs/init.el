@@ -244,3 +244,8 @@
 
 (use-package which-func
   :hook (prog-mode . which-function-mode))
+
+(use-package which-key
+  :diminish
+  :config
+  (which-key-mode t))
