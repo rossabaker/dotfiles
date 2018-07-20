@@ -69,6 +69,7 @@ in {
         copy-as-format
         counsel
         counsel-projectile
+        diff-hl
         diminish
         guru-mode
         haskell-mode

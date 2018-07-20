@@ -86,6 +86,12 @@
   :config
   (desktop-save-mode t))
 
+(use-package diff-hl
+  :hook (magit-post-refresh-hook . diff-hl-magit-post-refresh)
+  :config
+  (global-diff-hl-mode t)
+  (diff-hl-flydiff-mode t))
+
 (use-package dired
   :custom
   (dired-auto-revert-buffer t))
