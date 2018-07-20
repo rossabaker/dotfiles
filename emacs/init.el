@@ -9,10 +9,6 @@
 
 (use-package better-defaults)
 
-(use-package ace-jump-mode
-  :custom (ace-jump-mode-scope 'visible)
-  :bind (("C-c SPC" . ace-jump-mode)))
-
 (use-package ace-window
   :bind ("M-o" . ace-window))
 
@@ -26,6 +22,13 @@
   (auto-revert-verbose nil)
   :config
   (global-auto-revert-mode))
+
+(use-package avy
+  :bind (("C-'" . avy-goto-char-timer)
+         ("M-g f" . avy-goto-line)
+         ("M-g w" . avy-goto-word-1))
+  :config
+  (avy-setup-default))
 
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
