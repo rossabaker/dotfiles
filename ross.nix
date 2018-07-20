@@ -73,6 +73,7 @@ in {
         diminish
         dumb-jump
         edit-server
+        flycheck
         guru-mode
         haskell-mode
         ivy

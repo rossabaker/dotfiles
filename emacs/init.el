@@ -114,6 +114,11 @@
 (use-package eldoc
   :diminish)
 
+(use-package flycheck
+  :diminish
+  :config
+  (global-flycheck-mode t))
+
 (use-package guru-mode
   :diminish
   :config
