@@ -60,6 +60,7 @@ in {
     package = pkgs.unstable.emacs;
     extraPackages = epkgs:
       (with epkgs.melpaStablePackages; [
+        ace-jump-mode
         better-defaults
         counsel
         counsel-projectile

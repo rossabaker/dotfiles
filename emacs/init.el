@@ -9,6 +9,10 @@
 
 (use-package better-defaults)
 
+(use-package ace-jump-mode
+  :custom (ace-jump-mode-scope 'visible)
+  :bind (("C-c SPC" . ace-jump-mode)))
+
 (use-package autorevert
   :diminish auto-revert-mode
   :custom
