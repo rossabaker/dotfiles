@@ -60,6 +60,7 @@
   :bind ("C-c M-w" . copy-as-format))
 
 (use-package counsel
+  :after ivy
   :bind (("M-x" . counsel-M-x)
          ("C-x C-f" . counsel-find-file)
          ("C-h f" . counsel-describe-function)
@@ -70,7 +71,8 @@
          ("C-c g" . counsel-git)
          ("C-c j" . counsel-git-grep)
          ("C-c k" . counsel-ag)
-         ("C-c l" . counsel-locate)))
+         ("C-c l" . counsel-locate)
+         ("C-c q" . counsel-set-variable)))
 
 (use-package counsel-projectile
   :after projectile
