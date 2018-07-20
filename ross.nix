@@ -72,6 +72,7 @@ in {
         diff-hl
         diminish
         dumb-jump
+        edit-server
         guru-mode
         haskell-mode
         ivy

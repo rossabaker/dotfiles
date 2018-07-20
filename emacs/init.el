@@ -107,6 +107,10 @@
          ("M-g x" . dumb-jump-go-prefer-external)
          ("M-g z" . dumb-jump-go-prefer-external-other-window)))
 
+(use-package edit-server
+  :config
+  (edit-server-start))
+
 (use-package eldoc
   :diminish)
 
