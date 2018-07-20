@@ -65,6 +65,7 @@ in {
         avy
         beacon
         better-defaults
+        company
         counsel
         counsel-projectile
         diminish
