@@ -146,6 +146,13 @@
   :bind (("C-c C-r" . ivy-resume)
          ("C-x b" . ivy-switch-buffer)))
 
+(use-package know-your-http-well
+  :commands (http-header
+             http-method
+             http-relation
+             http-status-code
+             media-type))
+
 (use-package magit
   :config
   (setq magit-completing-read-function 'ivy-completing-read)

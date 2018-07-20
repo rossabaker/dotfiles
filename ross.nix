@@ -80,6 +80,7 @@ in {
         haskell-mode
         ialign
         ivy
+        know-your-http-well
         magit
         material-theme
         nix-mode
