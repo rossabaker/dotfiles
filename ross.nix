@@ -2,7 +2,7 @@
 
 let
   gitter = with pkgs; callPackage ./gitter.nix {};
-  spotifywm = with pkgs; callPackage ./spotifywm.nix {};
+spotifywm = with pkgs; callPackage ./spotifywm.nix {};
 in {
   nixpkgs.config = {
     allowUnfree = true;
@@ -63,6 +63,7 @@ in {
         ace-window
         aggressive-indent
         avy
+        beacon
         better-defaults
         counsel
         counsel-projectile

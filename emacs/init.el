@@ -36,6 +36,12 @@
   :bind (("M-z" . avy-zap-to-char-dwim)
          ("M-Z" . avy-zap-up-to-char-dwim)))
 
+(use-package beacon
+  :diminish
+  :bind ("C-c C-b" . beacon-blink)
+  :config
+  (beacon-mode t))
+
 (use-package counsel
   :bind (("M-x" . counsel-M-x)
          ("C-x C-f" . counsel-find-file)
