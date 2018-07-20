@@ -61,6 +61,7 @@ in {
     extraPackages = epkgs:
       (with epkgs.melpaStablePackages; [
         ace-jump-mode
+        ace-window
         better-defaults
         counsel
         counsel-projectile
