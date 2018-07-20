@@ -10,7 +10,7 @@
 (use-package better-defaults)
 
 (use-package ace-window
-  :bind ("C-return" . ace-window))
+  :bind ("C-c o" . ace-window))
 
 (use-package aggressive-indent
   :diminish
