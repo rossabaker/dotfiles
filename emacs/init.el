@@ -10,7 +10,7 @@
 (use-package better-defaults)
 
 (use-package ace-window
-  :bind ("M-o" . ace-window))
+  :bind ("C-return" . ace-window))
 
 (use-package aggressive-indent
   :diminish
@@ -41,6 +41,10 @@
   :bind ("C-c C-b" . beacon-blink)
   :config
   (beacon-mode t))
+
+(use-package change-inner
+  :bind (("M-i" . change-inner)
+         ("M-o" . change-outer)))
 
 (use-package counsel
   :bind (("M-x" . counsel-M-x)

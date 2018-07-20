@@ -77,9 +77,9 @@ in {
         scala-mode
         sbt-mode
         swiper
-      ]) ++
-      (with epkgs.melpaPackages; [
+      ]) ++ (with epkgs.melpaPackages; [
         avy-zap
+        change-inner
         use-package
       ]);
   };
