@@ -122,6 +122,7 @@
   (global-flycheck-mode t))
 
 (use-package flyspell
+  :diminish
   :hook ((text-mode . flyspell-mode)
          (prog-mode . flyspell-prog-mode)))
 
