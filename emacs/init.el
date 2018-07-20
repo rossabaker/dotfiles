@@ -206,6 +206,9 @@
   :config
   (projectile-global-mode t))
 
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+
 (use-package recentf
   :custom
   (recentf-max-saved-items 100)

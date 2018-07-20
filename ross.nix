@@ -87,6 +87,7 @@ in {
         multiple-cursors
         nix-mode
         persistent-scratch
+        rainbow-delimiters
         scala-mode
         sbt-mode
         swiper
