@@ -136,6 +136,9 @@
   (setq haskell-process-args-ghci '("-ferror-spans" "-fshow-loaded-modules"))
   (add-hook 'haskell-mode-hook 'interactive-haskell-mode))
 
+(use-package ialign
+  :bind ("C-x l" . ialign))
+
 (use-package ivy-mode
   :config
   (setq ivy-use-virtual-buffers t)

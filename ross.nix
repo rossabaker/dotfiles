@@ -78,6 +78,7 @@ in {
         free-keys
         guru-mode
         haskell-mode
+        ialign
         ivy
         magit
         material-theme
