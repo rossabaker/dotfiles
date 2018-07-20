@@ -241,3 +241,6 @@
 
 (use-package swiper
   :bind ("C-s" . swiper))
+
+(use-package which-func
+  :hook (prog-mode . which-function-mode))
