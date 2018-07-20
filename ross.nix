@@ -71,6 +71,7 @@ in {
         counsel-projectile
         diff-hl
         diminish
+        dumb-jump
         guru-mode
         haskell-mode
         ivy

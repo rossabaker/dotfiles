@@ -99,6 +99,14 @@
 (use-package display-line-numbers
   :hook ((prog-mode text-mode) . display-line-numbers-mode))
 
+(use-package dumb-jump
+  :custom (dumb-jump-selector 'ivy)
+  :bind (("M-g o" . dumb-jump-go-other-window)
+         ("M-g j" . dumb-jump-go)
+         ("M-g i" . dumb-jump-go-prompt)
+         ("M-g x" . dumb-jump-go-prefer-external)
+         ("M-g z" . dumb-jump-go-prefer-external-other-window)))
+
 (use-package eldoc
   :diminish)
 
