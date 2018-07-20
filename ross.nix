@@ -22,6 +22,7 @@ in {
     gitter
     gnupg
     google-chrome
+    ispell
     networkmanagerapplet
     pasystray
     pavucontrol

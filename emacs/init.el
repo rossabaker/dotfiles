@@ -119,6 +119,10 @@
   :config
   (global-flycheck-mode t))
 
+(use-package flyspell
+  :hook ((text-mode . flyspell-mode)
+         (prog-mode . flyspell-prog-mode)))
+
 (use-package guru-mode
   :diminish
   :config
