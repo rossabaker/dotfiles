@@ -198,6 +198,10 @@
          ("S-<down-mouse-1>")
          ("S-<mouse-1>" . mc/add-cursor-on-click)))
 
+(use-package persistent-scratch
+  :config
+  (persistent-scratch-setup-default))
+
 (use-package projectile
   :config
   (projectile-global-mode t))

@@ -86,6 +86,7 @@ in {
         material-theme
         multiple-cursors
         nix-mode
+        persistent-scratch
         scala-mode
         sbt-mode
         swiper
