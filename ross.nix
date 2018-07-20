@@ -84,6 +84,7 @@ in {
         magit
         markdown-mode
         material-theme
+        multiple-cursors
         nix-mode
         scala-mode
         sbt-mode

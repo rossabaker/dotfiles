@@ -68,7 +68,6 @@
          ("C-h l" . counsel-find-library)
          ("C-h i" . counsel-info-lookup-symbol)
          ("C-h u" . counsel-unicode-char)
-         ("C-c g" . counsel-git)
          ("C-c j" . counsel-git-grep)
          ("C-c k" . counsel-ag)
          ("C-c l" . counsel-locate)
@@ -156,7 +155,7 @@
 (use-package magit
   :config
   (setq magit-completing-read-function 'ivy-completing-read)
-  :bind ("C-c m" . magit-status))
+  :bind ("C-c g" . magit-status))
 
 (use-package material-theme
   :ensure t
@@ -170,7 +169,34 @@
   :mode (("\\.md\\'" . gfm-mode)
          ("\\.markdown\\'" . gfm-mode)))
 
-(use-package nix-mode)
+(use-package multiple-cursors
+  :bind (("C-c m ^"     . mc/edit-beginnings-of-lines)
+         ("C-c m `"     . mc/edit-beginnings-of-lines)
+         ("C-c m $"     . mc/edit-ends-of-lines)
+         ("C-c m '"     . mc/edit-ends-of-lines)
+         ("C-c m R"     . mc/reverse-regions)
+         ("C-c m S"     . mc/sort-regions)
+         ("C-c m W"     . mc/mark-all-words-like-this)
+         ("C-c m Y"     . mc/mark-all-symbols-like-this)
+         ("C-c m a"     . mc/mark-all-like-this-dwim)
+         ("C-c m c"     . mc/mark-all-dwim)
+         ("C-c m l"     . mc/insert-letters)
+         ("C-c m n"     . mc/insert-numbers)
+         ("C-c m r"     . mc/mark-all-in-region)
+         ("C-c m s"     . set-rectangular-region-anchor)
+         ("C-c m %"     . mc/mark-all-in-region-regexp)
+         ("C-c m t"     . mc/mark-sgml-tag-pair)
+         ("C-c m w"     . mc/mark-next-like-this-word)
+         ("C-c m x"     . mc/mark-more-like-this-extended)
+         ("C-c m y"     . mc/mark-next-like-this-symbol)
+         ("C-c m C-SPC" . mc/mark-pop)
+         ("C-c m ("     . mc/mark-all-symbols-like-this-in-defun)
+         ("C-c m C-("   . mc/mark-all-words-like-this-in-defun)
+         ("C-c m M-("   . mc/mark-all-like-this-in-defun)
+         ("C-c m ["     . mc/vertical-align-with-space)
+         ("C-c m {"     . mc/vertical-align)
+         ("S-<down-mouse-1>")
+         ("S-<mouse-1>" . mc/add-cursor-on-click)))
 
 (use-package projectile
   :config
