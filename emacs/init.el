@@ -114,6 +114,8 @@
 (use-package eldoc
   :diminish)
 
+(use-package free-keys)
+
 (use-package flycheck
   :diminish
   :config

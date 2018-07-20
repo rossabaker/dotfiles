@@ -75,6 +75,7 @@ in {
         dumb-jump
         edit-server
         flycheck
+        free-keys
         guru-mode
         haskell-mode
         ivy
