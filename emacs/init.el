@@ -22,7 +22,9 @@
 (setq user-full-name "Ross A. Baker"
       user-mail-address "ross@rossabaker.com")
 
-(use-package better-defaults)
+(use-package better-defaults
+  :config
+  (fset 'yes-or-no-p 'y-or-n-p))
 
 (use-package ace-window
   :bind ("C-c o" . ace-window))
