@@ -23,6 +23,12 @@
       user-mail-address "ross@rossabaker.com")
 
 (use-package better-defaults
+  :custom
+  (frame-title-format
+   '("Emacs: "
+     (:eval (if (buffer-file-name)
+                (abbreviate-file-name (buffer-file-name))
+              "%b"))))
   :config
   (fset 'yes-or-no-p 'y-or-n-p))
 
