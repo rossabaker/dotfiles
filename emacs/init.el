@@ -249,3 +249,15 @@
   :diminish
   :config
   (which-key-mode t))
+
+(use-package whitespace
+  :diminish
+  :custom
+  (whitespace-line-column 80)
+  (whitespace-style '(face
+                      empty
+                      lines-tail
+                      space-after-tab
+                      space-before-tab
+                      trailing))
+  :hook ((prog-mode text-mode) . whitespace-mode))
