@@ -1,3 +1,7 @@
+{-# LANGUAGE OverloadedStrings #-}
+
+import DBus
+import DBus.Client
 import System.Taffybar.Hooks.PagerHints (pagerHints)
 import XMonad
 import XMonad.Actions.WindowGo
@@ -12,33 +16,38 @@ import XMonad.Util.NamedScratchpad
 
 import qualified XMonad.StackSet as W
 
-main = xmonad $
-  ewmh $
-  pagerHints $
-  docks def
-  { borderWidth = 0                -- handled in myLayout with addTopBar
-  , layoutHook  = myLayout
-  , manageHook  = myManageHook
-  , modMask     = mod4Mask
-  , terminal    = "termite"
-  }
-  `additionalKeysP`
-  [ ("M-b", sendMessage ToggleStruts)
-  , ("M-p", spawn "rofi -show run")
-  , ("M-x e", raiseMaybe (spawn "emacsclient -c") (className =? "Emacs"))
-  , ("M-x m", namedScratchpadAction myScratchpads "spotify")
-  , ("M-x v", namedScratchpadAction myScratchpads "mixer")
-  , ("M-x s", runOrRaiseNext "slack" (className =? "Slack"))
-  , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
-  , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
-  , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
-  , ("<XF86AudioMicMute>", spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
-  ]
+main =
+  do
+    dbusClient <- connectSession
+    xmonad $
+      ewmh $
+      pagerHints $
+      docks def
+      { borderWidth = 0                -- handled in myLayout with addTopBar
+      , layoutHook  = myLayout
+      , manageHook  = myManageHook
+      , modMask     = mod4Mask
+      , terminal    = "termite"
+      }
+      `additionalKeysP`
+      [ ("M-b", sendMessage ToggleStruts)
+      , ("M-p", spawn "rofi -show run")
+      , ("M-m <Space>", spotifyCtrl dbusClient "PlayPause")
+      , ("M-m n", spotifyCtrl dbusClient "Next")
+      , ("M-m p", spotifyCtrl dbusClient "Previous")
+      , ("M-x e", raiseMaybe (spawn "emacsclient -c") (className =? "Emacs"))
+      , ("M-x m", namedScratchpadAction myScratchpads "spotify")
+      , ("M-x v", namedScratchpadAction myScratchpads "mixer")
+      , ("M-x s", runOrRaiseNext "slack" (className =? "Slack"))
+      , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+      , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+      , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+      , ("<XF86AudioMicMute>", spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
+      ]
 
 myBorderWidth   = 6
 myActiveColor   = "#cfb53b"
 myInactiveColor = "#808080"
-
 myLayout = avoidStruts $ tall ||| full
   where
     tall = renamed [Replace "tall"] $
@@ -65,3 +74,11 @@ myScratchpads =
     -- May want to set app.window.position.saved=false in ~/.config/spotify/prefs
   , NS "spotify" "spotify --force-device-scale-factor=1.75" (className =? "Spotify") (customFloating $ W.RationalRect 0.9 0.9 0.05 0.05)
   ]
+
+-- https://gist.github.com/htr/6267335
+spotifyCtrl :: Client -> MemberName -> X ()
+spotifyCtrl client command = liftIO $ do
+  call_ client
+    (methodCall "/org/mpris/MediaPlayer2" "org.mpris.MediaPlayer2.Player" command) {
+      methodCallDestination = Just "org.mpris.MediaPlayer2.spotify" }
+  return ( )
