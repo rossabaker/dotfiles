@@ -33,6 +33,7 @@ in {
     spotifywm
     taffybar
     termite
+    xorg.xbacklight
     xsettingsd
   ];
 

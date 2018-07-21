@@ -43,6 +43,8 @@ main =
       , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
       , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
       , ("<XF86AudioMicMute>", spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
+      , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10%")
+      , ("<XF86MonBrightnessUp>"  , spawn "xbacklight -inc 10%")
       ]
 
 myBorderWidth   = 6
