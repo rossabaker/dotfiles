@@ -7,6 +7,7 @@ import XMonad
 import XMonad.Actions.WindowGo
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.NoBorders
 import XMonad.Layout.NoFrillsDecoration
 import XMonad.Layout.Renamed
 import XMonad.Layout.Spacing
@@ -23,7 +24,8 @@ main =
       ewmh $
       pagerHints $
       docks def
-      { borderWidth = 0                -- handled in myLayout with addTopBar
+      { borderWidth = 6                -- handled in myLayout with addTopBar
+      , focusedBorderColor = myActiveColor
       , layoutHook  = myLayout
       , manageHook  = myManageHook
       , modMask     = mod4Mask
@@ -54,9 +56,10 @@ myLayout = avoidStruts $ tall ||| full
   where
     tall = renamed [Replace "tall"] $
       addTopBar $
+      noBorders $
       smartSpacingWithEdge (fromIntegral myBorderWidth) $
       Tall 1 0.025 0.5
-    full = renamed [Replace "full"] $ Full
+    full = renamed [Replace "full"] $ noBorders $ Full
     addTopBar = noFrillsDeco shrinkText topBarTheme
     topBarTheme = def
       { decoHeight          = myBorderWidth
