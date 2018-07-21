@@ -12,7 +12,7 @@ in {
       };
     };
   };
-  
+
   home.packages = with pkgs; [
     cbatticon
     chromium
@@ -43,7 +43,7 @@ in {
 
     ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
 
-    ".xsettingsd".source = ./X/xsettingsd;    
+    ".xsettingsd".source = ./X/xsettingsd;
   };
 
   # Broken, I think due to https://github.com/NixOS/nixos-channel-scripts/issues/9
@@ -55,7 +55,7 @@ in {
       spotify = "spotify --force-device-scale-factor=1.75";
     };
   };
-  
+
   programs.emacs = {
     enable = true;
     package = pkgs.unstable.emacs;
@@ -102,7 +102,7 @@ in {
         use-package
       ]);
   };
-  
+
   gtk = {
     enable = true;
     font = {
@@ -131,7 +131,7 @@ in {
     enable = true;
     enableSshSupport = true;
   };
-  
+
   systemd.user.services.emacs-daemon = {
     Unit = {
       Description = "Emacs text editor";
@@ -170,7 +170,7 @@ in {
 
       taffybar &
     '';
-    
+
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
