@@ -69,12 +69,12 @@ myLayout = avoidStruts $ tall ||| full
       }
 
 myManageHook = manageHook def <+>
-  namedScratchpadManageHook myScratchpads
+               namedScratchpadManageHook myScratchpads
 
 myScratchpads =
-  [ NS "mixer" "pavucontrol" (className =? "Pavucontrol") (customFloating $ W.RationalRect 0.6 0.6 0.2 0.2)
+  [ NS "mixer" "pavucontrol" (className =? "Pavucontrol") (customFloating $ W.RationalRect 0.2 0.2 0.6 0.6)
     -- May want to set app.window.position.saved=false in ~/.config/spotify/prefs
-  , NS "spotify" "spotify --force-device-scale-factor=1.75" (className =? "Spotify") (customFloating $ W.RationalRect 0.9 0.9 0.05 0.05)
+  , NS "spotify" "spotify --force-device-scale-factor=1.75" (className =? "Spotify") (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8)
   ]
 
 -- https://gist.github.com/htr/6267335
