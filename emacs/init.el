@@ -37,7 +37,9 @@
 
 (use-package aggressive-indent
   :diminish
-  :hook (prog-mode . aggressive-indent-mode))
+  :config
+  (global-aggressive-indent-mode t)
+  (add-to-list 'aggressive-indent-excluded-modes 'haskell-interactive-mode))
 
 (use-package autorevert
   :diminish auto-revert-mode
