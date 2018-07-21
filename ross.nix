@@ -92,6 +92,7 @@ in {
         sbt-mode
         swiper
         which-key
+        whitespace-cleanup-mode
       ]) ++ (with epkgs.melpaPackages; [
         avy-zap
         change-inner
