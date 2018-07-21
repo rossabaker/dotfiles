@@ -1,3 +1,15 @@
+;;; init -- Ross A. Baker's Emacs configuration
+
+;;; Commentary:
+
+;; This is my Emacs configuration.  The packages are managed by nix,
+;; in ../ross.nix.
+;;
+;; Much inspiration was drawn from:
+;; https://github.com/jwiegley/dot-emacs
+
+;;; Code:
+
 (require 'package)
 ;; optional. makes unpure packages archives unavailable
 (setq package-archives nil)
@@ -272,3 +284,6 @@
   :diminish yas-minor-mode
   :config
   (yas-global-mode t))
+
+(provide 'init)
+;;; init.el ends here
