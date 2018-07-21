@@ -24,10 +24,10 @@ main = xmonad $
   }
   `additionalKeysP`
   [ ("M-b", sendMessage ToggleStruts)
-  , ("M-m m", namedScratchpadAction myScratchpads "spotify")
   , ("M-p", spawn "rofi -show run")
   , ("M-x e", raiseMaybe (spawn "emacsclient -c") (className =? "Emacs"))
-  , ("M-x m", namedScratchpadAction myScratchpads "mixer")
+  , ("M-x m", namedScratchpadAction myScratchpads "spotify")
+  , ("M-x v", namedScratchpadAction myScratchpads "mixer")
   , ("M-x s", runOrRaiseNext "slack" (className =? "Slack"))
   ]
 
