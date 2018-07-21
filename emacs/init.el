@@ -72,7 +72,7 @@
 (use-package company
   :diminish
   :custom
-  (company-idle-delay nil)
+  (company-idle-delay 0.5)
   :bind ("TAB" . company-indent-or-complete-common)
   :config
   (global-company-mode t))
