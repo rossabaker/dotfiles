@@ -93,6 +93,7 @@ in {
         swiper
         which-key
         whitespace-cleanup-mode
+        yaml-mode
       ]) ++ (with epkgs.melpaPackages; [
         avy-zap
         change-inner

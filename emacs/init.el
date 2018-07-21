@@ -264,3 +264,5 @@
 (use-package whitespace-cleanup-mode
   :config
   (global-whitespace-cleanup-mode t))
+
+(use-package yaml-mode)
