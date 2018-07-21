@@ -262,6 +262,7 @@
   :hook ((prog-mode text-mode) . whitespace-mode))
 
 (use-package whitespace-cleanup-mode
+  :diminish
   :config
   (global-whitespace-cleanup-mode t))
 
@@ -271,4 +272,3 @@
   :diminish yas-minor-mode
   :config
   (yas-global-mode t))
-
