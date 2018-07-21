@@ -266,3 +266,9 @@
   (global-whitespace-cleanup-mode t))
 
 (use-package yaml-mode)
+
+(use-package yasnippet
+  :diminish yas-minor-mode
+  :config
+  (yas-global-mode t))
+

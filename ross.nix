@@ -94,6 +94,7 @@ in {
         which-key
         whitespace-cleanup-mode
         yaml-mode
+        yasnippet
       ]) ++ (with epkgs.melpaPackages; [
         avy-zap
         change-inner
