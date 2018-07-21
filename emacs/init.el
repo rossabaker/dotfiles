@@ -136,6 +136,9 @@
 (use-package eldoc
   :diminish)
 
+(use-package expand-region
+  :bind ("C-=" . er/expand-region))
+
 (use-package free-keys)
 
 (use-package flycheck

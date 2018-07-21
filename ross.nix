@@ -74,6 +74,7 @@ in {
         diminish
         dumb-jump
         edit-server
+        expand-region
         flycheck
         free-keys
         guru-mode
