@@ -29,6 +29,10 @@ main = xmonad $
   , ("M-x m", namedScratchpadAction myScratchpads "spotify")
   , ("M-x v", namedScratchpadAction myScratchpads "mixer")
   , ("M-x s", runOrRaiseNext "slack" (className =? "Slack"))
+  , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+  , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+  , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+  , ("<XF86AudioMicMute>", spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
   ]
 
 myBorderWidth   = 6
