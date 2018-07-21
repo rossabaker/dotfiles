@@ -19,6 +19,9 @@
 (eval-when-compile
   (require 'use-package))
 
+(setq user-full-name "Ross A. Baker"
+      user-mail-address "ross@rossabaker.com")
+
 (use-package better-defaults)
 
 (use-package ace-window
