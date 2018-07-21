@@ -254,6 +254,12 @@
   :interpreter
   ("scala" . scala-mode))
 
+(use-package simple
+  :config
+  (line-number-mode t)
+  (column-number-mode t)
+  (size-indication-mode t))
+
 (use-package swiper
   :bind ("C-s" . swiper))
 
