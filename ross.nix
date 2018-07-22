@@ -28,6 +28,7 @@ in {
     pavucontrol
     ripgrep
     rofi
+    sbt
     scala
     slack
     spotifywm
