@@ -33,7 +33,7 @@
   (fset 'yes-or-no-p 'y-or-n-p))
 
 (use-package ace-window
-  :bind ("C-c o" . ace-window))
+  :bind ("C-x o" . ace-window))
 
 (use-package aggressive-indent
   :diminish
