@@ -267,6 +267,14 @@
   :interpreter
   ("scala" . scala-mode))
 
+(use-package shell-pop
+  :custom
+  (shell-pop-term-shell "/run/current-system/sw/bin/bash")
+  (shell-pop-universal-key "C-c t")
+  (shell-pop-full-span t)
+  (shell-pop-window-position "bottom")
+  :bind ("C-c t" . shell-pop))
+
 (use-package simple
   :config
   (line-number-mode t)

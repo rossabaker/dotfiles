@@ -93,6 +93,7 @@ in {
         rainbow-delimiters
         scala-mode
         sbt-mode
+        shell-pop
         swiper
         which-key
         whitespace-cleanup-mode
