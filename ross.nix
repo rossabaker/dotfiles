@@ -173,6 +173,12 @@ in {
       taffybar &
     '';
 
+    pointerCursor = {
+      package = pkgs.vanilla-dmz;
+      name = "Vanilla-DMZ";
+      size = 56;
+    };
+
     windowManager.xmonad = {
       enable = true;
       enableContribAndExtras = true;
