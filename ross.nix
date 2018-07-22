@@ -158,6 +158,10 @@ in {
       "st" = "status --short";
     };
     ignores = [ "*~" "\#*#" "*.elc" ".\#*" ];
+    extraConfig = ''
+      [url "git@github.com:"]
+      insteadOf = "gh:"
+    '';
   };
 
   xsession = {
