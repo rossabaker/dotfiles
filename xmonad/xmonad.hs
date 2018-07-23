@@ -40,7 +40,7 @@ myKeys dbusClient =
   , ("M-m n", spotifyCtrl dbusClient "Next")
   , ("M-m p", spotifyCtrl dbusClient "Previous")
   , ("M-x e", raiseMaybe (spawn "emacsclient -c") (className =? "Emacs"))
-  , ("M-x m", namedScratchpadAction myScratchpads "spotify")
+  , ("M-x m", raiseMaybe (spawn "spotify --force-device-scale-factor=1.25") (className =? "Spotify"))
   , ("M-x v", namedScratchpadAction myScratchpads "mixer")
   , ("M-x s", runOrRaiseNext "slack" (className =? "Slack"))
   , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
@@ -83,8 +83,6 @@ myManageHook = manageHook def <+>
 
 myScratchpads =
   [ NS "mixer" "pavucontrol" (className =? "Pavucontrol") (customFloating $ W.RationalRect 0.2 0.2 0.6 0.6)
-    -- May want to set app.window.position.saved=false in ~/.config/spotify/prefs
-  , NS "spotify" "spotify --force-device-scale-factor=1.75" (className =? "Spotify") (customFloating $ W.RationalRect 0.1 0.1 0.8 0.8)
   ]
 
 -- https://gist.github.com/htr/6267335
