@@ -44,8 +44,6 @@ in {
     ".emacs.d/init.el".source = ./emacs/init.el;
 
     ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
-
-    ".xsettingsd".source = ./X/xsettingsd;
   };
 
   # Broken, I think due to https://github.com/NixOS/nixos-channel-scripts/issues/9
@@ -154,6 +152,28 @@ in {
 
   programs.autorandr = {
     enable = true;
+    hooks = {
+      postswitch = {
+        "change-dpi" = ''
+          case "$AUTORANDR_CURRENT_PROFILE" in
+            home)
+              DPI=96
+              ;;
+            mobile)
+              DPI=168
+              ;;
+            *)
+              DPI=96
+              ;;
+          esac
+
+          echo "Xft.dpi: $DPI" | ${pkgs.xorg.xrdb}/bin/xrdb -merge
+
+          echo Xft/DPI $(( $DPI * 1024 )) > ~/.xsettingsd
+          ${pkgs.psmisc}/bin/killall -HUP xsettingsd
+        '';
+      };
+    };
   };
 
   programs.git = {
@@ -161,12 +181,12 @@ in {
     userName = "Ross A. Baker";
     userEmail = "ross@rossabaker.com";
     aliases = {
-      "st" = "status --short";
+      st = "status --short";
     };
     ignores = [ "*~" "\#*#" "*.elc" ".\#*" ];
-    extraConfig = ''
-      [url "git@github.com:"]
-      insteadOf = "gh:"
+      extraConfig = ''
+        [url "git@github.com:"]
+        insteadOf = "gh:"
     '';
   };
 
