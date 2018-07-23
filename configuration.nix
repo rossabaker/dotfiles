@@ -39,9 +39,11 @@
     proggyfonts
     roboto
   ];
-  
+
   networking.hostName = "herbert"; # Define your hostname.
   networking.networkmanager.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
 
   # Select internationalisation properties.
   # i18n = {
@@ -85,7 +87,7 @@
   hardware.pulseaudio.enable = true;
 
   services.upower.enable = true;
-  
+
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -94,9 +96,11 @@
     xkbOptions = "caps:ctrl_modifier";
     libinput.enable = true;
 
-    dpi = 168;
+    dpi = 144;
 
     displayManager.lightdm.enable = true;
+
+    videoDrivers = [ "nvidia" "intel" "modesetting" ];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -106,7 +110,7 @@
     description = "Ross A. Baker";
     extraGroups = [ "wheel" "networkmanager" ];
   };
-  
+
   home-manager.users.ross = import ./ross.nix;
 
   # This value determines the NixOS release with which your system is to be

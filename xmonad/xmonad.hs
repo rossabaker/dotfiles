@@ -31,23 +31,30 @@ main =
       , modMask     = mod4Mask
       , terminal    = "termite"
       }
-      `additionalKeysP`
-      [ ("M-b", sendMessage ToggleStruts)
-      , ("M-p", spawn "rofi -show run")
-      , ("M-m <Space>", spotifyCtrl dbusClient "PlayPause")
-      , ("M-m n", spotifyCtrl dbusClient "Next")
-      , ("M-m p", spotifyCtrl dbusClient "Previous")
-      , ("M-x e", raiseMaybe (spawn "emacsclient -c") (className =? "Emacs"))
-      , ("M-x m", namedScratchpadAction myScratchpads "spotify")
-      , ("M-x v", namedScratchpadAction myScratchpads "mixer")
-      , ("M-x s", runOrRaiseNext "slack" (className =? "Slack"))
-      , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
-      , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
-      , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
-      , ("<XF86AudioMicMute>", spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
-      , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10%")
-      , ("<XF86MonBrightnessUp>"  , spawn "xbacklight -inc 10%")
-      ]
+      `additionalKeysP` myKeys dbusClient
+
+myKeys dbusClient =
+  [ ("M-b", sendMessage ToggleStruts)
+  , ("M-p", spawn "rofi -show run")
+  , ("M-m <Space>", spotifyCtrl dbusClient "PlayPause")
+  , ("M-m n", spotifyCtrl dbusClient "Next")
+  , ("M-m p", spotifyCtrl dbusClient "Previous")
+  , ("M-x e", raiseMaybe (spawn "emacsclient -c") (className =? "Emacs"))
+  , ("M-x m", namedScratchpadAction myScratchpads "spotify")
+  , ("M-x v", namedScratchpadAction myScratchpads "mixer")
+  , ("M-x s", runOrRaiseNext "slack" (className =? "Slack"))
+  , ("<XF86AudioMute>", spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
+  , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%")
+  , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%")
+  , ("<XF86AudioMicMute>", spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle")
+  , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 10%")
+  , ("<XF86MonBrightnessUp>"  , spawn "xbacklight -inc 10%")
+  , ("<XF86Display>", spawn "autorandr -c --default mobile")
+  ] ++
+  [ (mask ++ "M-" ++ [key], screenWorkspace scr >>= flip whenJust (windows . action))
+  | (key, scr)  <- zip "werty" [0..]
+  , (action, mask) <- [ (W.view, "") , (W.shift, "S-")]
+  ]
 
 myBorderWidth   = 6
 myActiveColor   = "#cfb53b"

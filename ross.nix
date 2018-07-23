@@ -152,6 +152,10 @@ in {
     };
   };
 
+  programs.autorandr = {
+    enable = true;
+  };
+
   programs.git = {
     enable = true;
     userName = "Ross A. Baker";
