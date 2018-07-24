@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# Adapted from https://nrocco.github.io/2014/06/05/suspend-prevent-systemd.html
+#
+# Necessary because nvidia driver is not sending udev drm events,
+# which prevents multiple monitors from being detected, which prevents
+# logind from thinking we're docked.  This means that closing the lid
+# will not suspend when on battery and _not_ docked, but I think that's
+# okay.
+
+case "$1" in
+    battery)
+        echo 'Running on battery. Making sure to remove the inhibit lock'
+        systemctl --user stop suspend-prevent.service
+        ;;
+
+    ac)
+        echo 'Running on AC. Making sure to add the inhibit lock'
+        systemctl --user start suspend-prevent.service
+        ;;
+
+    -h|--help|help)
+        echo "Usage: $(basename $0) [battery|ac|--forever]"
+        exit 1
+        ;;
+
+    --forever)
+        systemd-inhibit --what=handle-lid-switch:sleep --who=$(id -un $(whoami)) --why="Prevent suspend on lid close when on AC" --mode=block tail -f /dev/null
+        ;;
+
+    *)
+        echo 'Automatically detecting power source...'
+
+        if cat /sys/class/power_supply/AC/online | grep 0 > /dev/null 2>&1
+        then
+            $0 battery
+        else
+            $0 ac
+        fi
+
+        exit $?
+        ;;
+esac
+
+exit 0

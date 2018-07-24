@@ -39,6 +39,11 @@ in {
   ];
 
   home.file = {
+    "bin/suspend-prevent" = {
+      source = ./bin/suspend-prevent;
+      executable = true;
+    };
+
     ".config/taffybar/taffybar.hs".source = ./xmonad/taffybar.hs;
 
     ".emacs.d/init.el".source = ./emacs/init.el;
@@ -144,6 +149,19 @@ in {
       ExecStart = "${pkgs.stdenv.shell} -l -c 'exec %h/.nix-profile/bin/emacs --fg-daemon'";
       ExecStop = "%h/.nix-profile/bin/emacsclient --eval '(kill-emacs)'";
       Restart = "always";
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+  };
+
+  systemd.user.services.suspend-prevent = {
+    Unit = {
+      Description = "Prevent suspend on lid close when on AC";
+    };
+    Service = {
+      Type = "simple";
+      ExecStart = "%h/bin/suspend-prevent --forever";
     };
     Install = {
       WantedBy = [ "default.target" ];
