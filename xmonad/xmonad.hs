@@ -52,7 +52,7 @@ myKeys dbusClient =
   , ("<XF86Display>", spawn "autorandr -c --default mobile")
   ] ++
   [ (mask ++ "M-" ++ [key], screenWorkspace scr >>= flip whenJust (windows . action))
-  | (key, scr)  <- zip "werty" [0..]
+  | (key, scr)  <- zip "ewr" [0..]
   , (action, mask) <- [ (W.view, "") , (W.shift, "S-")]
   ]
 
