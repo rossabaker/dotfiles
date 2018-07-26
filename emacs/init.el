@@ -103,6 +103,12 @@
   :after projectile
   :config (counsel-projectile-mode))
 
+(use-package dante
+  :after haskell-mode
+  :diminish
+  :hook
+  (haskell-mode . dante-mode))
+
 (use-package delsel
   :config
   (delete-selection-mode t))
@@ -161,8 +167,7 @@
 
 (use-package haskell-mode
   :config
-  (setq haskell-process-args-ghci '("-ferror-spans" "-fshow-loaded-modules"))
-  (add-hook 'haskell-mode-hook 'interactive-haskell-mode))
+  (setq haskell-process-args-ghci '("-ferror-spans" "-fshow-loaded-modules")))
 
 (use-package ialign
   :bind ("C-x l" . ialign))

@@ -75,6 +75,7 @@ in {
         copy-as-format
         counsel
         counsel-projectile
+        dante
         diff-hl
         diminish
         dumb-jump
