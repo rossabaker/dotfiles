@@ -93,6 +93,7 @@
          ("C-h l" . counsel-find-library)
          ("C-h i" . counsel-info-lookup-symbol)
          ("C-h u" . counsel-unicode-char)
+         ("C-c f" . counsel-recentf)
          ("C-c j" . counsel-git-grep)
          ("C-c k" . counsel-ag)
          ("C-c l" . counsel-locate)
