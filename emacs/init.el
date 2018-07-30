@@ -231,6 +231,8 @@
          ("S-<down-mouse-1>")
          ("S-<mouse-1>" . mc/add-cursor-on-click)))
 
+(use-package org-preview-html)
+
 (use-package persistent-scratch
   :config
   (persistent-scratch-setup-default))

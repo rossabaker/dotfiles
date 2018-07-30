@@ -108,6 +108,7 @@ in {
       ]) ++ (with epkgs.melpaPackages; [
         avy-zap
         change-inner
+        org-preview-html
         restclient
         use-package
       ]);
