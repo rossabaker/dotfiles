@@ -59,12 +59,18 @@ myKeys dbusClient =
 myBorderWidth   = 6
 myActiveColor   = "#cfb53b"
 myInactiveColor = "#808080"
-myLayout = avoidStruts $ tall ||| full
+myLayout = avoidStruts $ tall ||| wide ||| full
   where
     tall = renamed [Replace "tall"] $
       addTopBar $
       noBorders $
       smartSpacingWithEdge (fromIntegral myBorderWidth) $
+      Tall 1 0.025 0.5
+    wide = renamed [Replace "wide"] $
+      addTopBar $
+      noBorders $
+      smartSpacingWithEdge (fromIntegral myBorderWidth) $
+      Mirror $
       Tall 1 0.025 0.5
     full = renamed [Replace "full"] $ noBorders $ Full
     addTopBar = noFrillsDeco shrinkText topBarTheme
