@@ -1,8 +1,9 @@
 { config, pkgs, ... }:
 
 let
+  _1password = with pkgs; callPackage ./1password.nix {};
   gitter = with pkgs; callPackage ./gitter.nix {};
-spotifywm = with pkgs; callPackage ./spotifywm.nix {};
+  spotifywm = with pkgs; callPackage ./spotifywm.nix {};
 in {
   nixpkgs.config = {
     allowUnfree = true;
@@ -14,6 +15,7 @@ in {
   };
 
   home.packages = with pkgs; [
+    _1password
     cbatticon
     chromium
     evince
