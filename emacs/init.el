@@ -50,7 +50,6 @@
 
 (use-package avy
   :bind (("C-'" . avy-goto-char-timer)
-         ("M-g f" . avy-goto-line)
          ("M-g w" . avy-goto-word-1))
   :config
   (avy-setup-default))
