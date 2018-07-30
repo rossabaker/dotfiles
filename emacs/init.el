@@ -102,6 +102,21 @@
   :after projectile
   :config (counsel-projectile-mode))
 
+(use-package crux
+  :bind (("C-a" . crux-move-beginning-of-line)
+         ("C-c o" . crux-open-with)
+         ("C-S-<return>" . crux-smart-open-line-above)
+         ("S-<return>" . crux-smart-open-line)
+         ("C-k" . crux-smart-kill-line)
+         ("C-c u" . crux-view-url)
+         ("C-c e" . crux-eval-and-replace)
+         ("C-x 4 t" . crux-transpose-windows)
+         ("C-c D" . crux-delete-file-and-buffer)
+         ("C-c d" . crux-duplicate-current-line-or-region)
+         ("C-c M-d" . crux-duplicate-and-comment-current-line-or-region)
+         ("C-c r" . crux-rename-file-and-buffer)
+         ("C-^" . crux-top-join-lines)))
+
 (use-package dante
   :after haskell-mode
   :diminish
