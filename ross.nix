@@ -144,6 +144,10 @@ in {
     enableSshSupport = true;
   };
 
+  services.keybase = {
+    enable = true;
+  }
+
   systemd.user.services.emacs-daemon = {
     Unit = {
       Description = "Emacs text editor";
