@@ -50,6 +50,11 @@ in {
 
     ".emacs.d/init.el".source = ./emacs/init.el;
 
+    ".sbt" = {
+      source = ./sbt;
+      recursive = true;
+    };
+
     ".xmonad/xmonad.hs".source = ./xmonad/xmonad.hs;
   };
 
@@ -146,7 +151,7 @@ in {
 
   services.keybase = {
     enable = true;
-  }
+  };
 
   systemd.user.services.emacs-daemon = {
     Unit = {
