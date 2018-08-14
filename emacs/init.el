@@ -36,6 +36,7 @@
   :bind ("C-x o" . ace-window))
 
 (use-package aggressive-indent
+  :disable t ;; Seems to be doing more harm than good
   :diminish
   :config
   (global-aggressive-indent-mode t)
