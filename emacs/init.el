@@ -290,7 +290,13 @@
 
 (use-package scala-mode
   :interpreter
-  ("scala" . scala-mode))
+  ("scala" . scala-mode)
+  :bind (:map scala-mode-map ("C-c c" . ross/sbt-test-compile))
+  :config
+  (defun ross/sbt-test-compile ()
+    "Compile all sources, including tests"
+    (interactive)
+    (sbt:command "test:compile")))
 
 (use-package shell-pop
   :custom
