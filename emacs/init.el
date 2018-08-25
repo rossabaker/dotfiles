@@ -278,6 +278,8 @@
 
 (use-package sbt-mode
   :commands sbt-start sbt-command
+  :custom
+  (sbt:prompt-regexp "^\\(\\(scala\\|\\[[^]]*\\] \\)?[>λ$]\\|[ ]+|\\)[ ]*")
   :config
   ;; WORKAROUND: https://github.com/ensime/emacs-sbt-mode/issues/31
   ;; allows using SPACE when in the minibuffer
