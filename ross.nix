@@ -48,6 +48,8 @@ in {
 
     ".config/taffybar/taffybar.hs".source = ./xmonad/taffybar.hs;
 
+    ".config/termite/config".source = ./termite/config;
+
     ".emacs.d/init.el".source = ./emacs/init.el;
 
     ".sbt" = {
