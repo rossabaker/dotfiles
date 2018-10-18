@@ -86,6 +86,12 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  services.printing.enable = true;
+  services.printing.drivers = [
+    pkgs.gutenprint
+    pkgs.gutenprintBin
+  ];
+
   services.upower.enable = true;
 
   # Enable the X11 windowing system.
