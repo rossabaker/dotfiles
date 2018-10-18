@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, makeWrapper, substituteAll, spotify, libX11 }:
+{ stdenv, fetchFromGitHub, makeWrapper, substituteAll, spotify, libX11, unstable }:
 stdenv.mkDerivation rec {
   name = "spotifywm";
 
@@ -9,7 +9,7 @@ stdenv.mkDerivation rec {
     sha256 = "01z088i83410bpx1vbp7c6cq01r431v55l7340x3izp53lnpp379";
   }}";
 
-  buildInputs = [ spotify libX11 makeWrapper ];
+  buildInputs = [ unstable.spotify libX11 makeWrapper ];
 
   installPhase = ''
     make spotifywm
