@@ -1,2 +1,4 @@
 xcompmgr &
 xsettingsd &
+
+setxkbmap -option ctrl:nocaps
