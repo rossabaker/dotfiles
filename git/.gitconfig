@@ -1,3 +1,6 @@
 [user]
 	name = Ross A. Baker
 	email = ross@rossabaker.com
+
+[url "git@github.com:"]
+	insteadOf = "gh:"
