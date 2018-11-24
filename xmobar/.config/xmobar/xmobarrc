@@ -1,5 +1,5 @@
 Config { font = "xft:DejaVu Sans:size=16"
-       , additionalFonts = []
+       , additionalFonts = [ "xft:Font Awesome:size=16" ]
        , borderColor = "black"
        , border = TopB
        , bgColor = "#282828"
@@ -15,24 +15,23 @@ Config { font = "xft:DejaVu Sans:size=16"
        , iconRoot = "."
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ Run Weather "EGPF" ["-t","<station>: <tempC>C",
-                                          "-L","18","-H","25",
-                                          "--normal","green",
-                                          "--high","red",
-                                          "--low","lightblue"] 36000
-                    , Run Network "eth0" ["-L","0","-H","32",
-                                          "--normal","green","--high","red"] 10
-                    , Run Network "eth1" ["-L","0","-H","32",
-                                          "--normal","green","--high","red"] 10
-                    , Run Cpu ["-L","3","-H","50",
-                               "--normal","green","--high","red"] 10
-                    , Run Memory ["-t","Mem: <usedratio>%"] 10
-                    , Run Swap [] 10
-                    , Run Com "uname" ["-s","-r"] "" 36000
-                    , Run Date "%a %b %_d %Y %H:%M" "date" 10
+       , commands = [ Run Date "%a %b %_d %Y %H:%M" "date" 10
                     , Run StdinReader
+                    , Run BatteryP ["BAT0"]
+                                   ["-t","<acstatus><left>%",
+                                    "-p","3",
+                                    "-L","10",
+                                    "-H","50",
+                                    "--low","#ea4335",
+                                    "--normal","#fbbc05",
+                                    "--",
+                                    "-p","gray70", -- doesn't work?
+                                    "-O","<fn=1></fn>",
+                                    "-i","<fn=1></fn>",
+                                    "-o","<fn=1></fn>"
+                                   ] 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %date%"
+       , template = "%StdinReader% }{ %battery% · %date%"
        }
