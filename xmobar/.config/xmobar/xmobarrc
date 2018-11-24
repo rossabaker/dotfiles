@@ -5,7 +5,7 @@ Config { font = "xft:DejaVu Sans:size=16"
        , bgColor = "#282828"
        , fgColor = "gray70"
        , alpha = 255
-       , position = Top
+       , position = TopP 0 112
        , textOffset = -1
        , iconOffset = -1
        , lowerOnStart = True
@@ -33,5 +33,5 @@ Config { font = "xft:DejaVu Sans:size=16"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %battery% · %date%"
+       , template = "%StdinReader% }{ %battery% · %date% · "
        }
