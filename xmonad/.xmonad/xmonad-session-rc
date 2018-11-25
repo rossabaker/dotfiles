@@ -1,4 +1,4 @@
-xcompmgr &
+feh --bg-scale ~/.local/share/wallpapers/default.jpg
 xsettingsd &
 setxkbmap -option ctrl:nocaps
 
@@ -6,3 +6,4 @@ xfce4-power-manager &
 
 nm-applet &
 stalonetray &
+
