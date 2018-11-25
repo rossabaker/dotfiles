@@ -1,5 +1,6 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Decoration
 import XMonad.Layout.NoBorders
@@ -12,7 +13,7 @@ import System.IO
 
 main = do
   xmproc <- spawnPipe "xmobar"
-  xmonad $ def
+  xmonad $ ewmh def
     { manageHook = manageDocks <+> manageHook def
     , layoutHook = myLayout
     , logHook = dynamicLogWithPP xmobarPP
@@ -26,7 +27,8 @@ main = do
     , modMask = mod4Mask     -- Rebind Mod to the Windows key
     } `additionalKeys`
     [ ((mod4Mask, xK_b), sendMessage ToggleStruts)
-    , ((mod4Mask, xK_p), rofi)
+    , ((mod4Mask, xK_p), rofi "run")
+    , ((mod4Mask, xK_o), rofi "window")
     ]
 
 myLayout = avoidStruts $ tall ||| wide ||| full
@@ -57,4 +59,4 @@ myLayout = avoidStruts $ tall ||| wide ||| full
       , decoHeight            = 10
       }
 
-rofi = safeSpawn "rofi" [ "-show", "run" ]
+rofi cmd = safeSpawn "rofi" [ "-show", cmd ]
