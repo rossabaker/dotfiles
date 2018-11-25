@@ -5,3 +5,4 @@ setxkbmap -option ctrl:nocaps
 xfce4-power-manager &
 
 nm-applet &
+stalonetray &
