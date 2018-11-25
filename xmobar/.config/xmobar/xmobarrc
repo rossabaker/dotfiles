@@ -1,9 +1,9 @@
 Config { font = "xft:DejaVu Sans:size=16"
        , additionalFonts = [ "xft:Font Awesome:size=16" ]
-       , borderColor = "black"
+       , borderColor = "#263238"
        , border = TopB
-       , bgColor = "#282828"
-       , fgColor = "gray70"
+       , bgColor = "#263238"
+       , fgColor = "#CFD8DC"
        , alpha = 255
        , position = TopP 0 112
        , textOffset = -1
@@ -22,10 +22,10 @@ Config { font = "xft:DejaVu Sans:size=16"
                                     "-p","3",
                                     "-L","10",
                                     "-H","50",
-                                    "--low","#ea4335",
-                                    "--normal","#fbbc05",
+                                    "--low","#F44336",
+                                    "--normal","#FF9800",
                                     "--",
-                                    "-p","gray70", -- doesn't work?
+                                    "-p","#CFD8DC", -- doesn't work?
                                     "-O","<fn=1></fn>",
                                     "-i","<fn=1></fn>",
                                     "-o","<fn=1></fn>"
