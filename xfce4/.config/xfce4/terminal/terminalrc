@@ -25,8 +25,7 @@ MiscRewrapOnResize=TRUE
 MiscUseShiftArrowsToScroll=FALSE
 MiscSlimTabs=FALSE
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
-ColorForeground=#CDD3DE
-ColorBackground=#263238
+ColorForeground=#e6e1dc
+ColorBackground=#2b2b2b
 ColorCursor=x
-ColorPalette=#263238;#EC5F67;#8BD649;#FFCC00;#89DDFF;#82AAFF;#80CBC4;#CDD3DE;#707880;#EC5F67;#8BD649;#FFCC00;#89DDFF;#82AAFF;#80CBC4;#FFFFFF
-
+ColorPalette=#2b2b2b;#da4939;#a5c261;#ffc66d;#6d9cbe;#b6b3eb;#519f50;#e6e1dc;#5a647e;#da4939;#a5c261;#ffc66d;#6d9cbe;#b6b3eb;#519f50;#f9f7f3
