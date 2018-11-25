@@ -7,7 +7,7 @@ import XMonad.Layout.NoFrillsDecoration
 import XMonad.Layout.Renamed
 import XMonad.Layout.Spacing
 import XMonad.Util.EZConfig(additionalKeys)
-import XMonad.Util.Run(spawnPipe)
+import XMonad.Util.Run
 import System.IO
 
 main = do
@@ -26,6 +26,7 @@ main = do
     , modMask = mod4Mask     -- Rebind Mod to the Windows key
     } `additionalKeys`
     [ ((mod4Mask, xK_b), sendMessage ToggleStruts)
+    , ((mod4Mask, xK_p), rofi)
     ]
 
 myLayout = avoidStruts $ tall ||| wide ||| full
@@ -55,3 +56,5 @@ myLayout = avoidStruts $ tall ||| wide ||| full
       , urgentTextColor       = "#EA4335"
       , decoHeight            = 10
       }
+
+rofi = safeSpawn "rofi" [ "-show", "run" ]

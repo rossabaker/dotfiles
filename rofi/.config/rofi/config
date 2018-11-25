@@ -1,0 +1,36 @@
+! Base16 Railscasts
+! Author: Ryan Bates (http://railscasts.com)
+
+! base00: #2b2b2b
+! base01: #272935
+! base02: #3a4055
+! base03: #5a647e
+! base04: #d4cfc9
+! base05: #e6e1dc
+! base06: #f4f1ed
+! base07: #f9f7f3
+! base08: #da4939
+! base09: #cc7833
+! base0A: #ffc66d
+! base0B: #a5c261
+! base0C: #519f50
+! base0D: #6d9cbe
+! base0E: #b6b3eb
+! base0F: #bc9458
+
+! Enable the extended coloring options
+rofi.color-enabled: true
+
+! Property Name     BG       Border   Separator
+rofi.color-window:  #2b2b2b, #4285f4, #606060
+
+! Property Name     BG       FG       BG-alt   Head-BG  Head-FG
+rofi.color-normal:  #2b2b2b, #e6e1dc, #2b2b2b, #4285f4, #ffffff
+rofi.color-active:  #2b2b2b, #6d9cbe, #2b2b2b, #4285f4, #ffffff
+rofi.color-urgent:  #2b2b2b, #da4939, #2b2b2b, #4285f4, #ffffff
+
+! Set the desired separator style
+rofi.separator-style: solid
+
+rofi.font: DejaVu Sans 16
+rofi.bw: 8
