@@ -1,4 +1,4 @@
-feh --bg-scale ~/.local/share/wallpapers/default.jpg
+xsetroot -solid '#455a64'
 xsettingsd &
 setxkbmap -option ctrl:nocaps
 
