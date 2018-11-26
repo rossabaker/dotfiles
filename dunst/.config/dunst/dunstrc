@@ -1,5 +1,5 @@
 [global]
-    font = "DejaVu Sans Mono 16"
+    font = "DejaVu Sans 16"
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
