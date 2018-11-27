@@ -1,5 +1,7 @@
 xsetroot -solid '#455a64'
 xsettingsd &
+# Remap PrtSc to Super_R
+xmodmap -e "remove mod4 = Super_R" -e "keycode 107 = Super_R" -e "add mod4 = Super_R"
 setxkbmap -option ctrl:nocaps
 
 xfce4-power-manager &
