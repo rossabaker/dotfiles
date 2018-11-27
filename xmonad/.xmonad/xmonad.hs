@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Actions.CopyWindow
 import XMonad.Actions.WindowGo
 import XMonad.Actions.WorkspaceNames
 import XMonad.Hooks.DynamicLog
@@ -29,6 +30,7 @@ main = do
     , modMask = mod4Mask     -- Rebind Mod to the Windows key
     } `additionalKeys`
     [ ((mod4Mask, xK_b), sendMessage ToggleStruts)
+    , ((mod4Mask, xK_d), runOrCopy "emacsclient -c" (className =? "Emacs"))
     -- google-chrome for personal, google-chrome-beta for work
     , ((mod4Mask, xK_f), runOrRaiseNext "google-chrome" (className =? "Google-chrome"))
     , ((mod4Mask, xK_g), runOrRaiseNext "google-chrome-beta" (className =? "Google-chrome-beta"))
