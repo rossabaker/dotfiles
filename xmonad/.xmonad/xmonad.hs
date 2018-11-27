@@ -14,6 +14,8 @@ import XMonad.Prompt
 import XMonad.Util.EZConfig(additionalKeys)
 import XMonad.Util.Run
 
+import qualified XMonad.StackSet as W
+
 main = do
   xmproc <- spawnPipe "xmobar"
   xmonad $ ewmh def
@@ -27,17 +29,28 @@ main = do
                 , ppOutput = hPutStrLn xmproc
                 , ppTitle = xmobarColor "white" "" . shorten 40
                 } >>= dynamicLogWithPP
-    , modMask = mod4Mask     -- Rebind Mod to the Windows key
-    } `additionalKeys`
-    [ ((mod4Mask, xK_b), sendMessage ToggleStruts)
-    , ((mod4Mask, xK_d), runOrCopy "emacsclient -c" (className =? "Emacs"))
-    -- google-chrome for personal, google-chrome-beta for work
-    , ((mod4Mask, xK_f), runOrRaiseNext "google-chrome" (className =? "Google-chrome"))
-    , ((mod4Mask, xK_g), runOrRaiseNext "google-chrome-beta" (className =? "Google-chrome-beta"))
-    , ((mod4Mask, xK_o), rofi "window")
-    , ((mod4Mask, xK_p), rofi "run")
-    , ((mod4Mask, xK_r), renameWorkspace prompt)
-    ]
+    , modMask = myModMask
+    , workspaces = myWorkspaces
+    } `additionalKeys` myKeys
+
+myModMask = mod4Mask -- Rebind Mod to the Windows key
+
+myWorkspaces = ["1","2","3","4","5","6","7","8","9","0"]
+
+myKeys =
+  [ ((myModMask, xK_b), sendMessage ToggleStruts)
+  , ((myModMask, xK_c), kill1)
+  , ((myModMask, xK_d), (raiseMaybe . spawn) "emacsclient -c -n" (className =? "Emacs"))
+  -- google-chrome for personal, google-chrome-beta for work
+  , ((myModMask, xK_f), runOrRaiseNext "google-chrome" (className =? "Google-chrome"))
+  , ((myModMask, xK_g), runOrRaiseNext "google-chrome-beta" (className =? "Google-chrome-beta"))
+  , ((myModMask, xK_o), rofi "window")
+  , ((myModMask, xK_p), rofi "run")
+  , ((myModMask, xK_r), renameWorkspace prompt)
+  ] ++
+  [((m .|. myModMask, k), windows $ f i)
+  | (i, k) <- zip myWorkspaces [xK_1 ..]
+  , (f, m) <- [(W.view, 0), (W.shift, shiftMask), (copy, shiftMask .|. controlMask)]]  
 
 myLayout = avoidStruts $ tall ||| wide ||| full
   where
@@ -75,3 +88,7 @@ prompt = def
   , height = 28
   , position = Top
   }
+
+copyMaybe :: X () -> Query Bool -> X ()
+copyMaybe f qry = ifWindow qry copyWin f
+    where copyWin = ask >>= \w -> doF (\ws -> copyWindow w (W.currentTag ws) ws)
