@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Actions.WindowGo
 import XMonad.Actions.WorkspaceNames
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
@@ -28,6 +29,9 @@ main = do
     , modMask = mod4Mask     -- Rebind Mod to the Windows key
     } `additionalKeys`
     [ ((mod4Mask, xK_b), sendMessage ToggleStruts)
+    -- google-chrome for personal, google-chrome-beta for work
+    , ((mod4Mask, xK_f), runOrRaiseNext "google-chrome" (className =? "Google-chrome"))
+    , ((mod4Mask, xK_g), runOrRaiseNext "google-chrome-beta" (className =? "Google-chrome-beta"))
     , ((mod4Mask, xK_o), rofi "window")
     , ((mod4Mask, xK_p), rofi "run")
     , ((mod4Mask, xK_r), renameWorkspace prompt)
