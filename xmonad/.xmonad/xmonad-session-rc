@@ -4,9 +4,11 @@ xsettingsd &
 xmodmap -e "remove mod4 = Super_R" -e "keycode 107 = Super_R" -e "add mod4 = Super_R"
 setxkbmap -option ctrl:nocaps
 
+# For apps that don't respect xsettings
+echo "Xft.dpi: 160" | xrdb -merge
+
 xfce4-power-manager &
 
 nm-applet &
 stalonetray &
 dunst &
-

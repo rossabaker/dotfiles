@@ -45,7 +45,7 @@ grow_gravity NE
 icon_gravity NW
 
 # icon_size <int>            # specifies dimensions of typical icon slot
-icon_size 28
+icon_size 32
 
 # log_level <level>          # controls the amount of logging output, level can
                              # be err (default), info, or trace (enabled only

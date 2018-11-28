@@ -1,11 +1,11 @@
-Config { font = "xft:DejaVu Sans:size=16"
-       , additionalFonts = [ "xft:Font Awesome:size=16" ]
+Config { font = "xft:DejaVu Sans:size=11"
+       , additionalFonts = [ "xft:Font Awesome:size=11" ]
        , borderColor = "#263238"
        , border = TopB
        , bgColor = "#263238"
        , fgColor = "#CFD8DC"
        , alpha = 255
-       , position = TopP 0 112
+       , position = TopP 0 128
        , textOffset = -1
        , iconOffset = -1
        , lowerOnStart = True
