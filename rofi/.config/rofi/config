@@ -1,4 +1,5 @@
-rofi.font: DejaVu Sans Mono 16
+rofi.dpi: 160
+rofi.font: DejaVu Sans Mono 11
 rofi.bw: 8
 
 ! Base16 Material
