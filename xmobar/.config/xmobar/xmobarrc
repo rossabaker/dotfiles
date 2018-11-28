@@ -30,8 +30,9 @@ Config { font = "xft:DejaVu Sans:size=11"
                                     "-i","<fn=1></fn>",
                                     "-o","<fn=1></fn>"
                                    ] 10
+                    , Run Com "/home/ross/.config/xmobar/load" ["/proc/loadavg"] "load" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %battery% · %date% · "
+       , template = "%StdinReader% }{ %load% · %battery% · %date% · "
        }

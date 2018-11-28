@@ -1,0 +1,20 @@
+#!/usr/bin/awk -f
+
+{ load1=$1 }
+{ load5=$2 }
+{
+    if ($load1 > $load5)
+        trend="";
+    else
+        trend="";
+}
+{
+    if ($load1 > 8) {
+        fcb = "<fc=#FF9800>";
+        fce = "</fc>";
+    } else if ($load > 1) {
+        fcb = "<fc=#F44336>";
+        fce = "</fc>";
+    }
+}
+{ print fcb "<fn=1>" trend "</fn>" load1 fce }
