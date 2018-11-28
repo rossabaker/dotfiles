@@ -10,10 +10,10 @@
 }
 {
     if ($load1 > 8) {
-        fcb = "<fc=#FF9800>";
+        fcb = "<fc=#F44336>";
         fce = "</fc>";
     } else if ($load > 1) {
-        fcb = "<fc=#F44336>";
+        fcb = "<fc=#FF9800>";
         fce = "</fc>";
     }
 }
