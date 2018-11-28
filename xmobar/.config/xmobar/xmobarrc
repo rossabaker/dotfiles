@@ -15,7 +15,7 @@ Config { font = "xft:DejaVu Sans:size=11"
        , iconRoot = "."
        , allDesktops = True
        , overrideRedirect = True
-       , commands = [ Run Date "%a %b %_d %Y %H:%M" "date" 10
+       , commands = [ Run Date "%a %b %_d %H:%M" "date" 10
                     , Run StdinReader
                     , Run BatteryP ["BAT0"]
                                    ["-t","<acstatus><left>%",
