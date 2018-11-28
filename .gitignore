@@ -1,6 +1,7 @@
-spacemacs/.spacemacs.d/custom.el
+/spacemacs/.spacemacs.d/custom.el
 
-xmonad/.xmonad/*-x86_64-linux
-xmonad/.xmonad/*.errors
-xmonad/.xmonad/*.hi
-xmonad/.xmonad/*.o
+/xmonad/.xmonad/*-x86_64-linux
+/xmonad/.xmonad/*.errors
+/xmonad/.xmonad/*.hi
+/xmonad/.xmonad/*.o
+/xmonad/.xmonad/history
