@@ -1,9 +1,8 @@
 #!/usr/bin/awk -f
 
-{ load1=$1 }
-{ load5=$2 }
+{ load1=$1; load5=$2 }
 {
-    if ($load1 > $load5)
+    if (load1 > load5)
         trend="";
     else
         trend="";
