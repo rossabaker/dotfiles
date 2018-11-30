@@ -53,7 +53,7 @@ myKeys =
   ] ++
   [((m .|. myModMask, k), windows $ f i)
   | (i, k) <- zip myWorkspaces [xK_1 ..]
-  , (f, m) <- [(W.view, 0), (W.shift, shiftMask), (copy, shiftMask .|. controlMask)]]  
+  , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask), (copy, shiftMask .|. controlMask)]] ++
   -- My primary monitor is in the middle, so we flip the usual order of e/w/r
   [((m .|. myModMask, key), screenWorkspace sc >>= flip whenJust (windows . f))
   | (key, sc) <- zip [xK_e, xK_w, xK_r] [0..]
