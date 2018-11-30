@@ -303,6 +303,9 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq custom-file "~/.spacemacs.d/custom.el")
+
+  ;; https://github.com/syl20bnr/spacemacs/issues/7720
+  (add-hook 'eshell-mode-hook 'spacemacs//eshell-switch-company-frontend t)
   )
 
 (defun dotspacemacs/user-config ()
