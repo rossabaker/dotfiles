@@ -6,6 +6,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Decoration
+import XMonad.Layout.IndependentScreens
 import XMonad.Layout.NoBorders
 import XMonad.Layout.NoFrillsDecoration
 import XMonad.Layout.Renamed
@@ -17,7 +18,10 @@ import XMonad.Util.Run
 import qualified XMonad.StackSet as W
 
 main = do
-  xmproc <- spawnPipe "xmobar"
+  screenCount <- countScreens
+  xmproc <- if screenCount > 1
+    then spawnPipe $ "xmobar ~/.config/xmobar/xmobarrc-office"
+    else spawnPipe $ "xmobar ~/.config/xmobar/xmobarrc"
   xmonad $ ewmh def
     { manageHook = manageDocks <+> manageHook def
     , layoutHook = myLayout

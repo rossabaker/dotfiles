@@ -1,0 +1,38 @@
+Config { font = "xft:DejaVu Sans:size=11"
+       , additionalFonts = [ "xft:Font Awesome:size=11" ]
+       , borderColor = "#263238"
+       , border = TopB
+       , bgColor = "#263238"
+       , fgColor = "#CFD8DC"
+       , alpha = 255
+       , position = TopP 0 88
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ Run Date "%a %b %_d %H:%M" "date" 10
+                    , Run StdinReader
+                    , Run BatteryP ["BAT0"]
+                                   ["-t","<acstatus><left>%",
+                                    "-p","3",
+                                    "-L","10",
+                                    "-H","50",
+                                    "--low","#F44336",
+                                    "--normal","#FF9800",
+                                    "--",
+                                    "-p","#CFD8DC", -- doesn't work?
+                                    "-O","<fn=1></fn>",
+                                    "-i","<fn=1></fn>",
+                                    "-o","<fn=1></fn>"
+                                   ] 10
+                    , Run Com "/home/ross/.config/xmobar/load" ["/proc/loadavg"] "load" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% }{ %load% · %battery% · %date% · "
+       }

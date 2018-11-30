@@ -1,0 +1,15 @@
+#!/bin/sh
+
+pkill stalonetray
+stalonetray -c ~/.stalonetrayrc-office &
+
+pkill xsettingsd
+xsettingsd -c ~/.xsettingsd-office &
+
+# Make sure my physical keyboard gets the memo
+setxkbmap -option ctrl:nocaps
+
+echo "Xft.dpi: 96" | xrdb -merge
+
+# Restart xmobar
+xmonad --restart
