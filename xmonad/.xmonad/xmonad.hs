@@ -50,11 +50,14 @@ myKeys =
   , ((myModMask, xK_g), runOrRaiseNext "google-chrome-beta" (className =? "Google-chrome-beta"))
   , ((myModMask, xK_o), rofi "window")
   , ((myModMask, xK_p), rofi "run")
-  , ((myModMask, xK_r), renameWorkspace prompt)
   ] ++
   [((m .|. myModMask, k), windows $ f i)
   | (i, k) <- zip myWorkspaces [xK_1 ..]
   , (f, m) <- [(W.view, 0), (W.shift, shiftMask), (copy, shiftMask .|. controlMask)]]  
+  -- My primary monitor is in the middle, so we flip the usual order of e/w/r
+  [((m .|. myModMask, key), screenWorkspace sc >>= flip whenJust (windows . f))
+  | (key, sc) <- zip [xK_e, xK_w, xK_r] [0..]
+  , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 myLayout = avoidStruts $ tall ||| wide ||| full
   where
