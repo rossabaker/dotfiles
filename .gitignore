@@ -1,3 +1,7 @@
+/sbt/.sbt/.credentials
+/sbt/**/project/
+/sbt/**/target/
+
 /spacemacs/.spacemacs.d/custom.el
 
 /xmonad/.xmonad/*-x86_64-linux
