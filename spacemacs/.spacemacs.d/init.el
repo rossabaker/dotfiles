@@ -33,13 +33,6 @@ values."
    '(
      csv
      haskell
-     scala
-     shell-scripts
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
-     ;; <M-m f e R> (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
      ivy
      auto-completion
      better-defaults
@@ -47,6 +40,9 @@ values."
      git
      markdown
      org
+     pdf-tools
+     scala
+     shell-scripts
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
