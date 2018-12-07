@@ -3,6 +3,7 @@
 /sbt/**/target/
 
 /spacemacs/.spacemacs.d/custom.el
+/spacemacs/.spacemacs.d/.spacemacs.env
 
 /xmonad/.xmonad/*-x86_64-linux
 /xmonad/.xmonad/*.errors
