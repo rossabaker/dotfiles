@@ -9,6 +9,8 @@ echo "Xft.dpi: 160" | xrdb -merge
 
 xfce4-power-manager &
 
+eval $(gpg-agent --daemon --enable-ssh-support)
+
 nm-applet &
 stalonetray &
 dunst &
