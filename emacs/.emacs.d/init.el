@@ -27,19 +27,19 @@
 (use-package counsel
   :ensure t
   :config
-  ;; (global-set-key (kbd "M-x") 'counsel-M-x)
-  ;; (global-set-key (kbd "C-x C-f") 'counsel-find-file)
-  ;; (global-set-key (kbd "<f1> f") 'counsel-describe-function)
-  ;; (global-set-key (kbd "<f1> v") 'counsel-describe-variable)
-  ;; (global-set-key (kbd "<f1> l") 'counsel-find-library)
-  ;; (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
-  ;; (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
-  ;; (global-set-key (kbd "C-c g") 'counsel-git)
-  ;; (global-set-key (kbd "C-c j") 'counsel-git-grep)
-  ;; (global-set-key (kbd "C-c k") 'counsel-ag)
-  ;; (global-set-key (kbd "C-x l") 'counsel-locate)
-  ;; (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
-  )
+  :general
+  ("M-x" 'counsel-M-x)
+  ("C-x C-f" 'counsel-find-file)
+  ("C-h f" 'counsel-describe-function)
+  ("C-h v" 'counsel-describe-variable)
+  ("C-h l" 'counsel-find-library)
+  ("C-h i" 'counsel-info-lookup-symbol)
+  ("C-x 8 RET" 'counsel-unicode-char)
+  (ross/leader-def
+    "/"  'counsel-git-grep
+    "sp" 'counsel-git-grep
+    "fg" 'counsel-git
+    "fl" 'counsel-locate))
 
 (use-package cus-edit
   :config
@@ -54,6 +54,11 @@
 		      :height 120
 		      :weight 'normal
 		      :width 'normal))
+(use-package general
+ :ensure t
+ :config
+ (general-create-definer ross/leader-def
+   :prefix "C-c"))
 
 (use-package hasklig-mode
   :ensure t
@@ -64,8 +69,9 @@
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
-  ;; (global-set-key (kbd "C-c C-r") 'ivy-resume)
-  )
+  :general
+  (ross/leader-def
+    "rl" 'ivy-resume))
 
 (use-package menu-bar
   :config
@@ -77,8 +83,8 @@
 
 (use-package swiper
   :config
-  ;; (global-set-key (kbd "C-s") 'swiper)
-  )
+  :general
+  ("C-s" 'swiper))
 
 (use-package tool-bar
   :config
