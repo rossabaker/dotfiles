@@ -89,6 +89,11 @@
   :config
   (scroll-bar-mode -1))
 
+(use-package paren
+  :config
+  (setq show-paren-delay 0)
+  (show-paren-mode 1))
+
 (use-package projectile
   :ensure t
   :config
