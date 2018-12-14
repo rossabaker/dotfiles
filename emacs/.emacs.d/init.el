@@ -1,3 +1,11 @@
+;;; init.el --- Ross A. Baker's Emacs configuration
+
+;;; Commentary:
+;;
+;; This is my Emacs configuration, and this commentary appeases flycheck.
+
+;;; Code:
+
 ;; Configure package manager
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -237,3 +245,6 @@
   :ensure t
   :config
   (which-key-mode 1))
+
+(provide 'init)
+;;; init.el ends here
