@@ -114,6 +114,10 @@
   :config
   (projectile-mode 1))
 
+(use-package saveplace
+  :config
+  (save-place-mode 1))
+
 (use-package sbt-mode
   :commands sbt-start sbt-command
   :ensure t)
