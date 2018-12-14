@@ -11,6 +11,12 @@
   (package-install 'use-package))
 (require 'use-package)
 
+;; Functions
+
+(defun ross/reload-user-init-file ()
+  (interactive)
+  (load-file user-init-file))
+
 ;; Packages
 
 (use-package cus-edit
