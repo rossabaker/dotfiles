@@ -75,7 +75,7 @@
   (set-face-attribute 'default nil
 		      :family "Hasklig"
 		      :height 120
-		      :weight 'normal
+		      :weight 'normal))
 
 (use-package hasklig-mode
   :ensure t
