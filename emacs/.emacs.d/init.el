@@ -88,6 +88,12 @@
   (ross/leader-def
     "rl" 'ivy-resume))
 
+(use-package magit
+  :ensure t
+  :general
+  (ross/leader-def
+    "gs" 'magit-status))
+  
 (use-package menu-bar
   :config
   (menu-bar-mode -1))
