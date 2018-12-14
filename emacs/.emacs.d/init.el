@@ -13,6 +13,12 @@
 
 ;; Packages
 
+(use-package cus-edit
+  :config
+  ;; Banish customizations to a gitignored file.
+  (setq custom-file (concat user-emacs-directory "custom.el"))
+  (load custom-file 'noerror))
+
 (use-package menu-bar
   :config
   (menu-bar-mode -1))
