@@ -57,6 +57,10 @@
   (setq custom-file (concat user-emacs-directory "custom.el"))
   (load custom-file 'noerror))
 
+(use-package ediff-wind
+  :config
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain))
+
 (use-package files
   :config
   (defun ross/reload-user-init-file ()
@@ -65,6 +69,8 @@
   (defun ross/find-user-init-file ()
     (interactive)
     (find-file user-init-file))
+  (setq backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
+	require-final-newline t)
   :general
   (ross/leader-def
     "fei" 'ross/find-user-init-file
@@ -132,6 +138,13 @@
 
 (use-package scala-mode
   :ensure t)
+
+(use-package simple
+  ;; Includes some defaults defined in C source code
+  :config
+  (setq indent-tabs-mode nil
+	load-prefer-newer t
+	save-interprogram-paste-before-kill t))
 
 (use-package swiper
   :config
