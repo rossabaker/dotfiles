@@ -11,12 +11,6 @@
   (package-install 'use-package))
 (require 'use-package)
 
-;; Functions
-
-(defun ross/reload-user-init-file ()
-  (interactive)
-  (load-file user-init-file))
-
 ;; Packages
 
 (use-package base16-theme
@@ -54,6 +48,19 @@
   ;; Banish customizations to a gitignored file.
   (setq custom-file (concat user-emacs-directory "custom.el"))
   (load custom-file 'noerror))
+
+(use-package files
+  :config
+  (defun ross/reload-user-init-file ()
+    (interactive)
+    (load-file user-init-file))
+  (defun ross/find-user-init-file ()
+    (interactive)
+    (find-file user-init-file))
+  :general
+  (ross/leader-def
+    "fei" 'ross/find-user-init-file
+    "fer" 'ross/reload-user-init-file))
 
 (use-package frame
   :config
