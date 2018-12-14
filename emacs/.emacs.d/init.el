@@ -41,6 +41,14 @@
     "fg" 'counsel-git
     "fl" 'counsel-locate))
 
+(use-package counsel-projectile
+  :ensure t
+  :config
+  (counsel-projectile-mode 1)
+  :general
+  (ross/leader-def
+    "p" '(:keymap projectile-command-map)))
+
 (use-package cus-edit
   :config
   ;; Banish customizations to a gitignored file.
@@ -80,6 +88,11 @@
 (use-package scroll-bar
   :config
   (scroll-bar-mode -1))
+
+(use-package projectile
+  :ensure t
+  :config
+  (projectile-mode 1))
 
 (use-package swiper
   :config
