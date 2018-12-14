@@ -112,6 +112,13 @@
   :config
   (projectile-mode 1))
 
+(use-package sbt-mode
+  :commands sbt-start sbt-command
+  :ensure t)
+
+(use-package scala-mode
+  :ensure t)
+
 (use-package swiper
   :config
   :general
