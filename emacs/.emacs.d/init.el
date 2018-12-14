@@ -85,6 +85,10 @@
   :general
   ("M-/" 'hippie-expand))
 
+(use-package ibuffer
+  :general
+  ("C-x C-b" 'ibuffer))
+
 (use-package ivy
   :ensure t
   :config
