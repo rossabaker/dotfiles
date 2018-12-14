@@ -26,6 +26,11 @@
   :config
   (load-theme 'base16-material t nil))
 
+(use-package browse-url
+  :config
+  (setq browse-url-chrome-program "google-chrome-beta"
+	browse-url-browser-function 'browse-url-chrome))
+
 (use-package counsel
   :ensure t
   :config
