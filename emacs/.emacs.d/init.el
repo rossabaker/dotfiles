@@ -115,6 +115,20 @@
     "fei" 'ross/find-user-init-file
     "fer" 'ross/reload-user-init-file))
 
+(use-package flycheck
+  :ensure t
+  :config
+  (global-flycheck-mode 1)
+  :general
+  (ross/leader-def
+   "ec" 'flycheck-clear
+   "eh" 'flycheck-describe-checker
+   "el" 'flycheck-list-errors
+   "ee" 'flycheck-explain-error-at-point
+   "es" 'flycheck-select-checker
+   "eS" 'flycheck-set-checker-executable
+   "ev" 'flycheck-verify-setup))
+
 (use-package flyspell
   :ensure t
   :config
