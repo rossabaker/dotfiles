@@ -19,6 +19,11 @@
 
 ;; Packages
 
+(use-package base16-theme
+  :ensure t
+  :config
+  (load-theme 'base16-material t nil))
+
 (use-package cus-edit
   :config
   ;; Banish customizations to a gitignored file.
