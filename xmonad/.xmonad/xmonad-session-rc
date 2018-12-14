@@ -7,7 +7,8 @@ xmodmap -e "remove mod4 = Super_R" -e "keycode 107 = Super_R" -e "add mod4 = Sup
 # For apps that don't respect xsettings
 echo "Xft.dpi: 160" | xrdb -merge
 
-xfce4-power-manager &
+xfce4-power-manager
+suspend-prevent
 
 eval $(gpg-agent --daemon --enable-ssh-support)
 

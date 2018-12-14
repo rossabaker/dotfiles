@@ -1,0 +1,8 @@
+# https://nrocco.github.io/2014/06/05/suspend-prevent-systemd.html
+
+[Unit]
+Description=Prevent suspend on lid close when on AC
+
+[Service]
+Type=simple
+ExecStart=/home/ross/bin/suspend-prevent --forever
