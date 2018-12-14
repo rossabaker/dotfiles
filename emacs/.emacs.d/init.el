@@ -25,6 +25,18 @@
   (setq custom-file (concat user-emacs-directory "custom.el"))
   (load custom-file 'noerror))
 
+(use-package frame
+  :config
+  (set-face-attribute 'default nil
+		      :family "Hasklig"
+		      :height 120
+		      :weight 'normal
+		      :width 'normal))
+
+(use-package hasklig-mode
+  :ensure t
+  :hook (haskell-mode))
+
 (use-package menu-bar
   :config
   (menu-bar-mode -1))
