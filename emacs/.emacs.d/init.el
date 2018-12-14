@@ -61,6 +61,40 @@
   :config
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 
+(use-package engine-mode
+  :ensure t
+  :config
+  (defengine amazon
+    "http://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=%s"
+    :keybinding "a")
+  (defengine github
+    "https://github.com/search?ref=simplesearch&q=%s"
+    :keybinding "h")
+  (defengine google
+    "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"
+    :keybinding "g")
+  (defengine google-images
+    "http://www.google.com/images?hl=en&source=hp&biw=1440&bih=795&gbv=2&aq=f&aqi=&aql=&oq=&q=%s"
+    :keybinding "i")
+  (defengine google-maps
+    "http://maps.google.com/maps?q=%s"
+    :keybinding "m")
+  (defengine rfcs
+    "http://pretty-rfc.herokuapp.com/search?q=%s"
+    :keybinding "r")
+  (defengine twitter
+    "https://twitter.com/search?q=%s"
+    :keybinding "t")
+  (defengine wikipedia
+    "http://www.wikipedia.org/search-redirect.php?language=en&go=Go&search=%s"
+    :keybinding "w")
+  (defengine wiktionary
+    "https://www.wikipedia.org/search-redirect.php?family=wiktionary&language=en&go=Go&search=%s"
+    :keybinding "d")
+  (defengine youtube
+    "http://www.youtube.com/results?aq=f&oq=&search_query=%s"
+    :keybinding "y"))
+
 (use-package files
   :config
   (defun ross/reload-user-init-file ()
