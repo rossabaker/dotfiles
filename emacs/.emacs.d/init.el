@@ -81,6 +81,10 @@
   :ensure t
   :hook (haskell-mode))
 
+(use-package hippie-exp
+  :general
+  ("M-/" 'hippie-expand))
+
 (use-package ivy
   :ensure t
   :config
