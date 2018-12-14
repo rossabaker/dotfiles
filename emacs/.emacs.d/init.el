@@ -159,6 +159,9 @@
   :config
   (tooltip-mode -1))
 
+(use-package try
+  :ensure t)
+
 (use-package uniquify
   :config
   (setq uniquify-buffer-name-style 'reverse))
