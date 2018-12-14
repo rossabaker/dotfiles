@@ -11,6 +11,14 @@
   (package-install 'use-package))
 (require 'use-package)
 
+;; Configure general first, because we use it in other use-packages
+
+(use-package general
+ :ensure t
+ :config
+ (general-create-definer ross/leader-def
+   :prefix "C-c"))
+
 ;; Packages
 
 (use-package base16-theme
@@ -68,12 +76,6 @@
 		      :family "Hasklig"
 		      :height 120
 		      :weight 'normal
-		      :width 'normal))
-(use-package general
- :ensure t
- :config
- (general-create-definer ross/leader-def
-   :prefix "C-c"))
 
 (use-package hasklig-mode
   :ensure t
