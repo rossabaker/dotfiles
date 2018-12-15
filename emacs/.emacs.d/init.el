@@ -201,6 +201,13 @@
     "glh" 'ross/git-link-homepage-browse
     "glH" 'ross/git-link-homepage)))
 
+(use-package git-messenger
+  :ensure t
+  :general
+  :general
+  (ross/my-leader-def
+    "gM" 'git-messenger:popup-message))
+
 (use-package hasklig-mode
   :ensure t
   :hook (haskell-mode))
