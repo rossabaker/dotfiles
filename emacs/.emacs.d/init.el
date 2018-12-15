@@ -225,8 +225,12 @@
 (use-package magit
   :ensure t
   :general
-  (ross/leader-def
-    "gs" 'magit-status))
+  (ross/leader-def 
+    "gb" 'magit-blame
+    "gm" 'magit-dispatch-popup
+    "gs" 'magit-status
+    "gS" 'magit-stage-file
+    "gU" 'magit-unstage-file))
   
 (use-package menu-bar
   :config
