@@ -158,6 +158,49 @@
 		      :height 120
 		      :weight 'normal))
 
+(use-package git-link
+  :ensure t
+  :config
+  (progn
+    ;; This is mostly all a hack around my gh alias.
+    (defun ross//git-link-gh (hostname dirname filename branch commit start end)
+      (git-link-github "github.com" dirname filename branch commit start end))
+    (defun ross//git-link-commit-gh (hostname dirname commit)
+      (git-link-commit-github "github.com" dirname commit))
+    (defun ross/git-link-homepage (remote)
+      (interactive (list (git-link--select-remote)))
+      (let* ((remote-url (git-link--remote-url remote))
+             (remote-info (when remote-url (git-link--parse-remote remote-url))))
+        (message (car remote-info))
+        (if (eq (car remote-info) "gh")
+            (git-link--new (format "https://github.com/%s" (cadr remote-info)))
+          (git-link-homepage remote))))
+    (add-to-list 'git-link-remote-alist
+                 '("gh" ross//git-link-gh))
+    (add-to-list 'git-link-commit-remote-alist
+                 '("gh" ross//git-link-commit-gh))
+
+    (defun ross/git-link-browse ()
+      (interactive)
+      (let ((git-link-open-in-browser t))
+        (call-interactively 'git-link)))
+    (defun ross/git-link-commit-browse ()
+      (interactive)
+      (let ((git-link-open-in-browser t))
+        (call-interactively 'git-link-commit)))
+    (defun ross/git-link-homepage-browse ()
+      (interactive)
+      (let ((git-link-open-in-browser t))
+        (call-interactively 'ross/git-link-homepage)))
+  :general
+  (ross/my-leader-def
+    "gll" 'ross/git-link-browse
+    "glL" 'git-link
+    "glc" 'ross/git-link-commit-browse
+    "glC" 'git-link-commit
+    "glh" 'ross/git-link-homepage-browse
+    "glH" 'ross/git-link-homepage)))
+
 (use-package hasklig-mode
   :ensure t
   :hook (haskell-mode))
