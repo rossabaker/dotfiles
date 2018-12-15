@@ -208,6 +208,12 @@
   (ross/my-leader-def
     "gM" 'git-messenger:popup-message))
 
+(use-package git-timemachine
+  :ensure t
+  :general
+  (ross/my-leader-def
+    "gt" 'git-timemachine))
+
 (use-package hasklig-mode
   :ensure t
   :hook (haskell-mode))
