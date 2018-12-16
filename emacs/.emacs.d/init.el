@@ -193,7 +193,7 @@
       (let ((git-link-open-in-browser t))
         (call-interactively 'ross/git-link-homepage)))
   :general
-  (ross/my-leader-def
+  (ross/leader-def
     "gll" 'ross/git-link-browse
     "glL" 'git-link
     "glc" 'ross/git-link-commit-browse
@@ -205,13 +205,13 @@
   :ensure t
   :general
   :general
-  (ross/my-leader-def
+  (ross/leader-def
     "gM" 'git-messenger:popup-message))
 
 (use-package git-timemachine
   :ensure t
   :general
-  (ross/my-leader-def
+  (ross/leader-def
     "gt" 'git-timemachine))
 
 (use-package hasklig-mode
