@@ -269,10 +269,44 @@
 
 (use-package sbt-mode
   :commands sbt-start sbt-command
-  :ensure t)
+  :ensure t
+  :after scala-mode
+  :config
+  (ross//scala-bindings 'sbt:mode-map))
 
 (use-package scala-mode
-  :ensure t)
+  :ensure t
+  :config
+  (defun ross//scala-bindings (mode-map)
+    (ross/leader-def 
+      :keymaps mode-map
+      "mb." 'sbt-hydra
+      "mbb" 'sbt-command
+      "mbc" 'ross/sbt-test-compile
+      "mbC" 'ross/sbt-clean
+      "mbi" 'sbt-start
+      "mbp" 'ross/sbt-package
+      "mbr" 'ross/sbt-run
+      "mbt" 'ross/sbt-test))
+  (defun ross/sbt-test-compile ()
+    (interactive)
+    (sbt-command "test:compile"))
+  (defun ross/sbt-clean ()
+    (interactive)
+    (sbt-command "clean"))
+  (defun ross/sbt-clean-test-compile ()
+    (interactive)
+    (sbt-command ";clean ;test:compile"))
+  (defun ross/sbt-package ()
+    (interactive)
+    (sbt-command "package"))
+  (defun ross/sbt-run ()
+    (interactive)
+    (sbt-command "run"))
+  (defun ross/sbt-test ()
+    (interactive)
+    (sbt-command "test"))
+  (ross//scala-bindings 'scala-mode-map))
 
 (use-package simple
   ;; Includes some defaults defined in C source code
