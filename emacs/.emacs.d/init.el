@@ -10,7 +10,8 @@
 (require 'package)
 (setq package-enable-at-startup nil)
 (setq package-archives '(("gnu"   . "https://elpa.gnu.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")))
+                         ("melpa" . "https://melpa.org/packages/")
+			 ("melpa-stable" . "https://stable.melpa.org/packages/")))
 (package-initialize)
 
 ;; Bootstrap `use-package`
@@ -235,6 +236,21 @@
   (ross/leader-def
     "rl" 'ivy-resume))
 
+(use-package lsp-mode
+  :ensure t
+  :pin melpa-stable)
+
+(use-package lsp-ui
+  :ensure t
+  :pin melpa-stable
+  :hook (lsp-mode . lsp-ui-mode))
+
+(use-package lsp-scala
+  :load-path "~/src/lsp-scala"
+  :config
+  (setq lsp-scala-server-command '("~/bin/metals-emacs"))
+  :hook (scala-mode . lsp-scala-enable))
+
 (use-package magit
   :ensure t
   :general
@@ -268,8 +284,8 @@
   (save-place-mode 1))
 
 (use-package sbt-mode
-  :commands sbt-start sbt-command
   :ensure t
+  :commands sbt-start sbt-command
   :after scala-mode
   :config
   (ross//scala-bindings 'sbt:mode-map))
