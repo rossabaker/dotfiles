@@ -241,9 +241,11 @@
 
 (use-package lsp-scala
   :load-path "~/src/lsp-scala"
+  :after scala-mode
+  :demand t
   :config
   (setq lsp-scala-server-command "~/bin/metals-emacs")
-  (add-hook 'scala-mode-hook #'lsp))
+  :hook 'scala-mode-hook #'lsp)
 
 (use-package lsp-ui
   :ensure t
