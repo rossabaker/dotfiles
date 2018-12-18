@@ -256,6 +256,7 @@
   :general
   (ross/leader-def 
     "gb" 'magit-blame
+    "gc" 'magit-clone
     "gm" 'magit-dispatch-popup
     "gs" 'magit-status
     "gS" 'magit-stage-file
