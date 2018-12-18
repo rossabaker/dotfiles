@@ -237,19 +237,17 @@
     "rl" 'ivy-resume))
 
 (use-package lsp-mode
-  :ensure t
-  :pin melpa-stable)
-
-(use-package lsp-ui
-  :ensure t
-  :pin melpa-stable
-  :hook (lsp-mode . lsp-ui-mode))
+  :ensure t)
 
 (use-package lsp-scala
   :load-path "~/src/lsp-scala"
   :config
-  (setq lsp-scala-server-command '("~/bin/metals-emacs"))
-  :hook (scala-mode . lsp-scala-enable))
+  (setq lsp-scala-server-command "~/bin/metals-emacs")
+  (add-hook 'scala-mode-hook #'lsp))
+
+(use-package lsp-ui
+  :ensure t
+  :hook (lsp-mode . lsp-ui-mode))
 
 (use-package magit
   :ensure t
