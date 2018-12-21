@@ -1,3 +1,6 @@
+[core]
+	excludesfile = ~/.gitignore_global
+
 [user]
 	name = Ross A. Baker
 	email = ross@rossabaker.com
