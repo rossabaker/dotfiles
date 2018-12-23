@@ -71,6 +71,13 @@
   (setq custom-file (concat user-emacs-directory "custom.el"))
   (load custom-file 'noerror))
 
+(use-package easy-kill
+  :ensure t
+  :general
+  ("M-w" 'easy-kill)
+  ("C-M-@" 'easy-mark)
+  ("C-M-SPC" 'easy-mark))
+
 (use-package ediff-wind
   :config
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
