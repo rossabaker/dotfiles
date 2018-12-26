@@ -65,6 +65,9 @@
   (ross/leader-def
     "p" '(:keymap projectile-command-map)))
 
+(use-package csv-mode
+  :ensure t)
+
 (use-package cus-edit
   :config
   ;; Banish customizations to a gitignored file.
