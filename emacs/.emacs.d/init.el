@@ -290,6 +290,9 @@
   :config
   (projectile-mode 1))
 
+(use-package protobuf-mode
+  :ensure t)
+
 (use-package saveplace
   :config
   (save-place-mode 1))
