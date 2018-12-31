@@ -228,6 +228,9 @@
   (ross/leader-def
     "gt" 'git-timemachine))
 
+(use-package haskell-mode
+  :ensure t)
+
 (use-package hasklig-mode
   :ensure t
   :hook (haskell-mode))
