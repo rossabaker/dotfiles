@@ -74,6 +74,9 @@
   (setq custom-file (concat user-emacs-directory "custom.el"))
   (load custom-file 'noerror))
 
+(use-package dhall-mode
+  :ensure t)
+
 (use-package easy-kill
   :ensure t
   :general
