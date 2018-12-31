@@ -1,3 +1,4 @@
+import Graphics.X11.ExtraTypes.XF86
 import XMonad
 import XMonad.Actions.CopyWindow
 import XMonad.Actions.WindowGo
@@ -50,6 +51,9 @@ myKeys =
   , ((myModMask, xK_g), runOrRaiseNext "google-chrome-beta" (className =? "Google-chrome-beta"))
   , ((myModMask, xK_o), rofi "window")
   , ((myModMask, xK_p), rofi "run")
+  , ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume 0 +5%")
+  , ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume 0 -5%")
+  , ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute 0 toggle")
   ] ++
   [((m .|. myModMask, k), windows $ f i)
   | (i, k) <- zip myWorkspaces [xK_1 ..]
