@@ -1,4 +1,5 @@
-(("cl-lib" . "deb92588d9d83d46c4698936ea31c5f58d244f04")
+(("base16-emacs" . "4f9b69fdc4586497197a2bb47eb2fc068b42af97")
+ ("cl-lib" . "deb92588d9d83d46c4698936ea31c5f58d244f04")
  ("dash.el" . "15498602f42c19c1b8d7f8768f6b998dfd5b3a22")
  ("emacs-async" . "81dc034572e963550c5403a2b3c28047e46b4029")
  ("epkgs" . "6ad16995cc950f7a4e8a4b946001c40c72754ffa")

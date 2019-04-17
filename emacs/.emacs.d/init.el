@@ -40,6 +40,10 @@
 
 ;;; Packages, alphabetically
 
+(use-package base16-theme
+  :config
+  (load-theme 'base16-materia nil))
+
 (use-package no-littering
   :demand t
   :config
@@ -52,3 +56,4 @@
 
 (use-package magit
   :bind (("C-c g s" . magit-status)))
+
