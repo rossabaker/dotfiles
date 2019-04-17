@@ -52,4 +52,5 @@
         `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
   (setq custom-file (no-littering-expand-etc-file-name "custom.el")))
 
-  
+(use-package magit
+  :bind (("C-c g s" . magit-status)))
