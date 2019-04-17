@@ -30,15 +30,13 @@
 
 ;;; Turn off obnoxious default UI elements
 
-(mapc
- (lambda (mode)
-   (when (fboundp mode)
-     (funcall mode -1)))
- '(menu-bar-mode
-   tool-bar-mode
-   scroll-bar-mode
-   horizontal-scroll-bar-mode
-   blink-cursor-mode))
+(dolist (mode '(menu-bar-mode
+		tool-bar-mode
+		scroll-bar-mode
+		horizontal-scroll-bar-mode
+		blink-cursor-mode))
+  (when (fboundp mode)
+    (funcall mode -1)))
 
 ;;; Packages, alphabetically
 
