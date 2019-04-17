@@ -20,6 +20,26 @@
 (setq straight-use-package-by-default t)
 (straight-use-package 'use-package)
 
+;;;; Better defaults
+
+;; I used to use https://github.com/technomancy/better-defaults, but
+;; it fought with no-littering and foists ido upon me.  No wonder
+;; changing defaults is so hard.
+;;
+;; But these are truly better.
+
+;;; Turn off obnoxious default UI elements
+
+(mapc
+ (lambda (mode)
+   (when (fboundp mode)
+     (funcall mode -1)))
+ '(menu-bar-mode
+   tool-bar-mode
+   scroll-bar-mode
+   horizontal-scroll-bar-mode
+   blink-cursor-mode))
+
 ;;; Packages, alphabetically
 
 (use-package no-littering
@@ -32,3 +52,4 @@
         `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
   (setq custom-file (no-littering-expand-etc-file-name "custom.el")))
 
+  
