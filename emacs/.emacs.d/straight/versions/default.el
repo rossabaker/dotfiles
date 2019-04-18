@@ -11,6 +11,7 @@
  ("pkg-info.el" . "76ba7415480687d05a4353b27fea2ae02b8d9d61")
  ("projectile" . "0a4515190291c52278bb0feab7e4d2f6dbf88bc7")
  ("straight.el" . "46aa1b1ee10bfd3a20a419c3f70d7a9c6d369fb4")
+ ("swiper" . "0e62f0d1f61b825ca5eb4b55e47ecb37b3e2834e")
  ("transient" . "9e30038d2d69e4ad0f3333777137af52e4771442")
  ("use-package" . "0ee88b5cac41acf974c4bedb8859931ead8bfc79")
  ("with-editor" . "38df9bfc2227bcb7ac4899c83a03756d5f171450"))

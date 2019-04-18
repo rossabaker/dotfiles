@@ -44,6 +44,22 @@
   :config
   (load-theme 'base16-materia t))
 
+(use-package counsel
+  :bind
+  ("C-c /" . counsel-git-grep)
+  ("C-c c" . counsel-compile)
+  ("C-c f l" . counsel-locate)
+  ("C-c f f" . counsel-find-file)
+  :config
+  (counsel-mode 1))
+
+(use-package ivy
+  :bind
+  ("C-c C-r" . ivy-resume)
+  :config
+  (setq ivy-use-virtual-buffers t)
+  (ivy-mode 1))
+
 (use-package no-littering
   :demand t
   :config
@@ -62,4 +78,7 @@
   :config
   (setq projectile-project-search-path '("~/src"))
   (projectile-discover-projects-in-search-path))
+
+(use-package swiper
+  :bind ("C-s" . swiper))
 
