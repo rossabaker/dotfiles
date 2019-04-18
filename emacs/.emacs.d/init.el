@@ -42,7 +42,7 @@
 
 (use-package base16-theme
   :config
-  (load-theme 'base16-materia nil))
+  (load-theme 'base16-materia t))
 
 (use-package no-littering
   :demand t
