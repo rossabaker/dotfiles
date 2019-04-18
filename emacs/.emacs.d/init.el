@@ -53,6 +53,10 @@
   :config
   (counsel-mode 1))
 
+(use-package counsel-projectile
+  :config
+  (counsel-projectile-mode 1))
+
 (use-package ivy
   :bind
   ("C-c C-r" . ivy-resume)
