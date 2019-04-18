@@ -57,3 +57,9 @@
 (use-package magit
   :bind (("C-c g s" . magit-status)))
 
+(use-package projectile
+  :bind-keymap ("C-c p" . projectile-command-map)
+  :config
+  (setq projectile-project-search-path '("~/src"))
+  (projectile-discover-projects-in-search-path))
+
