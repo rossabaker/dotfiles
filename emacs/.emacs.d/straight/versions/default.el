@@ -3,6 +3,7 @@
  ("counsel-projectile" . "fb19569c9799e3edac7504d21a5ecf49231e9500")
  ("dash.el" . "15498602f42c19c1b8d7f8768f6b998dfd5b3a22")
  ("emacs-async" . "81dc034572e963550c5403a2b3c28047e46b4029")
+ ("emacs-which-key" . "187ac0eb8990b62d4bfd83aac10a0ae68cdd2ff5")
  ("epkgs" . "6ad16995cc950f7a4e8a4b946001c40c72754ffa")
  ("epl" . "78ab7a85c08222cd15582a298a364774e3282ce6")
  ("gnu-elpa-mirror" . "e979b4211660a2cc4377ef04918979fe9b4323ed")
