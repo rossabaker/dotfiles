@@ -53,6 +53,8 @@
   :config
   (counsel-mode 1))
 
+(use-package haskell-mode)
+
 (use-package ivy
   :bind
   ("C-c C-r" . ivy-resume)

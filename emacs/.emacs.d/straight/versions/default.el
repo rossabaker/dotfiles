@@ -5,6 +5,7 @@
  ("epkgs" . "6ad16995cc950f7a4e8a4b946001c40c72754ffa")
  ("epl" . "78ab7a85c08222cd15582a298a364774e3282ce6")
  ("gnu-elpa-mirror" . "e979b4211660a2cc4377ef04918979fe9b4323ed")
+ ("haskell-mode" . "23978d384ffe6ef7d82b7c2559ac8581c8b5d59d")
  ("magit" . "b5e43ac63032c8cd3fe085c408cfd3df1d82e5c3")
  ("melpa" . "ec27ae185c0308c445e461dc84f398483ca08c5a")
  ("no-littering" . "99ae007ead688689b5b25a9482f98ec67663bb61")
