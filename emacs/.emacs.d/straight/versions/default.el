@@ -3,6 +3,7 @@
  ("counsel-projectile" . "fb19569c9799e3edac7504d21a5ecf49231e9500")
  ("dash.el" . "15498602f42c19c1b8d7f8768f6b998dfd5b3a22")
  ("emacs-async" . "81dc034572e963550c5403a2b3c28047e46b4029")
+ ("emacs-scala-mode" . "56cba2903cf6e12c715dbb5c99b34c97b2679379")
  ("emacs-toml" . "9633a6872928e737a2335aae1065768b23d8c3b3")
  ("emacs-which-key" . "187ac0eb8990b62d4bfd83aac10a0ae68cdd2ff5")
  ("epkgs" . "6ad16995cc950f7a4e8a4b946001c40c72754ffa")

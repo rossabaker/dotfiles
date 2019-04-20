@@ -83,6 +83,8 @@
   (setq projectile-project-search-path '("~/src"))
   (projectile-discover-projects-in-search-path))
 
+(use-package scala-mode)
+
 (use-package swiper
   :bind ("C-s" . swiper))
 
