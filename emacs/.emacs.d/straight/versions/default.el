@@ -18,5 +18,6 @@
  ("swiper" . "0e62f0d1f61b825ca5eb4b55e47ecb37b3e2834e")
  ("transient" . "47b79754e3bc333293579aa3a88bc7a34487cc62")
  ("use-package" . "0ee88b5cac41acf974c4bedb8859931ead8bfc79")
- ("with-editor" . "38df9bfc2227bcb7ac4899c83a03756d5f171450"))
+ ("with-editor" . "38df9bfc2227bcb7ac4899c83a03756d5f171450")
+ ("yaml-mode" . "40067a10ac1360f0b9533f0bbbb2eea128e2574d"))
 :saturn
