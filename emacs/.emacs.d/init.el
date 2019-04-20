@@ -86,6 +86,8 @@
 (use-package swiper
   :bind ("C-s" . swiper))
 
+(use-package toml)
+
 (use-package which-key
   :config
   (which-key-mode))
