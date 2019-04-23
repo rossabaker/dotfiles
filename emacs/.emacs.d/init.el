@@ -64,6 +64,8 @@
   (setq ivy-use-virtual-buffers t)
   (ivy-mode 1))
 
+(use-package markdown-mode)
+
 (use-package no-littering
   :demand t
   :config

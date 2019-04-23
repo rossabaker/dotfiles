@@ -11,6 +11,7 @@
  ("epl" . "78ab7a85c08222cd15582a298a364774e3282ce6")
  ("gnu-elpa-mirror" . "e979b4211660a2cc4377ef04918979fe9b4323ed")
  ("magit" . "68b725a3acf4d9fd69219d7f2add10c159acf78c")
+ ("markdown-mode" . "115f77df9755c6a453f3e5d9623ff885d207ea82")
  ("melpa" . "ec27ae185c0308c445e461dc84f398483ca08c5a")
  ("no-littering" . "99ae007ead688689b5b25a9482f98ec67663bb61")
  ("pkg-info.el" . "76ba7415480687d05a4353b27fea2ae02b8d9d61")
