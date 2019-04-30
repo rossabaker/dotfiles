@@ -8,6 +8,7 @@
  ("emacs-scala-mode" . "56cba2903cf6e12c715dbb5c99b34c97b2679379")
  ("epkgs" . "6ad16995cc950f7a4e8a4b946001c40c72754ffa")
  ("epl" . "78ab7a85c08222cd15582a298a364774e3282ce6")
+ ("exec-path-from-shell" . "3cfedb8791397ed50ee66bc0a7cbee5b9d78245c")
  ("f.el" . "8191672377816a1975414cc1f116fd3b94b30bd0")
  ("gnu-elpa-mirror" . "e979b4211660a2cc4377ef04918979fe9b4323ed")
  ("haskell-mode" . "23978d384ffe6ef7d82b7c2559ac8581c8b5d59d")

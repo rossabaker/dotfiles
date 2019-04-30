@@ -55,6 +55,11 @@
   :config
   (counsel-mode 1))
 
+(use-package exec-path-from-shell
+  :config
+  (exec-path-from-shell-copy-env "SSH_AGENT_PID")
+  (exec-path-from-shell-copy-env "SSH_AUTH_SOCK"))
+
 (use-package haskell-mode)
 
 (use-package ivy
