@@ -44,6 +44,8 @@
   :config
   (load-theme 'base16-materia t))
 
+(use-package company-lsp)
+
 (use-package counsel
   :bind
   ("C-c /" . counsel-git-grep)
@@ -61,6 +63,15 @@
   :config
   (setq ivy-use-virtual-buffers t)
   (ivy-mode 1))
+
+(use-package lsp-mode
+ :init (setq lsp-prefer-flymake nil))
+
+(use-package lsp-ui)
+
+(use-package lsp-scala
+  :after scala-mode
+  :hook (scala-mode . lsp))
 
 (use-package no-littering
   :demand t
@@ -80,6 +91,8 @@
   :config
   (setq projectile-project-search-path '("~/src"))
   (projectile-discover-projects-in-search-path))
+
+(use-package scala-mode)
 
 (use-package swiper
   :bind ("C-s" . swiper))
