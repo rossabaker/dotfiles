@@ -55,6 +55,10 @@
   :config
   (counsel-mode 1))
 
+(use-package counsel-projectile
+  :config
+  (counsel-projectile-mode 1))
+
 (use-package exec-path-from-shell
   :config
   (exec-path-from-shell-copy-env "SSH_AGENT_PID")
@@ -78,6 +82,11 @@
   :after scala-mode
   :hook (scala-mode . lsp))
 
+(use-package magit
+  :bind (("C-c g s" . magit-status)))
+
+(use-package markdown-mode)
+
 (use-package no-littering
   :demand t
   :config
@@ -88,17 +97,23 @@
         `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
   (setq custom-file (no-littering-expand-var-file-name "custom.el")))
 
-(use-package magit
-  :bind (("C-c g s" . magit-status)))
-
 (use-package projectile
   :bind-keymap ("C-c p" . projectile-command-map)
   :config
   (setq projectile-project-search-path '("~/src"))
   (projectile-discover-projects-in-search-path))
 
+(use-package sbt-mode)
+
 (use-package scala-mode)
 
 (use-package swiper
   :bind ("C-s" . swiper))
 
+(use-package toml)
+
+(use-package which-key
+  :config
+  (which-key-mode))
+
+(use-package yaml-mode)
