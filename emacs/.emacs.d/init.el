@@ -110,6 +110,11 @@
 (use-package swiper
   :bind ("C-s" . swiper))
 
+(use-package term
+  :bind (("C-c t" . term)
+	 :map term-raw-map
+	 ("C-c C-y" . term-paste)))
+
 (use-package toml)
 
 (use-package which-key
