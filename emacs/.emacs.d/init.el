@@ -64,6 +64,9 @@
   (exec-path-from-shell-copy-env "SSH_AGENT_PID")
   (exec-path-from-shell-copy-env "SSH_AUTH_SOCK"))
 
+(use-package flycheck
+  :init (global-flycheck-mode))
+
 (use-package haskell-mode)
 
 (use-package ivy
@@ -120,3 +123,5 @@
   (which-key-mode))
 
 (use-package yaml-mode)
+
+(use-package yasnippet)
