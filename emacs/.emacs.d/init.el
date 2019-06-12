@@ -74,13 +74,11 @@
   (ivy-mode 1))
 
 (use-package lsp-mode
- :init (setq lsp-prefer-flymake nil))
+  ;; Optional - enable lsp-mode automatically in scala files
+  :hook (scala-mode . lsp)
+  :config (setq lsp-prefer-flymake nil))
 
 (use-package lsp-ui)
-
-(use-package lsp-scala
-  :after scala-mode
-  :hook (scala-mode . lsp))
 
 (use-package magit
   :bind (("C-c g s" . magit-status)))
