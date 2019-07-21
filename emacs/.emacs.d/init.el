@@ -116,7 +116,8 @@
 (use-package scala-mode)
 
 (use-package swiper
-  :bind ("C-s" . swiper))
+  :bind (("C-r" . swiper-isearch-backward)
+	 ("C-s" . swiper-isearch)))
 
 (use-package term
   :bind (("C-c t" . term)
