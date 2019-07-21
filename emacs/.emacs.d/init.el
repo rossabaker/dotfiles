@@ -38,6 +38,9 @@
   (when (fboundp mode)
     (funcall mode -1)))
 
+;;; And don't be foiled by stale *.elc files
+(setq load-prefer-newer t)
+
 ;;; Packages, alphabetically
 
 (use-package base16-theme
