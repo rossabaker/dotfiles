@@ -6,6 +6,7 @@
 
 /sbt/.sbt/.credentials
 /sbt/**/project/
+/sbt/**/staging/
 /sbt/**/target/
 
 /xmonad/.xmonad/*-x86_64-linux
