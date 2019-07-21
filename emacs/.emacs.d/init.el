@@ -84,7 +84,9 @@
 (use-package lsp-ui)
 
 (use-package magit
-  :bind (("C-c g s" . magit-status)))
+  :bind (("C-c g s" . magit-status))
+  :config
+  (setq magit-clone-default-directory "~/src/"))
 
 (use-package markdown-mode)
 
