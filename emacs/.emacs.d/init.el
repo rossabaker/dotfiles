@@ -100,6 +100,8 @@
         `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
   (setq custom-file (no-littering-expand-var-file-name "custom.el")))
 
+(use-package pdf-tools)
+
 (use-package projectile
   :bind-keymap ("C-c p" . projectile-command-map)
   :config
