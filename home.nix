@@ -1,12 +1,26 @@
 { config, pkgs, ... }:
 
 {
-  programs.git = {
-    enable = true;
-    userEmail = "ross@rossabaker.com";
-    userName = "Ross A. Baker";
-  };
+  programs = {
+    emacs = {
+      enable = true;
+      extraPackages = epkgs: [
+        epkgs.nix-mode
+        epkgs.magit
+      ];
+    };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
+    git = {
+      enable = true;
+      userEmail = "ross@rossabaker.com";
+      userName = "Ross A. Baker";
+    };
+
+    # Let Home Manager install and manage itself.
+    home-manager.enable = true;
+
+    zsh = {
+      enable = true;
+    };
+  };
 }
