@@ -39,6 +39,10 @@
   :config
   (global-flycheck-mode))
 
+(use-package frame
+  :config
+  (blink-cursor-mode -1))
+
 (use-package ivy
   :delight
   :config
