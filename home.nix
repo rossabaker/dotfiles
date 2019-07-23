@@ -13,8 +13,11 @@
       extraPackages = epkgs: [
         epkgs.base16-theme
         epkgs.better-defaults
+        epkgs.counsel
+        epkgs.ivy        
         epkgs.nix-mode
         epkgs.magit
+        epkgs.swiper
         epkgs.use-package
       ];
     };
