@@ -19,6 +19,7 @@
         epkgs.magit
         epkgs.swiper
         epkgs.use-package
+        epkgs.ws-butler
       ];
     };
 

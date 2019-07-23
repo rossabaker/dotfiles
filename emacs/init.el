@@ -32,3 +32,7 @@
   :bind
   ("C-c C-r" . ivy-resume)
   ("C-s" . swiper-isearch))
+
+(use-package ws-butler
+  :hook
+  (prog-mode . ws-butler-mode))
