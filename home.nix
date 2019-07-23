@@ -11,6 +11,7 @@
     emacs = {
       enable = true;
       extraPackages = epkgs: [
+        epkgs.base16-theme
         epkgs.better-defaults
         epkgs.nix-mode
         epkgs.magit
