@@ -1,12 +1,19 @@
 { config, pkgs, ... }:
 
 {
+  home = {
+    file = {
+      ".emacs.d/init.el".source = emacs/init.el;
+    };
+  };
+
   programs = {
     emacs = {
       enable = true;
       extraPackages = epkgs: [
         epkgs.nix-mode
         epkgs.magit
+        epkgs.use-package
       ];
     };
 
