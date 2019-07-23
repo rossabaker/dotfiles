@@ -3,6 +3,9 @@
 
 (require 'delight)
 
+(setq inhibit-startup-screen t
+      initial-scratch-message "")
+
 (use-package base16-theme
   :config
   (load-theme 'base16-materia t))
@@ -81,3 +84,4 @@
   :delight
   :hook
   (prog-mode . ws-butler-mode))
+
