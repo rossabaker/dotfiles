@@ -20,6 +20,10 @@
 
     git = {
       enable = true;
+      extraConfig = ''
+        [url "git@github.com:"]
+          insteadOf = "gh:"
+      '';
       userEmail = "ross@rossabaker.com";
       userName = "Ross A. Baker";
     };
