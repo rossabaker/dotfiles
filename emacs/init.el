@@ -29,6 +29,10 @@
   (setq ivy-use-virtual-buffers t)
   (ivy-mode 1))
 
+(use-package magit
+  :bind
+  ("C-c g s" . magit-status))
+
 (use-package swiper
   :bind
   ("C-c C-r" . ivy-resume)
