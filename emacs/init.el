@@ -24,6 +24,7 @@
   ("M-x" . counsel-M-x))
 
 (use-package ivy
+  :delight
   :config
   (setq ivy-use-virtual-buffers t)
   (ivy-mode 1))
@@ -34,5 +35,6 @@
   ("C-s" . swiper-isearch))
 
 (use-package ws-butler
+  :delight
   :hook
   (prog-mode . ws-butler-mode))

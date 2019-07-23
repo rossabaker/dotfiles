@@ -14,6 +14,7 @@
         epkgs.base16-theme
         epkgs.better-defaults
         epkgs.counsel
+        epkgs.delight
         epkgs.ivy        
         epkgs.nix-mode
         epkgs.magit
