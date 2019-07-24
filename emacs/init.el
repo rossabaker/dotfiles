@@ -10,6 +10,8 @@
   ;; better-defaults sets one worse default
   (ido-mode -1))
 
+(use-package company-lsp)
+
 (use-package counsel
   :bind
   ("C-c /" . counsel-git-grep)
@@ -23,15 +25,36 @@
   ("C-x C-f" . counsel-find-file)
   ("M-x" . counsel-M-x))
 
+(use-package flycheck
+  :delight
+  :config
+  (global-flycheck-mode))
+
 (use-package ivy
   :delight
   :config
   (setq ivy-use-virtual-buffers t)
   (ivy-mode 1))
 
+(use-package lsp-mode
+  :hook
+  (scala-mode . lsp)
+  :config
+  (setq lsp-enable-snippet nil
+        lsp-prefer-flymake nil))
+
+(use-package lsp-ui)
+
 (use-package magit
   :bind
   ("C-c g s" . magit-status))
+
+(use-package sbt-mode
+  :commands
+  sbt-start
+  sbt-command)
+
+(use-package scala-mode)
 
 (use-package swiper
   :bind
