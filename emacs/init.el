@@ -28,6 +28,10 @@
 
 (use-package delight)
 
+(use-package desktop
+  :config
+  (desktop-save-mode t))
+
 (use-package flycheck
   :delight
   :config

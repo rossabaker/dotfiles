@@ -23,6 +23,7 @@
         epkgs.lsp-ui
         epkgs.nix-mode
         epkgs.magit
+        epkgs.restart-emacs
         epkgs.sbt-mode
         epkgs.scala-mode
         epkgs.swiper
