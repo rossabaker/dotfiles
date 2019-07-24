@@ -17,6 +17,7 @@
   ("C-c /" . counsel-git-grep)
   ("C-c c" . counsel-compile)
   ("C-c f l" . counsel-locate)
+  ("C-c f r" . counsel-recentf)
   ("C-h f" . counsel-describe-function)
   ("C-h v" . counsel-describe-variable)
   ("C-h l" . counsel-find-library)
