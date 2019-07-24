@@ -26,6 +26,10 @@
   ("C-x C-f" . counsel-find-file)
   ("M-x" . counsel-M-x))
 
+(use-package counsel-projectile
+  :config
+  (counsel-projectile-mode))
+
 (use-package desktop
   :config
   (desktop-save-mode t))
@@ -51,6 +55,13 @@
 (use-package magit
   :bind
   ("C-c g s" . magit-status))
+
+(use-package projectile
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :config
+  (setq projectile-project-search-path '("~/src"))
+  (projectile-discover-projects-in-search-path))
 
 (use-package sbt-mode
   :commands

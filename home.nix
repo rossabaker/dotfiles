@@ -15,6 +15,7 @@
         epkgs.better-defaults
         epkgs.company-lsp
         epkgs.counsel
+        epkgs.counsel-projectile
         epkgs.delight
         epkgs.flycheck
         epkgs.haskell-mode
@@ -23,6 +24,7 @@
         epkgs.lsp-ui
         epkgs.nix-mode
         epkgs.magit
+        epkgs.projectile
         epkgs.restart-emacs
         epkgs.sbt-mode
         epkgs.scala-mode
