@@ -33,6 +33,8 @@
   :config
   (global-flycheck-mode))
 
+(use-package haskell-mode)
+
 (use-package ivy
   :delight
   :config

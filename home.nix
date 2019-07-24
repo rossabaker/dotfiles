@@ -17,6 +17,7 @@
         epkgs.counsel
         epkgs.delight
         epkgs.flycheck
+        epkgs.haskell-mode
         epkgs.ivy
         epkgs.lsp-mode
         epkgs.lsp-ui
