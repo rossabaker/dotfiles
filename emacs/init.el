@@ -1,6 +1,8 @@
 (eval-when-compile
   (require 'use-package))
 
+(require 'delight)
+
 (use-package base16-theme
   :config
   (load-theme 'base16-materia t))
@@ -9,8 +11,6 @@
   :config
   ;; better-defaults sets one worse default
   (ido-mode -1))
-
-(use-package company-lsp)
 
 (use-package counsel
   :bind
@@ -26,8 +26,6 @@
   ("C-x C-f" . counsel-find-file)
   ("M-x" . counsel-M-x))
 
-(use-package delight)
-
 (use-package desktop
   :config
   (desktop-save-mode t))
@@ -36,8 +34,6 @@
   :delight
   :config
   (global-flycheck-mode))
-
-(use-package haskell-mode)
 
 (use-package ivy
   :delight
@@ -52,8 +48,6 @@
   (setq lsp-enable-snippet nil
         lsp-prefer-flymake nil))
 
-(use-package lsp-ui)
-
 (use-package magit
   :bind
   ("C-c g s" . magit-status))
@@ -62,8 +56,6 @@
   :commands
   sbt-start
   sbt-command)
-
-(use-package scala-mode)
 
 (use-package swiper
   :bind
