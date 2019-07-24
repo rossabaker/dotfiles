@@ -26,6 +26,8 @@
   ("C-x C-f" . counsel-find-file)
   ("M-x" . counsel-M-x))
 
+(use-package delight)
+
 (use-package flycheck
   :delight
   :config
