@@ -3,6 +3,10 @@
 {
   home = {
     file = {
+      ".config/systemd/user/cros-garcon.service.d" = {
+         source = systemd/cros-garcon.service.d;
+         recursive = true;
+      };
       ".emacs.d/init.el".source = emacs/init.el;
     };
   };
