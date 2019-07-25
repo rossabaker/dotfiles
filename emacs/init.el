@@ -8,7 +8,11 @@
 
 (use-package base16-theme
   :config
-  (load-theme 'base16-materia t))
+  (load-theme 'base16-materia t)
+  (set-face-attribute 'line-number-current-line nil
+                      :background (plist-get base16-materia-colors :base01)
+                      :foreground (plist-get base16-materia-colors :base04)
+                      :inverse-video nil))
 
 (use-package better-defaults
   :config
