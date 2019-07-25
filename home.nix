@@ -42,6 +42,7 @@
         epkgs.scala-mode
         epkgs.shell-pop
         epkgs.swiper
+        epkgs.systemd
         epkgs.use-package
         epkgs.ws-butler
       ];

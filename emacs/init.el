@@ -101,6 +101,9 @@
   ("C-c C-r" . ivy-resume)
   ("C-s" . swiper-isearch))
 
+(use-package systemd
+  :mode ("\\.service"))
+
 (use-package ws-butler
   :delight
   :hook
