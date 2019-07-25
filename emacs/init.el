@@ -41,6 +41,9 @@
   :config
   (desktop-save-mode t))
 
+(use-package eldoc
+  :delight)
+
 (use-package flycheck
   :delight
   :config
