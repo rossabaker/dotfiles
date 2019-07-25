@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  fonts.fontconfig.enable = true;
+
   home = {
     file = {
       ".config/systemd/user/cros-garcon.service.d" = {
@@ -9,6 +11,10 @@
       };
       ".emacs.d/init.el".source = emacs/init.el;
     };
+
+    packages = [
+      pkgs.hasklig
+    ];
   };
 
   programs = {
@@ -23,9 +29,11 @@
         epkgs.delight
         epkgs.flycheck
         epkgs.haskell-mode
+        epkgs.hasklig-mode
         epkgs.ivy
         epkgs.lsp-mode
         epkgs.lsp-ui
+        epkgs.ivy
         epkgs.nix-mode
         epkgs.magit
         epkgs.projectile

@@ -44,7 +44,13 @@
 
 (use-package frame
   :config
-  (blink-cursor-mode -1))
+  (blink-cursor-mode -1)
+  (set-frame-font "Hasklig-14" nil t))
+
+(use-package hasklig-mode
+  :hook
+  haskell-mode
+  scala-mode)
 
 (use-package ivy
   :delight
