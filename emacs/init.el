@@ -78,6 +78,10 @@
   (setq lsp-enable-snippet nil
         lsp-prefer-flymake nil))
 
+(use-package lsp-ui
+  :config
+  (setq lsp-ui-sideline-show-hover nil))
+
 (use-package magit
   :bind
   ("C-c g s" . magit-status))
