@@ -89,6 +89,10 @@
   :bind
   ("C-c t" . shell-pop))
 
+(use-package simple
+  :config
+  (column-number-mode +1))
+
 (use-package swiper
   :bind
   ("C-c C-r" . ivy-resume)
