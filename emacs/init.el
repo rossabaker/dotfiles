@@ -81,6 +81,10 @@
   sbt-start
   sbt-command)
 
+(use-package shell-pop
+  :bind
+  ("C-c t" . shell-pop))
+
 (use-package swiper
   :bind
   ("C-c C-r" . ivy-resume)
@@ -90,4 +94,3 @@
   :delight
   :hook
   (prog-mode . ws-butler-mode))
-

@@ -40,6 +40,7 @@
         epkgs.restart-emacs
         epkgs.sbt-mode
         epkgs.scala-mode
+        epkgs.shell-pop
         epkgs.swiper
         epkgs.use-package
         epkgs.ws-butler
