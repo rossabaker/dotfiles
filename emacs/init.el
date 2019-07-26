@@ -58,7 +58,7 @@
 (use-package frame
   :config
   (blink-cursor-mode -1)
-  (set-frame-font "Hasklig-14" nil t))
+  (setq default-frame-alist '((font . "Hasklig-14"))))
 
 (use-package hasklig-mode
   :hook
