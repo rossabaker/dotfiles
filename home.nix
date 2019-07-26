@@ -36,6 +36,7 @@
         epkgs.counsel-projectile
         epkgs.delight
         epkgs.flycheck
+        epkgs.git-gutter
         epkgs.haskell-mode
         epkgs.hasklig-mode
         epkgs.ivy
@@ -58,7 +59,11 @@
         let
           inherit (pkgs) fetchFromGitHub fetchurl stdenv;
           inherit (stdenv) lib;
+
+          withPatches = pkg: patches:
+            lib.overrideDerivation pkg (attrs: { inherit patches; });
         in {
+          git-gutter = withPatches super.git-gutter [ ./emacs/patches/git-gutter.patch ];
           lsp-mode = self.melpaBuild {
             pname = "lsp-mode";
             version = "20190723.2001";

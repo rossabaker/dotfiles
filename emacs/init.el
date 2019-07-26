@@ -60,6 +60,12 @@
   (blink-cursor-mode -1)
   (setq default-frame-alist '((font . "Hasklig-14"))))
 
+(use-package git-gutter
+  :delight
+  :config
+  (global-git-gutter-mode +1)
+  (custom-set-variables '(git-gutter:update-interval 1)))
+
 (use-package hasklig-mode
   :hook
   haskell-mode
