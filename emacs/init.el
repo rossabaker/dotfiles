@@ -1,3 +1,12 @@
+;;; init.el --- Ross A. Baker's Emacs configuration.
+
+;;; Commentary:
+
+;; All packages in my Emacs are declared in nix.  Packages that
+;; require configuration have their own use-package expressions below.
+
+;;; Code:
+
 (eval-when-compile
   (require 'use-package))
 
@@ -124,3 +133,7 @@
   :delight
   :hook
   (prog-mode . ws-butler-mode))
+
+(provide 'init)
+
+;;; init.el ends here
