@@ -13,11 +13,19 @@
     };
 
     packages = [
+      pkgs.bashInteractive
       pkgs.hasklig
     ];
   };
 
   programs = {
+    bash = {
+      enable = true;
+      sessionVariables = {
+        NIX_PATH = "$HOME/.nix-defexpr/channels\${NIX_PATH:+:}$NIX_PATH";
+      };
+    };
+
     emacs = {
       enable = true;
       extraPackages = epkgs: [
@@ -87,13 +95,6 @@
 
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
-
-    zsh = {
-      enable = true;
-      sessionVariables = {
-        NIX_PATH = "$HOME/.nix-defexpr/channels\${NIX_PATH:+:}$NIX_PATH";
-      };
-    };
   };
 
   services = {
