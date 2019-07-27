@@ -35,6 +35,7 @@
         epkgs.company-quickhelp
         epkgs.counsel
         epkgs.counsel-projectile
+        epkgs.crux
         epkgs.delight
         epkgs.flycheck
         epkgs.git-gutter

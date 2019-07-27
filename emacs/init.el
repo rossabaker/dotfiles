@@ -69,6 +69,18 @@
   :config
   (counsel-projectile-mode))
 
+(use-package crux
+  :bind
+  ("C-a" . crux-move-beginning-of-line)
+  ("C-k" . crux-smart-kill-line)
+  ("C-c D" . crux-delete-file-and-buffer)
+  ("C-c I" . crux-find-user-init-file)
+  ("C-c d" . crux-duplicate-current-line-or-region)
+  ("C-c e" . crux-eval-and-replace)
+  ("C-c r" . crux-rename-file-and-buffer)
+  ("C-x 4 t" . crux-transpose-windows)
+  ("C-S-<backspace>" . crux-kill-whole-line))
+
 (use-package desktop
   :config
   (desktop-save-mode t))
