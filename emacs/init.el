@@ -42,6 +42,14 @@
   :config
   (push 'company-lsp company-backends))
 
+(use-package company-quickhelp
+  :bind
+  (:map company-active-map
+        ("M-h" . company-quickhelp-manual-begin))
+  :config
+  (setq company-quickhelp-delay nil)
+  (company-quickhelp-mode +1))
+
 (use-package counsel
   :bind
   ("C-c /" . counsel-git-grep)

@@ -32,6 +32,7 @@
         epkgs.base16-theme
         epkgs.better-defaults
         epkgs.company-lsp
+        epkgs.company-quickhelp
         epkgs.counsel
         epkgs.counsel-projectile
         epkgs.delight
