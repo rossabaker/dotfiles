@@ -113,6 +113,13 @@
   sbt-start
   sbt-command)
 
+(use-package scroll-bar
+  :config
+  ;; Disable stubborn scroll bars in emacsclient
+  ;; https://emacs.stackexchange.com/a/46632
+  (customize-set-variable 'scroll-bar-mode nil)
+  (customize-set-variable 'horizontal-scroll-bar-mode nil))
+
 (use-package shell-pop
   :bind
   ("C-c t" . shell-pop))
