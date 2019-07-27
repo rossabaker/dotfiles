@@ -41,6 +41,7 @@
         epkgs.haskell-mode
         epkgs.hasklig-mode
         epkgs.ivy
+        epkgs.ivy-rich
         epkgs.lsp-mode
         epkgs.lsp-ui
         epkgs.ivy

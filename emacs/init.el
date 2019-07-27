@@ -108,6 +108,10 @@
   (setq ivy-use-virtual-buffers t)
   (ivy-mode 1))
 
+(use-package ivy-rich
+  :config
+  (ivy-rich-mode +1))
+
 (use-package lsp-mode
   :hook
   (scala-mode . lsp)
