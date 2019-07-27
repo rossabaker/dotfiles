@@ -29,6 +29,7 @@
   (ido-mode -1))
 
 (use-package company
+  :delight
   :hook
   (after-init . global-company-mode)
   :config
@@ -98,6 +99,7 @@
   (custom-set-variables '(git-gutter:update-interval 1)))
 
 (use-package hasklig-mode
+  :delight
   :hook
   haskell-mode
   scala-mode)
