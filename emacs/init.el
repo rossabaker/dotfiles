@@ -28,6 +28,20 @@
   ;; better-defaults sets one worse default
   (ido-mode -1))
 
+(use-package company
+  :hook
+  (after-init . global-company-mode)
+  :config
+  (setq company-idle-delay 0
+        company-minimum-prefix-length 2
+        company-show-numbers t
+        company-tooltip-align-annotations t))
+
+(use-package company-lsp
+  :after company lsp-mode
+  :config
+  (push 'company-lsp company-backends))
+
 (use-package counsel
   :bind
   ("C-c /" . counsel-git-grep)
