@@ -15,6 +15,13 @@
 (setq inhibit-startup-screen t
       initial-scratch-message "")
 
+(use-package ace-window
+  :delight
+  :bind
+  ("M-o" . ace-window)
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+
 (use-package atomic-chrome
   :config
   (atomic-chrome-start-server))

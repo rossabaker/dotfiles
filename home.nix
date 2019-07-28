@@ -29,6 +29,7 @@
     emacs = {
       enable = true;
       extraPackages = epkgs: [
+        epkgs.ace-window
         epkgs.atomic-chrome
         epkgs.avy
         epkgs.base16-theme
