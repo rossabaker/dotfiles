@@ -135,6 +135,10 @@
   :hook
   (after-save . executable-make-buffer-file-executable-if-script-p))
 
+(use-package expand-region
+  :bind
+  ("C-=" . 'er/expand-region))
+
 (use-package flycheck
   :delight
   :config

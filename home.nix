@@ -42,6 +42,7 @@
         epkgs.counsel-projectile
         epkgs.crux
         epkgs.delight
+        epkgs.expand-region
         epkgs.flycheck
         epkgs.git-gutter
         epkgs.haskell-mode
