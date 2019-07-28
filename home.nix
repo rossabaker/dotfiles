@@ -66,6 +66,7 @@
         epkgs.smartparens
         epkgs.swiper
         epkgs.systemd
+        epkgs.unfill
         epkgs.use-package
         epkgs.which-key
         epkgs.ws-butler

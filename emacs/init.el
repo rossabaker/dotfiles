@@ -245,6 +245,10 @@
   (tooltip-mode -1)
   (setq tooltip-use-echo-area t))
 
+(use-package unfill
+  :bind
+  ("M-q" . unfill-toggle))
+
 (use-package which-key
   :delight
   :config
