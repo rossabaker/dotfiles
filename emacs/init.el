@@ -151,6 +151,12 @@
   :bind
   ("C-c g s" . magit-status))
 
+(use-package proced
+  :hook
+  (proced-mode . (lambda () (proced-toggle-auto-update +1)))
+  :config
+  (setq proced-auto-update-interval 1))
+
 (use-package projectile
   :bind-keymap
   ("C-c p" . projectile-command-map)
