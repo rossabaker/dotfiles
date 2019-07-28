@@ -37,6 +37,13 @@
 (use-package bazel-mode
   :mode "BUILD\\'")
 
+(use-package beacon
+  :delight
+  :bind
+  ("C-c b" . beacon-blink)
+  :config
+  (beacon-mode +1))
+
 (use-package better-defaults
   :config
   ;; better-defaults sets one worse default
