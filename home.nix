@@ -29,6 +29,7 @@
     emacs = {
       enable = true;
       extraPackages = epkgs: [
+        epkgs.avy
         epkgs.base16-theme
         epkgs.better-defaults
         epkgs.company-lsp

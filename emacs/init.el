@@ -15,6 +15,13 @@
 (setq inhibit-startup-screen t
       initial-scratch-message "")
 
+(use-package avy
+  :bind
+  ("C-'" . avy-goto-char-timer)
+  :config
+  (setq avy-style 'at-full)
+  (avy-setup-default))
+
 (use-package base16-theme
   :config
   (load-theme 'base16-materia t)
