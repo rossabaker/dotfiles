@@ -65,6 +65,7 @@
         epkgs.scala-mode
         epkgs.shell-pop
         epkgs.smartparens
+        epkgs.string-inflection
         epkgs.swiper
         epkgs.systemd
         epkgs.unfill

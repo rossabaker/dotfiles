@@ -237,6 +237,16 @@
   (smartparens-global-mode +1)
   (show-smartparens-global-mode +1))
 
+(use-package string-inflection
+  :bind
+  ("C-c q !" . string-inflection-upcase)
+  ("C-c q C" . string-inflection-camelcase)
+  ("C-c q S" . string-inflection-capital-underscore)
+  ("C-c q c" . string-inflection-lower-camelcase)
+  ("C-c q k" . string-inflection-kebab-case)
+  ("C-c q q" . string-inflection-all-cycle)
+  ("C-c q s" . string-inflection-underscore))
+
 (use-package swiper
   :bind
   ("C-c C-r" . ivy-resume)
