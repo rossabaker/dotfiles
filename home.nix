@@ -61,6 +61,7 @@
         epkgs.use-package
         epkgs.which-key
         epkgs.ws-butler
+        epkgs.yaml-mode
       ];
       overrides = self: super:
         let
