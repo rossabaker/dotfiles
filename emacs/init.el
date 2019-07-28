@@ -106,8 +106,7 @@
   ("C-c d" . crux-duplicate-current-line-or-region)
   ("C-c e" . crux-eval-and-replace)
   ("C-c r" . crux-rename-file-and-buffer)
-  ("C-x 4 t" . crux-transpose-windows)
-  ("C-S-<backspace>" . crux-kill-whole-line))
+  ("C-x 4 t" . crux-transpose-windows))
 
 (use-package desktop
   :config
@@ -205,6 +204,14 @@
 (use-package simple
   :config
   (column-number-mode +1))
+
+(use-package smartparens
+  :delight
+  :config
+  (require 'smartparens-config)
+  (sp-use-smartparens-bindings)
+  (smartparens-global-mode +1)
+  (show-smartparens-global-mode +1))
 
 (use-package swiper
   :bind

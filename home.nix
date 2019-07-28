@@ -60,6 +60,7 @@
         epkgs.sbt-mode
         epkgs.scala-mode
         epkgs.shell-pop
+        epkgs.smartparens
         epkgs.swiper
         epkgs.systemd
         epkgs.use-package
