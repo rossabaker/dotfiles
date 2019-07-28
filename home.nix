@@ -43,6 +43,7 @@
         epkgs.counsel-projectile
         epkgs.crux
         epkgs.delight
+        epkgs.electric-operator
         epkgs.expand-region
         epkgs.flycheck
         epkgs.git-gutter

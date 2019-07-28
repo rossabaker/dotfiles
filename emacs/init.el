@@ -131,6 +131,11 @@
 (use-package eldoc
   :delight)
 
+(use-package electric-operator-mode
+  :delight
+  :hook
+  (scala-mode . electric-operator-mode))
+
 (use-package executable
   :hook
   (after-save . executable-make-buffer-file-executable-if-script-p))
