@@ -168,6 +168,14 @@
   (global-git-gutter-mode +1)
   (setq git-gutter:update-interval 1))
 
+(use-package git-link
+  :config
+  (setq git-link-use-commit t)
+  :bind
+  ("C-c g l l" . git-link)
+  ("C-c g l c" . git-link-commit)
+  ("C-c g l h" . git-link-homepage))
+
 (use-package git-timemachine
   :bind
   ("C-c g t" . git-timemachine-toggle))

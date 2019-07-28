@@ -50,6 +50,7 @@
         epkgs.expand-region
         epkgs.flycheck
         epkgs.git-gutter
+        epkgs.git-link
         epkgs.git-timemachine
         epkgs.gitconfig-mode
         epkgs.gitignore-mode
