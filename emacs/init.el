@@ -15,6 +15,16 @@
 (setq inhibit-startup-screen t
       initial-scratch-message "")
 
+;; Would rather not have this at all, but we need a place to whitelist
+;; save variables.
+;;
+;; TODO: Why don't I see a whitelist of sp-do-move-op, sp-do-move-cl,
+;; et al, as safe-local-variable-values in other people's
+;; custom-eschewing configs?
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(when (file-exists-p custom-file)
+  (load custom-file))
+
 (use-package ace-window
   :delight
   :bind
@@ -139,7 +149,7 @@
   :delight
   :config
   (global-git-gutter-mode +1)
-  (custom-set-variables '(git-gutter:update-interval 1)))
+  (setq git-gutter:update-interval 1))
 
 (use-package hasklig-mode
   :delight
