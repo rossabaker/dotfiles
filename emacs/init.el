@@ -115,6 +115,10 @@
   ("C-x 4 t" . crux-transpose-windows))
 
 (use-package desktop
+  :disabled t
+  ;; This causes metals to spin up multiple JVMs when we restart
+  ;; Emacs, and the daemon doesn't restore frames.  Maybe recentf is
+  ;; good enough for now.
   :config
   (desktop-save-mode t))
 
