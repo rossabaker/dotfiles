@@ -56,6 +56,7 @@
         epkgs.swiper
         epkgs.systemd
         epkgs.use-package
+        epkgs.which-key
         epkgs.ws-butler
       ];
       overrides = self: super:

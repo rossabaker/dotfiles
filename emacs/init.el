@@ -176,6 +176,11 @@
 (use-package systemd
   :mode ("\\.service"))
 
+(use-package which-key
+  :delight
+  :config
+  (which-key-mode))
+
 (use-package ws-butler
   :delight
   :hook
