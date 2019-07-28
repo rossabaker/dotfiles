@@ -186,6 +186,11 @@
 (use-package systemd
   :mode ("\\.service"))
 
+(use-package tooltip
+  :config
+  (tooltip-mode -1)
+  (setq tooltip-use-echo-area t))
+
 (use-package which-key
   :delight
   :config
