@@ -15,12 +15,8 @@
 (setq inhibit-startup-screen t
       initial-scratch-message "")
 
-;; Would rather not have this at all, but we need a place to whitelist
-;; save variables.
-;;
-;; TODO: Why don't I see a whitelist of sp-do-move-op, sp-do-move-cl,
-;; et al, as safe-local-variable-values in other people's
-;; custom-eschewing configs?
+;; We shall endeavor to keep everything out of this, but sometimes
+;; Emacs really wants to dump custom settings itself.
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (when (file-exists-p custom-file)
   (load custom-file))

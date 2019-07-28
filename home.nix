@@ -9,6 +9,7 @@
          source = systemd/cros-garcon.service.d;
          recursive = true;
       };
+      ".emacs.d/custom.el".source = emacs/custom.el;
       ".emacs.d/init.el".source = emacs/init.el;
     };
 
