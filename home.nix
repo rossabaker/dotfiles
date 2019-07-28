@@ -51,6 +51,7 @@
         epkgs.nix-mode
         epkgs.magit
         epkgs.projectile
+        epkgs.protobuf-mode
         epkgs.restart-emacs
         epkgs.sbt-mode
         epkgs.scala-mode
