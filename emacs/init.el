@@ -15,6 +15,10 @@
 (setq inhibit-startup-screen t
       initial-scratch-message "")
 
+(use-package atomic-chrome
+  :config
+  (atomic-chrome-start-server))
+
 (use-package avy
   :bind
   ("C-'" . avy-goto-char-timer)
