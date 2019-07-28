@@ -104,6 +104,10 @@
 (use-package eldoc
   :delight)
 
+(use-package executable
+  :hook
+  (after-save . executable-make-buffer-file-executable-if-script-p))
+
 (use-package flycheck
   :delight
   :config
