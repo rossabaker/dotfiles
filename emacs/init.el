@@ -186,6 +186,11 @@
   :bind
   ("C-c g s" . magit-status))
 
+(use-package multi-line
+  :bind
+  ("C-c l m" . multi-line)
+  ("C-c l s" . multi-line-single-line))
+
 (use-package proced
   :hook
   (proced-mode . (lambda () (proced-toggle-auto-update +1)))

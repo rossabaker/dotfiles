@@ -54,6 +54,7 @@
         epkgs.lsp-ui
         epkgs.ivy
         epkgs.list-environment
+        epkgs.multi-line
         epkgs.nix-mode
         epkgs.magit
         epkgs.projectile
