@@ -31,6 +31,7 @@
       extraPackages = epkgs: [
         epkgs.avy
         epkgs.base16-theme
+        epkgs.bazel-mode
         epkgs.better-defaults
         epkgs.company-lsp
         epkgs.company-quickhelp

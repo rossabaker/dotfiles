@@ -30,6 +30,9 @@
                       :foreground (plist-get base16-materia-colors :base04)
                       :inverse-video nil))
 
+(use-package bazel-mode
+  :mode "BUILD\\'")
+
 (use-package better-defaults
   :config
   ;; better-defaults sets one worse default
