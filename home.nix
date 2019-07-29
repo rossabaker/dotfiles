@@ -50,6 +50,7 @@
         epkgs.flycheck
         epkgs.git-gutter
         epkgs.git-timemachine
+        epkgs.gitconfig-mode
         epkgs.haskell-mode
         epkgs.hasklig-mode
         epkgs.ivy
