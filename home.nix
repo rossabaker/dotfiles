@@ -44,6 +44,7 @@
         epkgs.counsel-projectile
         epkgs.crux
         epkgs.delight
+        epkgs.direnv
         epkgs.dockerfile-mode
         epkgs.electric-operator
         epkgs.expand-region

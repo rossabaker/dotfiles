@@ -126,6 +126,10 @@
   :config
   (desktop-save-mode t))
 
+(use-package direnv
+  :config
+  (direnv-mode))
+
 (use-package display-line-numbers
   :hook
   (prog-mode . display-line-numbers-mode)
