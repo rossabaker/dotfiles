@@ -225,6 +225,11 @@
   :hook
   (prog-mode . rainbow-delimiters-mode))
 
+(use-package rainbow-mode
+  :delight
+  :hook
+  (prog-mode . rainbow-mode))
+
 (use-package restclient
   :mode
   ("\\.restclient\\'" . restclient-mode))

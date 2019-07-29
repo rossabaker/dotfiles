@@ -68,6 +68,7 @@
         epkgs.projectile
         epkgs.protobuf-mode
         epkgs.rainbow-delimiters
+        epkgs.rainbow-mode
         epkgs.restart-emacs
         epkgs.restclient
         epkgs.sbt-mode
