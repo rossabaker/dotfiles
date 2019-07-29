@@ -43,6 +43,7 @@
         epkgs.counsel-projectile
         epkgs.crux
         epkgs.delight
+        epkgs.dockerfile-mode
         epkgs.electric-operator
         epkgs.expand-region
         epkgs.flycheck
