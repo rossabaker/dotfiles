@@ -51,6 +51,7 @@
         epkgs.git-gutter
         epkgs.git-timemachine
         epkgs.gitconfig-mode
+        epkgs.gitignore-mode
         epkgs.haskell-mode
         epkgs.hasklig-mode
         epkgs.ivy
