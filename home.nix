@@ -53,6 +53,7 @@
         epkgs.hasklig-mode
         epkgs.ivy
         epkgs.ivy-rich
+        epkgs.json-mode
         epkgs.lsp-mode
         epkgs.lsp-ui
         epkgs.ivy
