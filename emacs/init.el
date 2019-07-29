@@ -164,6 +164,10 @@
   (global-git-gutter-mode +1)
   (setq git-gutter:update-interval 1))
 
+(use-package git-timemachine
+  :bind
+  ("C-c g t" . git-timemachine-toggle))
+
 (use-package hasklig-mode
   :delight
   :hook

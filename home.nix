@@ -49,6 +49,7 @@
         epkgs.expand-region
         epkgs.flycheck
         epkgs.git-gutter
+        epkgs.git-timemachine
         epkgs.haskell-mode
         epkgs.hasklig-mode
         epkgs.ivy
