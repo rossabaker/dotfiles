@@ -39,6 +39,7 @@
         epkgs.better-defaults
         epkgs.company-lsp
         epkgs.company-quickhelp
+        epkgs.company-restclient
         epkgs.counsel
         epkgs.counsel-projectile
         epkgs.crux
@@ -62,6 +63,7 @@
         epkgs.projectile
         epkgs.protobuf-mode
         epkgs.restart-emacs
+        epkgs.restclient
         epkgs.sbt-mode
         epkgs.scala-mode
         epkgs.shell-pop

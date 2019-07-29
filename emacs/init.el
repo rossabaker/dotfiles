@@ -85,6 +85,10 @@
   (setq company-quickhelp-delay nil)
   (company-quickhelp-mode +1))
 
+(use-package company-restclient
+  :config
+  (push 'company-restclient company-backends))
+
 (use-package counsel
   :bind
   ("C-c /" . counsel-git-grep)
@@ -208,6 +212,10 @@
   :config
   (setq projectile-project-search-path '("~/src"))
   (projectile-discover-projects-in-search-path))
+
+(use-package restclient
+  :mode
+  ("\\.restclient\\'" . restclient-mode))
 
 (use-package sbt-mode
   :commands
