@@ -123,6 +123,10 @@
         [url "git@github.com:"]
           insteadOf = "gh:"
       '';
+      ignores = [
+        ".bloop"
+        ".metals"
+      ];
       userEmail = "ross@rossabaker.com";
       userName = "Ross A. Baker";
     };
