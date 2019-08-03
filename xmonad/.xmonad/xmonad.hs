@@ -26,6 +26,7 @@ main = do
   xmonad $ ewmh def
     { manageHook = manageDocks <+> manageHook def
     , layoutHook = myLayout
+    , handleEventHooks = handleEventHook defaultConfig <+> docksEventHook
     , logHook = workspaceNamesPP xmobarPP
                 { ppCurrent = xmobarColor "white" "#00BCD4"
                 , ppVisible = xmobarColor "#81C4BF" ""
@@ -60,7 +61,7 @@ myKeys =
   , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask), (copy, shiftMask .|. controlMask)]] ++
   -- My primary monitor is in the middle, so we flip the usual order of e/w/r
   [((m .|. myModMask, key), screenWorkspace sc >>= flip whenJust (windows . f))
-  | (key, sc) <- zip [xK_e, xK_w, xK_r] [0..]
+  | (key, sc) <- zip [xK_e, xK_r, xK_w] [0..]
   , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 myLayout = avoidStruts $ tall ||| wide ||| full
