@@ -22,6 +22,9 @@
   programs = {
     bash = {
       enable = true;
+      initExtra = ''
+        PS1='\n\[\033[1;36m\][\h:\w]\$\[\033[0m\] '
+      '';
       sessionVariables = {
         NIX_PATH = "$HOME/.nix-defexpr/channels\${NIX_PATH:+:}$NIX_PATH";
       };
