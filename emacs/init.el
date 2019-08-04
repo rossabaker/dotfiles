@@ -139,10 +139,21 @@
 (use-package eldoc
   :delight)
 
-(use-package electric-operator-mode
+(use-package electric-operator
   :delight
   :hook
-  (scala-mode . electric-operator-mode))
+  (scala-mode . electric-operator-mode)
+  :config
+  (apply #'electric-operator-add-rules-for-mode 'scala-mode
+         (electric-operator-get-rules-for-mode 'prog-mode))
+  (electric-operator-add-rules-for-mode 'scala-mode
+                                        (cons "->" " -> ")
+                                        (cons "=>" " => ")
+                                        (cons "%%" " %% ")
+                                        (cons "%%%" " %%% ")
+                                        (cons "/" #'electric-operator-prog-mode-/)
+                                        (cons "/*" " /* ")
+                                        (cons "//" " // ")))
 
 (use-package executable
   :hook
