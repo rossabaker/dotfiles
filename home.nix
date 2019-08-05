@@ -40,6 +40,7 @@
         epkgs.bazel-mode
         epkgs.beacon
         epkgs.better-defaults
+        epkgs.color-theme-sanityinc-tomorrow
         epkgs.company-lsp
         epkgs.company-quickhelp
         epkgs.company-restclient

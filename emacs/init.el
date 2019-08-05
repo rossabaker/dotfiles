@@ -40,6 +40,7 @@
   (avy-setup-default))
 
 (use-package base16-theme
+  :disabled t ;; Switched to sanityinc-tomorrow
   :config
   (load-theme 'base16-materia t)
   (set-face-attribute 'line-number-current-line nil
@@ -61,6 +62,10 @@
   :config
   ;; better-defaults sets one worse default
   (ido-mode -1))
+
+(use-package color-theme-sanityinc-tomorrow
+  :config
+  (load-theme 'sanityinc-tomorrow-night t nil))
 
 (use-package company
   :delight
