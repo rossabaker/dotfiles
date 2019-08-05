@@ -274,6 +274,8 @@
   (:map sbt:mode-map ("C-a" . comint-bol)))
 
 (use-package scala-mode
+  :config
+  (subword-mode +1)
   :bind
   ("C-c m b" . sbt-hydra)
   ("C-c m c" . sbt-do-compile)
