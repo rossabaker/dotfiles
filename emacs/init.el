@@ -65,7 +65,15 @@
 
 (use-package color-theme-sanityinc-tomorrow
   :config
-  (load-theme 'sanityinc-tomorrow-night t nil))
+  (defun ross:load-theme-tomorrow-night ()
+    (interactive)
+    (load-theme 'sanityinc-tomorrow-night t nil))
+  (defun ross:load-theme-tomorrow-day ()
+    (interactive)
+    (load-theme 'sanityinc-tomorrow-day t nil))
+  :bind
+  ("C-c T n" . ross:load-theme-tomorrow-night)
+  ("C-c T d" . ross:load-theme-tomorrow-day))
 
 (use-package company
   :delight
