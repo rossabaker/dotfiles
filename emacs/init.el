@@ -281,6 +281,7 @@
 (use-package scala-mode
   :config
   (subword-mode +1)
+  (which-key-declare-prefixes-for-mode 'scala-mode "C-c m" "scala")
   :bind
   ("C-c m b" . sbt-hydra)
   ("C-c m c" . sbt-do-compile)
@@ -342,7 +343,14 @@
 (use-package which-key
   :delight
   :config
-  (which-key-mode))
+  (which-key-mode)
+  (which-key-declare-prefixes
+    "C-c f" "files"
+    "C-c g" "git"
+    "C-c l" "multi-line"
+    "C-c p" "projectile"
+    "C-c q" "string-inflection"
+    "C-c T" "theme"))
 
 (use-package ws-butler
   :delight
