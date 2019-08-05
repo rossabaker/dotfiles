@@ -56,7 +56,8 @@
   :bind
   ("C-c b" . beacon-blink)
   :config
-  (beacon-mode +1))
+  (beacon-mode +1)
+  (add-to-list 'beacon-dont-blink-major-modes 'shell-mode))
 
 (use-package better-defaults
   :config
