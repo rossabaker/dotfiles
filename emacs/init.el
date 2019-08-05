@@ -235,7 +235,10 @@
 
 (use-package magit
   :bind
-  ("C-c g s" . magit-status))
+  ("C-c g g" . magit-dispatch)
+  ("C-c g S" . magit-stage-file)
+  ("C-c g s" . magit-status)
+  ("C-c g U" . magit-unstage-file))
 
 (use-package multi-line
   :bind
