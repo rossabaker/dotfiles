@@ -60,6 +60,7 @@
         epkgs.gitignore-mode
         epkgs.haskell-mode
         epkgs.hasklig-mode
+        epkgs.hydra
         epkgs.ivy
         epkgs.ivy-rich
         epkgs.json-mode

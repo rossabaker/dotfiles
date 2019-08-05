@@ -273,6 +273,12 @@
   :bind
   (:map sbt:mode-map ("C-a" . comint-bol)))
 
+(use-package scala-mode
+  :bind
+  ("C-c m b" . sbt-hydra)
+  ("C-c m c" . sbt-do-compile)
+  ("C-c m t" . sbt-do-test))
+
 (use-package scroll-bar
   :config
   ;; Disable stubborn scroll bars in emacsclient
