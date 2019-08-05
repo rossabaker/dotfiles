@@ -256,7 +256,9 @@
 (use-package sbt-mode
   :commands
   sbt-start
-  sbt-command)
+  sbt-command
+  :bind
+  (:map sbt:mode-map ("C-a" . comint-bol)))
 
 (use-package scroll-bar
   :config
