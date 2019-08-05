@@ -314,6 +314,9 @@
   ("C-c q q" . string-inflection-all-cycle)
   ("C-c q s" . string-inflection-underscore))
 
+(use-package subword
+  :delight)
+
 (use-package swiper
   :bind
   ("C-c C-r" . ivy-resume)
