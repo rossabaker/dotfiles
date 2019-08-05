@@ -171,7 +171,7 @@
 (use-package frame
   :config
   (blink-cursor-mode -1)
-  (setq default-frame-alist '((font . "Hasklig-14"))))
+  (setq default-frame-alist '((font . "Hasklig-12"))))
 
 (use-package git-gutter
   :delight
