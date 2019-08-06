@@ -129,7 +129,7 @@
   ("C-c D" . crux-delete-file-and-buffer)
   ("C-c I" . crux-find-user-init-file)
   ("C-c d" . crux-duplicate-current-line-or-region)
-  ("C-c e" . crux-eval-and-replace)
+  ;;("C-c e" . crux-eval-and-replace)
   ("C-c r" . crux-rename-file-and-buffer)
   ("C-x 4 t" . crux-transpose-windows))
 
@@ -228,6 +228,10 @@
   :config
   (setq lsp-enable-snippet nil
         lsp-prefer-flymake nil))
+
+(use-package lsp-treemacs
+  :bind
+  ("C-c e t" . lsp-treemacs-errors-list))
 
 (use-package lsp-ui
   :config

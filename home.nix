@@ -65,6 +65,7 @@
         epkgs.ivy-rich
         epkgs.json-mode
         epkgs.lsp-mode
+        epkgs.lsp-treemacs
         epkgs.lsp-ui
         epkgs.ivy
         epkgs.list-environment
