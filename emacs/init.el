@@ -168,6 +168,7 @@
                                         (cons "%%%" " %%% ")
                                         (cons "/*" " /* ")
                                         (cons "//" " // ")
+                                        (cons "++=" " ++= ")
                                         ;; Cats operators
                                         (cons "*>" " *> ")
                                         (cons "<*" " <* ")
@@ -187,7 +188,9 @@
                                         (cons ":<:" " :<: ")
                                         (cons "&>" " &> ")
                                         (cons "<&" " <& ")
-                                        (cons "<<" " << ")))
+                                        (cons "<<" " << ")
+                                        ;; sbt operators
+                                        (cons ":=" " := ")))
 
 (use-package executable
   :hook
