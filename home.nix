@@ -50,6 +50,7 @@
         epkgs.delight
         epkgs.direnv
         epkgs.dockerfile-mode
+        epkgs.dtrt-indent
         epkgs.electric-operator
         epkgs.expand-region
         epkgs.flycheck

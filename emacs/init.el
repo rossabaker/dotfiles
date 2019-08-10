@@ -151,6 +151,10 @@
   :config
   (setq-default display-line-numbers-width 4))
 
+(use-package dtrt-indent
+  :hook
+  (prog-mode . dtrt-indent-mode))
+
 (use-package eldoc
   :delight)
 
