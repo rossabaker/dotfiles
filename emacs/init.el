@@ -166,12 +166,17 @@
   (apply #'electric-operator-add-rules-for-mode 'scala-mode
          (electric-operator-get-rules-for-mode 'prog-mode))
   (electric-operator-add-rules-for-mode 'scala-mode
+                                        (cons "<-" " <- ")
                                         (cons "->" " -> ")
                                         (cons "=>" " => ")
+                                        (cons "<:" " <: ")
+                                        (cons ":>" " :> ")
+                                        (cons "<%" " <% ") ;; deprecated
                                         (cons "%%" " %% ")
                                         (cons "%%%" " %%% ")
                                         (cons "/*" " /* ")
                                         (cons "//" " // ")
+                                        (cons "++" " ++ ")
                                         (cons "++=" " ++= ")
                                         ;; Cats operators
                                         (cons "*>" " *> ")
