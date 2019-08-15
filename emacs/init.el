@@ -150,7 +150,8 @@
   :hook
   (prog-mode . display-line-numbers-mode)
   :config
-  (setq-default display-line-numbers-width 4))
+  (setq-default display-line-numbers-width 4
+                display-line-numbers-widen t))
 
 (use-package dtrt-indent
   :hook
