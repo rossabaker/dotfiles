@@ -14,6 +14,7 @@
 
 (setq inhibit-startup-screen t
       initial-scratch-message "")
+(put 'narrow-to-region 'disabled nil)
 
 ;; We shall endeavor to keep everything out of this, but sometimes
 ;; Emacs really wants to dump custom settings itself.
