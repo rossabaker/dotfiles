@@ -16,6 +16,7 @@
     packages = [
       pkgs.bashInteractive
       pkgs.hasklig
+      pkgs.sbt-extras
     ];
   };
 
