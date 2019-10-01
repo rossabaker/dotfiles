@@ -154,6 +154,7 @@
                 display-line-numbers-widen t))
 
 (use-package dtrt-indent
+  :delight
   :hook
   (prog-mode . dtrt-indent-mode))
 
