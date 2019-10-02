@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
+in
 {
   fonts.fontconfig.enable = true;
 
@@ -14,9 +17,11 @@
     };
 
     packages = [
+      (all-hies.selection { selector = p: { inherit (p) ghc865; }; })
       pkgs.bashInteractive
       pkgs.hasklig
       pkgs.sbt-extras
+      pkgs.stack
     ];
   };
 
@@ -66,6 +71,7 @@
         epkgs.ivy
         epkgs.ivy-rich
         epkgs.json-mode
+        epkgs.lsp-haskell
         epkgs.lsp-mode
         epkgs.lsp-treemacs
         epkgs.lsp-ui

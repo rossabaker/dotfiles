@@ -256,6 +256,11 @@
   :config
   (ivy-rich-mode +1))
 
+(use-package lsp-haskell
+  :demand
+  :hook
+  (haskell-mode . lsp))
+
 (use-package lsp-mode
   :hook
   (scala-mode . lsp)
