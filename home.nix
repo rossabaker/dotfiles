@@ -54,6 +54,7 @@ in
         epkgs.counsel-projectile
         epkgs.crux
         epkgs.delight
+        epkgs.dhall-mode
         epkgs.direnv
         epkgs.dockerfile-mode
         epkgs.dtrt-indent
