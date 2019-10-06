@@ -204,6 +204,10 @@
                                         ;; sbt operators
                                         (cons ":=" " := ")))
 
+(use-package ess
+  :init (require 'ess-site)
+  :commands R)
+
 (use-package executable
   :hook
   (after-save . executable-make-buffer-file-executable-if-script-p))

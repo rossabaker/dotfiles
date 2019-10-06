@@ -59,6 +59,7 @@ in
         epkgs.dockerfile-mode
         epkgs.dtrt-indent
         epkgs.electric-operator
+        epkgs.ess
         epkgs.expand-region
         epkgs.flycheck
         epkgs.git-gutter
