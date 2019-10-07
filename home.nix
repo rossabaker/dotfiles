@@ -97,6 +97,7 @@ in
         epkgs.scala-mode
         epkgs.shell-pop
         epkgs.smartparens
+        epkgs.stan-mode
         epkgs.string-inflection
         epkgs.swiper
         epkgs.systemd
