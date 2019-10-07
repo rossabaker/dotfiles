@@ -36,6 +36,11 @@ in
       };
     };
 
+    direnv = {
+      enable = true;
+      enableBashIntegration = true;
+    };
+
     emacs = {
       enable = true;
       extraPackages = epkgs: [
