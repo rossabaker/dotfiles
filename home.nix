@@ -16,6 +16,10 @@ in
       ".emacs.d/init.el".source = emacs/init.el;
     };
 
+    keyboard.options = [
+      "ctrl:nocaps"
+    ];
+
     packages = [
       (all-hies.selection { selector = p: { inherit (p) ghc865; }; })
       pkgs.bashInteractive
