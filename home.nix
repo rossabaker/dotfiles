@@ -14,6 +14,7 @@ in
       };
       ".emacs.d/custom.el".source = emacs/custom.el;
       ".emacs.d/init.el".source = emacs/init.el;
+      ".xsettingsd".source = xsettingsd/.xsettingsd;
     };
 
     keyboard.options = [
@@ -26,6 +27,7 @@ in
       pkgs.hasklig
       pkgs.sbt-extras
       pkgs.stack
+      pkgs.xsettingsd
     ];
   };
 
@@ -41,7 +43,7 @@ in
           config = {
             eDP-1-1 = {
               enable = true;
-              dpi = 160;
+              dpi = 176;
               mode = "3840x2160";
               position = "0x0";
               primary = true;
@@ -193,6 +195,25 @@ in
     gpg-agent = {
       enable = true;
       enableSshSupport = true;
+    };
+  };
+
+  systemd.user.services = {
+    xsettingsd = {
+      Unit = {
+        Description = "X Settings Daemon";
+        After = [ "graphical-session-pre.target" ];
+        PartOf = [ "graphical-session.target" ];
+      };
+
+      Service = {
+        ExecStart = "/usr/bin/env xsettingsd";
+        ExecStop = "/usr/bin/env pkill xsettingsd";
+      };
+
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
+      };
     };
   };
 
