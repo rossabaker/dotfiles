@@ -14,6 +14,7 @@ in
       };
       ".emacs.d/custom.el".source = emacs/custom.el;
       ".emacs.d/init.el".source = emacs/init.el;
+      ".xmonad/xmonad.hs".source = xmonad/xmonad.hs;
       ".xsettingsd".source = xsettingsd/.xsettingsd;
     };
 
