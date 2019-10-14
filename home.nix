@@ -14,7 +14,6 @@ in
       };
       ".emacs.d/custom.el".source = emacs/custom.el;
       ".emacs.d/init.el".source = emacs/init.el;
-      ".xmonad/xmonad.hs".source = xmonad/xmonad.hs;
       ".xsettingsd".source = xsettingsd/.xsettingsd;
     };
 
@@ -222,13 +221,10 @@ in
     enable = true;
 
     windowManager = {
-      command =
-        let
-          xmonad = pkgs.xmonad-with-packages.override {
-            packages = self: [ self.xmonad-contrib self.taffybar ];
-          };
-        in
-          "${xmonad}/bin/xmonad";
+      xmonad = {
+        enable = true;
+        config = xmonad/xmonad.hs;
+      };
     };
   };
 }
