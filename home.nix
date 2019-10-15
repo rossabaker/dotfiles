@@ -24,6 +24,7 @@ in
     packages = [
       (all-hies.selection { selector = p: { inherit (p) ghc865; }; })
       pkgs.bashInteractive
+      pkgs.gitter
       pkgs.hasklig
       pkgs.sbt-extras
       pkgs.slack
