@@ -1,5 +1,6 @@
 import XMonad
 
 main = xmonad defaultConfig
-  { modMask = mod4Mask
+  { borderWidth = 4
+  , modMask = mod4Mask
   }
