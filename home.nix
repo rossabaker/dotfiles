@@ -25,6 +25,7 @@ in
       (all-hies.selection { selector = p: { inherit (p) ghc865; }; })
       pkgs.bashInteractive
       pkgs.gitter
+      pkgs.google-chrome
       pkgs.hasklig
       pkgs.sbt-extras
       pkgs.slack
