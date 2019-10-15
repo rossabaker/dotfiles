@@ -26,6 +26,7 @@ in
       pkgs.bashInteractive
       pkgs.hasklig
       pkgs.sbt-extras
+      pkgs.slack
       pkgs.stack
       pkgs.xsettingsd
     ];
