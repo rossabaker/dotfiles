@@ -64,6 +64,8 @@ in
       '';
       sessionVariables = {
         NIX_PATH = "$HOME/.nix-defexpr/channels\${NIX_PATH:+:}$NIX_PATH";
+        # Hack aronud https://github.com/rycee/home-manager/issues/423 for termite
+        TERMINFO_DIRS="$HOME/.nix-profile/share/terminfo:/lib/terminfo";
       };
     };
 
@@ -186,6 +188,34 @@ in
       ];
       userEmail = "ross@rossabaker.com";
       userName = "Ross A. Baker";
+    };
+
+    termite = {
+      enable = true;
+      colorsExtra = ''
+         color0 = #1d1f21
+         color8 = #969896
+         color1 = #912226
+         color9 = #cc6666
+         color2 = #778900
+         color10 = #b5bd68
+         color3 = #ae7b00
+         color11 = #f0c674
+         color4 = #1d2594
+         color12 = #81a2be
+         color5 = #682a9b
+         color13 = #b294bb
+         color6 = #2b6651
+         color14 = #8abeb7
+         color7 = #929593
+         color15 = #ecebec
+      '';
+      backgroundColor = "#1d1f21";
+      foregroundColor = "#c5c8c6";
+      foregroundBoldColor = "#ffffff";
+      highlightColor = "#d6d6d6";
+      cursorBlink = "off";
+      font = "Hasklig 12";
     };
 
     # Let Home Manager install and manage itself.
