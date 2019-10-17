@@ -224,7 +224,8 @@
 (use-package frame
   :config
   (blink-cursor-mode -1)
-  (setq default-frame-alist '((font . "Hasklig-12"))))
+  (unless (eq system-type 'darwin)
+    (setq default-frame-alist '((font . "Hasklig-12")))))
 
 (use-package git-gutter
   :delight
@@ -302,7 +303,8 @@
   :bind-keymap
   ("C-c p" . projectile-command-map)
   :config
-  (setq projectile-project-search-path '("~/src"))
+  (if (file-directory-p "~/src")
+      (setq projectile-project-search-path '("~/src")))
   (projectile-discover-projects-in-search-path))
 
 (use-package rainbow-delimiters
