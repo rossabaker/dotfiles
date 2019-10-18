@@ -128,7 +128,10 @@ in {
     windowManager = {
       xmonad = {
         enable = true;
-        enableContribAndExtras = true;
+        extraPackages = haskellPackages: [
+          haskellPackages.taffybar
+          haskellPackages.xmonad-contrib
+        ];
         config = xmonad/xmonad.hs;
       };
     };
