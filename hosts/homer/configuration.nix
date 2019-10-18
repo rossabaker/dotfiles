@@ -104,6 +104,8 @@
   # should.
   system.stateVersion = "19.09"; # Did you read the comment?
 
+  nix.trustedUsers = [ "root" "ross" ];
+
   nixpkgs.config.allowUnfree = true;
 }
 
