@@ -9,6 +9,7 @@ in {
          source = systemd/cros-garcon.service.d;
          recursive = true;
       };
+      ".config/taffybar/taffybar.hs".source = taffybar/taffybar.hs;
       ".xsettingsd".source = xsettingsd/.xsettingsd;
     };
 
@@ -95,6 +96,10 @@ in {
     gpg-agent = {
       enable = true;
       enableSshSupport = true;
+    };
+
+    taffybar = {
+      enable = true;
     };
   };
 
