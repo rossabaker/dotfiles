@@ -3,6 +3,14 @@
 let
   xsettingsd = pkgs.xsettingsd;
 in {
+  gtk = {
+    enable = true;
+    iconTheme = {
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus";
+    };
+  };
+
   home = {
     file = {
       ".config/systemd/user/cros-garcon.service.d" = {
@@ -19,6 +27,7 @@ in {
 
     packages = [
       pkgs.gitter
+      pkgs.gnome3.dconf # gtk doesn't configure without it
       pkgs.google-chrome
       pkgs.slack
       pkgs.xsettingsd
