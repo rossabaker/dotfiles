@@ -91,7 +91,7 @@
 
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.default = "none";
-  services.xserver.videoDrivers = [ "intel" "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ross = {
