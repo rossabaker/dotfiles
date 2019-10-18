@@ -10,6 +10,8 @@
       ./hardware-configuration.nix
     ];
 
+  boot.earlyVconsoleSetup = true;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -38,11 +40,12 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "Lat2-Terminus16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
+  i18n = {
+    consoleFont = "ter-132b";
+    consolePackages = with pkgs; [ terminus_font ];
+    consoleKeyMap = "us";
+    defaultLocale = "en_US.UTF-8";
+  };
 
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
