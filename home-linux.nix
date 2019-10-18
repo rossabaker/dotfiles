@@ -93,6 +93,10 @@ in {
   };
 
   services = {
+    compton = {
+      enable = true;
+    };
+
     gpg-agent = {
       enable = true;
       enableSshSupport = true;
