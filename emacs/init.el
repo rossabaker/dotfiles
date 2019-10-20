@@ -325,7 +325,9 @@
   sbt-start
   sbt-command
   :bind
-  (:map sbt:mode-map ("C-a" . comint-bol)))
+  (:map sbt:mode-map ("C-a" . comint-bol))
+  :config
+  (add-to-list 'sbt:program-options "-Dsbt.supershell=false"))
 
 (use-package scala-mode
   :config
