@@ -98,13 +98,11 @@ in {
   };
 
   services = {
-    emacs.enable = true;
-  };
-
-  services = {
     compton = {
       enable = true;
     };
+
+    emacs.enable = true;
 
     gpg-agent = {
       enable = true;
