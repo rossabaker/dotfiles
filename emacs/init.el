@@ -281,7 +281,8 @@
 
 (use-package lsp-ui
   :config
-  (setq lsp-ui-sideline-show-hover nil))
+  (setq lsp-ui-doc-enable nil
+        lsp-ui-sideline-enable nil))
 
 (use-package magit
   :bind
