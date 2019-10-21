@@ -224,8 +224,10 @@
 (use-package frame
   :config
   (blink-cursor-mode -1)
-  (unless (eq system-type 'darwin)
-    (setq default-frame-alist '((font . "Hasklig-12")))))
+  ;; Hasklig is in home.packages, but on Mac, I needed to install it
+  ;; into FontBook from ~/.nix-profile/share/fonts. ¯\_(ツ)_/¯
+  (if (member "Hasklig" (font-family-list))
+      (setq default-frame-alist '((font . "Hasklig-12")))))
 
 (use-package git-gutter
   :delight
