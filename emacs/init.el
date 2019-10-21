@@ -293,6 +293,12 @@
   ("C-c l m" . multi-line)
   ("C-c l s" . multi-line-single-line))
 
+(use-package ns-win
+  :config
+  (when (eq system-type 'darwin)
+    (setq mac-command-modifier 'meta)
+    (setq mac-option-modifier 'super)))
+
 (use-package proced
   :hook
   (proced-mode . (lambda () (proced-toggle-auto-update +1)))
