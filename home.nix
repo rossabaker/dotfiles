@@ -22,6 +22,7 @@ in rec {
     packages = [
       (all-hies.selection { selector = p: { inherit (p) ghc865; }; })
       pkgs.bashInteractive
+      pkgs.gnupg
       pkgs.hasklig
       pkgs.sbt-extras
       pkgs.stack
