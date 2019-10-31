@@ -29,6 +29,12 @@ in rec {
     ];
   };
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
+
   programs = {
     bash = {
       enable = true;
