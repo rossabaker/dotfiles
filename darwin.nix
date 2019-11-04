@@ -11,6 +11,8 @@
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
   environment.darwinConfig = "$HOME/src/nix-config/hosts/$HOSTNAME/configuration.nix";
 
+  environment.shells = [ pkgs.bashInteractive ];
+
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   # nix.package = pkgs.nix;
