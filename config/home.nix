@@ -155,10 +155,11 @@ in rec {
 
     git = {
       enable = true;
-      extraConfig = ''
-        [url "git@github.com:"]
-          insteadOf = "gh:"
-      '';
+      extraConfig = {
+        url = {
+          "git@github.com" = { insteadOf = "gh"; } ;
+        };
+      };
       ignores = [
         ".bloop"
         ".metals"
