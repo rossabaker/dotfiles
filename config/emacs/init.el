@@ -297,8 +297,9 @@
   ("C-c l s" . multi-line-single-line))
 
 (use-package ns-win
+  :if (eq system-type 'darwin)
   :config
-  (when (eq system-type 'darwin)
+  (when
     (setq mac-command-modifier 'meta)
     (setq mac-option-modifier 'super)))
 
