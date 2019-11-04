@@ -30,6 +30,7 @@ in {
       pkgs.gnome3.dconf # gtk doesn't configure without it
       pkgs.google-chrome
       pkgs.slack
+      pkgs.spotify
       pkgs.xsettingsd
     ];
   };
