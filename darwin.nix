@@ -26,5 +26,10 @@
   # $ darwin-rebuild changelog
   system.stateVersion = 4;
 
+  system.keyboard = {
+    enableKeyMapping = true;
+    remapCapsLockToControl = true;
+  };
+
   nix.trustedUsers = [ "@admin" ];
 }
