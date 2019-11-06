@@ -306,7 +306,9 @@
   (defun ross/nix-mode-comint-hook ()
     (setq comint-process-echoes t))
   :hook
-  (nix-repl-mode . ross/nix-mode-comint-hook))
+  (nix-repl-mode . ross/nix-mode-comint-hook)
+  :bind
+  ("C-c a n" . nix-repl))
 
 (use-package ns-win
   :if (eq system-type 'darwin)
