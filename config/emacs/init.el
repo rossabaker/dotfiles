@@ -301,6 +301,13 @@
   ("C-c l m" . multi-line)
   ("C-c l s" . multi-line-single-line))
 
+(use-package nix-mode
+  :config
+  (defun ross/nix-mode-comint-hook ()
+    (setq comint-process-echoes t))
+  :hook
+  (nix-repl-mode . ross/nix-mode-comint-hook))
+
 (use-package ns-win
   :if (eq system-type 'darwin)
   :config
