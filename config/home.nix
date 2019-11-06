@@ -149,7 +149,6 @@ in rec {
             };
           };
           sbt-mode = withPatches super.sbt-mode [
-            ./emacs/patches/sbt-mode/889efbafc6f831713422884864a1b0adb6e30f38.patch
             ./emacs/patches/sbt-mode/e9aa908d1b80dc2618eab22eeefc68ae82d0026f.patch
           ];
         };

@@ -31,5 +31,11 @@
     remapCapsLockToControl = true;
   };
 
+  nix.nixPath = [
+    { darwin = ./modules/nix-darwin; }
+    { nixpkgs = ./modules/nixpkgs; }
+    { home-manager = ./modules/home-manager; }
+  ];
+
   nix.trustedUsers = [ "@admin" ];
 }
