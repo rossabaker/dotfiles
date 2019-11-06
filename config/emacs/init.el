@@ -208,6 +208,11 @@
   :init (require 'ess-site)
   :commands R)
 
+(use-package exec-path-from-shell
+  :config
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
+
 (use-package executable
   :hook
   (after-save . executable-make-buffer-file-executable-if-script-p))

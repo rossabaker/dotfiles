@@ -76,6 +76,7 @@ in rec {
         epkgs.dtrt-indent
         epkgs.electric-operator
         epkgs.ess
+        epkgs.exec-path-from-shell
         epkgs.expand-region
         epkgs.flycheck
         epkgs.git-gutter
