@@ -37,5 +37,8 @@
     { home-manager = ./modules/home-manager; }
   ];
 
-  nix.trustedUsers = [ "@admin" ];
+  nix.trustedUsers = [
+    "@admin"
+    "rossbaker" # cachix doesn't support groups yet
+  ];
 }
