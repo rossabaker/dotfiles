@@ -32,9 +32,9 @@
   };
 
   nix.nixPath = [
-    { darwin = ./modules/nix-darwin; }
-    { nixpkgs = ./modules/nixpkgs; }
-    { home-manager = ./modules/home-manager; }
+    { darwin = ./nix-darwin; }
+    { nixpkgs = ./nixpkgs; }
+    { home-manager = ./home-manager; }
   ];
 
   nix.trustedUsers = [
