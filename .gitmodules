@@ -1,6 +1,7 @@
 [submodule "nixpkgs"]
 	path = nixpkgs
-	url = https://github.com/NixOS/nixpkgs.git
+	url = https://github.com/NixOS/nixpkgs-channels.git
+	branch = nixos-unstable
 [submodule "nix-darwin"]
 	path = nix-darwin
 	url = https://github.com/LnL7/nix-darwin.git
