@@ -8,8 +8,8 @@ os-switch:
 ifeq ($(UNAME_S),Linux)
 	sudo nixos-rebuild switch -I nixos-config=$(NIX_CONFIG)/hosts/$(HOST)/configuration.nix
 else ifeq ($(UNAME_S),Darwin)
-	darwin-rebuild switch
+	darwin-rebuild switch -I darwin-config=darwin.nix -I darwin=nix-darwin -I nixpkgs=nixpkgs
 endif
 
 hm-switch:
-	HOME_MANAGER_CONFIG=$(NIX_CONFIG)/config/home.nix home-manager switch
+	HOME_MANAGER_CONFIG=$(NIX_CONFIG)/config/home.nix home-manager switch -I nixpkgs=nixpkgs
