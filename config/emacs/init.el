@@ -340,6 +340,8 @@
   :bind
   ("C-c a n" . nix-repl))
 
+(use-package nix-sandbox)
+
 (use-package ns-win
   :if (eq system-type 'darwin)
   :config

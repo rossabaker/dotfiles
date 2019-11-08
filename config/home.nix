@@ -102,6 +102,7 @@ in rec {
         epkgs.list-environment
         epkgs.multi-line
         epkgs.nix-mode
+        epkgs.nix-sandbox
         epkgs.magit
         epkgs.projectile
         epkgs.protobuf-mode
