@@ -224,7 +224,10 @@
 (use-package flycheck
   :delight
   :config
-  (global-flycheck-mode))
+  (global-flycheck-mode)
+  (setq flycheck-global-modes
+        '(not haskell-interactive-mode ;; https://github.com/haskell/haskell-mode/issues/1015
+              )))
 
 (use-package frame
   :config
@@ -252,6 +255,18 @@
   :bind
   ("C-c g t" . git-timemachine-toggle))
 
+(use-package haskell-mode
+  :config
+  (setq
+   ;; TODO This should not be global, but it lets us build with cabal
+   ;; inside a nix shell.
+   haskell-process-type 'cabal-new-repl
+   haskell-process-suggest-remove-import-lines t
+   haskell-process-auto-import-loaded-modules t
+   haskell-process-log t
+   haskell-process-wrapper-function #'identity)
+  :hook (haskell-mode . interactive-haskell-mode))
+
 (use-package hasklig-mode
   :delight
   :hook
@@ -269,7 +284,19 @@
   (ivy-rich-mode +1))
 
 (use-package lsp-haskell
+  ;; Disabled until we cajole it in into using cabal-3.0
+  ;; https://github.com/haskell/haskell-ide-engine/pull/1126
+  ;; https://github.com/haskell/haskell-ide-engine/issues/1432
+  ;; https://github.com/haskell/haskell-ide-engine/issues/1376
+  :disabled t
   :demand
+  :config
+  (setq lsp-haskell-process-wrapper-function
+        (lambda (args)
+          (append
+           (append (list "nix-shell" "-I" "." "--command" )
+                   (list (mapconcat 'identity args " ")))
+           (list (nix-current-sandbox)))))
   :hook
   (haskell-mode . lsp))
 
