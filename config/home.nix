@@ -15,6 +15,7 @@ in rec {
 
   home = {
     file = {
+      ".config/direnv/direnvrc".source = direnv/direnvrc;
       ".emacs.d/custom.el".source = emacs/custom.el;
       ".emacs.d/init.el".source = emacs/init.el;
     };
@@ -164,6 +165,7 @@ in rec {
       ignores = [
         ".bloop"
         ".metals"
+        ".direnv.d/env-*"
       ];
       userEmail = "ross@rossabaker.com";
       userName = "Ross A. Baker";
