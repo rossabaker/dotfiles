@@ -255,6 +255,10 @@
   :bind
   ("C-c g t" . git-timemachine-toggle))
 
+(use-package haskell
+  :delight interactive-haskell-mode
+  :hook (haskell-mode . interactive-haskell-mode))
+
 (use-package haskell-mode
   :config
   (setq
@@ -264,8 +268,7 @@
    haskell-process-suggest-remove-import-lines t
    haskell-process-auto-import-loaded-modules t
    haskell-process-log t
-   haskell-process-wrapper-function #'identity)
-  :hook (haskell-mode . interactive-haskell-mode))
+   haskell-process-wrapper-function #'identity))
 
 (use-package hasklig-mode
   :delight
