@@ -89,7 +89,10 @@
   services.xserver.libinput.enable = true;
 
   services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.default = "none";
+  services.xserver.desktopManager = {
+    default = "xterm";
+    xterm.enable = true;
+  };
   services.xserver.videoDrivers = [ "nvidia" ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
