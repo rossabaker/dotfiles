@@ -106,7 +106,7 @@ in {
     emacs.enable = true;
 
     gpg-agent = {
-      enable = true;
+      enable = false; # Using system one for now: https://github.com/NixOS/nixpkgs/issues/72597
       enableSshSupport = true;
     };
 
