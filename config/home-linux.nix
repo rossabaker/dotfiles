@@ -117,7 +117,7 @@ in {
     polybar = {
       enable = true;
       config = ./polybar/config;
-      script = "polybar main &";
+      script = "${pkgs.polybar}/bin/polybar main &";
     };
   };
 
