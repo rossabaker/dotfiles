@@ -56,7 +56,7 @@ font-0 = Hasklig:pixelsize=12;1
 font-1 = Unifont:fontformat=truetype:size=12:antialias=false;0
 font-2 = siji:pixelsize=12;1
 
-modules-left = 
+modules-left = xmonad
 modules-center = 
 modules-right = filesystem xbacklight alsa xkeyboard memory cpu wlan eth battery temperature date powermenu
 
@@ -168,6 +168,10 @@ label-urgent-padding = 2
 ; Separator in between workspaces
 ; label-separator = |
 
+[module/xmonad]
+type = custom/script
+exec = ~/.nix-profile/bin/xmonad-log
+tail = true
 
 [module/mpd]
 type = internal/mpd

@@ -31,6 +31,7 @@ in {
       pkgs.slack
       pkgs.spotify
       pkgs.xsettingsd
+      pkgs.xmonad-log
     ];
   };
 
@@ -142,6 +143,7 @@ in {
       xmonad = {
         enable = true;
         extraPackages = haskellPackages: [
+          haskellPackages.dbus
           haskellPackages.xmonad-contrib
         ];
         config = xmonad/xmonad.hs;
