@@ -27,7 +27,9 @@ in rec {
       pkgs.gnupg
       pkgs.hasklig
       pkgs.sbt-extras
+      pkgs.siji
       pkgs.stack
+      pkgs.unifont
     ];
   };
 

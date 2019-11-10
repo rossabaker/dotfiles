@@ -17,7 +17,6 @@ in {
          source = systemd/cros-garcon.service.d;
          recursive = true;
       };
-      ".config/taffybar/taffybar.hs".source = taffybar/taffybar.hs;
       ".xsettingsd".source = xsettingsd/.xsettingsd;
     };
 
@@ -110,8 +109,10 @@ in {
       enableSshSupport = true;
     };
 
-    taffybar = {
+    polybar = {
       enable = true;
+      config = ./polybar/config;
+      script = "polybar example &";
     };
   };
 
@@ -141,7 +142,6 @@ in {
       xmonad = {
         enable = true;
         extraPackages = haskellPackages: [
-          haskellPackages.taffybar
           haskellPackages.xmonad-contrib
         ];
         config = xmonad/xmonad.hs;

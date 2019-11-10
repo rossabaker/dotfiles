@@ -1,6 +1,5 @@
 import XMonad
 
-import System.Taffybar.Support.PagerHints (pagerHints)
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.EZConfig
@@ -14,7 +13,6 @@ myKeys = [ ("<XF86AudioMute>"       , spawn "amixer -c 0 set Master toggle")
 main = xmonad $
        docks $
        ewmh $
-       pagerHints $
        def
   { borderWidth = 4
   , modMask = mod4Mask
