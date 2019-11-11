@@ -359,6 +359,11 @@
   :config
   (setq proced-auto-update-interval 1))
 
+(use-package prog-mode
+  :config
+  (setq prettify-symbols-unprettify-at-point 'right-edge)
+  (global-prettify-symbols-mode +1))
+
 (use-package projectile
   :bind-keymap
   ("C-c p" . projectile-command-map)
