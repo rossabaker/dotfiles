@@ -425,7 +425,8 @@
 
 (use-package simple
   :config
-  (column-number-mode +1))
+  (column-number-mode +1)
+  (size-indication-mode +1))
 
 (use-package smartparens
   :delight
