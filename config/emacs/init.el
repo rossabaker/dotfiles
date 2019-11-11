@@ -380,6 +380,10 @@
   :mode
   ("\\.restclient\\'" . restclient-mode))
 
+(use-package saveplace
+  :config
+  (save-place-mode t))
+
 (use-package sbt-mode
   :commands
   sbt-start
