@@ -33,7 +33,7 @@ width = 100%
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -44,11 +44,11 @@ line-color = #f00
 border-size = 0
 border-color = #00000000
 
-padding-left = 0
-padding-right = 2
+padding-left = 1.5
+padding-right = 1.5
 
-module-margin-left = 1
-module-margin-right = 2
+module-margin-left = 1.5
+module-margin-right = 1.5
 
 font-0 = Hasklig:size=12;0
 font-1 = Unifont:fontformat=truetype:size=12:antialias=false;0
@@ -57,7 +57,7 @@ font-3 = siji:pixelsize=12;0
 
 modules-left = xmonad
 modules-center = 
-modules-right = filesystem xbacklight alsa memory cpu wlan battery temperature date
+modules-right = memory cpu wlan alsa battery time
 
 tray-position = right
 tray-padding = 2
@@ -102,7 +102,7 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-label = %percentage_used%%
+label = %gb_used%
 
 [module/wlan]
 type = internal/network
@@ -112,11 +112,11 @@ interval = 3.0
 format-connected = <ramp-signal> <label-connected>
 label-connected = %essid%
 
-format-disconnected = 浪
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
+format-disconnected = <label-disconnected>
+format-disconnected-prefix = "%{T3}浪%{T-} "
+format-disconnected-prefix-foreground = ${colors.alert}
 label-disconnected = disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+label-disconnected-foreground = ${colors.foreground-alt}
 
 ramp-signal-0 = 爛
 ramp-signal-1 = 嵐
@@ -129,16 +129,23 @@ ramp-signal-font = 3
 type = internal/date
 interval = 1.0
 
-date =
-date-alt = " %a %Y-%m-%d"
+date = %a %d
 
-time = %H:%M
-time-alt = %H:%M:%S
-
-format-prefix = "%{T3}肋%{T-}"
+format-prefix = "%{T3}%{T-} "
 format-prefix-foreground = ${colors.foreground-alt}
 
-label = %date% %time%
+label = %date%
+
+[module/time]
+type = internal/date
+interval = 1.0
+
+time = %H:%M
+
+format-prefix = "%{T3}肋%{T-} "
+format-prefix-foreground = ${colors.foreground-alt}
+
+label = %time%
 
 [module/alsa]
 type = internal/alsa
@@ -169,7 +176,9 @@ format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 
 ramp-capacity-0 = 
+ramp-capacity-0.foreground = ${colors.alert}
 ramp-capacity-1 = 
+ramp-capacity-1.foreground = ${colors.alert}
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
