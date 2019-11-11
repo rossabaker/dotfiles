@@ -28,6 +28,8 @@ myKeys = [ ("<XF86AudioMute>"       , spawn "amixer -c 0 set Master toggle")
          , ("<XF86AudioLowerVolume>", spawn "amixer -c 0 set Master 5%-")
          , ("<XF86AudioRaiseVolume>", spawn "amixer -c 0 set Master 5%+")
          , ("<XF86AudioMicMute>"    , spawn "amixer -c 0 set Capture toggle")
+         , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 5")
+         , ("<XF86MonBrightnessUp>"  , spawn "xbacklight -inc 5")
          ]
 
 main = do

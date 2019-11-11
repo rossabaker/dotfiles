@@ -34,6 +34,7 @@ in {
       pkgs.google-chrome
       pkgs.slack
       pkgs.spotify
+      pkgs.xorg.xbacklight
       pkgs.xsettingsd
       pkgs.xmonad-log
     ];
