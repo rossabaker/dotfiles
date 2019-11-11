@@ -13,7 +13,9 @@
 (require 'delight)
 
 (setq inhibit-startup-screen t
-      initial-scratch-message "")
+      initial-scratch-message ""
+      scroll-conservatively 101
+      scroll-preserve-screen-position t)
 (put 'narrow-to-region 'disabled nil)
 
 ;; We shall endeavor to keep everything out of this, but sometimes
@@ -470,6 +472,10 @@
   :config
   (tooltip-mode -1)
   (setq tooltip-use-echo-area t))
+
+(use-package uniquify
+  :config
+  (setq uniquify-ignore-buffers-re "^\\*"))
 
 (use-package unfill
   :bind
