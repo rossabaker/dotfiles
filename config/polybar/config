@@ -194,12 +194,6 @@ animation-charging-10 = 
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 500
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
-
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
