@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ dpi ? 96, pkgs, ... }:
 
 let
   xsettingsd = pkgs.xsettingsd;
@@ -19,7 +19,9 @@ in {
          source = systemd/cros-garcon.service.d;
          recursive = true;
       };
-      ".xsettingsd".source = xsettingsd/.xsettingsd;
+      ".xsettingsd".text = ''
+        Xft/DPI ${toString (dpi * 1024)}
+      '';
     };
 
     keyboard.options = [
