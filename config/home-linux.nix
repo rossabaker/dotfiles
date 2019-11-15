@@ -115,7 +115,7 @@ in {
     polybar = {
       enable = true;
       config = ./polybar/config;
-      script = "polybar example &";
+      script = "polybar main &";
     };
   };
 
