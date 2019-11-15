@@ -1,8 +1,10 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 let
   xsettingsd = pkgs.xsettingsd;
 in {
+  imports = [ ./home.nix ];
+
   gtk = {
     enable = true;
     iconTheme = {

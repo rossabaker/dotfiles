@@ -12,7 +12,7 @@ else ifeq ($(UNAME_S),Darwin)
 endif
 
 hm-switch:
-	HOME_MANAGER_CONFIG=$(NIX_CONFIG)/config/home.nix home-manager -I home-manager=home-manager -I nixpkgs=nixpkgs switch
+	HOME_MANAGER_CONFIG=$(NIX_CONFIG)/hosts/$(HOST)/home.nix home-manager -I home-manager=home-manager -I nixpkgs=nixpkgs switch
 
 cachix-install:
 	nix-env -iA cachix -f https://cachix.org/api/v1/install

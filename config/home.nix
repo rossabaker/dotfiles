@@ -1,16 +1,9 @@
-{ lib, pkgs, ... }:
+{ pkgs, ... }:
 
 let
-  # Works around an irritating recursion that I don't understand yet.
-  isLinux = (import <nixpkgs> {}).stdenv.isLinux;
-  isDarwin = (import <nixpkgs> {}).stdenv.isDarwin;
-
   all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
 
 in rec {
-  imports = lib.optional isLinux ./home-linux.nix ++
-            lib.optional isDarwin ./home-darwin.nix;
-
   fonts.fontconfig.enable = true;
 
   home = {
