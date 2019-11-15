@@ -31,6 +31,10 @@ in rec {
     config = {
       allowUnfree = true;
     };
+
+    overlays = [
+      (import ../overlays/zoom-us.nix)
+    ];
   };
 
   programs = {
