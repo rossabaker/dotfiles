@@ -40,11 +40,9 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "Lat2-Terminus16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
+  i18n = {
+    consoleKeyMap = ./keys.map;
+  };
 
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";
