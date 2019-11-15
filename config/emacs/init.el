@@ -142,6 +142,10 @@
   :config
   (desktop-save-mode t))
 
+(use-package dhall-mode
+  :config
+  (setq dhall-format-arguments '("--ascii")))
+
 (use-package direnv
   :config
   (direnv-mode))

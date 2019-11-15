@@ -16,6 +16,7 @@ in rec {
     packages = [
       (all-hies.selection { selector = p: { inherit (p) ghc865; }; })
       pkgs.bashInteractive
+      pkgs.dhall
       pkgs.direnv
       pkgs.gnupg
       pkgs.hasklig
