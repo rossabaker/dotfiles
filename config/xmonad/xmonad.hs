@@ -30,6 +30,7 @@ myKeys = [ ("<XF86AudioMute>"       , spawn "amixer -c 0 set Master toggle")
          , ("<XF86AudioMicMute>"    , spawn "amixer -c 0 set Capture toggle")
          , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 5")
          , ("<XF86MonBrightnessUp>"  , spawn "xbacklight -inc 5")
+         , ("M-p", spawn "rofi -show run")
          ]
 
 main = do

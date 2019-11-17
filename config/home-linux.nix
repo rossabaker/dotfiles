@@ -79,6 +79,32 @@ in {
       };
     };
 
+    rofi = {
+      enable = true;
+      colors = {
+        window = {
+          background = "#1d1f21";
+          border = "#f0c674";
+          separator = "#969896";
+        };
+
+        rows = {
+          normal = {
+            background = "#1d1f21";
+            backgroundAlt = "#1d1f21";
+            foreground = "#c5c8c6";
+            highlight = {
+              background = "#f0c674";
+              foreground = "#1d1f21";
+            };
+          };
+        };
+      };
+      font = "sans-serif 12";
+      extraConfig = ''rofi.dpi: ${toString dpi}'';
+      padding = 12 * dpi / 96;
+    };
+
     termite = {
       enable = true;
       colorsExtra = ''
@@ -104,7 +130,7 @@ in {
       foregroundBoldColor = "#ffffff";
       highlightColor = "#d6d6d6";
       cursorBlink = "off";
-      font = "Hasklig 12";
+      font = "Hasklig:size-12";
     };
   };
 
