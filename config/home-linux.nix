@@ -15,6 +15,11 @@ in {
 
   home = {
     file = {
+      ".config/polybar/dynamic.config".text = ''
+         [bar/main]
+         dpi = ${toString dpi}
+         height = ${toString (dpi / 4)}
+      '';
       ".config/systemd/user/cros-garcon.service.d" = {
          source = systemd/cros-garcon.service.d;
          recursive = true;
