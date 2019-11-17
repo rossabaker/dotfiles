@@ -11,6 +11,10 @@ in {
       package = pkgs.papirus-icon-theme;
       name = "Papirus";
     };
+    theme = {
+      name = "Nordic";
+      package = pkgs.nordic;
+    };
   };
 
   home = {
@@ -81,56 +85,39 @@ in {
 
     rofi = {
       enable = true;
-      colors = {
-        window = {
-          background = "#1d1f21";
-          border = "#f0c674";
-          separator = "#969896";
-        };
-
-        rows = {
-          normal = {
-            background = "#1d1f21";
-            backgroundAlt = "#1d1f21";
-            foreground = "#c5c8c6";
-            highlight = {
-              background = "#f0c674";
-              foreground = "#1d1f21";
-            };
-          };
-        };
-      };
       font = "sans-serif 12";
       extraConfig = ''rofi.dpi: ${toString dpi}'';
-      padding = 12 * dpi / 96;
+      theme = ../config/rofi/nord.rasi;
     };
 
     termite = {
       enable = true;
-      colorsExtra = ''
-         color0 = #1d1f21
-         color8 = #969896
-         color1 = #912226
-         color9 = #cc6666
-         color2 = #778900
-         color10 = #b5bd68
-         color3 = #ae7b00
-         color11 = #f0c674
-         color4 = #1d2594
-         color12 = #81a2be
-         color5 = #682a9b
-         color13 = #b294bb
-         color6 = #2b6651
-         color14 = #8abeb7
-         color7 = #929593
-         color15 = #ecebec
-      '';
-      backgroundColor = "#1d1f21";
-      foregroundColor = "#c5c8c6";
-      foregroundBoldColor = "#ffffff";
-      highlightColor = "#d6d6d6";
       cursorBlink = "off";
-      font = "Hasklig:size-12";
+      cursorColor = "#d8de99";
+      cursorForegroundColor = "#2e3440";
+      foregroundColor = "#d8dee9";
+      foregroundBoldColor = "#d8dee9";
+      backgroundColor = "#2e3440";
+      highlightColor = "#4c566a";
+      colorsExtra = ''
+        color0  = #3b4252
+        color1  = #bf616a
+        color2  = #a3be8c
+        color3  = #ebcb8b
+        color4  = #81a1c1
+        color5  = #b48ead
+        color6  = #88c0d0
+        color7  = #e5e9f0
+        color8  = #4c566a
+        color9  = #bf616a
+        color10 = #a3be8c
+        color11 = #ebcb8b
+        color12 = #81a1c1
+        color13 = #b48ead
+        color14 = #8fbcbb
+        color15 = #eceff4
+      '';
+      font = "Hasklig 12";
     };
   };
 
@@ -151,6 +138,10 @@ in {
       config = ./polybar/config;
       script = "${pkgs.polybar}/bin/polybar main &";
     };
+  };
+
+  qt = {
+    platformTheme = "gtk";
   };
 
   systemd.user.services = {

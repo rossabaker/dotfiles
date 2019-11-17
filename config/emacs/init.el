@@ -69,6 +69,7 @@
   (ido-mode -1))
 
 (use-package color-theme-sanityinc-tomorrow
+  :disabled t
   :config
   (defun ross:load-theme-tomorrow-night ()
     (interactive)
@@ -245,7 +246,7 @@
   ;; Hasklig is in home.packages, but on Mac, I needed to install it
   ;; into FontBook from ~/.nix-profile/share/fonts. ¯\_(ツ)_/¯
   (if (member "Hasklig" (font-family-list))
-      (setq default-frame-alist '((font . "Hasklig-12")))))
+      (setq default-frame-alist '((font . "Hasklig 12")))))
 
 (use-package git-gutter
   :delight
@@ -351,6 +352,14 @@
   ("C-c a n" . nix-repl))
 
 (use-package nix-sandbox)
+
+(use-package nord-theme
+  :config
+  (if (daemonp)
+      (add-hook 'after-make-frame-functions
+                (lambda (frame)
+                  (with-selected-frame frame (load-theme 'nord t))))
+    (load-theme 'nord t)))
 
 (use-package ns-win
   :if (eq system-type 'darwin)

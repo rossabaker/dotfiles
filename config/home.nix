@@ -101,6 +101,7 @@ in rec {
         epkgs.multi-line
         epkgs.nix-mode
         epkgs.nix-sandbox
+        epkgs.nord-theme
         epkgs.magit
         epkgs.projectile
         epkgs.protobuf-mode
