@@ -12,7 +12,7 @@
   networking.networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
 
   i18n = {
-    consoleKeyMap = ./config/kbd/keys.map;
+    # consoleKeyMap = ./config/kbd/keys.map;
     defaultLocale = "en_US.UTF-8";
   };
 
