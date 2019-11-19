@@ -138,6 +138,17 @@ in {
       config = ./polybar/config;
       script = "${pkgs.polybar}/bin/polybar main &";
     };
+
+    redshift = {
+      enable = true;
+      brightness = {
+        day = "0.8";
+        night = "0.6";
+      };
+      latitude = "39.77";
+      longitude = "-86.16";
+      tray = true;
+    };
   };
 
   qt = {
