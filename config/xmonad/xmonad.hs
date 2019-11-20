@@ -43,8 +43,8 @@ main = do
       ewmh $
       def
       { borderWidth = 4
-      , focusedBorderColor = "#88c0d0"
-      , normalBorderColor = "#deded9"
+      , focusedBorderColor = "#b2b2b2"
+      , normalBorderColor = "#686868"
       , modMask = mod4Mask
       , terminal = "termite"
       , layoutHook = avoidStruts $ layoutHook defaultConfig

@@ -42,15 +42,6 @@
   (setq avy-style 'at-full)
   (avy-setup-default))
 
-(use-package base16-theme
-  :disabled t ;; Switched to sanityinc-tomorrow
-  :config
-  (load-theme 'base16-materia t)
-  (set-face-attribute 'line-number-current-line nil
-                      :background (plist-get base16-materia-colors :base01)
-                      :foreground (plist-get base16-materia-colors :base04)
-                      :inverse-video nil))
-
 (use-package bazel-mode
   :mode "BUILD\\'")
 
@@ -67,19 +58,6 @@
   :config
   ;; better-defaults sets one worse default
   (ido-mode -1))
-
-(use-package color-theme-sanityinc-tomorrow
-  :disabled t
-  :config
-  (defun ross:load-theme-tomorrow-night ()
-    (interactive)
-    (load-theme 'sanityinc-tomorrow-night t nil))
-  (defun ross:load-theme-tomorrow-day ()
-    (interactive)
-    (load-theme 'sanityinc-tomorrow-day t nil))
-  :bind
-  ("C-c T n" . ross:load-theme-tomorrow-night)
-  ("C-c T d" . ross:load-theme-tomorrow-day))
 
 (use-package company
   :delight
@@ -353,14 +331,6 @@
 
 (use-package nix-sandbox)
 
-(use-package nord-theme
-  :config
-  (if (daemonp)
-      (add-hook 'after-make-frame-functions
-                (lambda (frame)
-                  (with-selected-frame frame (load-theme 'nord t))))
-    (load-theme 'nord t)))
-
 (use-package ns-win
   :if (eq system-type 'darwin)
   :config
@@ -455,6 +425,10 @@
   (sp-use-smartparens-bindings)
   (smartparens-global-mode +1)
   (show-smartparens-global-mode +1))
+
+(use-package spacemacs-common
+  :ensure spacemacs-theme
+  :config (load-theme 'spacemacs-dark t))
 
 (use-package string-inflection
   :bind

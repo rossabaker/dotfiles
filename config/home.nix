@@ -34,6 +34,7 @@ in rec {
     };
 
     overlays = [
+      (import ../overlays/arc-theme.nix)
       (import ../overlays/zoom-us.nix)
     ];
   };
@@ -60,11 +61,9 @@ in rec {
         epkgs.ace-window
         epkgs.atomic-chrome
         epkgs.avy
-        epkgs.base16-theme
         epkgs.bazel-mode
         epkgs.beacon
         epkgs.better-defaults
-        epkgs.color-theme-sanityinc-tomorrow
         epkgs.company-lsp
         epkgs.company-quickhelp
         epkgs.company-restclient
@@ -101,7 +100,6 @@ in rec {
         epkgs.multi-line
         epkgs.nix-mode
         epkgs.nix-sandbox
-        epkgs.nord-theme
         epkgs.magit
         epkgs.projectile
         epkgs.protobuf-mode
@@ -113,6 +111,7 @@ in rec {
         epkgs.scala-mode
         epkgs.shell-pop
         epkgs.smartparens
+        epkgs.spacemacs-theme
         epkgs.stan-mode
         epkgs.string-inflection
         epkgs.swiper

@@ -12,8 +12,8 @@ in {
       name = "Papirus";
     };
     theme = {
-      name = "Nordic";
-      package = pkgs.nordic;
+      name = "Arc-Spacemacs-Dark";
+      package = pkgs.arc-spacemacs-theme;
     };
   };
 
@@ -93,29 +93,27 @@ in {
     termite = {
       enable = true;
       cursorBlink = "off";
-      cursorColor = "#d8de99";
-      cursorForegroundColor = "#2e3440";
-      foregroundColor = "#d8dee9";
-      foregroundBoldColor = "#d8dee9";
-      backgroundColor = "#2e3440";
-      highlightColor = "#4c566a";
+      cursorColor = "#e3dedd";
+      foregroundColor = "#b2b2b2";
+      backgroundColor = "#292b2e";
+      highlightColor = "#444155";
       colorsExtra = ''
-        color0  = #3b4252
-        color1  = #bf616a
-        color2  = #a3be8c
-        color3  = #ebcb8b
-        color4  = #81a1c1
-        color5  = #b48ead
-        color6  = #88c0d0
-        color7  = #e5e9f0
-        color8  = #4c566a
-        color9  = #bf616a
-        color10 = #a3be8c
-        color11 = #ebcb8b
-        color12 = #81a1c1
-        color13 = #b48ead
-        color14 = #8fbcbb
-        color15 = #eceff4
+        color0  = #0a0814
+        color1  = #f2241f
+        color2  = #67b11d
+        color3  = #b1951d
+        color4  = #3a81c3
+        color5  = #a31db1
+        color6  = #21b8c7
+        color7  = #b2b2b2
+        color8  = #0a0814
+        color9  = #f2241f
+        color10 = #67b11d
+        color11 = #b1951d
+        color12 = #3a81c3
+        color13 = #a31db1
+        color14 = #21b8c7
+        color15 = #b2b2b2
       '';
       font = "Hasklig 12";
     };
