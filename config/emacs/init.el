@@ -426,8 +426,7 @@
   (smartparens-global-mode +1)
   (show-smartparens-global-mode +1))
 
-(use-package spacemacs-common
-  :ensure spacemacs-theme
+(use-package spacemacs-dark-theme
   :config (load-theme 'spacemacs-dark t))
 
 (use-package string-inflection
