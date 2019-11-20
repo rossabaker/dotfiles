@@ -34,7 +34,7 @@ in rec {
     };
 
     overlays = [
-      (import ../overlays/arc-theme.nix)
+      (import ../overlays/arc-spacemacs-theme.nix)
       (import ../overlays/zoom-us.nix)
     ];
   };

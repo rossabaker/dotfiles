@@ -12,7 +12,7 @@ in {
       name = "Papirus";
     };
     theme = {
-      name = "Arc-Spacemacs-Dark";
+      name = "Arc-Spacemacs";
       package = pkgs.arc-spacemacs-theme;
     };
   };
