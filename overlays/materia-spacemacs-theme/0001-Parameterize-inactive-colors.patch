@@ -1,0 +1,27 @@
+From f51c43dcdd3014afad5a7c1c5e97b3de8401e47f Mon Sep 17 00:00:00 2001
+From: "Ross A. Baker" <ross@rossabaker.com>
+Date: Thu, 21 Nov 2019 13:29:32 -0500
+Subject: [PATCH] Parameterize inactive colors
+
+---
+ change_color.sh | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/change_color.sh b/change_color.sh
+index ebacbcac..37d2cc2a 100755
+--- a/change_color.sh
++++ b/change_color.sh
+@@ -128,8 +128,8 @@ ROUNDNESS_GTK2_HIDPI=$(( ROUNDNESS * 2 ))
+ MATERIA_PANEL_OPACITY=${MATERIA_PANEL_OPACITY-0.6}
+ MATERIA_SELECTION_OPACITY=${MATERIA_SELECTION_OPACITY-0.32}
+ 
+-INACTIVE_FG=$(mix "$FG" "$BG" 0.75)
+-INACTIVE_MATERIA_VIEW=$(mix "$MATERIA_VIEW" "$BG" 0.60)
++INACTIVE_FG=${INACTIVE_FG-$(mix "$FG" "$BG" 0.75)}
++INACTIVE_MATERIA_VIEW=${INACTIVE_MATERIA_VIEW-$(mix "$MATERIA_VIEW" "$BG" 0.60)}
+ 
+ TERMINAL_COLOR4=${TERMINAL_COLOR4:-1E88E5}
+ TERMINAL_COLOR5=${TERMINAL_COLOR5:-E040FB}
+-- 
+2.23.0
+

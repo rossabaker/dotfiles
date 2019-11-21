@@ -17,12 +17,14 @@ self: super: {
       sha256 = "1d9f31xfv788xznmprsa29cyv83wwncrsfahw521qajlpzw8xayz";
     };
 
+    patches = [ ./0001-Parameterize-inactive-colors.patch ];
+
     dontBuild = false;
 
     buildPhase = ''
       export HOME="$PWD"
       patchShebangs *.sh scripts src/gtk src/gtk-2.0
-      ./change_color.sh -o Materia-Spacemacs-dark <(echo -e "BG=222226\\nFG=b2b2b2\\nSEL_BG=5d4d7a\\nMATERIA_SURFACE=292b2e\\nMATERIA_VIEW=292b2e\\nHDR_BG=212026\\nHDR_FG=b2b2b2\\nTERMINAL_COLOR4=4f97d7\\nTERMINAL_COLOR5=a31db1\\nTERMINAL_COLOR9=f2241f\\nTERMINAL_COLOR10=67b11d\\nTERMINAL_COLOR11=b1951d\\nTERMINAL_COLOR12=4f97d7")
+      ./change_color.sh -o Materia-Spacemacs-dark <(echo -e "BG=212026\\nFG=b2b2b2\\nSEL_BG=bc6ec5\\nMATERIA_SURFACE=212026\\nMATERIA_VIEW=292b2e\\nHDR_BG=222226\\nHDR_FG=b2b2b2\\nTERMINAL_COLOR4=4f97d7\\nTERMINAL_COLOR5=c56ec3\\nTERMINAL_COLOR9=e0211d\\nTERMINAL_COLOR11=dc752f\\nTERMINAL_COLOR12=86dc2f\\nINACTIVE_MATERIA_VIEW=292b2e")
     '';
 
     installPhase = ''
