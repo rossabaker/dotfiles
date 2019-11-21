@@ -12,8 +12,8 @@ in {
       name = "Papirus";
     };
     theme = {
-      name = "Arc-Spacemacs";
-      package = pkgs.arc-spacemacs-theme;
+      name = "Materia-Spacemacs-dark";
+      package = pkgs.materia-spacemacs-theme;
     };
   };
 
