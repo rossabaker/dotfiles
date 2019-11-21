@@ -28,18 +28,9 @@ in rec {
     ];
   };
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-
-    overlays = [
-      (import ../overlays/arc-spacemacs-theme.nix)
-      (import ../overlays/materia-spacemacs-theme)
-      (import ../overlays/zoom-us.nix)
-    ];
-  };
-
+  nixpkgs.config = import ../config/nixpkgs/config.nix;
+  nixpkgs.overlays = (import ../config/nixpkgs/config.nix).overlays;
+  
   programs = {
     bash = {
       enable = true;
@@ -176,4 +167,6 @@ in rec {
     # Let Home Manager install and manage itself.
     home-manager.enable = true;
   };
+
+  xdg.configFile."nixpkgs/config.nix".source = ../config/nixpkgs/config.nix;
 }
