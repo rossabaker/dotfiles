@@ -23,7 +23,6 @@ in rec {
       pkgs.material-design-icons
       pkgs.sbt-extras
       pkgs.siji
-      pkgs.stack
       pkgs.unifont
     ];
   };
