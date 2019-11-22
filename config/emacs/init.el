@@ -115,6 +115,9 @@
   ("C-c r" . crux-rename-file-and-buffer)
   ("C-x 4 t" . crux-transpose-windows))
 
+(use-package css-mode
+  :mode "\\.rasi\\'")
+
 (use-package delsel
   :config
   (delete-selection-mode t))
