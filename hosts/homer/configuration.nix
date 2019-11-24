@@ -35,7 +35,7 @@
   networking.interfaces.wlp0s20f3.useDHCP = true;
 
   i18n = {
-    consoleFont = "ter-132b";
+    consoleFont = "ter-114n";
     consolePackages = with pkgs; [ terminus_font ];
   };
 
