@@ -12,7 +12,7 @@ in {
       name = "Papirus";
     };
     theme = {
-      name = "Materia-Spacemacs-dark";
+      name = "Materia-Tomorrow-Night-dark";
       package = pkgs.materia-spacemacs-theme;
     };
   };
@@ -75,27 +75,27 @@ in {
     termite = {
       enable = true;
       cursorBlink = "off";
-      cursorColor = "#e3dedd";
-      foregroundColor = "#b2b2b2";
-      backgroundColor = "#292b2e";
-      highlightColor = "#444155";
+      cursorColor = "#cc6666";
+      foregroundColor = "#c5c8c6";
+      backgroundColor = "#1d1f21";
+      highlightColor = "#373b41";
       colorsExtra = ''
-        color0  = #0a0814
-        color1  = #f2241f
-        color2  = #67b11d
-        color3  = #b1951d
-        color4  = #3a81c3
-        color5  = #a31db1
-        color6  = #21b8c7
-        color7  = #b2b2b2
-        color8  = #0a0814
-        color9  = #f2241f
-        color10 = #67b11d
-        color11 = #b1951d
-        color12 = #3a81c3
-        color13 = #a31db1
-        color14 = #21b8c7
-        color15 = #b2b2b2
+        color0  = #1d1f21
+        color1  = #cc6666
+        color2  = #b5bd68
+        color3  = #f0c674
+        color4  = #81a2be
+        color5  = #b294bb
+        color6  = #8abeb7
+        color7  = #c5c8c6
+        color8  = #1d1f21
+        color9  = #cc6666
+        color10 = #b5bd68
+        color11 = #f0c674
+        color12 = #81a2be
+        color13 = #b294bb
+        color14 = #8abeb7
+        color15 = #c5c8c6
       '';
       font = "Hasklig 12";
     };

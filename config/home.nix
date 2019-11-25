@@ -52,9 +52,11 @@ in rec {
         epkgs.ace-window
         epkgs.atomic-chrome
         epkgs.avy
+        epkgs.base16-theme
         epkgs.bazel-mode
         epkgs.beacon
         epkgs.better-defaults
+        epkgs.color-theme-sanityinc-tomorrow
         epkgs.company-lsp
         epkgs.company-quickhelp
         epkgs.company-restclient

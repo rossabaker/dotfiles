@@ -59,6 +59,10 @@
   ;; better-defaults sets one worse default
   (ido-mode -1))
 
+(use-package color-theme-sanityinc-tomorrow
+  :config
+  (load-theme 'sanityinc-tomorrow-night t))
+
 (use-package company
   :delight
   :hook
@@ -428,9 +432,6 @@
   (sp-use-smartparens-bindings)
   (smartparens-global-mode +1)
   (show-smartparens-global-mode +1))
-
-(use-package spacemacs-dark-theme
-  :config (load-theme 'spacemacs-dark t))
 
 (use-package string-inflection
   :bind

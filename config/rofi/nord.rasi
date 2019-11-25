@@ -1,14 +1,14 @@
 /* Original: https://github.com/devdevdevdevdeo/dotfiles/blob/master/custom-nord.rasi */
 
 * {
-    backgroundcolor: #212026;
-    bg1: #292b2e;
-    backgroundcoloralternate: #212026;
-    separatorcolor: #292b2e;
-    scrollbarcolor: #292b2e;
-    foregroundcolor: #b2b2b2;
-    foregroundcolorinverse: #b2b2b2;
-    selectioncolor: #444155;
+    backgroundcolor: #1d1f21;
+    bg1: #222427;
+    backgroundcoloralternate: #1d1f21;
+    separatorcolor: #222427;
+    scrollbarcolor: #222427;
+    foregroundcolor: #c5c8c6;
+    foregroundcolorinverse: #c5c8c6;
+    selectioncolor: #373b41;
 
 
     font-size: 1px;
@@ -31,7 +31,7 @@
 
 #window {
     background-color: @backgroundcolor;
-    border-color: #be6ec5;
+    border-color: #b294bb;
     border: 1;
     border-radius: 2px;
 }

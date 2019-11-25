@@ -19,10 +19,10 @@
 include-file=~/.config/polybar/dynamic.config
 
 [colors]
-background = #212026
-foreground = #b2b2b2
-foreground-alt = #686868
-alert = #dc752f
+background = #1d1f21
+foreground = #c5c8c6
+foreground-alt = #81a2be
+alert = #cc6666
 
 [bar/main]
 ;monitor = ${env:MONITOR:HDMI-1}
