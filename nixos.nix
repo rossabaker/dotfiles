@@ -26,6 +26,8 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  services.tlp.enable = true;
+
   services.upower.enable = true;
 
   services.xserver.enable = true;
