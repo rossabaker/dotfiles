@@ -24,10 +24,10 @@ dbusOutput dbus str = do
     interfaceName = D.interfaceName_ "org.xmonad.Log"
     memberName = D.memberName_ "Update"
 
-myKeys = [ ("<XF86AudioMute>"       , spawn "amixer -c 0 set Master toggle")
-         , ("<XF86AudioLowerVolume>", spawn "amixer -c 0 set Master 5%-")
-         , ("<XF86AudioRaiseVolume>", spawn "amixer -c 0 set Master 5%+")
-         , ("<XF86AudioMicMute>"    , spawn "amixer -c 0 set Capture toggle")
+myKeys = [ ("<XF86AudioMute>"       , spawn "pactl set-sink-mute 0 toggle")
+         , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 -5%")
+         , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 +5%")
+         , ("<XF86AudioMicMute>"    , spawn "pactl set-source-mute 1 toggle")
          , ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 5")
          , ("<XF86MonBrightnessUp>"  , spawn "xbacklight -inc 5")
          , ("M-p", spawn "rofi -show run")
