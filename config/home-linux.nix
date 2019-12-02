@@ -8,12 +8,12 @@ in {
   gtk = {
     enable = true;
     iconTheme = {
-      package = pkgs.papirus-icon-theme;
-      name = "Papirus";
+      package = pkgs.qogir-icon-theme;
+      name = "Qogir";
     };
     theme = {
-      name = "Materia-Tomorrow-Night-dark";
-      package = pkgs.materia-spacemacs-theme;
+      name = "Qogir-Tomorrow-dark";
+      package = pkgs.qogir-tomorrow-theme;
     };
   };
 

@@ -1,0 +1,133 @@
+From a73aa71b473ebe1e66b88a68e481f5aee4524edf Mon Sep 17 00:00:00 2001
+From: "Ross A. Baker" <ross@rossabaker.com>
+Date: Mon, 2 Dec 2019 13:06:49 -0500
+Subject: [PATCH] Tomorrow theme colors
+
+---
+ install.sh             |  2 +-
+ src/_sass/_colors.scss | 50 +++++++++++++++++++++---------------------
+ 2 files changed, 26 insertions(+), 26 deletions(-)
+
+diff --git a/install.sh b/install.sh
+index 44858d7..3044288 100755
+--- a/install.sh
++++ b/install.sh
+@@ -12,7 +12,7 @@ fi
+ 
+ SRC_DIR=$(cd $(dirname $0) && pwd)
+ 
+-THEME_NAME=Qogir
++THEME_NAME=Qogir-Tomorrow
+ THEME_VARIANTS=('' '-manjaro' '-ubuntu')
+ WIN_VARIANTS=('' '-win')
+ COLOR_VARIANTS=('' '-light' '-dark')
+diff --git a/src/_sass/_colors.scss b/src/_sass/_colors.scss
+index e38e490..4a4bded 100644
+--- a/src/_sass/_colors.scss
++++ b/src/_sass/_colors.scss
+@@ -1,10 +1,10 @@
+ // When color definition differs for dark and light variant,
+ // it gets @if ed depending on $variant
+ 
+-$base_color: if($variant =='light', #ffffff, #282A33);
+-$text_color: if($variant == 'light', #5c616c, #D3DAE3);
+-$bg_color: if($variant =='light', #fafbfc, #32343D);
+-$fg_color: if($variant =='light', #5c616c, #D3DAE3);
++$base_color: if($variant =='light', #ffffff, #1d1f21);
++$text_color: if($variant == 'light', #4d4d4c, #c5c8c6);
++$bg_color: if($variant =='light', #f7f7f7, #32343D);
++$fg_color: if($variant =='light', #4d4d4c, #c5c8c6);
+ 
+ $alt_base_color: if($variant == 'light', darken($base_color, 5%), lighten($base_color, 5%));
+ $sec_base_color: if($variant == 'light', darken($base_color, 10%), lighten($base_color, 10%));
+@@ -13,8 +13,8 @@ $sec_bg_color: dif($variant == 'light', darken($bg_color, 10%), lighten($bg_colo
+ $alt_fg_color: rgba($fg_color, 0.75);
+ $sec_fg_color: rgba($fg_color, 0.6);
+ 
+-$selected_fg_color: #ffffff;
+-$selected_bg_color: #5294e2;
++$selected_fg_color: #373b41;
++$selected_bg_color: #81a2be;
+ 
+ @if $theme == 'manjaro' { $selected_bg_color: #2eb398; }
+ @if $theme == 'ubuntu' { $selected_bg_color: #fb8441; }
+@@ -26,16 +26,16 @@ $sec_selected_fg_color: rgba($selected_fg_color, 0.6);
+ 
+ $selection_mode_bg: if($trans == 'true', rgba($selected_bg_color, 0.95), $selected_bg_color);
+ $selection_mode_fg: $selected_fg_color;
+-$warning_color: #F27835;
+-$error_color: #FC4138;
++$warning_color: #f5871f;
++$error_color: #c82829;
+ $warning_fg_color: white;
+ $error_fg_color: white;
+-$success_color: #73d216;
+-$destructive_color: #F04A50;
+-$suggested_color: #5294e2;
++$success_color: #718c00;
++$destructive_color: #c82829;
++$suggested_color: #4271ae;
+ $destructive_fg_color: white;
+ $suggested_fg_color: white;
+-$drop_target_color: #F08437;
++$drop_target_color: #f5871f;
+ $progress_color: $selected_bg_color;
+ 
+ $borders_color: if($variant == 'light', rgba(black, 0.15), rgba(white, 0.12));
+@@ -54,32 +54,32 @@ $insensitive_bg_color: lighten($bg_color, 2%);
+ $header_bg: black;
+ @if $trans == 'true' and $variant == 'light' { $header_bg: rgba(#ffffff, 0.95); }
+ @if $trans == 'false' and $variant == 'light' { $header_bg: #ffffff; }
+-@if $trans == 'true' and ($variant == 'dark' or $titlebar == 'dark') { $header_bg: rgba(#282A33, 0.97); }
+-@if $trans == 'false' and ($variant == 'dark' or $titlebar == 'dark') { $header_bg: #282A33; }
++@if $trans == 'true' and ($variant == 'dark' or $titlebar == 'dark') { $header_bg: rgba(#1d1f21, 0.97); }
++@if $trans == 'false' and ($variant == 'dark' or $titlebar == 'dark') { $header_bg: #1d1f21; }
+ 
+ $header_bg_backdrop: if($titlebar == 'dark' or $variant == 'dark', lighten($header_bg, 1.5%), lighten($header_bg, 3%));
+ 
+ $header_border: if($variant == 'light' and $titlebar == 'light', darken($header_bg, 10%), lighten($header_bg, 10%));
+ 
+-$header_fg: if($titlebar == 'dark', saturate(rgba(#D3DAE3, 0.8), 10%), saturate(rgba($fg_color, 0.8), 10%));
++$header_fg: if($titlebar == 'dark', saturate(rgba(#c5c8c6, 0.8), 10%), saturate(rgba($fg_color, 0.8), 10%));
+ $alt_header_fg: if($titlebar == 'dark', lighten($header_fg, 10%), darken($header_fg, 10%));
+ 
+ $dark_sidebar_bg: white;
+-@if $trans == 'true' and $titlebar == 'light' { $dark_sidebar_bg: rgba(#f6f9fb, 0.95); }
+-@if $trans == 'false' and $titlebar == 'light' { $dark_sidebar_bg: #f6f9fb; }
+-@if $trans == 'true' and $titlebar == 'dark' { $dark_sidebar_bg: rgba(#272931, 0.95); }
+-@if $trans == 'false' and $titlebar == 'dark' { $dark_sidebar_bg: #272931; }
++@if $trans == 'true' and $titlebar == 'light' { $dark_sidebar_bg: rgba(#f7f7f7, 0.95); }
++@if $trans == 'false' and $titlebar == 'light' { $dark_sidebar_bg: #f7f7f7; }
++@if $trans == 'true' and $titlebar == 'dark' { $dark_sidebar_bg: rgba(#222427, 0.95); }
++@if $trans == 'false' and $titlebar == 'dark' { $dark_sidebar_bg: #222427; }
+ 
+-$dark_sidebar_fg: if($titlebar == 'light', #646972, #C4CAD1);
++$dark_sidebar_fg: if($titlebar == 'light', #8e908c, #969896);
+ $alt_dark_sidebar_fg: if($variant == 'light', darken($dark_sidebar_fg, 10%), lighten($dark_sidebar_fg, 10%));
+ 
+-$dark_sidebar_icon_bg: #32343D;
+-$dark_sidebar_icon_fg: #F6F6FB;
++$dark_sidebar_icon_bg: #222427;
++$dark_sidebar_icon_fg: #c5c8c6;
+ 
+ $dark_sidebar_border: if($variant == 'light', darken($dark_sidebar_bg, 10%), lighten($dark_sidebar_bg, 8%));
+ 
+-$osd_fg_color: #D3DAE3;
+-$osd_bg_color: #282A33;
++$osd_fg_color: #c5c8c6;
++$osd_bg_color: #1d1f21;
+ 
+ $osd_button_bg: rgba(lighten($osd_bg_color, 22%), 0.4);
+ $osd_button_border: rgba(lighten($osd_bg_color, 26%), 0.55);
+@@ -91,7 +91,7 @@ $osd_insensitive_bg_color: darken($osd_bg_color, 3%);
+ $osd_insensitive_fg_color: mix($osd_fg_color, opacify($osd_bg_color, 1), 30%);
+ $osd_borders_color: $osd_button_border;
+ 
+-$panel_bg: #21232b;
++$panel_bg: #222427;
+ $panel_fg: $osd_fg_color;
+ 
+ $dash_bg: $dark_sidebar_icon_bg;
+-- 
+2.23.0
+
