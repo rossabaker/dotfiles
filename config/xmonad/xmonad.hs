@@ -5,6 +5,7 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.Fullscreen
 import XMonad.Util.EZConfig
 
 myLogHook :: D.Client -> PP
@@ -42,6 +43,7 @@ main = do
     [D.nameAllowReplacement, D.nameReplaceExisting, D.nameDoNotQueue]
   xmonad
     $ docks
+    $ fullscreenSupport
     $ ewmh
     $ def
       { borderWidth = 4,
