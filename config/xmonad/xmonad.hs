@@ -7,6 +7,8 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Fullscreen
+import XMonad.Layout.NoBorders
+import XMonad.Layout.ToggleLayouts
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 
@@ -35,8 +37,17 @@ myKeys =
     ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 5"),
     ("M-;", raiseNextMaybe (safeSpawn "emacsclient" ["-n", "-c"]) (className =? "Emacs")),
     ("M-'", runOrRaiseNext "google-chrome-stable" (className =? "Google-chrome")),
+    ("M-f", sendMessage ToggleLayout),
     ("M-p", spawn "rofi -show run")
   ]
+
+myLayout =
+  smartBorders $
+  toggleLayouts Full $
+  avoidStruts $
+  tiled ||| Mirror tiled
+  where
+    tiled = Tall 1 (3/100) (1/2)
 
 main = do
   dbus <- D.connectSession
@@ -55,7 +66,7 @@ main = do
         normalBorderColor = "#373b41",
         modMask = mod4Mask,
         terminal = "termite",
-        layoutHook = avoidStruts $ layoutHook defaultConfig,
+        layoutHook = myLayout,
         logHook = dynamicLogWithPP (myLogHook dbus),
         manageHook = manageHook defaultConfig <+> manageDocks
       }
