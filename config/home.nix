@@ -34,7 +34,13 @@ in rec {
     bash = {
       enable = true;
       initExtra = ''
-        PS1='\n\[\033[1;36m\][\h:\w]\$\[\033[0m\] '
+        vterm_prompt_end(){
+          case $TERM in
+            xterm-*)
+              printf "\e]51;A$(whoami)@$(hostname):$(pwd)\e\\"
+          esac
+        }
+        PS1='$(vterm_prompt_end)'"$PS1"
       '';
       sessionVariables = {
         NIX_PATH = "$HOME/.nix-defexpr/channels\${NIX_PATH:+:}$NIX_PATH";
@@ -69,6 +75,7 @@ in rec {
         epkgs.dockerfile-mode
         epkgs.dtrt-indent
         epkgs.electric-operator
+        epkgs.emacs-libvterm
         epkgs.ess
         epkgs.exec-path-from-shell
         epkgs.expand-region
