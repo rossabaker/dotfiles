@@ -2,11 +2,13 @@ import qualified Codec.Binary.UTF8.String as UTF8
 import qualified DBus as D
 import qualified DBus.Client as D
 import XMonad
+import XMonad.Actions.WindowGo
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Fullscreen
 import XMonad.Util.EZConfig
+import XMonad.Util.Run
 
 myLogHook :: D.Client -> PP
 myLogHook dbus = def {ppOutput = dbusOutput dbus}
@@ -31,6 +33,8 @@ myKeys =
     ("<XF86AudioMicMute>", spawn "pactl set-source-mute 1 toggle"),
     ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 5"),
     ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 5"),
+    ("M-;", raiseNextMaybe (safeSpawn "emacsclient" ["-n", "-c"]) (className =? "Emacs")),
+    ("M-'", runOrRaiseNext "google-chrome-stable" (className =? "Google-chrome")),
     ("M-p", spawn "rofi -show run")
   ]
 
