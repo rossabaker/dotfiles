@@ -25,6 +25,12 @@ in rec {
       pkgs.siji
       pkgs.unifont
     ];
+
+    sessionVariables = {
+      ALTERNATE_EDITOR = "";
+      EDITOR = "emacsclient -t";
+      VISUAL = "emacsclient -c";
+    };
   };
 
   nixpkgs.config = import ../config/nixpkgs/config.nix;
