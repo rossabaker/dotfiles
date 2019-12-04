@@ -7,8 +7,8 @@
     separatorcolor: #222427;
     scrollbarcolor: #222427;
     foregroundcolor: #c5c8c6;
-    foregroundcolorinverse: #c5c8c6;
-    selectioncolor: #373b41;
+    foregroundcolorinverse: #373b41;
+    selectioncolor: #81a2be;
 
 
     font-size: 1px;
@@ -31,7 +31,7 @@
 
 #window {
     background-color: @backgroundcolor;
-    border-color: #b294bb;
+    border-color: #81a2be;
     border: 1;
     border-radius: 2px;
 }

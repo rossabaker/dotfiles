@@ -71,7 +71,7 @@ in {
       enable = true;
       font = "sans-serif 12";
       extraConfig = ''rofi.dpi: ${toString dpi}'';
-      theme = ../config/rofi/nord.rasi;
+      theme = ../config/rofi/tomorrow-night.rasi;
     };
 
     termite = {
