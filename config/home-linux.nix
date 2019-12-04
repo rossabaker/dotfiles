@@ -44,7 +44,9 @@ in {
       pkgs.slack
       pkgs.spotify
       pkgs.xorg.xbacklight
+      pkgs.xsecurelock
       pkgs.xsettingsd
+      pkgs.xss-lock
       pkgs.xmonad-log
     ];
   };
@@ -128,6 +130,11 @@ in {
       latitude = "39.77";
       longitude = "-86.16";
       tray = true;
+    };
+
+    screen-locker = {
+      enable = true;
+      lockCmd = "${pkgs.xsecurelock}/bin/xsecurelock";
     };
   };
 
