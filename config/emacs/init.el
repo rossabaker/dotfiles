@@ -342,6 +342,10 @@
     (setq mac-command-modifier 'meta)
     (setq mac-option-modifier 'super)))
 
+(use-package package
+  :config
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/")))
+
 (use-package proced
   :hook
   (proced-mode . (lambda () (proced-toggle-auto-update +1)))

@@ -122,6 +122,7 @@ in rec {
         epkgs.string-inflection
         epkgs.swiper
         epkgs.systemd
+        epkgs.try
         epkgs.unfill
         epkgs.use-package
         epkgs.which-key
