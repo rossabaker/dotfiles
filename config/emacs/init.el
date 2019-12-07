@@ -15,7 +15,8 @@
 (setq inhibit-startup-screen t
       initial-scratch-message ""
       scroll-conservatively 101
-      scroll-preserve-screen-position t)
+      scroll-preserve-screen-position t
+      x-stretch-cursor t)
 (put 'narrow-to-region 'disabled nil)
 
 ;; We shall endeavor to keep everything out of this, but sometimes
