@@ -123,6 +123,7 @@ in rec {
         epkgs.string-inflection
         epkgs.swiper
         epkgs.systemd
+        epkgs.title-capitalization
         epkgs.try
         epkgs.unfill
         epkgs.use-package
@@ -167,12 +168,28 @@ in rec {
               src = ./emacs/quick-yes;
               installPhase = ''
                 mkdir -p $out/share/emacs/site-lisp
-                cp quick-yes.el $out/share/emacs/site-lisp/
+                cp *.el $out/share/emacs/site-lisp/
               '';
             };
           sbt-mode = withPatches super.sbt-mode [
             ./emacs/patches/sbt-mode/e9aa908d1b80dc2618eab22eeefc68ae82d0026f.patch
           ];
+          title-capitalization =
+            let version = "0.1";
+            in stdenv.mkDerivation {
+              inherit version;
+              name = "title-capitalization-${version}";
+              src = fetchFromGitHub {
+                owner = "novoid";
+                repo = "title-capitalization.el";
+                rev = "e83d463c500d04adf47b2e444728803121e7b641";
+                sha256 = "0y0fhi8sb3chh5pzgn0rp7cy7492bw5yh1dldmpqxcsykjn06aga";
+              };
+              installPhase = ''
+                mkdir -p $out/share/emacs/site-lisp
+                cp *.el $out/share/emacs/site-lisp/
+              '';
+            };
         };
     };
 

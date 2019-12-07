@@ -461,6 +461,8 @@
 (use-package systemd
   :mode ("\\.service"))
 
+(use-package title-capitalization)
+
 (use-package tooltip
   :config
   (tooltip-mode -1)
