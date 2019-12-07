@@ -2,7 +2,6 @@
 
 let
   all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
-
 in rec {
   fonts.fontconfig.enable = true;
 
@@ -15,6 +14,8 @@ in rec {
 
     packages = [
       (all-hies.selection { selector = p: { inherit (p) ghc865; }; })
+      pkgs.aspell
+      pkgs.aspellDicts.en
       pkgs.bashInteractive
       pkgs.dhall
       pkgs.direnv

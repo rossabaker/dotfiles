@@ -226,6 +226,13 @@
         '(not haskell-interactive-mode ;; https://github.com/haskell/haskell-mode/issues/1015
               )))
 
+(use-package flyspell
+  :config
+  (setq ispell-program-name "aspell")
+  :hook
+  (text-mode . flyspell-mode)
+  (prog-mode . flyspell-prog-mode))
+
 (use-package frame
   :config
   (blink-cursor-mode -1)
