@@ -366,6 +366,8 @@
       (setq projectile-project-search-path '("~/src")))
   (projectile-discover-projects-in-search-path))
 
+(use-package quick-yes)
+
 (use-package rainbow-delimiters
   :hook
   (prog-mode . rainbow-delimiters-mode))

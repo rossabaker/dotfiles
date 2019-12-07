@@ -109,6 +109,7 @@ in rec {
         epkgs.magit
         epkgs.projectile
         epkgs.protobuf-mode
+        epkgs.quick-yes
         epkgs.rainbow-delimiters
         epkgs.rainbow-mode
         epkgs.restart-emacs
@@ -158,6 +159,17 @@ in rec {
               license = lib.licenses.free;
             };
           };
+          quick-yes =
+            let version = "10";
+            in stdenv.mkDerivation {
+              inherit version;
+              name = "quick-yes-${version}";
+              src = ./emacs/quick-yes;
+              installPhase = ''
+                mkdir -p $out/share/emacs/site-lisp
+                cp quick-yes.el $out/share/emacs/site-lisp/
+              '';
+            };
           sbt-mode = withPatches super.sbt-mode [
             ./emacs/patches/sbt-mode/e9aa908d1b80dc2618eab22eeefc68ae82d0026f.patch
           ];
