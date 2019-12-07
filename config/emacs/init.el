@@ -422,9 +422,12 @@
   ("C-c t" . shell-pop))
 
 (use-package simple
+  :delight visual-line-mode
   :config
   (column-number-mode +1)
-  (size-indication-mode +1))
+  (size-indication-mode +1)
+  :hook
+  (text-mode . visual-line-mode))
 
 (use-package smartparens
   :delight
