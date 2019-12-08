@@ -81,6 +81,7 @@ in rec {
         epkgs.direnv
         epkgs.dockerfile-mode
         epkgs.dtrt-indent
+        epkgs.dumb-jump
         epkgs.electric-operator
         epkgs.emacs-libvterm
         epkgs.ess

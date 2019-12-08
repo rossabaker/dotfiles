@@ -168,6 +168,10 @@
   :hook
   (prog-mode . dtrt-indent-mode))
 
+(use-package dumb-jump
+  :config
+  (setq dumb-jump-selector 'ivy))
+
 (use-package eldoc
   :delight)
 
