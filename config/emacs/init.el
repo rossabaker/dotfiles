@@ -465,6 +465,7 @@
 (use-package swiper
   :bind
   ("C-c C-r" . ivy-resume)
+  ("C-r" . swiper-isearch-backward)
   ("C-s" . swiper-isearch))
 
 (use-package systemd
