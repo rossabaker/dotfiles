@@ -392,6 +392,7 @@
   :config
   (if (file-directory-p "~/src")
       (setq projectile-project-search-path '("~/src")))
+  (setq projectile-completion-system 'ivy)
   (projectile-discover-projects-in-search-path))
 
 (use-package quick-yes)
