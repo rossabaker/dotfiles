@@ -34,6 +34,11 @@
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
+(use-package autorevert
+  :config
+  (setq auto-revert-verbose nil
+        global-auto-revert-non-file-buffers t))
+
 (use-package atomic-chrome
   :config
   (atomic-chrome-start-server))
