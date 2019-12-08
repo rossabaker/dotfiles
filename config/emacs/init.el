@@ -147,6 +147,10 @@
   :config
   (setq dhall-format-arguments '("--ascii")))
 
+(use-package dired
+  :config
+  (setq dired-dwim-target t))
+
 (use-package direnv
   :config
   (direnv-mode))
