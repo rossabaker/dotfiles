@@ -8,8 +8,8 @@
 ;;; Code:
 
 (eval-when-compile
+  (setq use-package-enable-imenu-support t)
   (require 'use-package))
-
 (require 'delight)
 
 (setq inhibit-startup-screen t
