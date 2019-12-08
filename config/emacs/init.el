@@ -279,6 +279,10 @@
   haskell-mode
   scala-mode)
 
+(use-package imenu
+  :bind
+  ("M-i" . imenu))
+
 (use-package ivy
   :delight
   :config
