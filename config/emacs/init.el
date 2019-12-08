@@ -35,6 +35,7 @@
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 (use-package autorevert
+  :delight auto-revert-mode
   :config
   (setq auto-revert-verbose nil
         global-auto-revert-non-file-buffers t))
@@ -239,6 +240,7 @@
               )))
 
 (use-package flyspell
+  :delight
   :config
   (setq ispell-program-name "aspell")
   :hook
