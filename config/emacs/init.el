@@ -16,6 +16,8 @@
       initial-scratch-message ""
       scroll-conservatively 101
       scroll-preserve-screen-position t
+      user-full-name "Ross A. Baker"
+      user-mail-address "ross@rossabaker.com"
       x-stretch-cursor t)
 (put 'narrow-to-region 'disabled nil)
 
