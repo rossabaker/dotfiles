@@ -105,7 +105,8 @@
   ("C-h i" . counsel-info-lookup-symbol)
   ("C-x 8 RET" . counsel-unicode-char)
   ("C-x C-f" . counsel-find-file)
-  ("M-x" . counsel-M-x))
+  ("M-x" . counsel-M-x)
+  ("M-y" . counsel-yank-pop))
 
 (use-package counsel-projectile
   :config
