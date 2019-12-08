@@ -108,6 +108,7 @@ in rec {
         epkgs.nix-mode
         epkgs.nix-sandbox
         epkgs.magit
+        epkgs.page-break-lines
         epkgs.projectile
         epkgs.protobuf-mode
         epkgs.quick-yes

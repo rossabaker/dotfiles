@@ -370,6 +370,11 @@
   :config
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/")))
 
+(use-package page-break-lines
+  :delight
+  :config
+  (global-page-break-lines-mode))
+
 (use-package proced
   :hook
   (proced-mode . (lambda () (proced-toggle-auto-update +1)))
