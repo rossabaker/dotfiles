@@ -1,6 +1,7 @@
 import qualified Codec.Binary.UTF8.String as UTF8
 import qualified DBus as D
 import qualified DBus.Client as D
+import Graphics.X11.ExtraTypes.XF86
 import XMonad
 import XMonad.Actions.WindowGo
 import XMonad.Hooks.DynamicLog
@@ -10,7 +11,7 @@ import XMonad.Hooks.ManageHelpers (doCenterFloat, isDialog, transience')
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ToggleLayouts
-import XMonad.Util.EZConfig
+import XMonad.Util.EZConfig (additionalKeys)
 import XMonad.Util.Run
 
 myLogHook :: D.Client -> PP
@@ -29,17 +30,17 @@ dbusOutput dbus str = do
     interfaceName = D.interfaceName_ "org.xmonad.Log"
     memberName = D.memberName_ "Update"
 
-myKeys =
-  [ ("<XF86AudioMute>", spawn "pactl set-sink-mute 0 toggle"),
-    ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 -5%"),
-    ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 +5%"),
-    ("<XF86AudioMicMute>", spawn "pactl set-source-mute 1 toggle"),
-    ("<XF86MonBrightnessDown>", spawn "xbacklight -dec 5"),
-    ("<XF86MonBrightnessUp>", spawn "xbacklight -inc 5"),
-    ("M-;", raiseNextMaybe (safeSpawn "emacsclient" ["-n", "-c"]) (className =? "Emacs")),
-    ("M-'", runOrRaiseNext "google-chrome-stable" (className =? "Google-chrome")),
-    ("M-f", sendMessage ToggleLayout),
-    ("M-p", spawn "rofi -show run")
+myKeys modKey =
+  [ ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute 0 toggle"),
+    ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume 0 -5%"),
+    ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume 0 +5%"),
+    ((0, xF86XK_AudioMicMute), spawn "pactl set-source-mute 1 toggle"),
+    ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 5"),
+    ((0, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 5"),
+    ((modKey, xK_semicolon), raiseNextMaybe (safeSpawn "emacsclient" ["-n", "-c"]) (className =? "Emacs")),
+    ((modKey, xK_apostrophe), runOrRaiseNext "google-chrome-stable" (className =? "Google-chrome")),
+    ((modKey, xK_f), sendMessage ToggleLayout),
+    ((modKey, xK_p), spawn "rofi -show run")
   ]
 
 myLayout =
@@ -73,10 +74,12 @@ main = do
       { borderWidth = 4,
         focusedBorderColor = "#81a2be",
         normalBorderColor = "#373b41",
-        modMask = mod4Mask,
+        modMask = modKey,
         terminal = "termite",
         layoutHook = myLayout,
         logHook = dynamicLogWithPP (myLogHook dbus),
         manageHook = myManageHook
       }
-      `additionalKeysP` myKeys
+      `additionalKeys` (myKeys modKey)
+  where
+    modKey = mod4Mask
