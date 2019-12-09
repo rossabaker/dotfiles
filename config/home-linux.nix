@@ -164,6 +164,11 @@ in {
   xsession = {
     enable = true;
 
+    initExtra = ''
+      # I have ThinkPads. Remap PrtSc to menu.
+      ${pkgs.xorg.xmodmap}/bin/xmodmap -e "keycode 107 = Menu"
+    '';
+
     windowManager = {
       xmonad = {
         enable = true;
