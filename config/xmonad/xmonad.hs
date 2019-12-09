@@ -42,12 +42,12 @@ myKeys =
   ]
 
 myLayout =
-  smartBorders $
-  toggleLayouts Full $
-  avoidStruts $
-  tiled ||| Mirror tiled
+  smartBorders
+    $ toggleLayouts Full
+    $ avoidStruts
+    $ tiled ||| Mirror tiled
   where
-    tiled = Tall 1 (3/100) (1/2)
+    tiled = Tall 1 (3 / 100) (1 / 2)
 
 main = do
   dbus <- D.connectSession
