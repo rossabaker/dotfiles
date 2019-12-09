@@ -310,11 +310,6 @@
   (ivy-rich-mode +1))
 
 (use-package lsp-haskell
-  ;; Disabled until we cajole it in into using cabal-3.0
-  ;; https://github.com/haskell/haskell-ide-engine/pull/1126
-  ;; https://github.com/haskell/haskell-ide-engine/issues/1432
-  ;; https://github.com/haskell/haskell-ide-engine/issues/1376
-  :disabled t
   :demand
   :config
   (setq lsp-haskell-process-wrapper-function
