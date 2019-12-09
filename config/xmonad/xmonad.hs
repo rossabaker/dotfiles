@@ -31,10 +31,10 @@ dbusOutput dbus str = do
     memberName = D.memberName_ "Update"
 
 myKeys modKey =
-  [ ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute 0 toggle"),
-    ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume 0 -5%"),
-    ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume 0 +5%"),
-    ((0, xF86XK_AudioMicMute), spawn "pactl set-source-mute 1 toggle"),
+  [ ((0, xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle"),
+    ((0, xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -5%"),
+    ((0, xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +5%"),
+    ((0, xF86XK_AudioMicMute), spawn "pactl set-source-mute @DEFAULT_SOURCE@ toggle"),
     ((0, xF86XK_MonBrightnessDown), spawn "xbacklight -dec 5"),
     ((0, xF86XK_MonBrightnessUp), spawn "xbacklight -inc 5"),
     ((modKey, xK_semicolon), raiseNextMaybe (safeSpawn "emacsclient" ["-n", "-c"]) (className =? "Emacs")),
