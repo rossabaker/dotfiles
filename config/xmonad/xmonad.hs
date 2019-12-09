@@ -6,7 +6,7 @@ import XMonad.Actions.WindowGo
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.ManageHelpers (doCenterFloat, isDialog)
+import XMonad.Hooks.ManageHelpers (doCenterFloat, isDialog, transience')
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ToggleLayouts
@@ -54,7 +54,8 @@ myManageHook =
   composeAll
     [ manageHook defaultConfig,
       manageDocks,
-      isDialog --> doCenterFloat
+      isDialog --> doCenterFloat,
+      transience'
     ]
 
 main = do
