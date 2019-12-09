@@ -6,6 +6,7 @@ import XMonad.Actions.WindowGo
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers (doCenterFloat, isDialog)
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ToggleLayouts
@@ -49,6 +50,13 @@ myLayout =
   where
     tiled = Tall 1 (3 / 100) (1 / 2)
 
+myManageHook =
+  composeAll
+    [ manageHook defaultConfig,
+      manageDocks,
+      isDialog --> doCenterFloat
+    ]
+
 main = do
   dbus <- D.connectSession
   -- Request access to the DBus name
@@ -68,6 +76,6 @@ main = do
         terminal = "termite",
         layoutHook = myLayout,
         logHook = dynamicLogWithPP (myLogHook dbus),
-        manageHook = manageHook defaultConfig <+> manageDocks
+        manageHook = myManageHook
       }
       `additionalKeysP` myKeys
