@@ -299,6 +299,13 @@
   haskell-mode
   scala-mode)
 
+(use-package help
+  :after which-key
+  :config
+  (global-unset-key (kbd "C-h C-h")) ; Undo conflict with which-key help
+  :bind
+  ("C-h b b" . describe-bindings))
+
 (use-package imenu
   :bind
   ("M-i" . imenu))
@@ -513,6 +520,9 @@
 
 (use-package which-key
   :delight
+  :demand t
+  :init
+  (global-unset-key (kbd "C-h b"))
   :config
   (which-key-mode)
   (which-key-declare-prefixes
@@ -521,7 +531,14 @@
     "C-c l" "multi-line"
     "C-c p" "projectile"
     "C-c q" "string-inflection"
-    "C-c T" "theme"))
+    "C-c T" "theme"
+    "C-h b" "bindings")
+  :bind
+  ("C-h b f" . which-key-show-full-keymap)
+  ("C-h b i" . which-key-show-minor-mode)
+  ("C-h b k" . which-key-show-keymap)
+  ("C-h b m" . which-key-show-major-mode)
+  ("C-h b t" . which-key-show-top-level))
 
 (use-package woman
   :bind
