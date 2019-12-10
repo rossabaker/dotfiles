@@ -103,6 +103,7 @@
   :bind
   ("C-c /" . counsel-git-grep)
   ("C-c c" . counsel-compile)
+  ("C-c f d" . counsel-dired)
   ("C-c f l" . counsel-locate)
   ("C-c f r" . counsel-recentf)
   ("C-h f" . counsel-describe-function)
