@@ -388,6 +388,15 @@
   :config
   (global-page-break-lines-mode))
 
+(use-package persistent-scratch
+  :config
+  (persistent-scratch-setup-default)
+  (defun ross/pop-to-scratch ()
+    (interactive)
+    (pop-to-buffer "*scratch*"))
+  :bind
+  ("C-c f x" . ross/pop-to-scratch))
+
 (use-package proced
   :hook
   (proced-mode . (lambda () (proced-toggle-auto-update +1)))

@@ -110,6 +110,7 @@ in rec {
         epkgs.nix-sandbox
         epkgs.magit
         epkgs.page-break-lines
+        epkgs.persistent-scratch
         epkgs.projectile
         epkgs.protobuf-mode
         epkgs.quick-yes
