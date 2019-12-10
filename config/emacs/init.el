@@ -242,6 +242,10 @@
   :bind
   ("C-=" . 'er/expand-region))
 
+(use-package files
+  :bind
+  ("C-c f u" . recover-this-file))
+
 (use-package flycheck
   :delight
   :config
