@@ -474,8 +474,9 @@
   (customize-set-variable 'horizontal-scroll-bar-mode nil))
 
 (use-package shell-pop
-  :bind
-  ("C-c t" . shell-pop))
+  :init
+  (setq shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell)))
+        shell-pop-universal-key "C-c t"))
 
 (use-package simple
   :delight visual-line-mode
