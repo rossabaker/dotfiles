@@ -159,7 +159,9 @@
 
 (use-package direnv
   :config
-  (direnv-mode))
+  (direnv-mode)
+  :hook
+  (eshell-directory-change . direnv-update-directory-environment))
 
 (use-package display-line-numbers
   :hook
