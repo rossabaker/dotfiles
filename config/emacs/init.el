@@ -523,6 +523,11 @@
     "C-c q" "string-inflection"
     "C-c T" "theme"))
 
+(use-package woman
+  :bind
+  ("C-h r" . woman) ; rtfm
+  )
+
 (use-package ws-butler
   :delight
   :hook
