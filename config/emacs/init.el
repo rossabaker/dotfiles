@@ -136,6 +136,10 @@
   :config
   (delete-selection-mode t))
 
+(use-package descr-text
+  :bind
+  ("C-h '" . describe-char))
+
 (use-package desktop
   :disabled t
   ;; This causes metals to spin up multiple JVMs when we restart
