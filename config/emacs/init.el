@@ -480,8 +480,19 @@
   :config
   (column-number-mode +1)
   (size-indication-mode +1)
+  (defun ross/kill-ring-file-name-save ()
+    "Yank the current file name"
+    (interactive)
+    (let ((filename (if (equal major-mode 'dired-mode)
+                        default-directory
+                      (buffer-file-name))))
+      (when filename
+        (kill-new filename)
+        (message "File name \"%s\" saved to the kill ring" filename))))
   :hook
-  (text-mode . visual-line-mode))
+  (text-mode . visual-line-mode)
+  :bind
+  ("C-c f w" . ross/kill-ring-file-name-save))
 
 (use-package smartparens
   :delight
