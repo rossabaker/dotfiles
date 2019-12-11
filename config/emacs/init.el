@@ -479,7 +479,7 @@
 
 (use-package shell-pop
   :init
-  (setq shell-pop-shell-type '("eshell" "*eshell*" (lambda () (eshell)))
+  (setq shell-pop-shell-type '("shell" "*shell*" (lambda () (shell)))
         shell-pop-universal-key "C-c t"))
 
 (use-package simple
