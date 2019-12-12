@@ -15,6 +15,7 @@
     company-quickhelp
     company-restclient
     counsel
+    counsel-jq
     counsel-projectile
     crux
     delight
@@ -75,6 +76,8 @@
     which-key
     ws-butler
     yaml-mode
+
+    pkgs.jq
   ];
 
   overrides = self: super:

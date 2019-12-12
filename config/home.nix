@@ -21,6 +21,7 @@ in rec {
       pkgs.direnv
       pkgs.gnupg
       pkgs.hasklig
+      pkgs.jq
       pkgs.material-design-icons
       pkgs.sbt-extras
       pkgs.siji
