@@ -571,6 +571,18 @@
   :hook
   (prog-mode . ws-butler-mode))
 
+;; NixOS doesn't have a #!/bin/bash. We do this a lot.
+(defun ross/fix-shebang ()
+  "Replace #!/bin/bash shebang with #!/usr/bin/env bash"
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (when (looking-at "#!/bin/bash\n")
+      (delete-region (point) (line-end-position))
+      (insert "#!/usr/bin/env bash"))))
+
+;;; init.el --- Ross A. Baker's Emacs configuration.
+
 (provide 'init)
 
 ;;; init.el ends here
