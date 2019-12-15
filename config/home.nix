@@ -8,8 +8,6 @@ in rec {
   home = {
     file = {
       ".config/direnv/direnvrc".source = direnv/direnvrc;
-      ".emacs.d/custom.el".source = emacs/custom.el;
-      ".emacs.d/init.el".source = emacs/init.el;
     };
 
     packages = [
@@ -59,8 +57,6 @@ in rec {
       enable = true;
       enableBashIntegration = true;
     };
-
-    emacs = import ./emacs { inherit pkgs; };
 
     git = {
       enable = true;

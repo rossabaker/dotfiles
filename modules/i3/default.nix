@@ -47,7 +47,7 @@
     package = pkgs.polybar.override {
       i3Support = true;
     };
-    config = ../config/polybar/config;
+    config = ./polybar/config;
     script = ''polybar main &'';
   };
 }

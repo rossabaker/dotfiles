@@ -5,7 +5,8 @@ let
 in {
   imports = [
     ./home.nix
-    ../modules/i3.nix
+    ../modules/emacs
+    ../modules/i3
   ];
 
   gtk = {

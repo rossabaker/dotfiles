@@ -3,7 +3,7 @@
 {
   imports = [
     (import ../../config/home-linux.nix { dpi = 96; pkgs = pkgs; })
-    (import ../../modules/work.nix)
+    (import ../../modules/work)
   ];
 
   programs.git.signing = {
