@@ -35,6 +35,10 @@
             notification = false;
           }
         ];
+        gaps = {
+          inner = 4;
+          outer = 0;
+        };
       };
     };
 
