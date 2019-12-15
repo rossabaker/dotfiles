@@ -22,6 +22,7 @@ include-file=~/.config/polybar/dynamic.config
 background = #1d1f21
 foreground = #c5c8c6
 foreground-alt = #81a2be
+foreground-dark = #969896
 alert = #cc6666
 
 [bar/main]
@@ -52,7 +53,7 @@ font-1 = Unifont:fontformat=truetype:size=12:antialias=false;0
 font-2 = "Material Design Icons:style=Regular:size=12;0"
 font-3 = siji:pixelsize=12;0
 
-modules-left = xmonad
+modules-left = i3 xwindow
 modules-center = 
 modules-right = memory cpu wlan alsa battery time
 
@@ -64,6 +65,40 @@ tray-maxsize = 36
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+[module/i3]
+type = internal/i3
+ws-icon-0 = 1;%{T3}ﱽ%{T-}
+ws-icon-1 = 2;%{T3}ﱿ%{T-}
+ws-icon-2 = 3;%{T3}ﲁ%{T-}
+ws-icon-3 = 4;%{T3}ﲃ%{T-}
+ws-icon-4 = 5;%{T3}ﲅ%{T-}
+ws-icon-5 = 6;%{T3}ﲇ%{T-}
+ws-icon-6 = 7;%{T3}ﲉ%{T-}
+ws-icon-7 = 8;%{T3}ﲋ%{T-}
+ws-icon-8 = 9;%{T3}ﲍ%{T-}
+ws-icon-9 = 10;%{T3}󰀎%{T-}
+
+label-mode = %mode%
+label-mode-foreground = ${colors.alert}
+
+label-focused = %icon%
+label-focused-foreground = ${colors.foreground}
+label-focused-background = #373b41
+
+label-unfocused = %icon%
+label-unfocused-foreground = ${colors.foreground-dark}
+
+label-visible = %icon%
+label-visible-foreground = ${colors.foreground}
+
+label-urgent = %icon%
+label-urgent-foreground = ${colors.alert}
+
+[module/xwindow]
+type = internal/xwindow
+format-foreground = ${colors.foreground}
+label-maxlen = 50
+
 [module/filesystem]
 type = internal/fs
 interval = 25
@@ -74,11 +109,6 @@ format-mounted = <label-mounted>
 format-mounted-prefix = " "
 format-mounted-prefix-foreground = ${colors.foreground-alt}
 label-mounted = %percentage_used%%
-
-[module/xmonad]
-type = custom/script
-exec = ~/.nix-profile/bin/xmonad-log
-tail = true
 
 [module/xbacklight]
 type = internal/xbacklight
