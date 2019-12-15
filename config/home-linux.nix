@@ -118,15 +118,6 @@ in {
       enableSshSupport = true;
     };
 
-    polybar = {
-      enable = true;
-      package = pkgs.polybar.override {
-        i3GapsSupport = true;
-      };
-      config = ./polybar/config;
-      script = "${pkgs.polybar}/bin/polybar main &";
-    };
-
     redshift = {
       enable = true;
       brightness = {

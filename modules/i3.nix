@@ -29,6 +29,21 @@
           XF86MonBrightnessDown = "exec ${pkgs.xorg.xbacklight}/bin/xbacklight -dec 5";
           XF86MonBrightnessUp = "exec ${pkgs.xorg.xbacklight}/bin/xbacklight -inc 5";
         };
+        startup = [
+          { command = "systemctl --user restart polybar";
+            always = true;
+            notification = false;
+          }
+        ];
       };
     };
+
+  services.polybar = {
+    enable = true;
+    package = pkgs.polybar.override {
+      i3Support = true;
+    };
+    config = ../config/polybar/config;
+    script = ''polybar main &'';
+  };
 }
