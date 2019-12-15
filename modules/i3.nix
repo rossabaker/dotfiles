@@ -13,6 +13,15 @@
         keybindings = lib.mkOptionDefault {
           "${mod}+Return" = "exec ${pkgs.termite}/bin/termite";
           "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show run";
+          "${mod}+a" = "focus parent";
+          "${mod}+j" = "focus left";
+          "${mod}+k" = "focus down";
+          "${mod}+l" = "focus up";
+          "${mod}+semicolon" = "focus right";
+          "${mod}+Shift+j" = "move window left";
+          "${mod}+Shift+k" = "move window down";
+          "${mod}+Shift+l" = "move window up";
+          "${mod}+Shift+semicolon" = "move window right";
           XF86AudioMute = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
           XF86AudioLowerVolume = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
           XF86AudioRaiseVolume = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
