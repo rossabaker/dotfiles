@@ -3,7 +3,10 @@
 let
   xsettingsd = pkgs.xsettingsd;
 in {
-  imports = [ ./home.nix ];
+  imports = [
+    ./home.nix
+    ../modules/i3.nix
+  ];
 
   gtk = {
     enable = true;
@@ -168,16 +171,5 @@ in {
       # I have ThinkPads. Remap PrtSc to menu.
       ${pkgs.xorg.xmodmap}/bin/xmodmap -e "keycode 107 = Menu"
     '';
-
-    windowManager = {
-      xmonad = {
-        enable = true;
-        extraPackages = haskellPackages: [
-          haskellPackages.dbus
-          haskellPackages.xmonad-contrib
-        ];
-        config = xmonad/xmonad.hs;
-      };
-    };
   };
 }
