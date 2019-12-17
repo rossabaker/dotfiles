@@ -3,12 +3,13 @@
 {
   home.file = {
     ".emacs.d/custom.el".source = ./custom.el;
-    ".emacs.d/init.el".source = ./init.el;
   };
 
   programs.emacs = {
     enable = true;
     extraPackages = epkgs: with epkgs; [
+      ross-init
+
       ace-window
       atomic-chrome
       avy
@@ -88,12 +89,22 @@
 
     overrides = self: super:
       let
-        inherit (pkgs) fetchFromGitHub fetchurl stdenv;
+        inherit (pkgs) fetchFromGitHub fetchurl runCommand stdenv;
         inherit (stdenv) lib;
 
         withPatches = pkg: patches:
           lib.overrideDerivation pkg (attrs: { inherit patches; });
       in {
+        ross-init = (runCommand "ross-init" {
+          buildInputs = [ self.emacs ];
+        } ''
+          cp ${./README.org} README.org
+          cp ${./init.el} init.el
+          ${self.emacs}/bin/emacs --batch -l ob-tangle --eval "(org-babel-tangle-file \"README.org\" \"default.el\")"
+          mkdir -p $out/share/emacs/site-lisp
+          mv *.el $out/share/emacs/site-lisp
+        '');
+
         git-gutter = withPatches super.git-gutter [ ./patches/git-gutter.patch ];
         lsp-mode = self.melpaBuild {
           pname = "lsp-mode";

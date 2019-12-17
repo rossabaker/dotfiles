@@ -1,0 +1,9 @@
+This file generates Ross A. Baker's Emacs configuration.  When tangled, it generates a ~default.el~, which is loaded by Emacs via the [[file:default.nix::ross-init%20=%20(runCommand%20"ross-init"%20{][~ross-init~ package]]. 
+
+* Legacy
+
+Load our [[file:init.el::;;;%20init.el%20---%20Ross%20A.%20Baker's%20Emacs%20configuration.][old, illiterate configuration]] until we finish documenting it here.
+
+#+BEGIN_SRC emacs-lisp
+  (require 'init)
+#+END_SRC
