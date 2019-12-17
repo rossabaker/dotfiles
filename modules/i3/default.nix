@@ -17,6 +17,7 @@
           "${mod}+j" = "focus left";
           "${mod}+k" = "focus down";
           "${mod}+l" = "focus up";
+          "${mod}+apostrophe" = "exec --no-startup-id [ $(i3-msg '[class=Emacs] focus') = '[{\"success\":true}]' ] || i3-msg exec 'emacsclient -c'";
           "${mod}+semicolon" = "focus right";
           "${mod}+Shift+j" = "move window left";
           "${mod}+Shift+k" = "move window down";
