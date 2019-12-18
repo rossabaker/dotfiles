@@ -44,7 +44,6 @@ in {
     packages = [
       pkgs.gitter
       pkgs.gnome3.dconf # gtk doesn't configure without it
-      pkgs.google-chrome
       pkgs.slack
       pkgs.spotify
       pkgs.xorg.xbacklight
