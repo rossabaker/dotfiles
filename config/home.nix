@@ -1,7 +1,9 @@
 { pkgs, ... }:
 
 let
+  sources = import ../nix/sources.nix;
   all-hies = import (fetchTarball "https://github.com/infinisil/all-hies/tarball/master") {};
+  niv = import sources.niv {};
 in rec {
   imports = [
     ../modules/chrome
@@ -16,6 +18,7 @@ in rec {
 
     packages = [
       (all-hies.selection { selector = p: { inherit (p) ghc865; }; })
+      niv.niv
       pkgs.aspell
       pkgs.aspellDicts.en
       pkgs.bashInteractive
