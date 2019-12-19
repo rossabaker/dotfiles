@@ -6,4 +6,11 @@
       pkgs = pkgs;
     })
   ];
+
+  home.files = {
+    ".config/systemd/user/cros-garcon.service.d" = {
+      source = ./config/systemd/cros-garcon.service.d;
+      recursive = true;
+    };
+  };
 }

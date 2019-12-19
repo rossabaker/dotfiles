@@ -35,10 +35,6 @@ in rec {
          dpi = ${toString dpi}
          height = ${toString (dpi / 4)}
       '';
-      ".config/systemd/user/cros-garcon.service.d" = {
-         source = ./config/systemd/cros-garcon.service.d;
-         recursive = true;
-      };
       ".xsettingsd".text = ''
         Xft/DPI ${toString (dpi * 1024)}
       '';
