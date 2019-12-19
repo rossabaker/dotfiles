@@ -13,6 +13,9 @@ NIX_PATHS = \
 
 switch: os-switch hm-switch
 
+update:
+	niv update
+
 os-switch:
 	sudo nixos-rebuild switch $(NIX_PATHS)
 
