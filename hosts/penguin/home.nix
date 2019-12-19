@@ -2,7 +2,7 @@
 
 {
   imports = [
-    (import ../../config/home.nix {
+    (import ../../home.nix {
       pkgs = pkgs;
     })
   ];

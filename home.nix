@@ -3,14 +3,14 @@
   ... }:
 
 let
-  sources = import ../nix/sources.nix;
+  sources = import ./nix/sources.nix;
   all-hies = import sources.all-hies {};
   niv = import sources.niv {};
 in rec {
   imports = [
-    ../modules/chrome
-    ../modules/emacs
-    ../modules/i3
+    ./modules/chrome
+    ./modules/emacs
+    ./modules/i3
   ];
 
   fonts.fontconfig.enable = true;
@@ -29,14 +29,14 @@ in rec {
 
   home = {
     file = {
-      ".config/direnv/direnvrc".source = direnv/direnvrc;
+      ".config/direnv/direnvrc".source = ./config/direnv/direnvrc;
       ".config/polybar/dynamic.config".text = ''
          [bar/main]
          dpi = ${toString dpi}
          height = ${toString (dpi / 4)}
       '';
       ".config/systemd/user/cros-garcon.service.d" = {
-         source = systemd/cros-garcon.service.d;
+         source = ./config/systemd/cros-garcon.service.d;
          recursive = true;
       };
       ".xsettingsd".text = ''
@@ -81,8 +81,8 @@ in rec {
     };
   };
 
-  nixpkgs.config = import ../config/nixpkgs/config.nix;
-  nixpkgs.overlays = (import ../config/nixpkgs/config.nix).overlays;
+  nixpkgs.config = import ./config/nixpkgs/config.nix;
+  nixpkgs.overlays = (import ./config/nixpkgs/config.nix).overlays;
   
   programs = {
     autorandr = {
@@ -140,7 +140,7 @@ in rec {
       enable = true;
       font = "sans-serif 12";
       extraConfig = ''rofi.dpi: ${toString dpi}'';
-      theme = ../config/rofi/tomorrow-night.rasi;
+      theme = ./config/rofi/tomorrow-night.rasi;
     };
 
     termite = {
@@ -224,7 +224,7 @@ in rec {
     };
   };
 
-  xdg.configFile."nixpkgs/config.nix".source = ../config/nixpkgs/config.nix;
+  xdg.configFile."nixpkgs/config.nix".source = ./config/nixpkgs/config.nix;
 
   xsession = {
     enable = true;

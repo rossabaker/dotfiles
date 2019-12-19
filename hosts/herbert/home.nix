@@ -2,7 +2,7 @@
 
 {
   imports = [
-    (import ../../config/home.nix { dpi = 96; pkgs = pkgs; })
+    (import ../../home.nix { dpi = 96; pkgs = pkgs; })
     (import ../../modules/work)
   ];
 
