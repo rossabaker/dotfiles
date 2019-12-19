@@ -1,10 +1,12 @@
 { pkgs, ... }:
 
-{
+let
+  sources = import ./nix/sources.nix;
+in {
   nix = {
     nixPath = [
-      "nixpkgs=${./nixpkgs}"
-      "nixos=${./nixpkgs}"
+      "nixpkgs=${sources.nixpkgs.url}"
+      "home-manager=${sources.home-manager.url}"
     ];
     trustedUsers = [ "root" "ross" ];
   };
