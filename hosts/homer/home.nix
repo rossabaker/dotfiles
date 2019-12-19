@@ -4,7 +4,7 @@ let
   dpi = 192;
 in {
   imports = [
-    (import ../../config/home-linux.nix {
+    (import ../../config/home.nix {
       dpi = dpi;
       pkgs = pkgs;
     })
