@@ -4,6 +4,14 @@
   xsession.windowManager.i3 =
     let
       mod = "Mod4";
+
+      ws = {
+        www = "1";
+        code = "2";
+        chat = "3";
+        comms = "4";
+        media = "9";
+      };
     in {
       enable = true;
       package = pkgs.i3-gaps;
@@ -35,6 +43,26 @@
             notification = false;
           }
         ];
+        assigns = {
+          "${ws.www}" = [
+            { class = "^Google-chrome$"; instance = "^(?!crx_.*$).*"; }
+          ];
+          "${ws.code}" = [
+            { class = "^Emacs$"; }
+          ];
+          "${ws.chat}" = [
+            { class = "^Gitter$"; }
+            { class = "^Slack$"; }
+          ];
+          "${ws.comms}" = [
+            { instance = "crx_pjkljhegncpnkpknbcohdijeoejaedia"; }
+            { instance = "crx_kjbdgfilnfhdoflbpgamdcdgpehopbep"; }
+          ];
+          "${ws.media}" = [
+            { class = "^Spotify$"; }
+            { instance = "crx_nlmaamaoahjiilibgbafebhafkeccjac"; }
+          ];
+        };
         gaps = {
           inner = 4;
           outer = 0;
