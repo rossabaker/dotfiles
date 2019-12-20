@@ -79,7 +79,7 @@ in rec {
 
   nixpkgs.config = import ./config/nixpkgs/config.nix;
   nixpkgs.overlays = (import ./config/nixpkgs/config.nix).overlays;
-  
+
   programs = {
     autorandr = {
       enable = true;
@@ -175,6 +175,8 @@ in rec {
   services = {
     compton = {
       enable = true;
+      fade = true;
+      shadow = true;
     };
 
     emacs.enable = true;
