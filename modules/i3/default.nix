@@ -45,7 +45,7 @@
         ];
         assigns = {
           "${ws.www}" = [
-            { class = "^Google-chrome$"; instance = "^(?!crx_.*$).*"; }
+            { instance = "^google-chrome$"; }
           ];
           "${ws.code}" = [
             { class = "^Emacs$"; }
@@ -55,12 +55,12 @@
             { class = "^Slack$"; }
           ];
           "${ws.comms}" = [
-            { instance = "crx_pjkljhegncpnkpknbcohdijeoejaedia"; }
-            { instance = "crx_kjbdgfilnfhdoflbpgamdcdgpehopbep"; }
+            { instance = "^mail.google.com__.*"; }
+            { instance = "^calendar.google.com__.*"; }
           ];
           "${ws.media}" = [
             { class = "^Spotify$"; }
-            { instance = "crx_nlmaamaoahjiilibgbafebhafkeccjac"; }
+            { instance = "^tv.youtube.com$"; }
           ];
         };
         gaps = {
