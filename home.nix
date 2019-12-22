@@ -229,6 +229,8 @@ in rec {
     enable = true;
 
     initExtra = ''
+      ${pkgs.feh}/bin/feh --bg-fill ${./wallpapers/mandelbrot.png}
+
       # I have ThinkPads. Remap PrtSc to menu.
       ${pkgs.xorg.xmodmap}/bin/xmodmap -e "keycode 107 = Menu"
     '';

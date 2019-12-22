@@ -19,7 +19,7 @@
 include-file=~/.config/polybar/dynamic.config
 
 [colors]
-background = #1d1f21
+background = #aa1d1f21
 foreground = #c5c8c6
 foreground-alt = #81a2be
 foreground-dark = #969896
@@ -254,7 +254,7 @@ screenchange-reload = true
 ;pseudo-transparency = false
 
 [global/wm]
-margin-top = 5
-margin-bottom = 5
+margin-top = 0
+margin-bottom = 0
 
 ; vim:ft=dosini
