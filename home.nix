@@ -176,6 +176,7 @@ in rec {
     compton = {
       enable = true;
       fade = true;
+      fadeSteps = [ "0.05" "0.02" ];
       shadow = true;
     };
 
