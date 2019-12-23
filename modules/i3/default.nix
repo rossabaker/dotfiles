@@ -12,9 +12,17 @@
         comms = "4";
         media = "9";
       };
+
+      outputs = {
+        primary = "DP-1.2";
+        left = "DP-0";
+        right = "DP-1.1";
+      };
+
+      i3 = pkgs.i3-gaps;
     in {
       enable = true;
-      package = pkgs.i3-gaps;
+      package = i3;
       config = {
         bars = [];
         modifier = mod;
@@ -30,11 +38,17 @@
           "${mod}+Shift+k" = "move window down";
           "${mod}+Shift+l" = "move window up";
           "${mod}+Shift+semicolon" = "move window right";
+          "${mod}+comma" = "focus output ${outputs.left}";
+          "${mod}+period" = "focus output ${outputs.primary}";
+          "${mod}+slash" = "focus output ${outputs.right}";
+          "${mod}+Shift+comma" = "move workspace to output ${outputs.left}";
+          "${mod}+Shift+period" = "move workspace to output ${outputs.primary}";
+          "${mod}+Shift+slash" = "move workspace to output ${outputs.right}";
           XF86AudioMute = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
           XF86AudioLowerVolume = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
           XF86AudioRaiseVolume = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
           XF86AudioMicMute = "exec ${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
-          XF86MonBrightnessDown = "exec ${pkgs.xorg.xbacklight}/bin/xbacklight -dec 5";
+          XF86MonBrightnpessDown = "exec ${pkgs.xorg.xbacklight}/bin/xbacklight -dec 5";
           XF86MonBrightnessUp = "exec ${pkgs.xorg.xbacklight}/bin/xbacklight -inc 5";
         };
         startup = [
