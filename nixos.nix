@@ -42,9 +42,11 @@ in {
   services.xserver.layout = "us";
   services.xserver.libinput.enable = true;
 
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager = {
+    defaultSession = "xterm";
+    sddm.enable = true;
+  };
   services.xserver.desktopManager = {
-    default = "xterm";
     xterm.enable = true;
   };
   services.xserver.videoDrivers = [ "nvidia" ];
