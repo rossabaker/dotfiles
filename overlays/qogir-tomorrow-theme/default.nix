@@ -1,6 +1,6 @@
 self: super: {
   qogir-tomorrow-theme = super.qogir-theme.overrideAttrs (old: rec {
-    pname = "qogir-spacemacs-theme";
+    pname = "qogir-tomorrow-theme";
 
     buildInputs = old.buildInputs ++ [
       self.sassc
