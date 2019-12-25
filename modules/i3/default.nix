@@ -20,6 +20,11 @@
       };
 
       i3 = pkgs.i3-gaps;
+
+      focus-or-run-emacsclient = pkgs.writeScriptBin "focus-or-run-emacsclient" ''
+        #!${pkgs.stdenv.shell}
+        ${i3}/bin/i3-msg '[class="Emacs"] focus' | ${pkgs.jq}/bin/jq -e .[0].success || emacsclient -c
+      '';
     in {
       enable = true;
       package = i3;
@@ -44,6 +49,7 @@
           "${mod}+Shift+comma" = "move workspace to output ${outputs.left}";
           "${mod}+Shift+period" = "move workspace to output ${outputs.primary}";
           "${mod}+Shift+slash" = "move workspace to output ${outputs.right}";
+          "${mod}+apostrophe" = "exec ${focus-or-run-emacsclient}/bin/focus-or-run-emacsclient";
           XF86AudioMute = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
           XF86AudioLowerVolume = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
           XF86AudioRaiseVolume = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ +5%";
