@@ -510,6 +510,9 @@
   (smartparens-global-mode +1)
   (show-smartparens-global-mode +1))
 
+(use-package snow
+  :commands let-it-snow)
+
 (use-package string-inflection
   :bind
   ("C-c q !" . string-inflection-upcase)
