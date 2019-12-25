@@ -9,9 +9,6 @@ self: super: {
 
     buildPhase = ''
       export HOME="$PWD"
-      echo "WTF"
-      echo "$PATH"
-      echo "WTF"
       patchShebangs *.sh src/*/*.sh
       ./parse-sass.sh
     '';
