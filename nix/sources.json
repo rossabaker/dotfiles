@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "infinisil",
         "repo": "all-hies",
-        "rev": "c6e93d2d641ef48703eabed8ec5cde3d774cb0e5",
-        "sha256": "08nikzynnp9nkjixplnmqk7yp2nc4w5wp3id4av8hy835im7vjb6",
+        "rev": "85fd0be92443ca60bb649f8e7748f785fe870b7a",
+        "sha256": "0af5grq9szpyyh61zg83dx8ki1i2zqschvs91b1apww414nirlwp",
         "type": "tarball",
-        "url": "https://github.com/infinisil/all-hies/archive/c6e93d2d641ef48703eabed8ec5cde3d774cb0e5.tar.gz",
+        "url": "https://github.com/infinisil/all-hies/archive/85fd0be92443ca60bb649f8e7748f785fe870b7a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "emacs-overlay": {
@@ -29,10 +29,10 @@
         "homepage": "",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "0f1c9f25cf03cd5ed62db05c461af7e13f84a7b6",
-        "sha256": "1xf49z5sa460m03pl5lf4flvfm95gk4p0fgib86xnbfs4ifnfar1",
+        "rev": "8d14ffbe8841d9ab4ec77cf2fb15e58ef4f6bca3",
+        "sha256": "1hjiimqfnwj0j58yp2625845h4s10ywws0wgmswh3h6kqq5h3r0s",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/0f1c9f25cf03cd5ed62db05c461af7e13f84a7b6.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/8d14ffbe8841d9ab4ec77cf2fb15e58ef4f6bca3.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
