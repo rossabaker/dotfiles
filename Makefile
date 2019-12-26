@@ -1,5 +1,6 @@
 NIX_CONFIG = $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 HOST = $(shell hostname)
+SHELL = /usr/bin/env bash
 
 NIXPKGS ?= $(shell jq -r .nixpkgs.url < $(NIX_CONFIG)/nix/sources.json)
 NIXOS_CONFIG ?= $(NIX_CONFIG)/hosts/$(HOST)/configuration.nix
@@ -21,6 +22,9 @@ os-switch:
 
 hm-switch:
 	HOME_MANAGER_CONFIG=$(HOME_MANAGER_CONFIG) home-manager switch $(NIX_PATHS)
+
+format:
+	fd '\.nix$$' -X nixpkgs-fmt
 
 cachix-install:
 	nix-env -iA cachix -f https://cachix.org/api/v1/install

@@ -11,6 +11,7 @@ let
 in
   with pkgs; pkgs.mkShell {
     buildInputs = [
+      fd
       gnumake
       jq
       niv.niv
