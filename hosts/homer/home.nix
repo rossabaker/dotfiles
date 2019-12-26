@@ -2,12 +2,15 @@
 
 let
   dpi = 192;
-in {
+in
+{
   imports = [
-    (import ../../home.nix {
-      dpi = dpi;
-      pkgs = pkgs;
-    })
+    (
+      import ../../home.nix {
+        dpi = dpi;
+        pkgs = pkgs;
+      }
+    )
   ];
 
   programs = {

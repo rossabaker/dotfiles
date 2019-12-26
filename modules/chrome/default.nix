@@ -12,7 +12,8 @@ let
     #!${pkgs.stdenv.shell}
     exec ${pkgs.google-chrome}/bin/google-chrome-stable --app=${url}
   '';
-in {
+in
+{
   home.packages = [
     pkgs.google-chrome
   ] ++ lib.mapAttrsToList chrome-app apps;

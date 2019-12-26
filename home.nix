@@ -1,12 +1,14 @@
-{ pkgs,
-  dpi ? 96,
-  ... }:
+{ pkgs
+, dpi ? 96
+, ...
+}:
 
 let
   sources = import ./nix/sources.nix;
   all-hies = import sources.all-hies {};
   niv = import sources.niv {};
-in rec {
+in
+rec {
   imports = [
     ./modules/chrome
     ./modules/emacs
@@ -31,9 +33,9 @@ in rec {
     file = {
       ".config/direnv/direnvrc".source = ./config/direnv/direnvrc;
       ".config/polybar/dynamic.config".text = ''
-         [bar/main]
-         dpi = ${toString dpi}
-         height = ${toString (dpi / 4)}
+        [bar/main]
+        dpi = ${toString dpi}
+        height = ${toString (dpi / 4)}
       '';
       ".xsettingsd".text = ''
         Xft/DPI ${toString (dpi * 1024)}
@@ -100,11 +102,11 @@ in rec {
       sessionVariables = {
         NIX_PATH = "$HOME/.nix-defexpr/channels\${NIX_PATH:+:}$NIX_PATH";
         # Hack aronud https://github.com/rycee/home-manager/issues/423 for termite
-        TERMINFO_DIRS="$HOME/.nix-profile/share/terminfo:/lib/terminfo";
+        TERMINFO_DIRS = "$HOME/.nix-profile/share/terminfo:/lib/terminfo";
         # https://github.com/NixOS/nixpkgs/issues/38991#issuecomment-496332104
-        LOCALE_ARCHIVE_2_11=''$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive'';
-        LOCALE_ARCHIVE_2_27=''$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive'';
-        LOCALE_ARCHIVE="/usr/bin/locale";
+        LOCALE_ARCHIVE_2_11 = ''$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive'';
+        LOCALE_ARCHIVE_2_27 = ''$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive'';
+        LOCALE_ARCHIVE = "/usr/bin/locale";
       };
     };
 
@@ -117,7 +119,7 @@ in rec {
       enable = true;
       extraConfig = {
         url = {
-          "git@github.com" = { insteadOf = "gh"; } ;
+          "git@github.com" = { insteadOf = "gh"; };
         };
       };
       ignores = [

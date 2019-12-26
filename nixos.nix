@@ -2,7 +2,8 @@
 
 let
   sources = import ./nix/sources.nix;
-in {
+in
+{
   nix = {
     nixPath = [
       "nixpkgs=${sources.nixpkgs.url}"
@@ -13,7 +14,7 @@ in {
 
   nixpkgs.config.allowUnfree = true;
 
-  networking.networkmanager.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.enable = true; # Enables wireless support via wpa_supplicant.
 
   i18n = {
     # consoleKeyMap = ./config/kbd/keys.map;

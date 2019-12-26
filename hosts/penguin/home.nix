@@ -2,9 +2,11 @@
 
 {
   imports = [
-    (import ../../home.nix {
-      pkgs = pkgs;
-    })
+    (
+      import ../../home.nix {
+        pkgs = pkgs;
+      }
+    )
   ];
 
   home.files = {

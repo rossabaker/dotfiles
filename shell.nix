@@ -14,5 +14,6 @@ in
       gnumake
       jq
       niv.niv
+      nixpkgs-fmt
     ];
   }

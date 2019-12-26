@@ -1,6 +1,7 @@
 let
   sources = import ../../nix/sources.nix;
-in {
+in
+{
   allowUnfree = true;
 
   overlays = [
