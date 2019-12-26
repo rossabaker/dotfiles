@@ -12,8 +12,6 @@
       ../../nixos.nix
     ];
 
-  boot.earlyVconsoleSetup = true;
-
   boot.kernelPackages = pkgs.linuxPackages_5_3;
   boot.kernelParams = [ "nomodeset" ];
 
@@ -29,6 +27,12 @@
     }
   ];
 
+  console = {
+    earlySetup = true;
+    font = "ter-114n";
+    packages = with pkgs; [ terminus_font ];
+  };
+
   networking.hostName = "homer"; # Define your hostname.
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -37,11 +41,6 @@
   networking.useDHCP = false;
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp0s20f3.useDHCP = true;
-
-  i18n = {
-    consoleFont = "ter-114n";
-    consolePackages = with pkgs; [ terminus_font ];
-  };
 
   # This value determines the NixOS release with which your system is to be
   # compatible, in order to avoid breaking some software such as database
