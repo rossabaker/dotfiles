@@ -1,5 +1,15 @@
 { pkgs, ... }:
 
+let
+  used-packages = import (pkgs.runCommand "used-packages" rec {
+    emacs = pkgs.emacsWithPackages(epkgs: [ epkgs.use-package ]);
+    buildInputs = [ emacs ];
+    srcs = [ ./used-packages.el ./init.el ];
+  } ''
+    mkdir -p $out
+    emacs --batch -l ${./used-packages.el} --eval '(ross/used-packages "${./init.el}")' > $out/default.nix
+  '');
+in
 {
   home.file = {
     ".emacs.d/custom.el".source = ./custom.el;
@@ -8,84 +18,8 @@
 
   programs.emacs = {
     enable = true;
-    extraPackages = epkgs: with epkgs; [
-      ace-window
-      atomic-chrome
-      avy
-      base16-theme
-      bazel-mode
-      beacon
-      better-defaults
-      color-theme-sanityinc-tomorrow
-      company-lsp
-      company-quickhelp
-      company-restclient
-      counsel
-      counsel-jq
-      counsel-projectile
-      crux
-      delight
-      dhall-mode
-      direnv
-      dockerfile-mode
-      dtrt-indent
-      dumb-jump
-      electric-operator
-      emacs-libvterm
-      ess
-      exec-path-from-shell
-      expand-region
-      flycheck
-      git-gutter
-      git-link
-      git-timemachine
-      gitconfig-mode
-      gitignore-mode
-      haskell-mode
-      hasklig-mode
-      hydra
-      ivy
-      ivy-rich
-      json-mode
-      lsp-haskell
-      lsp-mode
-      lsp-treemacs
-      lsp-ui
-      ivy
-      list-environment
-      multi-line
-      nix-mode
-      nix-sandbox
-      magit
-      page-break-lines
-      persistent-scratch
-      projectile
-      protobuf-mode
-      quick-yes
-      rainbow-delimiters
-      rainbow-mode
-      restart-emacs
-      restclient
-      sbt-mode
-      scala-mode
-      shell-pop
-      smartparens
-      snow
-      spacemacs-theme
-      stan-mode
-      string-inflection
-      swiper
-      systemd
-      title-capitalization
-      try
-      unfill
-      use-package
-      which-key
-      ws-butler
-      yaml-mode
-
-      pkgs.jq
-    ];
+    extraPackages = epkgs: with epkgs;
+      used-packages { inherit epkgs; };
 
     overrides = self: super:
       let
@@ -169,6 +103,7 @@
                   cp *.el $out/share/emacs/site-lisp/
                 '';
               };
+          vterm = super.emacs-libvterm;
         };
   };
 }

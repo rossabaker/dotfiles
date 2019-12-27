@@ -34,7 +34,7 @@
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
-(use-package autorevert
+(use-package "autorevert"
   :delight auto-revert-mode
   :config
   (setq auto-revert-verbose nil
@@ -72,7 +72,7 @@
   :config
   (load-theme 'sanityinc-tomorrow-night t))
 
-(use-package company
+(use-package "company"
   :delight
   :hook
   (after-init . global-company-mode)
@@ -82,6 +82,8 @@
         company-show-numbers t
         company-tooltip-align-annotations t
         company-global-modes '(not shell-mode)))
+
+(use-package company)
 
 (use-package company-lsp
   :after company lsp-mode
@@ -116,6 +118,8 @@
   ("M-x" . counsel-M-x)
   ("M-y" . counsel-yank-pop))
 
+(use-package counsel-jq)
+
 (use-package counsel-projectile
   :config
   (counsel-projectile-mode))
@@ -131,18 +135,18 @@
   ("C-c r" . crux-rename-file-and-buffer)
   ("C-x 4 t" . crux-transpose-windows))
 
-(use-package css-mode
+(use-package "css-mode"
   :mode "\\.rasi\\'")
 
-(use-package delsel
+(use-package "delsel"
   :config
   (delete-selection-mode t))
 
-(use-package descr-text
+(use-package "descr-text"
   :bind
   ("C-h '" . describe-char))
 
-(use-package desktop
+(use-package "desktop"
   :disabled t
   ;; This causes metals to spin up multiple JVMs when we restart
   ;; Emacs, and the daemon doesn't restore frames.  Maybe recentf is
@@ -154,7 +158,7 @@
   :config
   (setq dhall-format-arguments '("--ascii")))
 
-(use-package dired
+(use-package "dired"
   :config
   (setq dired-dwim-target t))
 
@@ -164,12 +168,14 @@
   :hook
   (eshell-directory-change . direnv-update-directory-environment))
 
-(use-package display-line-numbers
+(use-package "display-line-numbers"
   :hook
   (prog-mode . display-line-numbers-mode)
   :config
   (setq-default display-line-numbers-width 4
                 display-line-numbers-widen t))
+
+(use-package dockerfile-mode)
 
 (use-package dtrt-indent
   :delight
@@ -180,7 +186,7 @@
   :config
   (setq dumb-jump-selector 'ivy))
 
-(use-package eldoc
+(use-package "eldoc"
   :delight)
 
 (use-package electric-operator
@@ -235,7 +241,7 @@
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)))
 
-(use-package executable
+(use-package "executable"
   :hook
   (after-save . executable-make-buffer-file-executable-if-script-p))
 
@@ -243,7 +249,7 @@
   :bind
   ("C-=" . 'er/expand-region))
 
-(use-package files
+(use-package "files"
   :bind
   ("C-c f u" . recover-this-file))
 
@@ -255,7 +261,7 @@
         '(not haskell-interactive-mode ;; https://github.com/haskell/haskell-mode/issues/1015
               )))
 
-(use-package flyspell
+(use-package "flyspell"
   :delight
   :config
   (setq ispell-program-name "aspell")
@@ -263,7 +269,7 @@
   (text-mode . flyspell-mode)
   (prog-mode . flyspell-prog-mode))
 
-(use-package frame
+(use-package "frame"
   :config
   (blink-cursor-mode -1)
   (setq default-frame-alist '((font . "Hasklig 12"))))
@@ -286,11 +292,13 @@
   :bind
   ("C-c g t" . git-timemachine-toggle))
 
-(use-package haskell
-  :delight interactive-haskell-mode
-  :hook (haskell-mode . interactive-haskell-mode))
+(use-package gitconfig-mode)
+
+(use-package gitignore-mode)
 
 (use-package haskell-mode
+  :delight interactive-haskell-mode
+  :hook (haskell-mode . interactive-haskell-mode)
   :config
   (setq
    ;; TODO This should not be global, but it lets us build with cabal
@@ -307,14 +315,16 @@
   haskell-mode
   scala-mode)
 
-(use-package help
+(use-package hydra)
+
+(use-package "help"
   :after which-key
   :config
   (global-unset-key (kbd "C-h C-h")) ; Undo conflict with which-key help
   :bind
   ("C-h b b" . describe-bindings))
 
-(use-package imenu
+(use-package "imenu"
   :bind
   ("M-i" . imenu))
 
@@ -327,6 +337,10 @@
 (use-package ivy-rich
   :config
   (ivy-rich-mode +1))
+
+(use-package json-mode)
+
+(use-package list-environment)
 
 (use-package lsp-haskell
   :demand
@@ -379,14 +393,14 @@
 
 (use-package nix-sandbox)
 
-(use-package ns-win
+(use-package "ns-win"
   :if (eq system-type 'darwin)
   :config
   (when
     (setq mac-command-modifier 'meta)
     (setq mac-option-modifier 'super)))
 
-(use-package package
+(use-package "package"
   :config
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/")))
 
@@ -404,13 +418,13 @@
   :bind
   ("C-c f x" . ross/pop-to-scratch))
 
-(use-package proced
+(use-package "proced"
   :hook
   (proced-mode . (lambda () (proced-toggle-auto-update +1)))
   :config
   (setq proced-auto-update-interval 1))
 
-(use-package prog-mode
+(use-package "prog-mode"
   :config
   (setq prettify-symbols-unprettify-at-point 'right-edge)
   (global-prettify-symbols-mode +1))
@@ -424,6 +438,8 @@
   (setq projectile-completion-system 'ivy)
   (projectile-discover-projects-in-search-path))
 
+(use-package protobuf-mode)
+
 (use-package quick-yes)
 
 (use-package rainbow-delimiters
@@ -435,11 +451,13 @@
   :hook
   (prog-mode . rainbow-mode))
 
+(use-package restart-emacs)
+
 (use-package restclient
   :mode
   ("\\.restclient\\'" . restclient-mode))
 
-(use-package savehist
+(use-package "savehist"
   :config
   (setq savehist-additiona-variables '(kill-ring
                                        search-ring
@@ -449,7 +467,7 @@
                                        shell-command-history))
   (savehist-mode +1))
 
-(use-package saveplace
+(use-package "saveplace"
   :config
   (save-place-mode t))
 
@@ -471,7 +489,7 @@
   ("C-c m c" . sbt-do-compile)
   ("C-c m t" . sbt-do-test))
 
-(use-package scroll-bar
+(use-package "scroll-bar"
   :config
   ;; Disable stubborn scroll bars in emacsclient
   ;; https://emacs.stackexchange.com/a/46632
@@ -483,7 +501,7 @@
   (setq shell-pop-shell-type '("shell" "*shell*" (lambda () (shell)))
         shell-pop-universal-key "C-c t"))
 
-(use-package simple
+(use-package "simple"
   :delight visual-line-mode
   :config
   (column-number-mode +1)
@@ -513,6 +531,8 @@
 (use-package snow
   :commands let-it-snow)
 
+(use-package stan-mode)
+
 (use-package string-inflection
   :bind
   ("C-c q !" . string-inflection-upcase)
@@ -523,7 +543,7 @@
   ("C-c q q" . string-inflection-all-cycle)
   ("C-c q s" . string-inflection-underscore))
 
-(use-package subword
+(use-package "subword"
   :delight)
 
 (use-package swiper
@@ -537,18 +557,22 @@
 
 (use-package title-capitalization)
 
-(use-package tooltip
+(use-package "tooltip"
   :config
   (tooltip-mode -1)
   (setq tooltip-use-echo-area t))
 
-(use-package uniquify
+(use-package try)
+
+(use-package "uniquify"
   :config
   (setq uniquify-ignore-buffers-re "^\\*"))
 
 (use-package unfill
   :bind
   ("M-q" . unfill-toggle))
+
+(use-package vterm)
 
 (use-package which-key
   :delight
@@ -572,7 +596,7 @@
   ("C-h b m" . which-key-show-major-mode)
   ("C-h b t" . which-key-show-top-level))
 
-(use-package woman
+(use-package "woman"
   :bind
   ("C-h r" . woman) ; rtfm
   )
@@ -581,6 +605,8 @@
   :delight
   :hook
   (prog-mode . ws-butler-mode))
+
+(use-package yaml-mode)
 
 ;; NixOS doesn't have a #!/bin/bash. We do this a lot.
 (defun ross/fix-shebang ()
