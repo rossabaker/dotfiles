@@ -5,12 +5,8 @@ let
 in
 {
   imports = [
-    (
-      import ../../home.nix {
-        dpi = dpi;
-        pkgs = pkgs;
-      }
-    )
+    (import ../../modules/home.nix { inherit dpi pkgs; })
+    (import ../../modules/desktop.nix { inherit dpi pkgs; })
   ];
 
   programs = {

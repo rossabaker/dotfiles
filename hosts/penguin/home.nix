@@ -2,11 +2,7 @@
 
 {
   imports = [
-    (
-      import ../../home.nix {
-        pkgs = pkgs;
-      }
-    )
+    (import ../../modules/home.nix { inherit pkgs; })
   ];
 
   home.file = {

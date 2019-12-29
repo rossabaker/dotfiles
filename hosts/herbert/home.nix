@@ -2,7 +2,8 @@
 
 {
   imports = [
-    (import ../../home.nix { dpi = 96; pkgs = pkgs; })
+    (import ../../modules/home.nix { inherit dpi pkgs; })
+    (import ../../modules/desktop.nix { inherit dpi pkgs; })
     (import ../../modules/work)
   ];
 
