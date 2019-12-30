@@ -20,6 +20,7 @@
       load-prefer-newer t
       scroll-conservatively 101
       scroll-preserve-screen-position t
+      use-dialog-box nil
       user-full-name "Ross A. Baker"
       user-mail-address "ross@rossabaker.com"
       visible-bell t
