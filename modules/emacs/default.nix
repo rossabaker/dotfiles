@@ -18,8 +18,7 @@ in
 
   programs.emacs = {
     enable = true;
-    extraPackages = epkgs: with epkgs;
-      used-packages { inherit epkgs; };
+    extraPackages = used-packages;
 
     overrides = self: super:
       let

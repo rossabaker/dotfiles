@@ -16,7 +16,7 @@
 (defun ross/used-packages (file)
   "Output as a Nix list all packages in use-package declarations in FILE."
   (insert-file-contents file)
-  (princ "{ epkgs, ... }: with epkgs; [ ")
+  (princ "epkgs: with epkgs; [ ")
   (dolist (dep ross/use-package-dependencies)
     (princ dep)
     (princ " "))
