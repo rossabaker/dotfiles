@@ -13,6 +13,7 @@
 (require 'delight)
 
 (setq cursor-in-non-selected-windows nil
+      hscroll-step 1
       inhibit-startup-screen t
       initial-scratch-message ""
       load-prefer-newer t
