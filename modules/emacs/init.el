@@ -12,7 +12,8 @@
   (require 'use-package))
 (require 'delight)
 
-(setq inhibit-startup-screen t
+(setq cursor-in-non-selected-windows nil
+      inhibit-startup-screen t
       initial-scratch-message ""
       scroll-conservatively 101
       scroll-preserve-screen-position t
