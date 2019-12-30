@@ -13,6 +13,7 @@
 (require 'delight)
 
 (setq cursor-in-non-selected-windows nil
+      frame-resize-pixelwise t
       hscroll-step 1
       inhibit-startup-screen t
       initial-scratch-message ""
@@ -21,7 +22,8 @@
       scroll-preserve-screen-position t
       user-full-name "Ross A. Baker"
       user-mail-address "ross@rossabaker.com"
-      visible-bell t)
+      visible-bell t
+      window-resize-pixelwise t)
 (setq-default indent-tabs-mode nil)
 (put 'narrow-to-region 'disabled nil)
 
