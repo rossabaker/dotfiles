@@ -15,11 +15,14 @@
 (setq cursor-in-non-selected-windows nil
       inhibit-startup-screen t
       initial-scratch-message ""
+      load-prefer-newer t
       scroll-conservatively 101
       scroll-preserve-screen-position t
       user-full-name "Ross A. Baker"
       user-mail-address "ross@rossabaker.com"
+      visible-bell t
       x-stretch-cursor t)
+(setq-default indent-tabs-mode nil)
 (put 'narrow-to-region 'disabled nil)
 
 ;; We shall endeavor to keep everything out of this, but sometimes
@@ -40,6 +43,10 @@
   :config
   (setq auto-revert-verbose nil
         global-auto-revert-non-file-buffers t))
+
+(use-package "apropos"
+  :config
+  (setq apropos-do-all t))
 
 (use-package atomic-chrome
   :config
@@ -63,11 +70,6 @@
   (beacon-mode +1)
   (add-to-list 'beacon-dont-blink-major-modes 'shell-mode)
   (add-to-list 'beacon-dont-blink-major-modes 'sbt-mode))
-
-(use-package better-defaults
-  :config
-  ;; better-defaults sets one worse default
-  (ido-mode -1))
 
 (use-package color-theme-sanityinc-tomorrow
   :config
@@ -187,6 +189,10 @@
   :config
   (setq dumb-jump-selector 'ivy))
 
+(use-package "ediff-wind"
+  :config
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain))
+
 (use-package "eldoc"
   :delight)
 
@@ -251,6 +257,9 @@
   ("C-=" . 'er/expand-region))
 
 (use-package "files"
+  :config
+  (setq backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
+        require-final-newline t)
   :bind
   ("C-c f u" . recover-this-file))
 
@@ -316,6 +325,10 @@
   haskell-mode
   scala-mode)
 
+(use-package "hippie-exp"
+  :bind
+  ([remap dabbrev-expand] . hippie-expand))
+
 (use-package hydra)
 
 (use-package "help"
@@ -324,6 +337,10 @@
   (global-unset-key (kbd "C-h C-h")) ; Undo conflict with which-key help
   :bind
   ("C-h b b" . describe-bindings))
+
+(use-package "ibuffer"
+  :bind
+  ([remap list-buffers] . ibuffer))
 
 (use-package "imenu"
   :bind
@@ -378,6 +395,14 @@
   ("C-c g s" . magit-status)
   ("C-c g U" . magit-unstage-file))
 
+(use-package "menu-bar"
+  :config
+  (menu-bar-mode -1))
+
+(use-package "mouse"
+  :config
+  (setq mouse-yank-at-point t))
+
 (use-package multi-line
   :bind
   ("C-c l m" . multi-line)
@@ -404,6 +429,10 @@
 (use-package "package"
   :config
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/")))
+
+(use-package "paren"
+  :config
+  (show-paren-mode 1))
 
 (use-package page-break-lines
   :delight
@@ -516,6 +545,7 @@
       (when filename
         (kill-new filename)
         (message "File name \"%s\" saved to the kill ring" filename))))
+  (setq save-interprogram-paste-before-kill t)
   :hook
   (text-mode . visual-line-mode)
   :bind
@@ -558,6 +588,10 @@
 
 (use-package title-capitalization)
 
+(use-package "tool-bar"
+  :config
+  (tool-bar-mode -1))
+
 (use-package "tooltip"
   :config
   (tooltip-mode -1)
@@ -567,7 +601,8 @@
 
 (use-package "uniquify"
   :config
-  (setq uniquify-ignore-buffers-re "^\\*"))
+  (setq uniquify-buffer-name-style 'forward
+        uniquify-ignore-buffers-re "^\\*"))
 
 (use-package unfill
   :bind
