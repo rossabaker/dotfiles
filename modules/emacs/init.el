@@ -21,8 +21,7 @@
       scroll-preserve-screen-position t
       user-full-name "Ross A. Baker"
       user-mail-address "ross@rossabaker.com"
-      visible-bell t
-      x-stretch-cursor t)
+      visible-bell t)
 (setq-default indent-tabs-mode nil)
 (put 'narrow-to-region 'disabled nil)
 
