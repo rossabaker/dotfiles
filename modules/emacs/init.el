@@ -284,7 +284,11 @@
 (use-package "frame"
   :config
   (blink-cursor-mode -1)
-  (setq default-frame-alist '((font . "Hasklig 12"))))
+  (setq default-frame-alist '((font . "Hasklig 12"))
+        window-divider-default-places t
+        window-divider-default-bottom-width 1
+        window-divider-default-right-width 1)
+  (window-divider-mode t))
 
 (use-package git-gutter
   :delight
