@@ -1,14 +1,16 @@
 { pkgs, ... }:
 
 let
-  used-packages = import (pkgs.runCommand "used-packages" rec {
-    emacs = pkgs.emacsWithPackages(epkgs: [ epkgs.use-package ]);
-    buildInputs = [ emacs ];
-    srcs = [ ./used-packages.el ./init.el ];
-  } ''
-    mkdir -p $out
-    emacs --batch -l ${./used-packages.el} --eval '(ross/used-packages "${./init.el}")' > $out/default.nix
-  '');
+  used-packages = import (
+    pkgs.runCommand "used-packages" rec {
+      emacs = pkgs.emacsWithPackages (epkgs: [ epkgs.use-package ]);
+      buildInputs = [ emacs ];
+      srcs = [ ./used-packages.el ./init.el ];
+    } ''
+      mkdir -p $out
+      emacs --batch -l ${./used-packages.el} --eval '(ross/used-packages "${./init.el}")' > $out/default.nix
+    ''
+  );
 in
 {
   home.file = {
