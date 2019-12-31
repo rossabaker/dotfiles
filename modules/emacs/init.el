@@ -348,6 +348,20 @@
   :bind
   ([remap dabbrev-expand] . hippie-expand))
 
+(use-package "hl-line"
+  :init
+  (setq hl-line-sticky-flag nil)
+  :config
+  (defvar ross/inhibit-hl-line nil)
+  :hook
+  ((conf-mode prog-mode text-mode) . hl-line-mode)
+  ;; Inspired by doom: temporarily disable when the mark is set
+  (activate-mark . (lambda () (when hl-line-mode)
+                          (setq-local ross/inhibit-hl-line t)
+                          (hl-line-mode -1)))
+  (deactivate-mark . (lambda () (when ross/inhibit-hl-line)
+                     (hl-line-mode +1))))
+
 (use-package hydra)
 
 (use-package "help"
