@@ -320,6 +320,11 @@
 
 (use-package gitignore-mode)
 
+(use-package "goto-addr"
+  :hook
+  (text-mode . goto-address-mode)
+  (prog-mode . goto-address-prog-mode))
+
 (use-package haskell-mode
   :delight interactive-haskell-mode
   :hook (haskell-mode . interactive-haskell-mode)
