@@ -109,6 +109,12 @@
   :config
   (push 'company-restclient company-backends))
 
+(use-package "compile"
+  :config
+  (setq compilation-always-kill t
+        compilation-ask-about-save nil
+        compilation-scroll-output 'first-error))
+
 (use-package counsel
   :bind
   ("C-c /" . counsel-git-grep)
