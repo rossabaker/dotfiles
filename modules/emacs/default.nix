@@ -11,6 +11,12 @@ let
       emacs --batch -l ${./used-packages.el} --eval '(ross/used-packages "${./init.el}")' > $out/default.nix
     ''
   );
+
+  # Things we want to ensure are on the exec-path.
+  extraSystemPackages = with pkgs; [
+    fd
+    git
+  ];
 in
 {
   home.file = {
@@ -22,7 +28,7 @@ in
 
   programs.emacs = {
     enable = true;
-    extraPackages = used-packages;
+    extraPackages = epkgs: (used-packages epkgs) ++ extraSystemPackages;
 
     overrides = self: super:
       let

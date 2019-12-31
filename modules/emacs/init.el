@@ -255,11 +255,6 @@
   :init (require 'ess-site)
   :commands R)
 
-(use-package exec-path-from-shell
-  :config
-  (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize)))
-
 (use-package "executable"
   :hook
   (after-save . executable-make-buffer-file-executable-if-script-p))
@@ -501,7 +496,10 @@
   (if (file-directory-p "~/src")
       (setq projectile-project-search-path '("~/src")))
   (setq projectile-completion-system 'ivy)
-  (projectile-discover-projects-in-search-path))
+  (projectile-discover-projects-in-search-path)
+  (let ((cmd "fd . --color=never --type f -0 -H -E .git"))
+    (setq projectile-generic-command cmd
+          projectile-git-command cmd)))
 
 (use-package protobuf-mode)
 
