@@ -13,6 +13,7 @@
 (require 'delight)
 
 (setq cursor-in-non-selected-windows nil
+      echo-keystrokes 0.05
       frame-resize-pixelwise t
       hscroll-step 1
       inhibit-startup-screen t
