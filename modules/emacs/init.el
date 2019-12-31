@@ -522,6 +522,12 @@
   :mode
   ("\\.restclient\\'" . restclient-mode))
 
+(use-package ripgrep
+  :config
+  ;; Use the exec-path to find ripgrep. It might not be in our environment.
+  (let ((rg (executable-find "rg")))
+    (when rg (setq ripgrep-executable rg))))
+
 (use-package "savehist"
   :config
   (setq savehist-additiona-variables '(kill-ring

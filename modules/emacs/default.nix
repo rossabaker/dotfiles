@@ -16,6 +16,7 @@ let
   extraSystemPackages = with pkgs; [
     fd
     git
+    ripgrep
   ];
 in
 {
