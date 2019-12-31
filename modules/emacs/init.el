@@ -508,6 +508,8 @@
 (use-package quick-yes)
 
 (use-package rainbow-delimiters
+  :config
+  (setq rainbow-delimiters-max-face-count 4)
   :hook
   (prog-mode . rainbow-delimiters-mode))
 
