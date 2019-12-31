@@ -185,7 +185,7 @@
 
 (use-package "display-line-numbers"
   :hook
-  (prog-mode . display-line-numbers-mode)
+  ((conf-mode prog-mode text-mode) . display-line-numbers-mode)
   :config
   (setq-default display-line-numbers-width 4
                 display-line-numbers-widen t))
