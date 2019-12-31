@@ -42,6 +42,8 @@
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
+(use-package all-the-icons)
+
 (use-package "autorevert"
   :delight auto-revert-mode
   :config

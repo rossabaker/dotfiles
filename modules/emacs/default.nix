@@ -16,6 +16,8 @@ in
     ".emacs.d/init.el".source = ./init.el;
   };
 
+  home.packages = [ pkgs.emacs-all-the-icons-fonts ];
+
   programs.emacs = {
     enable = true;
     extraPackages = used-packages;
