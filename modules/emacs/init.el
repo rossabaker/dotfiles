@@ -125,8 +125,6 @@
   ("C-c f d" . counsel-dired)
   ("C-c f l" . counsel-locate)
   ("C-c f r" . counsel-recentf)
-  ("C-h f" . counsel-describe-function)
-  ("C-h v" . counsel-describe-variable)
   ("C-h l" . counsel-find-library)
   ("C-h i" . counsel-info-lookup-symbol)
   ("C-x 8 RET" . counsel-unicode-char)
@@ -356,6 +354,14 @@
   :hook
   haskell-mode
   scala-mode)
+
+(use-package helpful
+  :bind
+  ([remap describe-function] . helpful-callable)
+  ([remap describe-command] . helpful-comand)
+  ([remap describe-variable] . helpful-variable)
+  ([remap describe-key] . helpful-key)
+  ([remap describe-symbol] . helpful-symbol))
 
 (use-package "hippie-exp"
   :bind
