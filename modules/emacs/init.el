@@ -598,7 +598,8 @@
       (when filename
         (kill-new filename)
         (message "File name \"%s\" saved to the kill ring" filename))))
-  (setq save-interprogram-paste-before-kill t)
+  (setq kill-do-not-save-duplicates t
+        save-interprogram-paste-before-kill t)
   :hook
   (text-mode . visual-line-mode)
   :bind
