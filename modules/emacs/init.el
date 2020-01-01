@@ -119,7 +119,6 @@
 
 (use-package counsel
   :bind
-  ("C-c /" . counsel-git-grep)
   ("C-c c" . counsel-compile)
   ("C-c f d" . counsel-dired)
   ("C-c f l" . counsel-locate)
@@ -137,7 +136,9 @@
 
 (use-package counsel-projectile
   :config
-  (counsel-projectile-mode))
+  (counsel-projectile-mode)
+  :bind
+  ("C-c s p" . counsel-projectile-rg))
 
 (use-package crux
   :bind
@@ -667,6 +668,7 @@
     "C-c l" "multi-line"
     "C-c p" "projectile"
     "C-c q" "string-inflection"
+    "C-c s" "search"
     "C-c T" "theme"
     "C-h b" "bindings")
   :bind
