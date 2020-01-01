@@ -276,8 +276,14 @@
   :config
   (setq backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
         require-final-newline t)
+  (defun ross/guess-mode ()
+    "Guess mode of file in `fundamental-mode'."
+    (interactive)
+    (and (eq major-mode 'fundamental-mode) (set-auto-mode)))
   :bind
-  ("C-c f u" . recover-this-file))
+  ("C-c f u" . recover-this-file)
+  :hook
+  (after-save . ross/guess-mode))
 
 (use-package flycheck
   :delight
