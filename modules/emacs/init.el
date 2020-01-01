@@ -65,7 +65,8 @@
   :bind
   ("C-'" . avy-goto-char-timer)
   :config
-  (setq avy-style 'at-full)
+  (setq avy-style 'at-full
+        avy-background t)
   (avy-setup-default))
 
 (use-package bazel-mode
@@ -82,7 +83,10 @@
 
 (use-package color-theme-sanityinc-tomorrow
   :config
-  (load-theme 'sanityinc-tomorrow-night t))
+  (load-theme 'sanityinc-tomorrow-night t)
+  ;; tomorrow-night uses the selection background as the foreground, which
+  ;; doesn't sufficiently contrast.  This is tomorrow-night's comment color.
+  (set-face-foreground 'avy-background-face "#969896"))
 
 (use-package "company"
   :delight
@@ -726,6 +730,7 @@
 
 (use-package ws-butler
   :delight
+
   :hook
   (prog-mode . ws-butler-mode))
 
