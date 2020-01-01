@@ -153,11 +153,11 @@
 (use-package crux
   :bind
   ("C-k" . crux-smart-kill-line)
-  ("C-c D" . crux-delete-file-and-buffer)
   ("C-c I" . crux-find-user-init-file)
   ("C-c d" . crux-duplicate-current-line-or-region)
   ;;("C-c e" . crux-eval-and-replace)
-  ("C-c r" . crux-rename-file-and-buffer)
+  ("C-c f k" . crux-delete-file-and-buffer)
+  ("C-c f m" . crux-rename-file-and-buffer)
   ("C-x 4 t" . crux-transpose-windows))
 
 (use-package "css-mode"
@@ -669,6 +669,12 @@
 
 (use-package "subword"
   :delight)
+
+(use-package sudo-edit
+  :config
+  (sudo-edit-indicator-mode)
+  :bind
+  ("C-c f s" . sudo-edit))
 
 (use-package swiper
   :bind
