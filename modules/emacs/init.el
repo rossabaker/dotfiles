@@ -55,7 +55,9 @@
 
 (use-package "apropos"
   :config
-  (setq apropos-do-all t))
+  (setq apropos-do-all t)
+  :bind
+  ("C-h a" . 'apropos))
 
 (use-package atomic-chrome
   :config
