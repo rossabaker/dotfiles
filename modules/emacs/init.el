@@ -396,7 +396,9 @@
 
 (use-package "imenu"
   :bind
-  ("M-i" . imenu))
+  ("M-i" . imenu)
+  :hook
+  (imenu-after-jump . recenter))
 
 (use-package ivy
   :delight
