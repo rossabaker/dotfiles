@@ -12,7 +12,8 @@
   (require 'use-package))
 (require 'delight)
 
-(setq cursor-in-non-selected-windows nil
+(setq create-lockfiles nil
+      cursor-in-non-selected-windows nil
       echo-keystrokes 0.05
       frame-resize-pixelwise t
       hscroll-step 1
