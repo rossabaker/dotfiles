@@ -21,6 +21,7 @@
       initial-scratch-message ""
       load-prefer-newer t
       scroll-conservatively 101
+      scroll-margin 3
       scroll-preserve-screen-position t
       use-dialog-box nil
       user-full-name "Ross A. Baker"
@@ -398,7 +399,7 @@
   :bind
   ("M-i" . imenu)
   :hook
-  (imenu-after-jump . recenter))
+  (imenu-after-jump . ross/recenter-top))
 
 (use-package ivy
   :delight
@@ -705,6 +706,12 @@
   ("C-h b k" . which-key-show-keymap)
   ("C-h b m" . which-key-show-major-mode)
   ("C-h b t" . which-key-show-top-level))
+
+(use-package "window"
+  :config
+  (defun ross/recenter-top ()
+    "Place point scroll-margin lines from the top of the window."
+    (recenter scroll-margin)))
 
 (use-package "woman"
   :bind
