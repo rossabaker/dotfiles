@@ -631,7 +631,13 @@
   (require 'smartparens-config)
   (sp-use-smartparens-bindings)
   (smartparens-global-mode +1)
-  (show-smartparens-global-mode +1))
+  (show-smartparens-global-mode +1)
+  (defun ross/smartparens-for-eval-expression ()
+    "Enable \"smartparens-mode\" in the minibuffer during \"eval-expression\"."
+    (when (eq this-command 'eval-expression)
+      (smartparens-mode +1)))
+  :hook
+  (minibuffer-setup . ross/smartparens-for-eval-expression))
 
 (use-package snow
   :commands let-it-snow)
