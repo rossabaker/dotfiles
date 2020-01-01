@@ -251,6 +251,13 @@
                                         ;; sbt operators
                                         (cons ":=" " := ")))
 
+(use-package "env"
+  :config
+  ;; programs.emacs.extraPackages are on exec-path, but not on $PATH,
+  ;; by default. This is the opposite direction of
+  ;; exec-path-from-shell, but gets us everything managed by Nix.
+  (setenv "PATH" (mapconcat 'identity exec-path ":")))
+
 (use-package ess
   :init (require 'ess-site)
   :commands R)
@@ -522,11 +529,7 @@
   :mode
   ("\\.restclient\\'" . restclient-mode))
 
-(use-package ripgrep
-  :config
-  ;; Use the exec-path to find ripgrep. It might not be in our environment.
-  (let ((rg (executable-find "rg")))
-    (when rg (setq ripgrep-executable rg))))
+(use-package ripgrep)
 
 (use-package "savehist"
   :config
