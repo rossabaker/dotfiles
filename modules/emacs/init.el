@@ -64,6 +64,7 @@
   (atomic-chrome-start-server))
 
 (use-package avy
+  :demand t ;; So theme can change its face
   :bind
   ("C-'" . avy-goto-char-timer)
   :config
@@ -84,6 +85,7 @@
   (add-to-list 'beacon-dont-blink-major-modes 'sbt-mode))
 
 (use-package color-theme-sanityinc-tomorrow
+  :after avy
   :config
   (load-theme 'sanityinc-tomorrow-night t)
   ;; tomorrow-night uses the selection background as the foreground, which
