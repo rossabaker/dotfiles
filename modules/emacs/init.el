@@ -532,6 +532,17 @@
   :hook
   (prog-mode . rainbow-mode))
 
+(use-package "recentf"
+  :commands counsel-recentf recentf-open-files
+  :config
+  (setq recentf-max-menu-items 0
+        recentf-max-saved-items 100)
+  (defun ross/recentf-add-directory ()
+    "Add directory to recentf file list."
+    (recentf-add-file default-directory))
+  :hook
+  (dired-mode . ross/recentf-add-directory))
+
 (use-package restart-emacs)
 
 (use-package restclient
