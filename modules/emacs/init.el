@@ -553,12 +553,12 @@
 
 (use-package "savehist"
   :config
-  (setq savehist-additiona-variables '(kill-ring
-                                       search-ring
-                                       regexp-search-ring
-                                       last-kbd-macro
-                                       kmacro-ring
-                                       shell-command-history))
+  (setq savehist-additional-variables '(kill-ring
+                                        search-ring
+                                        regexp-search-ring
+                                        last-kbd-macro
+                                        kmacro-ring
+                                        shell-command-history))
   (savehist-mode +1))
 
 (use-package "saveplace"
