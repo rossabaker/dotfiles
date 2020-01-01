@@ -134,6 +134,7 @@
   ("C-c f d" . counsel-dired)
   ("C-c f l" . counsel-locate)
   ("C-c f r" . counsel-recentf)
+  ("C-h F" . counsel-describe-face)
   ("C-h l" . counsel-find-library)
   ("C-h i" . counsel-info-lookup-symbol)
   ("C-x 8 RET" . counsel-unicode-char)
@@ -151,7 +152,6 @@
 
 (use-package crux
   :bind
-  ("C-a" . crux-move-beginning-of-line)
   ("C-k" . crux-smart-kill-line)
   ("C-c D" . crux-delete-file-and-buffer)
   ("C-c I" . crux-find-user-init-file)
@@ -470,6 +470,11 @@
   :bind
   ("C-c l m" . multi-line)
   ("C-c l s" . multi-line-single-line))
+
+(use-package mwim
+  :bind
+  ([remap move-beginning-of-line] . mwim-beginning)
+  ([remap move-end-of-line] . mwim-end))
 
 (use-package nix-mode
   :config
