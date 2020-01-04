@@ -31,6 +31,7 @@
         package = i3;
         config = {
           bars = [];
+          fonts = [ "sans-serif 7" ];
           modifier = mod;
           keybindings = lib.mkOptionDefault {
             "${mod}+Return" = "exec ${pkgs.termite}/bin/termite";
