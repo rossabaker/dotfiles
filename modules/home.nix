@@ -28,6 +28,10 @@ rec {
   };
 
   home = {
+    file = {
+      ".config/direnv/direnvrc".source = ../config/direnv/direnvrc;
+    };
+
     keyboard.options = [
       "ctrl:nocaps"
     ];
@@ -116,6 +120,7 @@ rec {
   };
 
   services = {
+
     emacs.enable = true;
 
     gpg-agent = {
@@ -123,7 +128,6 @@ rec {
       enableSshSupport = true;
     };
 
-    lorri.enable = true;
   };
 
   xdg.configFile."nixpkgs/config.nix".source = ../config/nixpkgs/config.nix;
