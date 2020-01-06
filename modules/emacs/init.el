@@ -32,6 +32,14 @@
               indent-tabs-mode nil)
 (put 'narrow-to-region 'disabled nil)
 
+;; scroll-margin is irritating in modes where the focus tends to be the bottom
+(defun ross/unset-scroll-margin ()
+  "Set \"scroll-margin\" to zero."
+  (setq-local scroll-margin 0))
+(dolist (hook '(messages-buffer-mode-hook comint-mode-hook term-mode-hook))
+  (remove-hook hook 'ross/unset-scroll-margin)
+  (add-hook hook 'ross/unset-scroll-margin))
+
 ;; We shall endeavor to keep everything out of this, but sometimes
 ;; Emacs really wants to dump custom settings itself.
 (setq custom-file (concat user-emacs-directory "custom.el"))
