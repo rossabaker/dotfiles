@@ -646,7 +646,10 @@
   :hook
   (text-mode . visual-line-mode)
   :bind
-  ("C-c f w" . ross/kill-ring-file-name-save))
+  ("C-c f w" . ross/kill-ring-file-name-save)
+  ([remap capitailize-word] . capitalize-dwim)
+  ([remap downcase-word] . downcase-dwim)
+  ([remap upcase-word] . upcase-dwim))
 
 (use-package smartparens
   :delight
