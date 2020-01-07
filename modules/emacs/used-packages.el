@@ -27,6 +27,7 @@
       (let* ((decl (read (current-buffer)))
              (name (cadr decl)))
         (when (and (eq (car decl) 'use-package)
+                   (not (eq name 'emacs))
                    (symbolp name))
           (princ (symbol-name name))
           (princ " ")))))
