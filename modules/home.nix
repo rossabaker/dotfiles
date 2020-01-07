@@ -128,6 +128,8 @@ rec {
       enableSshSupport = true;
     };
 
+    kbfs.enable = true;
+    keybase.enable = true;
   };
 
   xdg.configFile."nixpkgs/config.nix".source = ../config/nixpkgs/config.nix;
