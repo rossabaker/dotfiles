@@ -72,6 +72,12 @@
   ;; doesn't sufficiently contrast.  This is tomorrow-night's comment color.
   (set-face-foreground 'avy-background-face "#969896"))
 
+(use-package "comint"
+  :config
+  (setq comint-scroll-to-bottom-on-input 'this
+        comint-move-point-for-output 'others
+        comint-scroll-show-maximum-output t))
+
 (use-package "company"
   :delight
   :hook
