@@ -48,9 +48,12 @@
             "${mod}+comma" = "focus output ${outputs.left}";
             "${mod}+period" = "focus output ${outputs.primary}";
             "${mod}+slash" = "focus output ${outputs.right}";
-            "${mod}+Shift+comma" = "move workspace to output ${outputs.left}";
-            "${mod}+Shift+period" = "move workspace to output ${outputs.primary}";
-            "${mod}+Shift+slash" = "move workspace to output ${outputs.right}";
+            "${mod}+Shift+comma" = "move window to output ${outputs.left}; focus output ${outputs.left}";
+            "${mod}+Shift+period" = "move window to output ${outputs.primary}; focus output ${outputs.primary}";
+            "${mod}+Shift+slash" = "move window to output ${outputs.right}; focus output ${outputs.right}";
+            "${mod}+Ctrl+comma" = "move workspace to output ${outputs.left}";
+            "${mod}+Ctrl+period" = "move workspace to output ${outputs.primary}";
+            "${mod}+Ctrl+slash" = "move workspace to output ${outputs.right}";
             "${mod}+apostrophe" = "exec ${focus-or-run-emacsclient}/bin/focus-or-run-emacsclient";
             XF86AudioMute = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle";
             XF86AudioLowerVolume = "exec ${pkgs.pulseaudio}/bin/pactl set-sink-volume @DEFAULT_SINK@ -5%";
