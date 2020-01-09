@@ -29,5 +29,10 @@ in
         };
       };
     };
+
+    git.signing = {
+      key = "904C153733DBB0106915C0BD975BE5BC29D92CA5";
+      signByDefault = true;
+    };
   };
 }
