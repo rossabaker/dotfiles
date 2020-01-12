@@ -50,6 +50,7 @@ rec {
       pkgs.hasklig
       pkgs.jq
       pkgs.material-design-icons
+      pkgs.metals
       pkgs.sbt-extras
       pkgs.siji
       pkgs.slack
