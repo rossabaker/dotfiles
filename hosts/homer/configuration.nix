@@ -12,20 +12,19 @@
       ../../nixos.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_5_3;
+  boot.kernelPackages = pkgs.linuxPackages_5_4;
   boot.kernelParams = [ "nomodeset" ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices = [
-    {
-      name = "root";
+  boot.initrd.luks.devices = {
+    root = {
       device = "/dev/disk/by-uuid/e8abd34c-e7d3-4bb4-82ea-e5dd8c508d23";
       preLVM = true;
     }
-  ];
+  };
 
   console = {
     earlySetup = true;
