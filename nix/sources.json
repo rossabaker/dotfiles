@@ -23,6 +23,18 @@
         "url": "https://github.com/nix-community/emacs-overlay/archive/6c8fefa9cf345a7f9239651f4b2f64a137b88f28.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "er-nix": {
+        "branch": "master",
+        "description": "Common Nix code for Earnest Research",
+        "homepage": null,
+        "owner": "EarnestResearch",
+        "repo": "er-nix",
+        "rev": "382fd23112d3fa6a900c3b06387b4fc5ef4eeb80",
+        "sha256": "1wzvbj3aiwhpb8snil9bx8sb2wp5wzbz9c3whyilj9bwls28fdhd",
+        "type": "tarball",
+        "url": "https://github.com/EarnestResearch/er-nix/archive/382fd23112d3fa6a900c3b06387b4fc5ef4eeb80.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "home-manager": {
         "branch": "master",
         "description": "Manage a user environment using Nix",

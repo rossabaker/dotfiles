@@ -1,11 +1,12 @@
 { pkgs, ... }:
 
 let
-  okta-aws-login = pkgs.callPackage ../../pkgs/okta-aws-login {};
+  sources = import ../../nix/sources.nix;
+  er-nix = import sources.er-nix;
 in
 {
   home.packages = [
     pkgs.zoom-us
-    okta-aws-login
+    er-nix.pkgs.okta-aws-login
   ];
 }
