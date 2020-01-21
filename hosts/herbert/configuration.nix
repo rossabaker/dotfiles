@@ -43,4 +43,8 @@
   # servers. You should change this only after NixOS release notes say you
   # should.
   system.stateVersion = "20.03"; # Did you read the comment?
+
+  users.users."ross".extraGroups = [ "docker" ];
+
+  virtualisation.docker.enable = true;
 }
