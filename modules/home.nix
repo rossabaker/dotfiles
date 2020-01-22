@@ -127,6 +127,9 @@ rec {
     gpg-agent = {
       enable = false; # Using system one for now: https://github.com/NixOS/nixpkgs/issues/72597
       enableSshSupport = true;
+
+      defaultCacheTtl = 8 * 60 * 60;
+      maxCacheTtl = 24 * 60 * 60;
     };
 
     kbfs.enable = true;
