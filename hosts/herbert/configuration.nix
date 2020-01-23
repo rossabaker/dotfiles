@@ -4,6 +4,16 @@
 
 { config, pkgs, ... }:
 
+let
+  clamscan-job = pkgs.writeScriptBin "clamscan-job" ''
+    #!/usr/bin/env bash
+    SCAN_DIR="/"
+    LOG_FILE="/var/log/clamav/daily_clamscan.log"
+    mkdir -p $(dirname $LOG_FILE)
+    echo ">>> BEGIN RUN AT $(date) ---" >> $LOG_FILE
+    ${pkgs.clamav}/bin/clamscan -i -r $SCAN_DIR >> $LOG_FILE 2>&1
+  '';
+in
 {
   imports =
     [
@@ -34,6 +44,18 @@
   networking.useDHCP = false;
   networking.interfaces.enp0s31f6.useDHCP = true;
   networking.interfaces.wlp82s0.useDHCP = true;
+
+  services.clamav = {
+    daemon.enable = true;
+    updater.enable = true;
+  };
+
+  services.cron = {
+    enable = true;
+    systemCronJobs = [
+      "30 1 * * * root ${clamscan-job}/bin/clamscan-job"
+    ];
+  };
 
   services.pcscd.enable = true;
   services.udev.packages = [ pkgs.yubikey-personalization ];
