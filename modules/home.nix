@@ -125,7 +125,7 @@ rec {
     emacs.enable = true;
 
     gpg-agent = {
-      enable = false; # Using system one for now: https://github.com/NixOS/nixpkgs/issues/72597
+      enable = true;
       enableSshSupport = true;
 
       defaultCacheTtl = 8 * 60 * 60;
