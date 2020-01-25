@@ -23,7 +23,7 @@
     root = {
       device = "/dev/disk/by-uuid/e8abd34c-e7d3-4bb4-82ea-e5dd8c508d23";
       preLVM = true;
-    }
+    };
   };
 
   console = {
