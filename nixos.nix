@@ -57,7 +57,10 @@ in
     isNormalUser = true;
     extraGroups = [
       "audio"
+      "docker"
       "wheel"
     ];
   };
+
+  virtualisation.docker.enable = true;
 }
