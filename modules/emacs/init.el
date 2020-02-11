@@ -174,6 +174,7 @@
   (setq dired-dwim-target t))
 
 (use-package direnv
+  :demand t
   :config
   (direnv-mode)
   :hook
