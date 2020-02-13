@@ -30,6 +30,7 @@ rec {
   home = {
     file = {
       ".config/direnv/direnvrc".source = ../config/direnv/direnvrc;
+      ".stack/config.yaml".source = ../config/stack/config.yaml;
     };
 
     keyboard.options = [
@@ -44,6 +45,7 @@ rec {
       pkgs.bashInteractive
       pkgs.dhall
       pkgs.direnv
+      pkgs.gitAndTools.gh
       pkgs.gitter
       pkgs.gnome3.dconf # gtk doesn't configure without it
       pkgs.gnupg
