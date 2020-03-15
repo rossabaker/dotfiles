@@ -59,6 +59,18 @@
         "url": "https://github.com/nmattia/niv/archive/98c74a80934123cb4c3bf3314567f67311eb711a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "nixos-vsliveshare": {
+        "branch": "master",
+        "description": "Live Share support in Visual Studio Code for NixOS",
+        "homepage": null,
+        "owner": "msteen",
+        "repo": "nixos-vsliveshare",
+        "rev": "06259014e30fe1d2b328e0550a9cbe422981d9a2",
+        "sha256": "0x8yfcq9799z6b9kh4nxbp0dbsbpyqabk5dwnpql51hyy4k3mbnk",
+        "type": "tarball",
+        "url": "https://github.com/msteen/nixos-vsliveshare/archive/06259014e30fe1d2b328e0550a9cbe422981d9a2.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "nixpkgs": {
         "branch": "nixos-unstable",
         "description": "A read-only mirror of NixOS/nixpkgs tracking the released channels. Send issues and PRs to",
