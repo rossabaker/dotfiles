@@ -40,7 +40,6 @@ in
           lib.overrideDerivation pkg (attrs: { inherit patches; });
       in
         {
-          git-gutter = withPatches super.git-gutter [ ./patches/git-gutter.patch ];
           lsp-mode = self.melpaBuild {
             pname = "lsp-mode";
             version = "20190723.2001";
