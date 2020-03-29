@@ -39,10 +39,6 @@
   :bind
   ("C-h a" . 'apropos))
 
-(use-package atomic-chrome
-  :config
-  (atomic-chrome-start-server))
-
 (use-package avy
   :demand t ;; So theme can change its face
   :bind
@@ -157,14 +153,6 @@
   :bind
   ("C-h '" . describe-char))
 
-(use-package "desktop"
-  :disabled t
-  ;; This causes metals to spin up multiple JVMs when we restart
-  ;; Emacs, and the daemon doesn't restore frames.  Maybe recentf is
-  ;; good enough for now.
-  :config
-  (desktop-save-mode t))
-
 (use-package dhall-mode
   :config
   (setq dhall-format-arguments '("--ascii")))
@@ -277,13 +265,6 @@
   (dolist (hook '(messages-buffer-mode-hook comint-mode-hook term-mode-hook))
     (remove-hook hook 'ross/unset-scroll-margin)
     (add-hook hook 'ross/unset-scroll-margin)))
-
-(use-package "env"
-  :config
-  ;; programs.emacs.extraPackages are on exec-path, but not on $PATH,
-  ;; by default. This is the opposite direction of
-  ;; exec-path-from-shell, but gets us everything managed by Nix.
-  (setenv "PATH" (mapconcat 'identity exec-path ":")))
 
 (use-package ess
   :init (require 'ess-site)
@@ -671,9 +652,6 @@
       (smartparens-mode +1)))
   :hook
   (minibuffer-setup . ross/smartparens-for-eval-expression))
-
-(use-package snow
-  :commands let-it-snow)
 
 (use-package stan-mode)
 

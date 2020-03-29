@@ -76,24 +76,6 @@ in
           sbt-mode = withPatches super.sbt-mode [
             ./patches/sbt-mode/e9aa908d1b80dc2618eab22eeefc68ae82d0026f.patch
           ];
-          snow =
-            let
-              rev = "8a8159f0faf6db7f17ce40f650592d55541e348b";
-            in
-              stdenv.mkDerivation rec {
-                version = rev;
-                name = "snow-${version}";
-                src = fetchFromGitHub {
-                  inherit rev;
-                  owner = "alphapapa";
-                  repo = "snow.el";
-                  sha256 = "0s55yqn3gyl2607aar7qj11hf9pgn7y2kngm6b1myg6lp885b06h";
-                };
-                installPhase = ''
-                  mkdir -p $out/share/emacs/site-lisp
-                  cp *.el $out/share/emacs/site-lisp/
-                '';
-              };
           title-capitalization =
             let
               version = "0.1";
