@@ -40,26 +40,6 @@ in
           lib.overrideDerivation pkg (attrs: { inherit patches; });
       in
         {
-          lsp-mode = self.melpaBuild {
-            pname = "lsp-mode";
-            version = "20190723.2001";
-            src = fetchFromGitHub {
-              owner = "emacs-lsp";
-              repo = "lsp-mode";
-              rev = "614e33450c8a6faf3d72502eb44cee4412663f4a";
-              sha256 = "05qm1dk26426gpbcjcqzzs05fxi7js0g0fifvaxj0gm4pndizbi2";
-            };
-            recipe = fetchurl {
-              url = "https://raw.githubusercontent.com/milkypostman/melpa/51a19a251c879a566d4ae451d94fcb35e38a478b/recipes/lsp-mode";
-              sha256 = "0cklwllqxzsvs4wvvvsc1pqpmp9w99m8wimpby6v6wlijfg6y1m9";
-              name = "lsp-mode";
-            };
-            packageRequires = with self; [ dash dash-functional emacs f ht markdown-mode spinner ];
-            meta = {
-              homepage = "https://melpa.org/#/lsp-mode";
-              license = lib.licenses.free;
-            };
-          };
           quick-yes =
             let
               version = "10";
