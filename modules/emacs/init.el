@@ -474,6 +474,10 @@
   ([remap move-beginning-of-line] . mwim-beginning)
   ([remap move-end-of-line] . mwim-end))
 
+(use-package nixpkgs-fmt
+  :bind (:map nix-mode-map
+              ("C-c m f" . nixpkgs-fmt-buffer)))
+
 (use-package nix-mode
   :config
   (defun ross/nix-mode-comint-hook ()
