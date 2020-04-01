@@ -165,6 +165,7 @@
   :demand t
   :config
   (direnv-mode)
+  (setq direnv-always-show-summary nil)
   :hook
   (eshell-directory-change . direnv-update-directory-environment))
 
