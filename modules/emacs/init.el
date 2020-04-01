@@ -510,6 +510,8 @@
   :config
   (global-page-break-lines-mode))
 
+(use-package pdf-tools)
+
 (use-package persistent-scratch
   :config
   (persistent-scratch-setup-default)
