@@ -123,7 +123,7 @@
       ${pkgs.feh}/bin/feh --bg-fill -s ${../wallpapers/mandelbrot.png}
 
       # I have ThinkPads. Remap PrtSc to menu.
-      ${pkgs.xorg.xmodmap}/bin/xmodmap -e "keycode 107 = Menu"
+      ${pkgs.xorg.xmodmap}/bin/xmodmap -e "keycode 107 = Super_R"
     '';
   };
 }
