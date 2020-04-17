@@ -110,6 +110,15 @@
         compilation-ask-about-save nil
         compilation-scroll-output 'first-error))
 
+(use-package copy-as-format
+  :bind
+  ("C-c w g" . copy-as-format-github)
+  ("C-c w h" . copy-as-format-html)
+  ("C-c w j" . copy-as-format-jira)
+  ("C-c w m" . copy-as-format-markdown)
+  ("C-c w s" . copy-as-format-slack)
+  ("C-c w o" . copy-as-format-org-mode))
+
 (use-package counsel
   :bind
   ("C-c c" . counsel-compile)
