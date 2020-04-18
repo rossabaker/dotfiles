@@ -60,6 +60,11 @@
   (add-to-list 'beacon-dont-blink-major-modes 'shell-mode)
   (add-to-list 'beacon-dont-blink-major-modes 'sbt-mode))
 
+(use-package beginend
+  :delight beginend-global-mode
+  :config
+  (beginend-global-mode))
+
 (use-package color-theme-sanityinc-tomorrow
   :after avy
   :config
