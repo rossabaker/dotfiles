@@ -432,6 +432,9 @@
   :config
   (ivy-rich-mode +1))
 
+(use-package jinja2-mode
+  :mode "\\.ede\\'")
+
 (use-package json-mode)
 
 (use-package list-environment)
