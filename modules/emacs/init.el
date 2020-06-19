@@ -451,6 +451,10 @@
   :hook
   (haskell-mode . lsp))
 
+(use-package lsp-metals
+  :after lsp-mode
+  :demand t)
+
 (use-package lsp-mode
   :hook
   (scala-mode . lsp)
