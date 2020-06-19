@@ -74,7 +74,6 @@ in
                   cp *.el $out/share/emacs/site-lisp/
                 '';
               };
-          vterm = super.emacs-libvterm;
         };
   };
 }
