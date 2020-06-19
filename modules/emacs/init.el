@@ -289,6 +289,11 @@
   :hook
   (after-save . executable-make-buffer-file-executable-if-script-p))
 
+(use-package exec-path-from-shell
+  :config
+  ;; My systemd service has stopped reading the path.
+  (exec-path-from-shell-initialize))
+
 (use-package expand-region
   :bind
   ("C-=" . 'er/expand-region))
