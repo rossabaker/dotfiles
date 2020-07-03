@@ -269,7 +269,8 @@
         user-mail-address "ross@rossabaker.com"
         visible-bell t
         window-resize-pixelwise t)
-  (setq-default fill-column 80
+  (setq-default cursor-type 'bar
+                fill-column 80
                 indent-tabs-mode nil)
   (put 'narrow-to-region 'disabled nil)
 
