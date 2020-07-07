@@ -67,16 +67,16 @@ cursor-scroll = ns-resize
 
 [module/i3]
 type = internal/i3
-ws-icon-0 = 1;%{T3}ﱽ%{T-}
-ws-icon-1 = 2;%{T3}ﱿ%{T-}
-ws-icon-2 = 3;%{T3}ﲁ%{T-}
-ws-icon-3 = 4;%{T3}ﲃ%{T-}
-ws-icon-4 = 5;%{T3}ﲅ%{T-}
-ws-icon-5 = 6;%{T3}ﲇ%{T-}
-ws-icon-6 = 7;%{T3}ﲉ%{T-}
-ws-icon-7 = 8;%{T3}ﲋ%{T-}
-ws-icon-8 = 9;%{T3}ﲍ%{T-}
-ws-icon-9 = 10;%{T3}󰀎%{T-}
+ws-icon-0 = 1;%{T3}󰲡%{T-}
+ws-icon-1 = 2;%{T3}󰲣%{T-}
+ws-icon-2 = 3;%{T3}󰲥%{T-}
+ws-icon-3 = 4;%{T3}󰲧%{T-}
+ws-icon-4 = 5;%{T3}󰲩%{T-}
+ws-icon-5 = 6;%{T3}󰲫%{T-}
+ws-icon-6 = 7;%{T3}󰲭%{T-}
+ws-icon-7 = 8;%{T3}󰲯%{T-}
+ws-icon-8 = 9;%{T3}󰲱%{T-}
+ws-icon-9 = 10;%{T3}󰿭%{T-}
 
 label-mode = %mode%
 label-mode-foreground = ${colors.alert}
@@ -99,35 +99,17 @@ type = internal/xwindow
 format-foreground = ${colors.foreground}
 label-maxlen = 50
 
-[module/filesystem]
-type = internal/fs
-interval = 25
-
-mount-0 = /
-
-format-mounted = <label-mounted>
-format-mounted-prefix = " "
-format-mounted-prefix-foreground = ${colors.foreground-alt}
-label-mounted = %percentage_used%%
-
-[module/xbacklight]
-type = internal/xbacklight
-
-format = <label>
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = "󰻟 "
 format-prefix-foreground = ${colors.foreground-alt}
 label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = "󰍛 "
 format-prefix-foreground = ${colors.foreground-alt}
 label = %gb_used%
 
@@ -140,28 +122,18 @@ format-connected = <ramp-signal> <label-connected>
 label-connected = %essid%
 
 format-disconnected = <label-disconnected>
-format-disconnected-prefix = "%{T3}浪%{T-} "
+format-disconnected-prefix = "%{T3}󰤫%{T-} "
 format-disconnected-prefix-foreground = ${colors.alert}
 label-disconnected = disconnected
 label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 爛
-ramp-signal-1 = 嵐
-ramp-signal-2 = 襤
-ramp-signal-3 = 蠟
+ramp-signal-0 = 󰤯
+ramp-signal-1 = 󰤟
+ramp-signal-2 = 󰤢
+ramp-signal-3 = 󰤥
+ramp-signal-4 = 󰤨
 ramp-signal-foreground = ${colors.foreground-alt}
 ramp-signal-font = 3
-
-[module/date]
-type = internal/date
-interval = 1.0
-
-date = %a %d
-
-format-prefix = "%{T3}%{T-} "
-format-prefix-foreground = ${colors.foreground-alt}
-
-label = %date%
 
 [module/time]
 type = internal/date
@@ -169,25 +141,10 @@ interval = 1.0
 
 time = %H:%M
 
-format-prefix = "%{T3}肋%{T-} "
+format-prefix = "%{T3}󰅐%{T-} "
 format-prefix-foreground = ${colors.foreground-alt}
 
 label = %time%
-
-[module/alsa]
-type = internal/alsa
-
-format-volume = <ramp-volume> <label-volume>
-label-volume = %percentage%%
-
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-foreground = ${colors.foreground-alt}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = %percentage%%
 
 [module/battery]
 type = internal/battery
@@ -199,51 +156,35 @@ format-charging = <animation-charging> <label-charging>
 
 format-discharging = <ramp-capacity> <label-discharging>
 
-format-full-prefix = " "
+format-full-prefix = "󰁹 "
 format-full-prefix-foreground = ${colors.foreground-alt}
 
-ramp-capacity-0 = 
+ramp-capacity-0 = 󰂎
 ramp-capacity-0.foreground = ${colors.alert}
-ramp-capacity-1 = 
+ramp-capacity-1 = 󰁺
 ramp-capacity-1.foreground = ${colors.alert}
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-5 = 
-ramp-capacity-6 = 
-ramp-capacity-7 = 
-ramp-capacity-8 = 
-ramp-capacity-9 = 
+ramp-capacity-2 = 󰁻
+ramp-capacity-3 = 󰁼
+ramp-capacity-4 = 󰁽
+ramp-capacity-5 = 󰁾
+ramp-capacity-6 = 󰁿 
+ramp-capacity-7 = 󰂀
+ramp-capacity-8 = 󰂁
+ramp-capacity-9 = 󰂂
 ramp-capacity-foreground = ${colors.foreground-alt}
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-5 = 
-animation-charging-6 = 
-animation-charging-7 = 
-animation-charging-8 = 
-animation-charging-9 = 
-animation-charging-10 = 
+animation-charging-0 = 󰢜
+animation-charging-1 = 󰂆
+animation-charging-2 = 󰂇
+animation-charging-3 = 󰂈
+animation-charging-4 = 󰢝
+animation-charging-5 = 󰂉
+animation-charging-6 = 󰢞
+animation-charging-7 = 󰂊
+animation-charging-8 = 󰂋
+animation-charging-9 = 󰂅
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 500
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 0
-warn-temperature = 60
-
-format = <ramp> <label>
-format-warn = <ramp> <label-warn>
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.alert}
-
-ramp-0 = 
-ramp-foreground = ${colors.foreground-alt}
 
 [settings]
 screenchange-reload = true
