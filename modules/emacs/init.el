@@ -667,6 +667,7 @@
         (kill-new filename)
         (message "File name \"%s\" saved to the kill ring" filename))))
   (setq kill-do-not-save-duplicates t
+        read-quoted-char-radix 16
         save-interprogram-paste-before-kill t)
   :hook
   (text-mode . visual-line-mode)
