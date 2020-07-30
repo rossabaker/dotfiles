@@ -1,26 +1,14 @@
 {
-    "all-hies": {
-        "branch": "master",
-        "description": "Cached Haskell IDE Engine Nix builds for all GHC versions",
-        "homepage": "",
-        "owner": "infinisil",
-        "repo": "all-hies",
-        "rev": "4b6aab017cdf96a90641dc287437685675d598da",
-        "sha256": "0ap12mbzk97zmxk42fk8vqacyvpxk29r2wrnjqpx4m2w9g7gfdya",
-        "type": "tarball",
-        "url": "https://github.com/infinisil/all-hies/archive/4b6aab017cdf96a90641dc287437685675d598da.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "emacs-overlay": {
         "branch": "master",
         "description": "Bleeding edge emacs overlay [maintainer=@adisbladis] ",
         "homepage": "",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "dc649caa657a9bafd8b4c60ad113788cab028846",
-        "sha256": "03mqypd3ld2vpjv5ahag442sb38hfqsk3w2misaflf1bby4i71jj",
+        "rev": "d915b9db83c10cbdc5e395ad9dd62719715f4910",
+        "sha256": "10xf42nvfv6jc4m32c8ya2xa8yyzvw4kv0pkm7xfmblm38sa16x0",
         "type": "tarball",
-        "url": "https://github.com/nix-community/emacs-overlay/archive/dc649caa657a9bafd8b4c60ad113788cab028846.tar.gz",
+        "url": "https://github.com/nix-community/emacs-overlay/archive/d915b9db83c10cbdc5e395ad9dd62719715f4910.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "er-nix": {
@@ -29,10 +17,10 @@
         "homepage": null,
         "owner": "EarnestResearch",
         "repo": "er-nix",
-        "rev": "43f5540185148139191061287deed6d9b0149769",
-        "sha256": "0ciwld0bm1iyphrypzi7hpfm2ls8cq63b401f9s57rnxri03pxl8",
+        "rev": "6b6accdf7dca73b2ecee8b7fe07a69adec937040",
+        "sha256": "0sxv5dgz4q1vpi0cw0dmjb8ci7adsf4nbrcwlzy7smc2msa3gs8a",
         "type": "tarball",
-        "url": "https://github.com/EarnestResearch/er-nix/archive/43f5540185148139191061287deed6d9b0149769.tar.gz",
+        "url": "https://github.com/EarnestResearch/er-nix/archive/6b6accdf7dca73b2ecee8b7fe07a69adec937040.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "home-manager": {
@@ -41,10 +29,10 @@
         "homepage": "",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "7f7348b47049e8d25fb5b98db1d6215f8f643f0d",
-        "sha256": "1s8j8h42k354xzwlqizbzxlqvsagx7yrxl20qfxgxmx522ajw63p",
+        "rev": "bb6eb9b13e3d40a22633fb80cbc75347af5bed3c",
+        "sha256": "0pz0f1igj0rcnzyqjqh43sdvrb9vgwqwfwifg0rl90sbqgcmxpf4",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/7f7348b47049e8d25fb5b98db1d6215f8f643f0d.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/bb6eb9b13e3d40a22633fb80cbc75347af5bed3c.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -53,10 +41,10 @@
         "homepage": "https://github.com/nmattia/niv",
         "owner": "nmattia",
         "repo": "niv",
-        "rev": "c27f5a6c57de4495045450b6587d4a2c489851c8",
-        "sha256": "064lyr1661pk7hh7npgxsmk4cni9bc34hb2d6r76qp4cs2hcazim",
+        "rev": "ab9cc41caf44d1f1d465d8028e4bc0096fd73238",
+        "sha256": "17k52n8zwp832cqifsc4458mhy4044wmk22f807171hf6p7l4xvr",
         "type": "tarball",
-        "url": "https://github.com/nmattia/niv/archive/c27f5a6c57de4495045450b6587d4a2c489851c8.tar.gz",
+        "url": "https://github.com/nmattia/niv/archive/ab9cc41caf44d1f1d465d8028e4bc0096fd73238.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixos-vsliveshare": {
@@ -77,10 +65,10 @@
         "homepage": "https://github.com/NixOS/nixpkgs",
         "owner": "NixOS",
         "repo": "nixpkgs-channels",
-        "rev": "b3251e04ee470c20f81e75d5a6080ba92dc7ed3f",
-        "sha256": "0hld390gb3q055sa7j1rzxl1hzaxgagc60vrqmkk8fnfpv813g75",
+        "rev": "a45f68ccac476dc37ddf294530538f2f2cce5a92",
+        "sha256": "0i19mrky9m73i601hczyfk25qqyr3j75idb72imdz55szc4vavzc",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs-channels/archive/b3251e04ee470c20f81e75d5a6080ba92dc7ed3f.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs-channels/archive/a45f68ccac476dc37ddf294530538f2f2cce5a92.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

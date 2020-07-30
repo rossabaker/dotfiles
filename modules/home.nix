@@ -5,7 +5,6 @@
 
 let
   sources = import ../nix/sources.nix;
-  all-hies = import sources.all-hies {};
   niv = import sources.niv {};
 in
 rec {
@@ -39,7 +38,6 @@ rec {
     ];
 
     packages = [
-      (all-hies.selection { selector = p: { inherit (p) ghc865; }; })
       niv.niv
       pkgs.aspell
       pkgs.aspellDicts.en
