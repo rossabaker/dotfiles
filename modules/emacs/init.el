@@ -448,12 +448,8 @@
 (use-package lsp-haskell
   :demand
   :config
-  (setq lsp-haskell-process-wrapper-function
-        (lambda (args)
-          (append
-           (append (list "nix-shell" "-I" "." "--command" )
-                   (list (mapconcat 'identity args " ")))
-           (list (nix-current-sandbox)))))
+  (setq lsp-haskell-process-path-hie "ghcide"
+        lsp-haskell-process-args-hie '())
   :hook
   (haskell-mode . lsp))
 
