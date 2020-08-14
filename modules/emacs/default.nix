@@ -29,6 +29,7 @@ in
 
   programs.emacs = {
     enable = true;
+    package = pkgs.emacsUnstable;
     extraPackages = epkgs: (used-packages epkgs) ++ extraSystemPackages;
 
     overrides = self: super:
@@ -56,6 +57,7 @@ in
           sbt-mode = withPatches super.sbt-mode [
             ./patches/sbt-mode/e9aa908d1b80dc2618eab22eeefc68ae82d0026f.patch
           ];
+          seq = null; # https://github.com/NixOS/nixpkgs/issues/73346
           title-capitalization =
             let
               version = "0.1";
