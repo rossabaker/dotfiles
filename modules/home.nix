@@ -9,7 +9,6 @@ let
 in
 rec {
   imports = [
-    ./code.nix
     ./emacs
   ];
 
