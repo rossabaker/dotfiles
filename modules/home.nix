@@ -28,7 +28,6 @@ rec {
 
   home = {
     file = {
-      ".config/direnv/direnvrc".source = ../config/direnv/direnvrc;
       ".stack/config.yaml".source = ../config/stack/config.yaml;
     };
 
@@ -42,7 +41,6 @@ rec {
       pkgs.aspellDicts.en
       pkgs.bashInteractive
       pkgs.dhall
-      pkgs.direnv
       pkgs.gitAndTools.gh
       pkgs.gitter
       pkgs.gnome3.dconf # gtk doesn't configure without it
@@ -94,6 +92,7 @@ rec {
     direnv = {
       enable = true;
       enableBashIntegration = true;
+      enableNixDirenvIntegration = true;
     };
 
     git = {
@@ -105,8 +104,8 @@ rec {
       };
       ignores = [
         ".bloop"
+        ".direnv/"
         ".metals"
-        ".direnv.d/env-*"
       ];
       userEmail = "ross@rossabaker.com";
       userName = "Ross A. Baker";

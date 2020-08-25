@@ -5,6 +5,12 @@ let
 in
 {
   nix = {
+    # For nix-direnv
+    extraOptions = ''
+      keep-outputs = true
+      keep-derivations = true
+    '';
+
     nixPath = [
       "nixpkgs=${sources.nixpkgs.url}"
       "home-manager=${sources.home-manager.url}"
