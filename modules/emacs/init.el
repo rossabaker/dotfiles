@@ -388,6 +388,11 @@
   haskell-mode
   scala-mode)
 
+(use-package "help"
+  :config
+  (unbind-key "C-h g") ;; I already have a religion, thanks.
+  )
+
 (use-package helpful
   :bind
   ([remap describe-function] . helpful-callable)
