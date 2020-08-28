@@ -307,6 +307,7 @@
     "Guess mode of file in `fundamental-mode'."
     (interactive)
     (and (eq major-mode 'fundamental-mode) (set-auto-mode)))
+  (unbind-key "C-x C-d") ;; list-directory is silly
   :bind
   ("C-c f u" . recover-this-file)
   :hook
