@@ -331,8 +331,12 @@
 (use-package "frame"
   :config
   (blink-cursor-mode -1)
-  (setq default-frame-alist '((font . "Hasklig 12"))
-        window-divider-default-places t
+  (set-face-attribute 'default nil
+                      :family "Hasklig"
+                      :height 90
+                      :weight 'normal
+                      :width 'normal)
+  (setq window-divider-default-places t
         window-divider-default-bottom-width 1
         window-divider-default-right-width 1)
   (window-divider-mode t))
