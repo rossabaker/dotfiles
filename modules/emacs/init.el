@@ -1,4 +1,4 @@
-;;; init.el --- Ross A. Baker's Emacs configuration.
+;;; init.el --- Ross A. Baker's Emacs configuration. -*- lexical-binding: t; -*-
 
 ;;; Commentary:
 
