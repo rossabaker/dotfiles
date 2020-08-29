@@ -774,6 +774,11 @@
   :bind
   ("M-q" . unfill-toggle))
 
+(use-package visual-regexp
+  :bind
+  ("C-c s r r" . vr/replace)
+  ("C-c s r q" . vr/query-replace))
+
 (use-package vterm)
 
 (use-package which-key
