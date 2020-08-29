@@ -155,6 +155,10 @@
 (use-package "css-mode"
   :mode "\\.rasi\\'")
 
+(use-package deadgrep
+  :bind
+  ("C-c s d" . deadgrep))
+
 (use-package "delsel"
   :config
   (delete-selection-mode t))
