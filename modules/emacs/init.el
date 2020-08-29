@@ -523,6 +523,14 @@
   ("C-c l m" . multi-line)
   ("C-c l s" . multi-line-single-line))
 
+(use-package multi-vterm
+  :bind
+  ("C-c t 2" . multi-vterm)
+  ("C-c t n" . multi-vterm-next)
+  ("C-c t p" . multi-vterm-prev)
+  ("C-c t t" . multi-vterm-dedicated-toggle)
+  ("C-c t P" . multi-vterm-projectile))
+
 (use-package mwim
   :bind
   ([remap move-beginning-of-line] . mwim-beginning)
@@ -676,7 +684,7 @@
 (use-package shell-pop
   :init
   (setq shell-pop-shell-type '("shell" "*shell*" (lambda () (shell)))
-        shell-pop-universal-key "C-c t"))
+        shell-pop-universal-key "C-c t s"))
 
 (use-package "simple"
   :delight visual-line-mode
@@ -795,6 +803,7 @@
     "C-c p" "projectile"
     "C-c q" "string-inflection"
     "C-c s" "search"
+    "C-c t" "terminals"
     "C-c T" "theme"
     "C-h b" "bindings")
   :bind
