@@ -289,7 +289,10 @@
     (setq-local scroll-margin 0))
   (dolist (hook '(messages-buffer-mode-hook comint-mode-hook term-mode-hook))
     (remove-hook hook 'ross/unset-scroll-margin)
-    (add-hook hook 'ross/unset-scroll-margin)))
+    (add-hook hook 'ross/unset-scroll-margin))
+  :bind
+  ("C-x k" . kill-this-buffer)
+  ("C-x K" . kill-buffer))
 
 (use-package ess
   :init (require 'ess-site)
