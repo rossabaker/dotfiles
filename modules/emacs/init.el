@@ -711,6 +711,10 @@
   :hook
   (minibuffer-setup . ross/smartparens-for-eval-expression))
 
+(use-package so-long
+  :config
+  (global-so-long-mode))
+
 (use-package stan-mode)
 
 (use-package string-inflection
