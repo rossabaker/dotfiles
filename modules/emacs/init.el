@@ -437,6 +437,10 @@
   :bind
   ("C-h b b" . describe-bindings))
 
+(use-package iedit
+  :bind
+  ("C-c s e" . iedit-mode))
+
 (use-package "ibuffer"
   :bind
   ([remap list-buffers] . ibuffer))
