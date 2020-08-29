@@ -69,14 +69,6 @@
   :config
   (beginend-global-mode))
 
-(use-package color-theme-sanityinc-tomorrow
-  :after avy
-  :config
-  (load-theme 'sanityinc-tomorrow-night t)
-  ;; tomorrow-night uses the selection background as the foreground, which
-  ;; doesn't sufficiently contrast.  This is tomorrow-night's comment color.
-  (set-face-foreground 'avy-background-face "#969896"))
-
 (use-package "comint"
   :config
   (setq comint-scroll-to-bottom-on-input 'this
@@ -193,6 +185,19 @@
   :config
   (setq-default display-line-numbers-width 4
                 display-line-numbers-widen t))
+
+(use-package doom-modeline
+  :after doom-themes
+  :ensure t
+  :config
+  (setq doom-modeline-buffer-encoding nil
+        doom-modeline-icon (or (display-graphic-p) (daemonp)))
+  (doom-modeline-mode 1))
+
+(use-package doom-themes
+  :config
+  (doom-themes-visual-bell-config)
+  (load-theme 'doom-tomorrow-night t))
 
 (use-package dockerfile-mode)
 
