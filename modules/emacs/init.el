@@ -193,8 +193,10 @@
 (use-package doom-modeline
   :ensure t
   :config
-  (dolist (face '(mode-line mode-line-inactive))
-    (set-face-attribute face nil :height 80))
+  (defun ross/set-modeline-heights (frame)
+    (dolist (face '(mode-line mode-line-inactive))
+      (set-face-attribute face nil :height 80)))
+  (add-hook 'after-make-frame-functions 'ross/set-modeline-heights)
   (setq doom-modeline-buffer-encoding nil
         doom-modeline-height 28
         doom-modeline-icon (or (display-graphic-p) (daemonp)))
