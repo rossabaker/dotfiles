@@ -379,6 +379,8 @@
   (text-mode . goto-address-mode)
   (prog-mode . goto-address-prog-mode))
 
+(use-package goto-line-faster)
+
 (use-package haskell-mode
   :delight interactive-haskell-mode
   :hook (haskell-mode . interactive-haskell-mode)
