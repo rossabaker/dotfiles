@@ -191,17 +191,11 @@
                 display-line-numbers-widen t))
 
 (use-package doom-modeline
-  :after doom-themes
   :ensure t
   :config
   (setq doom-modeline-buffer-encoding nil
         doom-modeline-icon (or (display-graphic-p) (daemonp)))
   (doom-modeline-mode 1))
-
-(use-package doom-themes
-  :config
-  (doom-themes-visual-bell-config)
-  (load-theme 'doom-tomorrow-night t))
 
 (use-package dockerfile-mode)
 
@@ -274,6 +268,7 @@
         inhibit-startup-screen t
         initial-scratch-message ""
         load-prefer-newer t
+        ring-bell-function 'ross/visual-bell-fn
         scroll-conservatively 101
         scroll-margin 3
         scroll-preserve-screen-position t
@@ -513,6 +508,19 @@
 (use-package "menu-bar"
   :config
   (menu-bar-mode -1))
+
+;; Foo
+(use-package modus-vivendi-theme
+  :config
+  (setq
+   modus-vivendi-theme-slanted-constructs t
+   modus-vivendi-theme-faint-syntax t
+   modus-vivendi-theme-prompts 'subtle
+   modus-vivendi-theme-completions 'opinionated
+   modus-vivendi-theme-fringes nil
+   modus-vivendi-theme-intense-paren-match t
+   modus-vivendi-theme-diffs 'desaturated)
+  (load-theme 'modus-vivendi t))
 
 (use-package "mouse"
   :config
@@ -841,6 +849,19 @@
     (when (looking-at "#!/bin/bash\n")
       (delete-region (point) (line-end-position))
       (insert "#!/usr/bin/env bash"))))
+
+;; Stolen from Doom
+(defun ross/visual-bell-fn ()
+  "Blink the mode-line with the error face. Set `ring-bell-function' to this to use it."
+  (let ((bell-cookie (face-remap-add-relative 'mode-line 'error)))
+    (force-mode-line-update)
+    (run-with-timer 0.15 nil
+                    (lambda (cookie buf)
+                      (with-current-buffer buf
+                        (face-remap-remove-relative cookie)
+                        (force-mode-line-update)))
+                    bell-cookie
+                    (current-buffer))))
 
 ;;; init.el --- Ross A. Baker's Emacs configuration.
 
