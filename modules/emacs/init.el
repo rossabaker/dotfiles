@@ -298,6 +298,10 @@
   ("C-x k" . kill-this-buffer)
   ("C-x K" . kill-buffer))
 
+(use-package ethan-wspace
+  :config
+  (global-ethan-wspace-mode))
+
 (use-package ess
   :init (require 'ess-site)
   :commands R)
@@ -318,7 +322,9 @@
 (use-package "files"
   :config
   (setq backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
-        require-final-newline t)
+        ;; require-final-newline disabled for ethan-wspace
+        mode-require-final-newline nil
+        require-final-newline nil)
   (defun ross/guess-mode ()
     "Guess mode of file in `fundamental-mode'."
     (interactive)
