@@ -193,7 +193,10 @@
 (use-package doom-modeline
   :ensure t
   :config
+  (dolist (face '(mode-line mode-line-inactive))
+    (set-face-attribute face nil :height 80))
   (setq doom-modeline-buffer-encoding nil
+        doom-modeline-height 28
         doom-modeline-icon (or (display-graphic-p) (daemonp)))
   (doom-modeline-mode 1))
 
