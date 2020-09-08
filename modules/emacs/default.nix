@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 let
+  sources = import ../../nix/sources.nix;
+
   used-packages = import (
     pkgs.runCommand "used-packages" rec {
       emacs = pkgs.emacsWithPackages (epkgs: [ epkgs.use-package ]);
@@ -41,24 +43,14 @@ in
           lib.overrideDerivation pkg (attrs: { inherit patches; });
       in
         {
-          goto-line-faster =
-            let
-              version = "1.0";
-            in
-              stdenv.mkDerivation {
-                inherit version;
-                name = "title-capitalization-${version}";
-                src = fetchFromGitHub {
-                  owner = "davep";
-                  repo = "goto-line-faster.el";
-                  rev = "775ed4916eb8028252db4dae5a0b71d865568638";
-                  sha256 = "1yxj4pc6r0y2bcfapqq8jq3agkv02ckv09c7a53m5d5xzxqk6ahm";
-                };
-                installPhase = ''
-                  mkdir -p $out/share/emacs/site-lisp
-                  cp *.el $out/share/emacs/site-lisp/
-                '';
-              };
+          goto-line-faster = stdenv.mkDerivation {
+            name = "goto-line-faster";
+            src = sources."goto-line-faster.el";
+            installPhase = ''
+              mkdir -p $out/share/emacs/site-lisp
+              cp *.el $out/share/emacs/site-lisp/
+            '';
+          };
           quick-yes =
             let
               version = "10";
@@ -76,24 +68,14 @@ in
             ./patches/sbt-mode/e9aa908d1b80dc2618eab22eeefc68ae82d0026f.patch
           ];
           seq = null; # https://github.com/NixOS/nixpkgs/issues/73346
-          title-capitalization =
-            let
-              version = "0.1";
-            in
-              stdenv.mkDerivation {
-                inherit version;
-                name = "title-capitalization-${version}";
-                src = fetchFromGitHub {
-                  owner = "novoid";
-                  repo = "title-capitalization.el";
-                  rev = "e83d463c500d04adf47b2e444728803121e7b641";
-                  sha256 = "0y0fhi8sb3chh5pzgn0rp7cy7492bw5yh1dldmpqxcsykjn06aga";
-                };
-                installPhase = ''
-                  mkdir -p $out/share/emacs/site-lisp
-                  cp *.el $out/share/emacs/site-lisp/
-                '';
-              };
+          title-capitalization = stdenv.mkDerivation {
+            name = "title-capitalization";
+            src = sources."title-capitalization.el";
+            installPhase = ''
+              mkdir -p $out/share/emacs/site-lisp
+              cp *.el $out/share/emacs/site-lisp/
+            '';
+          };
         };
   };
 }

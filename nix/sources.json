@@ -23,6 +23,18 @@
         "url": "https://github.com/EarnestResearch/er-nix/archive/73f30426d65f29c4145cc2b35a12fc0948cece32.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "goto-line-faster.el": {
+        "branch": "main",
+        "description": "Go to a line in Emacs just a little faster than normal",
+        "homepage": null,
+        "owner": "davep",
+        "repo": "goto-line-faster.el",
+        "rev": "3bccdcb955e834e27b0d7b9e862c612ac036ba5c",
+        "sha256": "1yy8i97h468nw32dqsg6fiwkhqbva5f4j8xc7gzr45iqc7r5bd67",
+        "type": "tarball",
+        "url": "https://github.com/davep/goto-line-faster.el/archive/3bccdcb955e834e27b0d7b9e862c612ac036ba5c.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "home-manager": {
         "branch": "master",
         "description": "Manage a user environment using Nix",
@@ -57,6 +69,18 @@
         "sha256": "0xfjizw6w84w1fj47hxzw2vwgjlszzmsjb8k8cgqhb379vmkxjfl",
         "type": "tarball",
         "url": "https://github.com/NixOS/nixpkgs-channels/archive/a31736120c5de6e632f5a0ba1ed34e53fc1c1b00.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "title-capitalization.el": {
+        "branch": "master",
+        "description": "Proper English title capitalization of a marked region",
+        "homepage": null,
+        "owner": "novoid",
+        "repo": "title-capitalization.el",
+        "rev": "e83d463c500d04adf47b2e444728803121e7b641",
+        "sha256": "0y0fhi8sb3chh5pzgn0rp7cy7492bw5yh1dldmpqxcsykjn06aga",
+        "type": "tarball",
+        "url": "https://github.com/novoid/title-capitalization.el/archive/e83d463c500d04adf47b2e444728803121e7b641.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
