@@ -568,6 +568,10 @@
 
 (use-package nix-sandbox)
 
+(use-package "outline"
+  :hook
+  (emacs-lisp-mode . outline-minor-mode))
+
 (use-package "ns-win"
   :if (eq system-type 'darwin)
   :config
