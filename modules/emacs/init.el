@@ -7,10 +7,13 @@
 
 ;;; Code:
 
+;;;; Package management
+
 (eval-when-compile
   (setq use-package-enable-imenu-support t)
   (require 'use-package))
-(require 'delight)
+
+;;;; Undocumented config
 
 ;; We shall endeavor to keep everything out of this, but sometimes
 ;; Emacs really wants to dump custom settings itself.
@@ -19,7 +22,6 @@
   (load custom-file))
 
 (use-package ace-window
-  :delight
   :bind
   ("M-o" . ace-window)
   :config
@@ -32,7 +34,6 @@
   :hook (dired-mode . all-the-icons-dired-mode))
 
 (use-package "autorevert"
-  :delight auto-revert-mode
   :config
   (setq auto-revert-verbose nil
         global-auto-revert-non-file-buffers t))
@@ -56,7 +57,6 @@
   :mode "BUILD\\'")
 
 (use-package beacon
-  :delight
   :bind
   ("C-c b" . beacon-blink)
   :config
@@ -65,7 +65,6 @@
   (add-to-list 'beacon-dont-blink-major-modes 'sbt-mode))
 
 (use-package beginend
-  :delight beginend-global-mode
   :config
   (beginend-global-mode))
 
@@ -76,7 +75,6 @@
         comint-scroll-show-maximum-output t))
 
 (use-package "company"
-  :delight
   :hook
   (after-init . global-company-mode)
   :config
@@ -206,7 +204,6 @@
 (use-package dockerfile-mode)
 
 (use-package dtrt-indent
-  :delight
   :hook
   (prog-mode . dtrt-indent-mode))
 
@@ -218,11 +215,9 @@
   :config
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
 
-(use-package "eldoc"
-  :delight)
+(use-package "eldoc")
 
 (use-package electric-operator
-  :delight
   :hook
   (scala-mode . electric-operator-mode)
   :config
@@ -337,7 +332,6 @@
   (after-save . ross/guess-mode))
 
 (use-package flycheck
-  :delight
   :config
   (global-flycheck-mode)
   (setq flycheck-global-modes
@@ -345,7 +339,6 @@
               )))
 
 (use-package "flyspell"
-  :delight
   :config
   (setq ispell-program-name "aspell")
   :hook
@@ -362,7 +355,6 @@
                       :width 'normal))
 
 (use-package git-gutter
-  :delight
   :config
   (global-git-gutter-mode +1)
   (setq git-gutter:update-interval 1))
@@ -391,7 +383,6 @@
 (use-package goto-line-faster)
 
 (use-package haskell-mode
-  :delight interactive-haskell-mode
   :hook (haskell-mode . interactive-haskell-mode)
   :config
   (setq
@@ -404,7 +395,6 @@
    haskell-process-wrapper-function #'identity))
 
 (use-package hasklig-mode
-  :delight
   :hook
   haskell-mode
   scala-mode)
@@ -462,7 +452,6 @@
   (imenu-after-jump . ross/recenter-top))
 
 (use-package ivy
-  :delight
   :config
   (setq ivy-use-virtual-buffers t)
   (ivy-mode 1))
@@ -587,7 +576,6 @@
   (show-paren-mode 1))
 
 (use-package page-break-lines
-  :delight
   :config
   (global-page-break-lines-mode))
 
@@ -639,7 +627,6 @@
   (prog-mode . rainbow-delimiters-mode))
 
 (use-package rainbow-mode
-  :delight
   :hook
   (prog-mode . rainbow-mode))
 
@@ -707,7 +694,6 @@
         shell-pop-universal-key "C-c t s"))
 
 (use-package "simple"
-  :delight visual-line-mode
   :config
   (column-number-mode +1)
   (size-indication-mode +1)
@@ -733,7 +719,6 @@
   ([remap upcase-word] . upcase-dwim))
 
 (use-package smartparens
-  :delight
   :config
   (require 'smartparens-config)
   (sp-use-smartparens-bindings)
@@ -762,8 +747,7 @@
   ("C-c q q" . string-inflection-all-cycle)
   ("C-c q s" . string-inflection-underscore))
 
-(use-package "subword"
-  :delight)
+(use-package "subword")
 
 (use-package sudo-edit
   :config
@@ -810,7 +794,6 @@
 (use-package vterm)
 
 (use-package which-key
-  :delight
   :demand t
   :init
   (global-unset-key (kbd "C-h b"))
@@ -845,8 +828,6 @@
   )
 
 (use-package ws-butler
-  :delight
-
   :hook
   (prog-mode . ws-butler-mode))
 
