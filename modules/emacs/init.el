@@ -131,6 +131,7 @@
   ("C-h i" . counsel-info-lookup-symbol)
   ("C-x 8 RET" . counsel-unicode-char)
   ("C-x C-f" . counsel-find-file)
+  ("M-i" . counsel-imenu)
   ("M-x" . counsel-M-x)
   ("M-y" . counsel-yank-pop))
 
@@ -457,8 +458,6 @@
   ([remap list-buffers] . ibuffer))
 
 (use-package "imenu"
-  :bind
-  ("M-i" . imenu)
   :hook
   (imenu-after-jump . ross/recenter-top))
 
