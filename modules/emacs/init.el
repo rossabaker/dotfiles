@@ -232,7 +232,7 @@
   (global-unset-key (kbd "C-h b"))
   :config
   (which-key-mode)
-  (which-key-declare-prefixes
+  (which-key-add-key-based-replacements
     "C-c f" "files"
     "C-c g" "git"
     "C-c l" "multi-line"
