@@ -2,8 +2,21 @@
 
 ;;; Commentary:
 
-;; All packages in my Emacs are declared in nix.  Packages that
-;; require configuration have their own use-package expressions below.
+;; All packages in this Emacs configuration are declared in Nix.  Those that are
+;; builtin are quoted, Others are loaded from Nix's `emacsPackages', the list of
+;; which is introspected into our derivation by `used-packages.el'.
+;;
+;; This configuration owes much to Doom Emacs, which I've tried several times,
+;; but never quite stuck with.  I am old and grumpy and idiosyncratic.  While
+;; burdensome, I spend enough time in Emacs that it's worth deeply understanding
+;; my config.  Also, stock Emacs is a better bet with the Lindy Effect.
+;;
+;; Unlike many configurations, pull requests are welcome.  This is not intended
+;; to grow into the next great Emacs framework (if that's what you want, use
+;; Doom).  I offer no incentive for you to participate.  But I like to geek out
+;; over configuration, and maybe you do, too.
+;;
+;; Thanks for reading.
 
 ;;; Code:
 
