@@ -59,6 +59,37 @@
 (use-package gcmh
   :demand t)
 
+;;;; Keybindings
+
+(use-package "ns-win"
+  :if (eq system-type 'darwin)
+  :custom
+  (mac-command-modifier 'meta)
+  (mac-option-modifier 'super))
+
+(use-package which-key
+  :demand t
+  :init
+  (global-unset-key (kbd "C-h b"))
+  :config
+  (which-key-mode)
+  (which-key-add-key-based-replacements
+    "C-c f" "files"
+    "C-c g" "git"
+    "C-c l" "multi-line"
+    "C-c p" "projectile"
+    "C-c q" "string-inflection"
+    "C-c s" "search"
+    "C-c t" "terminals"
+    "C-c T" "theme"
+    "C-h b" "bindings")
+  :bind
+  ("C-h b f" . which-key-show-full-keymap)
+  ("C-h b i" . which-key-show-minor-mode)
+  ("C-h b k" . which-key-show-keymap)
+  ("C-h b m" . which-key-show-major-mode)
+  ("C-h b t" . which-key-show-top-level))
+
 ;;;; UI
 
 (use-package emacs
@@ -217,37 +248,6 @@
   (modus-vivendi-theme-diffs 'desaturated)
   :config
   (load-theme 'modus-vivendi t))
-
-;;;; Keybindings
-
-(use-package "ns-win"
-  :if (eq system-type 'darwin)
-  :custom
-  (mac-command-modifier 'meta)
-  (mac-option-modifier 'super))
-
-(use-package which-key
-  :demand t
-  :init
-  (global-unset-key (kbd "C-h b"))
-  :config
-  (which-key-mode)
-  (which-key-add-key-based-replacements
-    "C-c f" "files"
-    "C-c g" "git"
-    "C-c l" "multi-line"
-    "C-c p" "projectile"
-    "C-c q" "string-inflection"
-    "C-c s" "search"
-    "C-c t" "terminals"
-    "C-c T" "theme"
-    "C-h b" "bindings")
-  :bind
-  ("C-h b f" . which-key-show-full-keymap)
-  ("C-h b i" . which-key-show-minor-mode)
-  ("C-h b k" . which-key-show-keymap)
-  ("C-h b m" . which-key-show-major-mode)
-  ("C-h b t" . which-key-show-top-level))
 
 ;;;; Unorganized territory
 
