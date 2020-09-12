@@ -146,7 +146,10 @@
                       :family "Hasklig"
                       :height 90
                       :weight 'normal
-                      :width 'normal))
+                      :width 'normal)
+
+  ;; Not part of frame, but fits here conceptually:
+  (setq x-underline-at-descent-line t))
 
 (use-package "hl-line"
   :custom
