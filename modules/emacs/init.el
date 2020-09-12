@@ -4,12 +4,18 @@
 
 ;; All packages in this Emacs configuration are declared in Nix.  Those that are
 ;; builtin are quoted, Others are loaded from Nix's `emacsPackages', the list of
-;; which is introspected into our derivation by `used-packages.el'.
+;; which is introspected into our derivation by `used-packages.el'.  Most
+;; dependencies are on MELPA.  Those that aren't appear in the overlay in
+;; default.nix.
 ;;
 ;; This configuration owes much to Doom Emacs, which I've tried several times,
 ;; but never quite stuck with.  I am old and grumpy and idiosyncratic.  While
 ;; burdensome, I spend enough time in Emacs that it's worth deeply understanding
 ;; my config.  Also, stock Emacs is a better bet with the Lindy Effect.
+;;
+;; This config uses outline-mode headings for easy navigation between major
+;; sections.  Use counsel-outline to easily navigate them, and counsel-imenu
+;; to navigate between the use-package statements.
 ;;
 ;; Unlike many configurations, pull requests are welcome.  This is not intended
 ;; to grow into the next great Emacs framework (if that's what you want, use
