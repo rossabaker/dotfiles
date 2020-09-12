@@ -497,6 +497,7 @@
   :ensure t
   :config
   (defun ross/set-modeline-heights (frame)
+    (ignore frame)
     (dolist (face '(mode-line mode-line-inactive))
       (set-face-attribute face nil :height 80)))
   (add-hook 'after-make-frame-functions 'ross/set-modeline-heights)
@@ -842,7 +843,7 @@
 (use-package scala-mode
   :config
   (subword-mode +1)
-  (which-key-declare-prefixes-for-mode 'scala-mode "C-c m" "scala")
+  (which-key-add-major-mode-key-based-replacements 'scala-mode "C-c m" "scala")
   :bind
   ("C-c m b" . sbt-hydra)
   ("C-c m c" . sbt-do-compile)
@@ -907,11 +908,6 @@
 
 (use-package title-capitalization)
 
-(use-package "tooltip"
-  :config
-  (tooltip-mode -1)
-  (setq tooltip-use-echo-area t))
-
 (use-package try)
 
 (use-package "uniquify"
@@ -944,7 +940,7 @@
 
 ;; NixOS doesn't have a #!/bin/bash. We do this a lot.
 (defun ross/fix-shebang ()
-  "Replace #!/bin/bash shebang with #!/usr/bin/env bash"
+  "Replace #!/bin/bash shebang with #!/usr/bin/env bash."
   (interactive)
   (save-excursion
     (goto-char (point-min))
