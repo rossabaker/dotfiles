@@ -28,8 +28,110 @@
 ;;;; UI
 
 (use-package emacs
+  :config
+;;;;; Cursor
+  (setq cursor-in-non-selected-windows nil)
+  (blink-cursor-mode -1)
+
+;;;;; Scrolling
+  (setq hscroll-step 1)
+  (setq scroll-conservatively 101)
+  (setq scroll-margin 3)
+  (setq scroll-preserve-screen-position t)
+
+;;;;; Windows and frames
+  (setq frame-resize-pixelwise t)
+  (setq window-resize-pixelwise t)
+  (setq use-dialog-box nil)
+
+;;;;; Beep beep your ass
+  ;; h/t doom-themes
+  (defun ross/visual-bell-fn ()
+    "Blink the mode-line with the error face. Set `ring-bell-function' to this to use it."
+    (let ((bell-cookie (face-remap-add-relative 'mode-line 'error)))
+      (force-mode-line-update)
+      (run-with-timer 0.15 nil
+                      (lambda (cookie buf)
+                        (with-current-buffer buf
+                          (face-remap-remove-relative cookie)
+                          (force-mode-line-update)))
+                      bell-cookie
+                      (current-buffer))))
+  (setq ring-bell-function 'ross/visual-bell-fn)
+
+;;;;; Minibuffer
+  (setq echo-keystrokes 0.05))
+
+;;;;; Packages
+
+(use-package all-the-icons)
+
+(use-package "comint"
   :custom
-  (cursor-in-non-selected-windows nil))
+  (comint-scroll-to-bottom-on-input 'this)
+  (comint-move-point-for-output 'others)
+  (comint-scroll-show-maximum-output t))
+
+(use-package "compile"
+  :custom
+  (compilation-always-kill t)
+  (compilation-ask-about-save nil)
+  (compilation-scroll-output 'first-error))
+
+(use-package "display-line-numbers"
+  :custom
+  (display-line-numbers-width 4)
+  (display-line-numbers-widen t)
+  :hook
+  ((conf-mode prog-mode text-mode) . display-line-numbers-mode))
+
+(use-package "frame"
+  :config
+  (set-face-attribute 'default nil
+                      :family "Hasklig"
+                      :height 90
+                      :weight 'normal
+                      :width 'normal))
+
+(use-package "hl-line"
+  :custom
+  (hl-line-sticky-flag nil)
+  :config
+  (defvar ross/inhibit-hl-line nil)
+  :hook
+  ((conf-mode prog-mode text-mode) . hl-line-mode)
+  ;; Inspired by doom: temporarily disable when the mark is set
+  (activate-mark . (lambda () (when hl-line-mode)
+                          (setq-local ross/inhibit-hl-line t)
+                          (hl-line-mode -1)))
+  (deactivate-mark . (lambda () (when ross/inhibit-hl-line)
+                     (hl-line-mode +1))))
+
+(use-package quick-yes
+  ;; yes-or-no-p exists for a reason: it's for things that require more care than
+  ;; y-or-n-p, but it's still obnoxious.  This package is a compromise: it
+  ;; supports M-y and M-n
+  )
+
+(use-package rainbow-delimiters
+  :custom
+  (rainbow-delimiters-max-face-count 4)
+  :hook
+  (prog-mode . rainbow-delimiters-mode))
+
+;;;;; Themes
+
+(use-package modus-vivendi-theme
+  :custom
+  (modus-vivendi-theme-slanted-constructs t)
+  (modus-vivendi-theme-faint-syntax t)
+  (modus-vivendi-theme-prompts 'subtle)
+  (modus-vivendi-theme-completions 'opinionated)
+  (modus-vivendi-theme-fringes nil)
+  (modus-vivendi-theme-intense-paren-match t)
+  (modus-vivendi-theme-diffs 'desaturated)
+  :config
+  (load-theme 'modus-vivendi t))
 
 ;;;; Unorganized territory
 
@@ -43,8 +145,6 @@
   ("M-o" . ace-window)
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
-
-(use-package all-the-icons)
 
 (use-package all-the-icons-dired
   :after all-the-icons
@@ -83,12 +183,6 @@
   :config
   (beginend-global-mode))
 
-(use-package "comint"
-  :config
-  (setq comint-scroll-to-bottom-on-input 'this
-        comint-move-point-for-output 'others
-        comint-scroll-show-maximum-output t))
-
 (use-package "company"
   :hook
   (after-init . global-company-mode)
@@ -117,12 +211,6 @@
 (use-package company-restclient
   :config
   (push 'company-restclient company-backends))
-
-(use-package "compile"
-  :config
-  (setq compilation-always-kill t
-        compilation-ask-about-save nil
-        compilation-scroll-output 'first-error))
 
 (use-package copy-as-format
   :bind
@@ -197,13 +285,6 @@
   :hook
   (eshell-directory-change . direnv-update-directory-environment))
 
-(use-package "display-line-numbers"
-  :hook
-  ((conf-mode prog-mode text-mode) . display-line-numbers-mode)
-  :config
-  (setq-default display-line-numbers-width 4
-                display-line-numbers-widen t))
-
 (use-package doom-modeline
   :ensure t
   :config
@@ -273,17 +354,8 @@
 (use-package emacs
   :config
   (setq create-lockfiles nil
-        echo-keystrokes 0.05
-        frame-resize-pixelwise t
-        hscroll-step 1
-        ring-bell-function 'ross/visual-bell-fn
-        scroll-conservatively 101
-        scroll-margin 3
-        scroll-preserve-screen-position t
-        use-dialog-box nil
         user-full-name "Ross A. Baker"
-        user-mail-address "ross@rossabaker.com"
-        window-resize-pixelwise t)
+        user-mail-address "ross@rossabaker.com")
   (setq-default cursor-type 'bar
                 fill-column 80)
   (put 'narrow-to-region 'disabled nil)
@@ -349,15 +421,6 @@
   (text-mode . flyspell-mode)
   (prog-mode . flyspell-prog-mode))
 
-(use-package "frame"
-  :config
-  (blink-cursor-mode -1)
-  (set-face-attribute 'default nil
-                      :family "Hasklig"
-                      :height 90
-                      :weight 'normal
-                      :width 'normal))
-
 (use-package git-gutter
   :config
   (global-git-gutter-mode +1)
@@ -415,20 +478,6 @@
   ([remap describe-variable] . helpful-variable)
   ([remap describe-key] . helpful-key)
   ([remap describe-symbol] . helpful-symbol))
-
-(use-package "hl-line"
-  :init
-  (setq hl-line-sticky-flag nil)
-  :config
-  (defvar ross/inhibit-hl-line nil)
-  :hook
-  ((conf-mode prog-mode text-mode) . hl-line-mode)
-  ;; Inspired by doom: temporarily disable when the mark is set
-  (activate-mark . (lambda () (when hl-line-mode)
-                          (setq-local ross/inhibit-hl-line t)
-                          (hl-line-mode -1)))
-  (deactivate-mark . (lambda () (when ross/inhibit-hl-line)
-                     (hl-line-mode +1))))
 
 (use-package hydra)
 
@@ -497,19 +546,6 @@
   ("C-c g S" . magit-stage-file)
   ("C-c g s" . magit-status)
   ("C-c g U" . magit-unstage-file))
-
-;; Foo
-(use-package modus-vivendi-theme
-  :config
-  (setq
-   modus-vivendi-theme-slanted-constructs t
-   modus-vivendi-theme-faint-syntax t
-   modus-vivendi-theme-prompts 'subtle
-   modus-vivendi-theme-completions 'opinionated
-   modus-vivendi-theme-fringes nil
-   modus-vivendi-theme-intense-paren-match t
-   modus-vivendi-theme-diffs 'desaturated)
-  (load-theme 'modus-vivendi t))
 
 (use-package multi-line
   :bind
@@ -601,14 +637,6 @@
           projectile-git-command cmd)))
 
 (use-package protobuf-mode)
-
-(use-package quick-yes)
-
-(use-package rainbow-delimiters
-  :config
-  (setq rainbow-delimiters-max-face-count 4)
-  :hook
-  (prog-mode . rainbow-delimiters-mode))
 
 (use-package rainbow-mode
   :hook
@@ -810,18 +838,6 @@
       (delete-region (point) (line-end-position))
       (insert "#!/usr/bin/env bash"))))
 
-;; Stolen from Doom
-(defun ross/visual-bell-fn ()
-  "Blink the mode-line with the error face. Set `ring-bell-function' to this to use it."
-  (let ((bell-cookie (face-remap-add-relative 'mode-line 'error)))
-    (force-mode-line-update)
-    (run-with-timer 0.15 nil
-                    (lambda (cookie buf)
-                      (with-current-buffer buf
-                        (face-remap-remove-relative cookie)
-                        (force-mode-line-update)))
-                    bell-cookie
-                    (current-buffer))))
 
 ;;; init.el --- Ross A. Baker's Emacs configuration.
 
