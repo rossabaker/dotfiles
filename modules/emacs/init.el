@@ -361,10 +361,10 @@
   (if (file-directory-p "~/src")
       (setq projectile-project-search-path '("~/src")))
   (setq projectile-completion-system 'ivy)
-  (projectile-discover-projects-in-search-path)
   (let ((cmd "fd . --color=never --type f -0 -H -E .git"))
     (setq projectile-generic-command cmd
-          projectile-git-command cmd)))
+          projectile-git-command cmd))
+  (projectile-mode +1))
 
 ;;;; Unorganized territory
 
