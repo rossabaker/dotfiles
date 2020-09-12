@@ -218,6 +218,37 @@
   :config
   (load-theme 'modus-vivendi t))
 
+;;;; Keybindings
+
+(use-package "ns-win"
+  :if (eq system-type 'darwin)
+  :custom
+  (mac-command-modifier 'meta)
+  (mac-option-modifier 'super))
+
+(use-package which-key
+  :demand t
+  :init
+  (global-unset-key (kbd "C-h b"))
+  :config
+  (which-key-mode)
+  (which-key-declare-prefixes
+    "C-c f" "files"
+    "C-c g" "git"
+    "C-c l" "multi-line"
+    "C-c p" "projectile"
+    "C-c q" "string-inflection"
+    "C-c s" "search"
+    "C-c t" "terminals"
+    "C-c T" "theme"
+    "C-h b" "bindings")
+  :bind
+  ("C-h b f" . which-key-show-full-keymap)
+  ("C-h b i" . which-key-show-minor-mode)
+  ("C-h b k" . which-key-show-keymap)
+  ("C-h b m" . which-key-show-major-mode)
+  ("C-h b t" . which-key-show-top-level))
+
 ;;;; Unorganized territory
 
 ;; We shall endeavor to keep everything out of this, but sometimes
@@ -669,13 +700,6 @@
   :hook
   (emacs-lisp-mode . outline-minor-mode))
 
-(use-package "ns-win"
-  :if (eq system-type 'darwin)
-  :config
-  (when
-    (setq mac-command-modifier 'meta)
-    (setq mac-option-modifier 'super)))
-
 (use-package "package"
   :config
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/")))
@@ -872,29 +896,6 @@
   ("C-c s r q" . vr/query-replace))
 
 (use-package vterm)
-
-(use-package which-key
-  :demand t
-  :init
-  (global-unset-key (kbd "C-h b"))
-  :config
-  (which-key-mode)
-  (which-key-declare-prefixes
-    "C-c f" "files"
-    "C-c g" "git"
-    "C-c l" "multi-line"
-    "C-c p" "projectile"
-    "C-c q" "string-inflection"
-    "C-c s" "search"
-    "C-c t" "terminals"
-    "C-c T" "theme"
-    "C-h b" "bindings")
-  :bind
-  ("C-h b f" . which-key-show-full-keymap)
-  ("C-h b i" . which-key-show-minor-mode)
-  ("C-h b k" . which-key-show-keymap)
-  ("C-h b m" . which-key-show-major-mode)
-  ("C-h b t" . which-key-show-top-level))
 
 (use-package "window"
   :config
