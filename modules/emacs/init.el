@@ -149,15 +149,20 @@
   :custom
   (hl-line-sticky-flag nil)
   :config
+  ;; h/t Doom core-ui
   (defvar ross/inhibit-hl-line nil)
+  (defun ross/activate-mark-h ()
+    (when hl-line-mode
+      (setq-local ross/inhibit-hl-line t)
+      (hl-line-mode -1)))
+  (defun ross/deactivate-mark-h ()
+    (when ross/inhibit-hl-line
+      (hl-line-mode +1)))
   :hook
   ((conf-mode prog-mode text-mode) . hl-line-mode)
   ;; Inspired by doom: temporarily disable when the mark is set
-  (activate-mark . (lambda () (when hl-line-mode)
-                          (setq-local ross/inhibit-hl-line t)
-                          (hl-line-mode -1)))
-  (deactivate-mark . (lambda () (when ross/inhibit-hl-line)
-                     (hl-line-mode +1))))
+  (activate-mark . ross/activate-mark-h)
+  (deactivate-mark . ross/deactivate-mark-h))
 
 (use-package quick-yes
   ;; yes-or-no-p exists for a reason: it's for things that require more care than
