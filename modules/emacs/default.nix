@@ -27,7 +27,12 @@ in
     ".emacs.d/init.el".source = ./init.el;
   };
 
-  home.packages = [ pkgs.emacs-all-the-icons-fonts ];
+  home.packages = [
+    pkgs.fd
+    pkgs.emacs-all-the-icons-fonts
+    pkgs.pandoc
+    pkgs.ripgrep
+  ];
 
   programs.emacs = {
     enable = true;
