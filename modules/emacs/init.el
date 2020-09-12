@@ -26,6 +26,34 @@
   (inhibit-startup-screen t)
   (initial-scratch-message ""))
 
+;;;;; Security
+
+(use-package "auth-source"
+  :custom
+  ;; Emacs stores `authinfo' in $HOME and in plain-text. Let's not do that,
+  ;; mkay?  This file stores usernames, passwords, and other such treasures for
+  ;; the aspiring malicious third party.
+  ;; h/t Doom core
+  (auth-sources (list (concat user-emacs-directory "authinfo.gpg")
+                      "~/.authinfo.gpg")))
+
+(use-package "gnutls"
+  ;; Emacs is essentially one huge security vulnerability, what with all the
+  ;; dependencies it pulls in from all corners of the globe. Let's try to be at
+  ;; least a little more discerning.
+  ;; h/t Doom core
+  :custom
+  (gnutls-verify-error (not (getenv "INSECURE")))
+  (gnutls-algorithm-priority
+   (when (boundp 'libgnutls-version)
+     (concat "SECURE128:+SECURE192:-VERS-ALL"
+             (if (>= libgnutls-version 30605)
+                 ":+VERS-TLS1.3")
+             ":+VERS-TLS1.2")))
+  (;; `gnutls-min-prime-bits' is set based on recommendations from
+   ;; https://www.keylength.com/en/4/
+   gnutls-min-prime-bits 3072))
+
 ;;;; UI
 
 (use-package emacs
