@@ -364,7 +364,9 @@
   (let ((cmd "fd . --color=never --type f -0 -H -E .git"))
     (setq projectile-generic-command cmd
           projectile-git-command cmd))
-  (projectile-mode +1))
+  (projectile-mode +1)
+  :hook
+  (dired-before-readin . projectile-track-known-projects-find-file-hook))
 
 ;;;; Unorganized territory
 
