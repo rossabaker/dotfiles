@@ -133,6 +133,19 @@
   (compilation-ask-about-save nil)
   (compilation-scroll-output 'first-error))
 
+(use-package "cus-edit"
+  :config
+  ;; h/t Doom core-ui
+  (dolist (fn '(customize customize-themes
+                customize-option customize-browse customize-group customize-face
+                customize-rogue customize-saved customize-apropos
+                customize-changed customize-unsaved customize-variable
+                customize-set-value customize-customized customize-set-variable
+                customize-apropos-faces customize-save-variable
+                customize-apropos-groups customize-apropos-options
+                customize-changed-options customize-save-customized))
+    (put fn 'disabled "Nope, nope, nope. This goes in your init.el")))
+
 (use-package "display-line-numbers"
   :custom
   (display-line-numbers-width 4)
