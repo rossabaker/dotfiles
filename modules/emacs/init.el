@@ -18,7 +18,20 @@
 (use-package better-defaults)
 (use-package no-littering)
 
-;;;; Undocumented config
+;;;; Core
+
+(use-package emacs
+  :custom
+  (inhibit-startup-screen t)
+  (initial-scratch-message ""))
+
+;;;; UI
+
+(use-package emacs
+  :custom
+  (cursor-in-non-selected-windows nil))
+
+;;;; Unorganized territory
 
 ;; We shall endeavor to keep everything out of this, but sometimes
 ;; Emacs really wants to dump custom settings itself.
@@ -260,12 +273,9 @@
 (use-package emacs
   :config
   (setq create-lockfiles nil
-        cursor-in-non-selected-windows nil
         echo-keystrokes 0.05
         frame-resize-pixelwise t
         hscroll-step 1
-        inhibit-startup-screen t
-        initial-scratch-message ""
         ring-bell-function 'ross/visual-bell-fn
         scroll-conservatively 101
         scroll-margin 3
