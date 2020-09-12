@@ -54,6 +54,11 @@
    ;; https://www.keylength.com/en/4/
    gnutls-min-prime-bits 3072))
 
+;;;;; Garbage collection
+
+(use-package gcmh
+  :demand t)
+
 ;;;; UI
 
 (use-package emacs
