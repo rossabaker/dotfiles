@@ -352,6 +352,20 @@
   :hook
   (prog-mode . ws-butler-mode))
 
+;;;; Projects
+
+(use-package projectile
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :config
+  (if (file-directory-p "~/src")
+      (setq projectile-project-search-path '("~/src")))
+  (setq projectile-completion-system 'ivy)
+  (projectile-discover-projects-in-search-path)
+  (let ((cmd "fd . --color=never --type f -0 -H -E .git"))
+    (setq projectile-generic-command cmd
+          projectile-git-command cmd)))
+
 ;;;; Unorganized territory
 
 ;; We shall endeavor to keep everything out of this, but sometimes
@@ -810,18 +824,6 @@
   :config
   (setq prettify-symbols-unprettify-at-point 'right-edge)
   (global-prettify-symbols-mode +1))
-
-(use-package projectile
-  :bind-keymap
-  ("C-c p" . projectile-command-map)
-  :config
-  (if (file-directory-p "~/src")
-      (setq projectile-project-search-path '("~/src")))
-  (setq projectile-completion-system 'ivy)
-  (projectile-discover-projects-in-search-path)
-  (let ((cmd "fd . --color=never --type f -0 -H -E .git"))
-    (setq projectile-generic-command cmd
-          projectile-git-command cmd)))
 
 (use-package protobuf-mode)
 
