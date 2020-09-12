@@ -70,6 +70,7 @@
   (setq scroll-preserve-screen-position t)
 
 ;;;;; Windows and frames
+  (setq frame-inhibit-implied-resize t)
   (setq frame-resize-pixelwise t)
   (setq window-resize-pixelwise t)
   (setq use-dialog-box nil)
