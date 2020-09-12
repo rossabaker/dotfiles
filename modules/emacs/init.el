@@ -13,11 +13,15 @@
   (setq use-package-enable-imenu-support t)
   (require 'use-package))
 
+;;;; Better defaults
+
+(use-package better-defaults)
+(use-package no-littering)
+
 ;;;; Undocumented config
 
 ;; We shall endeavor to keep everything out of this, but sometimes
 ;; Emacs really wants to dump custom settings itself.
-(setq custom-file (concat user-emacs-directory "custom.el"))
 (when (file-exists-p custom-file)
   (load custom-file))
 
@@ -39,8 +43,6 @@
         global-auto-revert-non-file-buffers t))
 
 (use-package "apropos"
-  :config
-  (setq apropos-do-all t)
   :bind
   ("C-h a" . 'apropos))
 
@@ -211,10 +213,6 @@
   :config
   (setq dumb-jump-selector 'ivy))
 
-(use-package "ediff-wind"
-  :config
-  (setq ediff-window-setup-function 'ediff-setup-windows-plain))
-
 (use-package "eldoc")
 
 (use-package electric-operator
@@ -268,7 +266,6 @@
         hscroll-step 1
         inhibit-startup-screen t
         initial-scratch-message ""
-        load-prefer-newer t
         ring-bell-function 'ross/visual-bell-fn
         scroll-conservatively 101
         scroll-margin 3
@@ -276,11 +273,9 @@
         use-dialog-box nil
         user-full-name "Ross A. Baker"
         user-mail-address "ross@rossabaker.com"
-        visible-bell t
         window-resize-pixelwise t)
   (setq-default cursor-type 'bar
-                fill-column 80
-                indent-tabs-mode nil)
+                fill-column 80)
   (put 'narrow-to-region 'disabled nil)
 
   ;; scroll-margin is irritating in modes where the focus tends to be the bottom
@@ -316,11 +311,10 @@
   ("C-=" . 'er/expand-region))
 
 (use-package "files"
-  :config
-  (setq backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
-        ;; require-final-newline disabled for ethan-wspace
-        mode-require-final-newline nil
+  :init
+  (setq mode-require-final-newline nil
         require-final-newline nil)
+  :config
   (defun ross/guess-mode ()
     "Guess mode of file in `fundamental-mode'."
     (interactive)
@@ -412,10 +406,6 @@
   ([remap describe-key] . helpful-key)
   ([remap describe-symbol] . helpful-symbol))
 
-(use-package "hippie-exp"
-  :bind
-  ([remap dabbrev-expand] . hippie-expand))
-
 (use-package "hl-line"
   :init
   (setq hl-line-sticky-flag nil)
@@ -442,10 +432,6 @@
 (use-package iedit
   :bind
   ("C-c s e" . iedit-mode))
-
-(use-package "ibuffer"
-  :bind
-  ([remap list-buffers] . ibuffer))
 
 (use-package "imenu"
   :hook
@@ -502,10 +488,6 @@
   ("C-c g s" . magit-status)
   ("C-c g U" . magit-unstage-file))
 
-(use-package "menu-bar"
-  :config
-  (menu-bar-mode -1))
-
 ;; Foo
 (use-package modus-vivendi-theme
   :config
@@ -518,10 +500,6 @@
    modus-vivendi-theme-intense-paren-match t
    modus-vivendi-theme-diffs 'desaturated)
   (load-theme 'modus-vivendi t))
-
-(use-package "mouse"
-  :config
-  (setq mouse-yank-at-point t))
 
 (use-package multi-line
   :bind
@@ -570,10 +548,6 @@
 (use-package "package"
   :config
   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/")))
-
-(use-package "paren"
-  :config
-  (show-paren-mode 1))
 
 (use-package page-break-lines
   :config
@@ -659,10 +633,6 @@
                                         shell-command-history))
   (savehist-mode +1))
 
-(use-package "saveplace"
-  :config
-  (save-place-mode t))
-
 (use-package sbt-mode
   :commands
   sbt-start
@@ -680,13 +650,6 @@
   ("C-c m b" . sbt-hydra)
   ("C-c m c" . sbt-do-compile)
   ("C-c m t" . sbt-do-test))
-
-(use-package "scroll-bar"
-  :config
-  ;; Disable stubborn scroll bars in emacsclient
-  ;; https://emacs.stackexchange.com/a/46632
-  (customize-set-variable 'scroll-bar-mode nil)
-  (customize-set-variable 'horizontal-scroll-bar-mode nil))
 
 (use-package shell-pop
   :init
@@ -708,8 +671,7 @@
         (message "File name \"%s\" saved to the kill ring" filename))))
   (setq kill-do-not-save-duplicates t
         kill-whole-line t
-        read-quoted-char-radix 16
-        save-interprogram-paste-before-kill t)
+        read-quoted-char-radix 16)
   :hook
   (text-mode . visual-line-mode)
   :bind
@@ -766,10 +728,6 @@
 
 (use-package title-capitalization)
 
-(use-package "tool-bar"
-  :config
-  (tool-bar-mode -1))
-
 (use-package "tooltip"
   :config
   (tooltip-mode -1)
@@ -779,8 +737,7 @@
 
 (use-package "uniquify"
   :config
-  (setq uniquify-buffer-name-style 'forward
-        uniquify-ignore-buffers-re "^\\*"))
+  (setq uniquify-ignore-buffers-re "^\\*"))
 
 (use-package unfill
   :bind
