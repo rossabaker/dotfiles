@@ -63,6 +63,7 @@
   (blink-cursor-mode -1)
 
 ;;;;; Scrolling
+  (setq fast-but-imprecise-scrolling t)
   (setq hscroll-step 1)
   (setq scroll-conservatively 101)
   (setq scroll-margin 3)
