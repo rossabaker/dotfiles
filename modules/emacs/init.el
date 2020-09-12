@@ -22,6 +22,7 @@
 
 (use-package emacs
   :custom
+  (inhibit-startup-echo-area-message user-login-name)
   (inhibit-startup-screen t)
   (initial-scratch-message ""))
 
