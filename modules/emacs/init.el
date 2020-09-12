@@ -249,6 +249,90 @@
   :config
   (load-theme 'modus-vivendi t))
 
+;;;; Editor
+
+;; Huh. There's an editor in this, too?
+
+(use-package emacs
+  :config
+  (setq create-lockfiles nil)
+  (setq fill-column 80))
+
+(use-package dtrt-indent
+  :hook
+  (prog-mode . dtrt-indent-mode))
+
+(use-package "files"
+  :config
+  ;; h/t Doom core-editor
+  (defun ross/guess-mode ()
+    "Guess mode of file in `fundamental-mode'."
+    (interactive)
+    (and (eq major-mode 'fundamental-mode) (set-auto-mode)))
+  :hook
+  (after-save . ross/guess-mode))
+
+(use-package helpful
+  :bind
+  ([remap describe-function] . helpful-callable)
+  ([remap describe-command] . helpful-comand)
+  ([remap describe-variable] . helpful-variable)
+  ([remap describe-key] . helpful-key)
+  ([remap describe-symbol] . helpful-symbol))
+
+(use-package "simple"
+  :custom
+  (kill-do-not-save-duplicates t))
+
+(use-package "autorevert"
+  :custom
+  (auto-revert-verbose nil)
+  (global-auto-revert-non-file-buffers t))
+
+(use-package "recentf"
+  :commands counsel-recentf recentf-open-files
+  :custom
+  (recentf-max-menu-items 0)
+  (recentf-max-saved-items 100)
+  :config
+  (defun ross/recentf-add-directory ()
+    "Add directory to recentf file list."
+    (recentf-add-file default-directory))
+  :hook
+  (dired-mode . ross/recentf-add-directory))
+
+(use-package "savehist"
+  :custom
+  (savehist-additional-variables '(kill-ring
+                                   search-ring
+                                   regexp-search-ring
+                                   last-kbd-macro
+                                   kmacro-ring
+                                   shell-command-history))
+  :config
+  (savehist-mode +1))
+
+(use-package smartparens
+  :config
+  (require 'smartparens-config)
+  (sp-use-smartparens-bindings)
+  (smartparens-global-mode +1)
+  (show-smartparens-global-mode +1)
+  (defun ross/smartparens-for-eval-expression ()
+    "Enable \"smartparens-mode\" in the minibuffer during \"eval-expression\"."
+    (when (eq this-command 'eval-expression)
+      (smartparens-mode +1)))
+  :hook
+  (minibuffer-setup . ross/smartparens-for-eval-expression))
+
+(use-package so-long
+  :config
+  (global-so-long-mode))
+
+(use-package ws-butler
+  :hook
+  (prog-mode . ws-butler-mode))
+
 ;;;; Unorganized territory
 
 ;; We shall endeavor to keep everything out of this, but sometimes
@@ -265,11 +349,6 @@
 (use-package all-the-icons-dired
   :after all-the-icons
   :hook (dired-mode . all-the-icons-dired-mode))
-
-(use-package "autorevert"
-  :config
-  (setq auto-revert-verbose nil
-        global-auto-revert-non-file-buffers t))
 
 (use-package "apropos"
   :bind
@@ -415,10 +494,6 @@
 
 (use-package dockerfile-mode)
 
-(use-package dtrt-indent
-  :hook
-  (prog-mode . dtrt-indent-mode))
-
 (use-package dumb-jump
   :config
   (setq dumb-jump-selector 'ivy))
@@ -469,11 +544,9 @@
 
 (use-package emacs
   :config
-  (setq create-lockfiles nil
-        user-full-name "Ross A. Baker"
+  (setq user-full-name "Ross A. Baker"
         user-mail-address "ross@rossabaker.com")
-  (setq-default cursor-type 'bar
-                fill-column 80)
+  (setq-default cursor-type 'bar)
   (put 'narrow-to-region 'disabled nil)
 
   ;; scroll-margin is irritating in modes where the focus tends to be the bottom
@@ -509,14 +582,7 @@
   ("C-=" . 'er/expand-region))
 
 (use-package "files"
-  :init
-  (setq mode-require-final-newline nil
-        require-final-newline nil)
   :config
-  (defun ross/guess-mode ()
-    "Guess mode of file in `fundamental-mode'."
-    (interactive)
-    (and (eq major-mode 'fundamental-mode) (set-auto-mode)))
   (unbind-key "C-x C-d") ;; list-directory is silly
   :bind
   ("C-c f u" . recover-this-file)
@@ -586,14 +652,6 @@
   :config
   (unbind-key "C-h g") ;; I already have a religion, thanks.
   )
-
-(use-package helpful
-  :bind
-  ([remap describe-function] . helpful-callable)
-  ([remap describe-command] . helpful-comand)
-  ([remap describe-variable] . helpful-variable)
-  ([remap describe-key] . helpful-key)
-  ([remap describe-symbol] . helpful-symbol))
 
 (use-package hydra)
 
@@ -751,17 +809,6 @@
   :hook
   (prog-mode . rainbow-mode))
 
-(use-package "recentf"
-  :commands counsel-recentf recentf-open-files
-  :config
-  (setq recentf-max-menu-items 0
-        recentf-max-saved-items 100)
-  (defun ross/recentf-add-directory ()
-    "Add directory to recentf file list."
-    (recentf-add-file default-directory))
-  :hook
-  (dired-mode . ross/recentf-add-directory))
-
 (use-package restart-emacs)
 
 (use-package restclient
@@ -769,16 +816,6 @@
   ("\\.restclient\\'" . restclient-mode))
 
 (use-package ripgrep)
-
-(use-package "savehist"
-  :config
-  (setq savehist-additional-variables '(kill-ring
-                                        search-ring
-                                        regexp-search-ring
-                                        last-kbd-macro
-                                        kmacro-ring
-                                        shell-command-history))
-  (savehist-mode +1))
 
 (use-package sbt-mode
   :commands
@@ -816,8 +853,7 @@
       (when filename
         (kill-new filename)
         (message "File name \"%s\" saved to the kill ring" filename))))
-  (setq kill-do-not-save-duplicates t
-        kill-whole-line t
+  (setq kill-whole-line t
         read-quoted-char-radix 16)
   :hook
   (text-mode . visual-line-mode)
@@ -826,23 +862,6 @@
   ([remap capitailize-word] . capitalize-dwim)
   ([remap downcase-word] . downcase-dwim)
   ([remap upcase-word] . upcase-dwim))
-
-(use-package smartparens
-  :config
-  (require 'smartparens-config)
-  (sp-use-smartparens-bindings)
-  (smartparens-global-mode +1)
-  (show-smartparens-global-mode +1)
-  (defun ross/smartparens-for-eval-expression ()
-    "Enable \"smartparens-mode\" in the minibuffer during \"eval-expression\"."
-    (when (eq this-command 'eval-expression)
-      (smartparens-mode +1)))
-  :hook
-  (minibuffer-setup . ross/smartparens-for-eval-expression))
-
-(use-package so-long
-  :config
-  (global-so-long-mode))
 
 (use-package stan-mode)
 
@@ -907,10 +926,6 @@
   :bind
   ("C-h r" . woman) ; rtfm
   )
-
-(use-package ws-butler
-  :hook
-  (prog-mode . ws-butler-mode))
 
 (use-package yaml-mode)
 
