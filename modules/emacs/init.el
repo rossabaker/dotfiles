@@ -113,7 +113,16 @@
   (comint-prompt-read-only t)
   (comint-scroll-to-bottom-on-input 'this)
   (comint-move-point-for-output 'others)
-  (comint-scroll-show-maximum-output t))
+  (comint-scroll-show-maximum-output t)
+
+  :config
+  ;; h/t Doom core-ui
+  (defun ross/apply-ansi-color-to-compilation-buffer-h ()
+  "Applies ansi codes to the compilation buffers. Meant for
+`compilation-filter-hook'."
+  (with-silent-modifications
+    (ansi-color-apply-on-region compilation-filter-start (point))))
+  :hook (compilation-filter . ross/apply-ansi-color-to-compilation-buffer-h))
 
 (use-package "compile"
   :custom
