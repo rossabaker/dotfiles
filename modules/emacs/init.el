@@ -96,7 +96,13 @@
   (setq ring-bell-function 'ross/visual-bell-fn)
 
 ;;;;; Minibuffer
-  (setq echo-keystrokes 0.05))
+  (setq enable-recursive-minibuffers t)
+  (setq echo-keystrokes 0.02)
+  ;; Try really hard to keep the cursor from getting stuck in the read-only prompt
+  ;; portion of the minibuffer.
+  ;; h/t Doom core-ui
+  (setq minibuffer-prompt-properties '(read-only t intangible t cursor-intangible t face minibuffer-prompt))
+  (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode))
 
 ;;;;; Packages
 
