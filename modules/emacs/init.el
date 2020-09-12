@@ -106,7 +106,10 @@
 
 ;;;;; Packages
 
-(use-package all-the-icons)
+(use-package all-the-icons
+  ;; TODO Doom has a fancy way of disabling the icons in terminal
+  ;; mode of a daemon, but it causes me errors.
+  )
 
 (use-package "comint"
   :custom
