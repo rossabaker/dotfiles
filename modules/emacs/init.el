@@ -110,6 +110,7 @@
 
 (use-package "comint"
   :custom
+  (comint-prompt-read-only t)
   (comint-scroll-to-bottom-on-input 'this)
   (comint-move-point-for-output 'others)
   (comint-scroll-show-maximum-output t))
