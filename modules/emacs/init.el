@@ -183,6 +183,8 @@
 (use-package rainbow-delimiters
   :custom
   (rainbow-delimiters-max-face-count 4)
+  ;; test the rainbow delimiters
+  (ignore '((((((((())))))))))
   :hook
   (prog-mode . rainbow-delimiters-mode))
 
