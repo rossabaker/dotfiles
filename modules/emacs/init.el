@@ -164,6 +164,13 @@
   (activate-mark . ross/activate-mark-h)
   (deactivate-mark . ross/deactivate-mark-h))
 
+(use-package "paren"
+  :after smartparens
+  :config
+  ;; This is redundant with show-smartparens-mode
+  (when show-smartparens-mode
+    (show-paren-mode -1)))
+
 (use-package quick-yes
   ;; yes-or-no-p exists for a reason: it's for things that require more care than
   ;; y-or-n-p, but it's still obnoxious.  This package is a compromise: it
