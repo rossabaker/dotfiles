@@ -368,6 +368,87 @@
   :hook
   (dired-before-readin . projectile-track-known-projects-find-file-hook))
 
+;;;; Languages
+
+;;;;; Haskell
+
+(use-package lsp-haskell
+  :demand
+  :config
+  (setq lsp-haskell-process-path-hie "ghcide"
+        lsp-haskell-process-args-hie '())
+  :hook
+  (haskell-mode . lsp))
+
+(use-package haskell-mode
+  :hook (haskell-mode . interactive-haskell-mode)
+  :custom
+  (haskell-process-type 'cabal-new-repl)
+  (haskell-process-suggest-remove-import-lines t)
+  (haskell-process-auto-import-loaded-modules t)
+  (haskell-process-log t)
+  (haskell-process-wrapper-function #'identity))
+
+;;;;; JSON
+
+(use-package json-mode)
+
+;;;;; Nix
+
+(use-package nix-mode
+  :config
+  (defun ross/nix-mode-comint-hook ()
+    (setq comint-process-echoes t))
+  :hook
+  (nix-repl-mode . ross/nix-mode-comint-hook)
+  :bind
+  ("C-c a n" . nix-repl))
+
+;;;;; R
+
+(use-package ess
+  :init (require 'ess-site)
+  :commands R)
+
+;;;;; REST
+
+(use-package restclient
+  :mode
+  ("\\.restclient\\'" . restclient-mode))
+
+;;;;; Scala
+
+(use-package scala-mode
+  :config
+  (subword-mode +1)
+  (which-key-add-major-mode-key-based-replacements 'scala-mode "C-c m" "scala")
+  :bind
+  ("C-c m b" . sbt-hydra)
+  ("C-c m c" . sbt-do-compile)
+  ("C-c m t" . sbt-do-test))
+
+(use-package sbt-mode
+  :commands
+  sbt-start
+  sbt-command
+  :bind
+  (:map sbt:mode-map ("C-a" . comint-bol))
+  :config
+  (add-to-list 'sbt:program-options "-Dsbt.supershell=false"))
+
+(use-package lsp-metals
+  :after lsp-mode
+  :demand t)
+
+;;;;; Web
+
+(use-package "css-mode"
+  :mode "\\.rasi\\'")
+
+;;;;; YAML
+
+(use-package yaml-mode)
+
 ;;;; Unorganized territory
 
 ;; We shall endeavor to keep everything out of this, but sometimes
@@ -484,9 +565,6 @@
   ("C-c f m" . crux-rename-file-and-buffer)
   ("C-x 4 t" . crux-transpose-windows))
 
-(use-package "css-mode"
-  :mode "\\.rasi\\'")
-
 (use-package deadgrep
   :bind
   ("C-c s d" . deadgrep))
@@ -600,10 +678,6 @@
   :config
   (global-ethan-wspace-mode))
 
-(use-package ess
-  :init (require 'ess-site)
-  :commands R)
-
 (use-package "executable"
   :hook
   (after-save . executable-make-buffer-file-executable-if-script-p))
@@ -667,18 +741,6 @@
 
 (use-package goto-line-faster)
 
-(use-package haskell-mode
-  :hook (haskell-mode . interactive-haskell-mode)
-  :config
-  (setq
-   ;; TODO This should not be global, but it lets us build with cabal
-   ;; inside a nix shell.
-   haskell-process-type 'cabal-new-repl
-   haskell-process-suggest-remove-import-lines t
-   haskell-process-auto-import-loaded-modules t
-   haskell-process-log t
-   haskell-process-wrapper-function #'identity))
-
 (use-package hasklig-mode
   :hook
   haskell-mode
@@ -718,21 +780,7 @@
 (use-package jinja2-mode
   :mode "\\.ede\\'")
 
-(use-package json-mode)
-
 (use-package list-environment)
-
-(use-package lsp-haskell
-  :demand
-  :config
-  (setq lsp-haskell-process-path-hie "ghcide"
-        lsp-haskell-process-args-hie '())
-  :hook
-  (haskell-mode . lsp))
-
-(use-package lsp-metals
-  :after lsp-mode
-  :demand t)
 
 (use-package lsp-mode
   :hook
@@ -778,15 +826,6 @@
 (use-package nixpkgs-fmt
   :bind (:map nix-mode-map
               ("C-c m f" . nixpkgs-fmt-buffer)))
-
-(use-package nix-mode
-  :config
-  (defun ross/nix-mode-comint-hook ()
-    (setq comint-process-echoes t))
-  :hook
-  (nix-repl-mode . ross/nix-mode-comint-hook)
-  :bind
-  ("C-c a n" . nix-repl))
 
 (use-package nix-sandbox)
 
@@ -835,29 +874,7 @@
 
 (use-package restart-emacs)
 
-(use-package restclient
-  :mode
-  ("\\.restclient\\'" . restclient-mode))
-
 (use-package ripgrep)
-
-(use-package sbt-mode
-  :commands
-  sbt-start
-  sbt-command
-  :bind
-  (:map sbt:mode-map ("C-a" . comint-bol))
-  :config
-  (add-to-list 'sbt:program-options "-Dsbt.supershell=false"))
-
-(use-package scala-mode
-  :config
-  (subword-mode +1)
-  (which-key-add-major-mode-key-based-replacements 'scala-mode "C-c m" "scala")
-  :bind
-  ("C-c m b" . sbt-hydra)
-  ("C-c m c" . sbt-do-compile)
-  ("C-c m t" . sbt-do-test))
 
 (use-package shell-pop
   :init
@@ -945,8 +962,6 @@
   :bind
   ("C-h r" . woman) ; rtfm
   )
-
-(use-package yaml-mode)
 
 ;; NixOS doesn't have a #!/bin/bash. We do this a lot.
 (defun ross/fix-shebang ()
