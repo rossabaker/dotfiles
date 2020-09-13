@@ -588,7 +588,6 @@ VALUE is validated against SYMBOL's custom type.
   ("C-h a" . 'apropos))
 
 (use-package avy
-  :demand t ;; So theme can change its face
   :bind
   ("C-'" . avy-goto-char-timer)
   :config
