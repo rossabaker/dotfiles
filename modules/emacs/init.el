@@ -278,6 +278,10 @@
   (setq fill-column 80))
 
 (use-package "autorevert"
+  ;; TODO Doom has a clever strategy for reverting only visible buffers, which
+  ;; may be worth stealing, but there are a lot of custom hooks involved.
+  :config
+  (revert-without-query '("."))
   :custom
   (auto-revert-verbose nil)
   (global-auto-revert-non-file-buffers t))
