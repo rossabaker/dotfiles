@@ -309,6 +309,8 @@
   ([remap describe-symbol] . helpful-symbol))
 
 (use-package "recentf"
+  ;; TODO If we had a switch-window-hook, we could bump files up the recentf
+  ;; list, like Doom does.
   :commands counsel-recentf recentf-open-files
   :custom
   (recentf-filename-handlers 'abbreviate-file-name)
