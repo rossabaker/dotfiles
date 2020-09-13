@@ -369,6 +369,19 @@ VALUE is validated against SYMBOL's custom type.
   :config
   (savehist-mode +1))
 
+(use-package "saveplace"
+  :config
+  ;; https://www.reddit.com/r/emacs/comments/b2lokk/recenter_saved_place/
+  (defun ross/saveplace-reposition-h ()
+    "Force windows to recenter current line (with saved position)."
+    (run-with-timer 0 nil
+                    (lambda (buf)
+                      (when (buffer-live-p buf)
+                        (dolist (win (get-buffer-window-list buf nil t))
+                          (with-selected-window win (recenter)))))
+                    (current-buffer)))
+  (add-hook 'find-file-hook 'ross/saveplace-reposition-h t))
+
 (use-package "simple"
   :config
   (validate-setq kill-do-not-save-duplicates t))
