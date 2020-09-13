@@ -363,7 +363,9 @@ VALUE is validated against SYMBOL's custom type.
                                    regexp-search-ring
                                    last-kbd-macro
                                    kmacro-ring
-                                   shell-command-history))
+                                   shell-command-history
+                                   mark-ring
+                                   global-mark-ring))
   :config
   (savehist-mode +1))
 
