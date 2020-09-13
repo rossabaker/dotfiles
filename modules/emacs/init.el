@@ -32,6 +32,30 @@
   (setq use-package-enable-imenu-support t)
   (require 'use-package))
 
+;;;; Validation
+
+;; Provides validate-setq, which we'll use extensively whilst configuring other
+;; packages.
+(use-package validate
+  :config
+  (defmacro ross/validate-setq-default (&rest svs)
+    "Like `setq-default', but throw an error if validation fails.
+VALUE is validated against SYMBOL's custom type.
+
+\(fn [SYM VAL] ...)"
+    (let ((out))
+      (while svs
+        (let ((symbol (pop svs))
+              (value (if (not svs)
+                         (error "`ross/validate-setq-default' takes an even number of arguments")
+                       (pop svs))))
+          (push `(if (boundp ',symbol)
+                     (setq-default ,symbol (validate-value ,value (custom-variable-type ',symbol)))
+                   (user-error "Trying to validate a variable that's not defined yet: `%s'.\nYou need to require the package before validating"
+                               ',symbol))
+                out)))
+      `(progn ,@(reverse out)))))
+
 ;;;; Better defaults
 
 (use-package better-defaults)
@@ -40,20 +64,22 @@
 ;;;; Core
 
 (use-package emacs
-  :custom
-  (inhibit-startup-echo-area-message user-login-name)
-  (inhibit-startup-screen t)
-  (initial-scratch-message ""))
+  :config
+  (validate-setq
+   inhibit-startup-echo-area-message user-login-name
+   inhibit-startup-screen t
+   initial-scratch-message ""))
 
 ;;;;; Security
 
 (use-package "auth-source"
-  :custom
+  :config
   ;; Emacs stores `authinfo' in $HOME and in plain-text. Let's not do that,
   ;; mkay?  This file stores usernames, passwords, and other such treasures for
   ;; the aspiring malicious third party.
   ;; h/t Doom core
-  (auth-sources (list (concat user-emacs-directory "authinfo.gpg")
+  (validate-setq
+   auth-sources (list (concat user-emacs-directory "authinfo.gpg")
                       "~/.authinfo.gpg")))
 
 (use-package "gnutls"
@@ -61,15 +87,14 @@
   ;; dependencies it pulls in from all corners of the globe. Let's try to be at
   ;; least a little more discerning.
   ;; h/t Doom core
-  :custom
-  (gnutls-verify-error (not (getenv "INSECURE")))
-  (gnutls-algorithm-priority
-   (when (boundp 'libgnutls-version)
-     (concat "SECURE128:+SECURE192:-VERS-ALL"
-             (if (>= libgnutls-version 30605)
-                 ":+VERS-TLS1.3")
-             ":+VERS-TLS1.2")))
-  (;; `gnutls-min-prime-bits' is set based on recommendations from
+  :config
+  (validate-setq
+   gnutls-verify-error (not (getenv "INSECURE"))
+   gnutls-algorithm-priority (when (boundp 'libgnutls-version)
+                               (concat "SECURE128:+SECURE192:-VERS-ALL"
+                                       (if (>= libgnutls-version 30605)
+                                           ":+VERS-TLS1.3")
+                                       ":+VERS-TLS1.2"))
    ;; https://www.keylength.com/en/4/
    gnutls-min-prime-bits 3072))
 
@@ -82,9 +107,10 @@
 
 (use-package "ns-win"
   :if (eq system-type 'darwin)
-  :custom
-  (mac-command-modifier 'meta)
-  (mac-option-modifier 'super))
+  :config
+  (validate-setq
+   mac-command-modifier 'meta
+   mac-option-modifier 'super))
 
 (use-package which-key
   :demand t
@@ -114,21 +140,23 @@
 (use-package emacs
   :config
 ;;;;; Cursor
-  (setq cursor-in-non-selected-windows nil)
+  (validate-setq cursor-in-non-selected-windows nil)
   (blink-cursor-mode -1)
 
 ;;;;; Scrolling
-  (setq fast-but-imprecise-scrolling t)
-  (setq hscroll-step 1)
-  (setq scroll-conservatively 101)
-  (setq scroll-margin 3)
-  (setq scroll-preserve-screen-position t)
+  (validate-setq
+   fast-but-imprecise-scrolling t
+   hscroll-step 1
+   scroll-conservatively 101
+   scroll-margin 3
+   scroll-preserve-screen-position t)
 
 ;;;;; Windows and frames
-  (setq frame-inhibit-implied-resize t)
-  (setq frame-resize-pixelwise t)
-  (setq window-resize-pixelwise t)
-  (setq use-dialog-box nil)
+  (validate-setq
+   frame-inhibit-implied-resize t
+   frame-resize-pixelwise t
+   window-resize-pixelwise t
+   use-dialog-box nil)
 
 ;;;;; Beep beep your ass
   ;; h/t doom-themes
@@ -143,14 +171,17 @@
                           (force-mode-line-update)))
                       bell-cookie
                       (current-buffer))))
-  (setq ring-bell-function 'ross/visual-bell-fn)
+  (validate-setq
+   ring-bell-function 'ross/visual-bell-fn)
 
 ;;;;; Minibuffer
-  (setq enable-recursive-minibuffers t)
-  (setq echo-keystrokes 0.02)
-  ;; Try really hard to keep the cursor from getting stuck in the read-only prompt
-  ;; portion of the minibuffer.
+  (validate-setq
+   echo-keystrokes 0.02
+   enable-recursive-minibuffers t)
+  ;; Try really hard to keep the cursor from getting stuck in the
+  ;; read-only prompt portion of the minibuffer.
   ;; h/t Doom core-ui
+  ;; TODO don't know why this one doesn't validate
   (setq minibuffer-prompt-properties '(read-only t intangible t cursor-intangible t face minibuffer-prompt))
   (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode))
 
@@ -162,13 +193,12 @@
   )
 
 (use-package "comint"
-  :custom
-  (comint-prompt-read-only t)
-  (comint-scroll-to-bottom-on-input 'this)
-  (comint-move-point-for-output 'others)
-  (comint-scroll-show-maximum-output t)
-
   :config
+  (validate-setq
+   comint-prompt-read-only t
+   comint-scroll-to-bottom-on-input 'this
+   comint-move-point-for-output 'others
+   comint-scroll-show-maximum-output t)
   ;; h/t Doom core-ui
   (defun ross/apply-ansi-color-to-compilation-buffer-h ()
   "Applies ansi codes to the compilation buffers. Meant for
@@ -178,10 +208,11 @@
   :hook (compilation-filter . ross/apply-ansi-color-to-compilation-buffer-h))
 
 (use-package "compile"
-  :custom
-  (compilation-always-kill t)
-  (compilation-ask-about-save nil)
-  (compilation-scroll-output 'first-error))
+  :config
+  (validate-setq
+   compilation-always-kill t
+   compilation-ask-about-save nil
+   compilation-scroll-output 'first-error))
 
 (use-package "cus-edit"
   :config
@@ -197,9 +228,10 @@
     (put fn 'disabled "Nope, nope, nope. This goes in your init.el")))
 
 (use-package "display-line-numbers"
-  :custom
-  (display-line-numbers-width 4)
-  (display-line-numbers-widen t)
+  :config
+  (validate-setq display-line-numbers-width 4)
+  (setq ;; TODO doesn't validate
+   display-line-numbers-widen 't)
   :hook
   ((conf-mode prog-mode text-mode) . display-line-numbers-mode))
 
@@ -212,12 +244,11 @@
                       :width 'normal)
 
   ;; Not part of frame, but fits here conceptually:
-  (setq x-underline-at-descent-line t))
+  (validate-setq x-underline-at-descent-line t))
 
 (use-package "hl-line"
-  :custom
-  (hl-line-sticky-flag nil)
   :config
+  (validate-setq hl-line-sticky-flag nil)
   ;; h/t Doom core-ui
   (defvar ross/inhibit-hl-line nil)
   (defun ross/activate-mark-h ()
@@ -247,8 +278,8 @@
   )
 
 (use-package rainbow-delimiters
-  :custom
-  (rainbow-delimiters-max-face-count 4)
+  :config
+  (validate-setq rainbow-delimiters-max-face-count 4)
   ;; test the rainbow delimiters
   (ignore '((((((((())))))))))
   :hook
@@ -257,15 +288,15 @@
 ;;;;; Themes
 
 (use-package modus-vivendi-theme
-  :custom
-  (modus-vivendi-theme-slanted-constructs t)
-  (modus-vivendi-theme-faint-syntax t)
-  (modus-vivendi-theme-prompts 'subtle)
-  (modus-vivendi-theme-completions 'opinionated)
-  (modus-vivendi-theme-fringes nil)
-  (modus-vivendi-theme-intense-paren-match t)
-  (modus-vivendi-theme-diffs 'desaturated)
   :config
+  (validate-setq
+   modus-vivendi-theme-slanted-constructs t
+   modus-vivendi-theme-faint-syntax t
+   modus-vivendi-theme-prompts 'subtle
+   modus-vivendi-theme-completions 'opinionated
+   modus-vivendi-theme-fringes nil
+   modus-vivendi-theme-intense-paren-match t
+   modus-vivendi-theme-diffs 'desaturated)
   (load-theme 'modus-vivendi t))
 
 ;;;; Editor
@@ -274,17 +305,18 @@
 
 (use-package emacs
   :config
-  (setq create-lockfiles nil)
-  (setq fill-column 80))
+  (validate-setq
+   create-lockfiles nil
+   fill-column 80))
 
 (use-package "autorevert"
   ;; TODO Doom has a clever strategy for reverting only visible buffers, which
   ;; may be worth stealing, but there are a lot of custom hooks involved.
   :config
-  (revert-without-query '("."))
-  :custom
-  (auto-revert-verbose nil)
-  (global-auto-revert-non-file-buffers t))
+  (validate-setq
+   revert-without-query '(".")
+   auto-revert-verbose nil
+   global-auto-revert-non-file-buffers t))
 
 (use-package dtrt-indent
   :hook
@@ -312,11 +344,11 @@
   ;; TODO If we had a switch-window-hook, we could bump files up the recentf
   ;; list, like Doom does.
   :commands counsel-recentf recentf-open-files
-  :custom
-  (recentf-filename-handlers 'abbreviate-file-name)
-  (recentf-max-menu-items 0)
-  (recentf-max-saved-items 100)
   :config
+  (validate-setq
+   recentf-filename-handlers '(abbreviate-file-name)
+   recentf-max-menu-items 0
+   recentf-max-saved-items 100)
   (defun ross/recentf-add-directory ()
     "Add directory to recentf file list."
     (recentf-add-file default-directory))
@@ -324,8 +356,9 @@
   (dired-mode . ross/recentf-add-directory))
 
 (use-package "savehist"
-  :custom
-  (savehist-additional-variables '(kill-ring
+  :config
+  (validate-setq
+   savehist-additional-variables '(kill-ring
                                    search-ring
                                    regexp-search-ring
                                    last-kbd-macro
@@ -335,8 +368,8 @@
   (savehist-mode +1))
 
 (use-package "simple"
-  :custom
-  (kill-do-not-save-duplicates t))
+  :config
+  (validate-setq kill-do-not-save-duplicates t))
 
 (use-package smartparens
   :config
@@ -364,7 +397,7 @@
                   "CONTRIBUTORS" "AUTHORS" "ACKNOWLEDGMENTS"
                   "ISSUE_TEMPLATE" "PULL_REQUEST_TEMPLATE" "CODEOWNERS"))
     (add-to-list 'auto-mode-alist `(,(concat "/" file "\\'") . text-mode)))
-  (add-to-list 'auto-mode-alist ("\\.log\\'" . text-mode))
+  (add-to-list 'auto-mode-alist '("\\.log\\'" . text-mode))
   :hook
   (text-mode . visual-line-mode))
 
@@ -379,11 +412,12 @@
   ("C-c p" . projectile-command-map)
   :config
   (if (file-directory-p "~/src")
-      (setq projectile-project-search-path '("~/src")))
-  (setq projectile-completion-system 'ivy)
+      (validate-setq projectile-project-search-path '("~/src")))
+  (validate-setq projectile-completion-system 'ivy)
   (let ((cmd "fd . --color=never --type f -0 -H -E .git"))
-    (setq projectile-generic-command cmd
-          projectile-git-command cmd))
+    (validate-setq
+     projectile-generic-command cmd
+     projectile-git-command cmd))
   (projectile-mode +1)
   :hook
   (dired-before-readin . projectile-track-known-projects-find-file-hook))
@@ -395,19 +429,21 @@
 (use-package lsp-haskell
   :demand
   :config
-  (setq lsp-haskell-process-path-hie "ghcide"
-        lsp-haskell-process-args-hie '())
+  (validate-setq
+   lsp-haskell-process-path-hie "ghcide"
+   lsp-haskell-process-args-hie '())
   :hook
   (haskell-mode . lsp))
 
 (use-package haskell-mode
   :hook (haskell-mode . interactive-haskell-mode)
-  :custom
-  (haskell-process-type 'cabal-new-repl)
-  (haskell-process-suggest-remove-import-lines t)
-  (haskell-process-auto-import-loaded-modules t)
-  (haskell-process-log t)
-  (haskell-process-wrapper-function #'identity))
+  :config
+  (validate-setq
+   haskell-process-type 'cabal-new-repl
+   haskell-process-suggest-remove-import-lines t
+   haskell-process-auto-import-loaded-modules t
+   haskell-process-log t
+   haskell-process-wrapper-function #'identity))
 
 ;;;;; JSON
 
@@ -480,7 +516,7 @@
   :bind
   ("M-o" . ace-window)
   :config
-  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+  (validate-setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 (use-package all-the-icons-dired
   :after all-the-icons
@@ -495,8 +531,9 @@
   :bind
   ("C-'" . avy-goto-char-timer)
   :config
-  (setq avy-style 'at-full
-        avy-background t)
+  (validate-setq
+   avy-style 'at-full
+   avy-background t)
   (avy-setup-default))
 
 (use-package bazel-mode
@@ -514,17 +551,18 @@
   :config
   (beginend-global-mode))
 
-(use-package "company"
+(use-package company
   :hook
   (after-init . global-company-mode)
   :config
-  (setq company-idle-delay 0
-        company-minimum-prefix-length 2
-        company-show-numbers t
-        company-tooltip-align-annotations t
-        company-global-modes '(not shell-mode)))
-
-(use-package company)
+  (validate-setq
+   company-idle-delay 0
+   company-minimum-prefix-length 2
+   company-tooltip-align-annotations t)
+  ;; TODO These don't validate
+  (setq
+   company-show-numbers t
+   company-global-modes '(not shell-mode)))
 
 (use-package company-lsp
   :after company lsp-mode
@@ -536,7 +574,7 @@
   (:map company-active-map
         ("M-h" . company-quickhelp-manual-begin))
   :config
-  (setq company-quickhelp-delay nil)
+  (validate-setq company-quickhelp-delay nil)
   (company-quickhelp-mode +1))
 
 (use-package company-restclient
@@ -599,17 +637,17 @@
 
 (use-package dhall-mode
   :config
-  (setq dhall-format-arguments '("--ascii")))
+  (validate-setq dhall-format-arguments '("--ascii")))
 
 (use-package "dired"
   :config
-  (setq dired-dwim-target t))
+  (validate-setq dired-dwim-target t))
 
 (use-package direnv
   :demand t
   :config
   (direnv-mode)
-  (setq direnv-always-show-summary nil)
+  (validate-setq direnv-always-show-summary nil)
   :hook
   (eshell-directory-change . direnv-update-directory-environment))
 
@@ -621,16 +659,17 @@
     (dolist (face '(mode-line mode-line-inactive))
       (set-face-attribute face nil :height 80)))
   (add-hook 'after-make-frame-functions 'ross/set-modeline-heights)
-  (setq doom-modeline-buffer-encoding nil
-        doom-modeline-height 28
-        doom-modeline-icon (or (display-graphic-p) (daemonp)))
+  (validate-setq
+   doom-modeline-buffer-encoding nil
+   doom-modeline-height 28
+   doom-modeline-icon (or (display-graphic-p) (daemonp)))
   (doom-modeline-mode 1))
 
 (use-package dockerfile-mode)
 
 (use-package dumb-jump
   :config
-  (setq dumb-jump-selector 'ivy))
+  (validate-setq dumb-jump-selector 'ivy))
 
 (use-package "eldoc")
 
@@ -678,9 +717,10 @@
 
 (use-package emacs
   :config
-  (setq user-full-name "Ross A. Baker"
-        user-mail-address "ross@rossabaker.com")
-  (setq-default cursor-type 'bar)
+  (validate-setq
+   user-full-name "Ross A. Baker"
+   user-mail-address "ross@rossabaker.com")
+  (ross/validate-setq-default cursor-type 'bar)
   (put 'narrow-to-region 'disabled nil)
 
   ;; scroll-margin is irritating in modes where the focus tends to be the bottom
@@ -722,13 +762,13 @@
 (use-package flycheck
   :config
   (global-flycheck-mode)
-  (setq flycheck-global-modes
-        '(not haskell-interactive-mode ;; https://github.com/haskell/haskell-mode/issues/1015
-              )))
+  (setq ;; TODO doesn't validate
+   ;; https://github.com/haskell/haskell-mode/issues/1015
+   flycheck-global-modes '(not haskell-interactive-mode)))
 
 (use-package "flyspell"
   :config
-  (setq ispell-program-name "aspell")
+  (validate-setq ispell-program-name "aspell")
   :hook
   (text-mode . flyspell-mode)
   (prog-mode . flyspell-prog-mode))
@@ -736,11 +776,11 @@
 (use-package git-gutter
   :config
   (global-git-gutter-mode +1)
-  (setq git-gutter:update-interval 1))
+  (validate-setq git-gutter:update-interval 1))
 
 (use-package git-link
   :config
-  (setq git-link-use-commit t)
+  (validate-setq git-link-use-commit t)
   :bind
   ("C-c g l l" . git-link)
   ("C-c g l c" . git-link-commit)
@@ -790,7 +830,7 @@
 
 (use-package ivy
   :config
-  (setq ivy-use-virtual-buffers t)
+  (validate-setq ivy-use-virtual-buffers t)
   (ivy-mode 1))
 
 (use-package ivy-rich
@@ -806,8 +846,8 @@
   :hook
   (scala-mode . lsp)
   :config
-  (setq lsp-enable-snippet nil
-        lsp-prefer-flymake nil))
+  (validate-setq
+   lsp-enable-snippet nil))
 
 (use-package lsp-treemacs
   :bind
@@ -815,8 +855,9 @@
 
 (use-package lsp-ui
   :config
-  (setq lsp-ui-doc-enable nil
-        lsp-ui-sideline-enable nil))
+  (validate-setq
+   lsp-ui-doc-enable nil
+   lsp-ui-sideline-enable nil))
 
 (use-package magit
   :bind
@@ -879,11 +920,11 @@
   :hook
   (proced-mode . (lambda () (proced-toggle-auto-update +1)))
   :config
-  (setq proced-auto-update-interval 1))
+  (validate-setq proced-auto-update-interval 1))
 
 (use-package "prog-mode"
   :config
-  (setq prettify-symbols-unprettify-at-point 'right-edge)
+  (validate-setq prettify-symbols-unprettify-at-point 'right-edge)
   (global-prettify-symbols-mode +1))
 
 (use-package protobuf-mode)
@@ -897,9 +938,10 @@
 (use-package ripgrep)
 
 (use-package shell-pop
-  :init
-  (setq shell-pop-shell-type '("shell" "*shell*" (lambda () (shell)))
-        shell-pop-universal-key "C-c t s"))
+  :config
+  (validate-setq
+   shell-pop-shell-type '("shell" "*shell*" (lambda () (shell)))
+   shell-pop-universal-key "C-c t s"))
 
 (use-package "simple"
   :config
@@ -914,8 +956,9 @@
       (when filename
         (kill-new filename)
         (message "File name \"%s\" saved to the kill ring" filename))))
-  (setq kill-whole-line t
-        read-quoted-char-radix 16)
+  (validate-setq
+   kill-whole-line t
+   read-quoted-char-radix 16)
   :hook
   (text-mode . visual-line-mode)
   :bind
@@ -959,7 +1002,7 @@
 
 (use-package "uniquify"
   :config
-  (setq uniquify-ignore-buffers-re "^\\*"))
+  (validate-setq uniquify-ignore-buffers-re "^\\*"))
 
 (use-package unfill
   :bind
