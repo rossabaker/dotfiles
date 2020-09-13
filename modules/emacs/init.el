@@ -313,6 +313,10 @@ VALUE is validated against SYMBOL's custom type.
   :hook
   (prog-mode . rainbow-delimiters-mode))
 
+(use-package volatile-highlights
+  :config
+  (volatile-highlights-mode))
+
 ;;;;; Themes
 
 (use-package modus-vivendi-theme
