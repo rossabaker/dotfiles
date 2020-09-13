@@ -349,6 +349,15 @@
   (global-so-long-mode))
 
 (use-package "text-mode"
+  :config
+  ;; These files are special in GitHub and various other standards.
+  ;; Open them in text-mode.
+  (dolist (file '("README" "CHANGELOG" "CHANGES" "HISTORY" "NEWS" "RELEASES"
+                  "CONTRIBUTING" "SUPPORT" "LICENSE" "COPYING"
+                  "CONTRIBUTORS" "AUTHORS" "ACKNOWLEDGMENTS"
+                  "ISSUE_TEMPLATE" "PULL_REQUEST_TEMPLATE" "CODEOWNERS"))
+    (add-to-list 'auto-mode-alist `(,(concat "/" file "\\'") . text-mode)))
+  (add-to-list 'auto-mode-alist ("\\.log\\'" . text-mode))
   :hook
   (text-mode . visual-line-mode))
 
