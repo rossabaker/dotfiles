@@ -593,6 +593,8 @@ VALUE is validated against SYMBOL's custom type.
   ("C-'" . avy-goto-char-timer)
   :config
   (validate-setq
+   avy-all-windows nil
+   avy-all-windows-alt (not avy-all-windows)
    avy-style 'at-full
    avy-background t)
   (avy-setup-default))
