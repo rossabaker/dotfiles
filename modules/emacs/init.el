@@ -311,6 +311,7 @@
 (use-package "recentf"
   :commands counsel-recentf recentf-open-files
   :custom
+  (recentf-filename-handlers 'abbreviate-file-name)
   (recentf-max-menu-items 0)
   (recentf-max-saved-items 100)
   :config
