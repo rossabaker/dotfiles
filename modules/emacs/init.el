@@ -348,6 +348,10 @@
   :config
   (global-so-long-mode))
 
+(use-package "text-mode"
+  :hook
+  (text-mode . visual-line-mode))
+
 (use-package ws-butler
   :hook
   (prog-mode . ws-butler-mode))
