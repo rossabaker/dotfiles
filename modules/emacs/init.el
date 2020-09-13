@@ -333,12 +333,26 @@ VALUE is validated against SYMBOL's custom type.
   (after-save . ross/guess-mode))
 
 (use-package helpful
+  :after apropos
   :bind
   ([remap describe-function] . helpful-callable)
   ([remap describe-command] . helpful-comand)
   ([remap describe-variable] . helpful-variable)
   ([remap describe-key] . helpful-key)
-  ([remap describe-symbol] . helpful-symbol))
+  ([remap describe-symbol] . helpful-symbol)
+  :config
+  ;; h/t Doom core-editor
+  ;; Patch apropos buttons to call helpful instead of help
+  (dolist (fun-bt '(apropos-function apropos-macro apropos-command))
+    (button-type-put
+     fun-bt 'action
+     (lambda (button)
+       (helpful-callable (button-get button 'apropos-symbol)))))
+  (dolist (var-bt '(apropos-variable apropos-user-option))
+    (button-type-put
+     var-bt 'action
+     (lambda (button)
+       (helpful-variable (button-get button 'apropos-symbol))))))
 
 (use-package "recentf"
   ;; TODO If we had a switch-window-hook, we could bump files up the recentf
