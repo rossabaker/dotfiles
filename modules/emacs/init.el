@@ -187,6 +187,12 @@ VALUE is validated against SYMBOL's custom type.
 
 ;;;;; Packages
 
+(use-package ace-window
+  :bind
+  ("M-o" . ace-window)
+  :config
+  (validate-setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
+
 (use-package all-the-icons
   ;; TODO Doom has a fancy way of disabling the icons in terminal
   ;; mode of a daemon, but it causes me errors.
@@ -572,12 +578,6 @@ VALUE is validated against SYMBOL's custom type.
 ;; Emacs really wants to dump custom settings itself.
 (when (file-exists-p custom-file)
   (load custom-file))
-
-(use-package ace-window
-  :bind
-  ("M-o" . ace-window)
-  :config
-  (validate-setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l)))
 
 (use-package all-the-icons-dired
   :after all-the-icons
