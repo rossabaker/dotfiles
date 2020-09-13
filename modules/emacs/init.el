@@ -277,6 +277,11 @@
   (setq create-lockfiles nil)
   (setq fill-column 80))
 
+(use-package "autorevert"
+  :custom
+  (auto-revert-verbose nil)
+  (global-auto-revert-non-file-buffers t))
+
 (use-package dtrt-indent
   :hook
   (prog-mode . dtrt-indent-mode))
@@ -298,15 +303,6 @@
   ([remap describe-variable] . helpful-variable)
   ([remap describe-key] . helpful-key)
   ([remap describe-symbol] . helpful-symbol))
-
-(use-package "simple"
-  :custom
-  (kill-do-not-save-duplicates t))
-
-(use-package "autorevert"
-  :custom
-  (auto-revert-verbose nil)
-  (global-auto-revert-non-file-buffers t))
 
 (use-package "recentf"
   :commands counsel-recentf recentf-open-files
@@ -330,6 +326,10 @@
                                    shell-command-history))
   :config
   (savehist-mode +1))
+
+(use-package "simple"
+  :custom
+  (kill-do-not-save-duplicates t))
 
 (use-package smartparens
   :config
