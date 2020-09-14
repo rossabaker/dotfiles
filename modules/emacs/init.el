@@ -116,7 +116,10 @@ VALUE is validated against SYMBOL's custom type.
 (use-package which-key
   :demand t
   :init
+  ;; Make room for a bindings prefix
   (global-unset-key (kbd "C-h b"))
+  ;; Do not want view-hello-file
+  (global-unset-key (kbd "C-h h"))
   :config
   (which-key-mode)
   (which-key-add-key-based-replacements
