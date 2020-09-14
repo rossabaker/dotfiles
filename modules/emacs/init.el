@@ -140,7 +140,7 @@ VALUE is validated against SYMBOL's custom type.
 (use-package emacs
   :config
 ;;;;; Cursor
-  (validate-setq cursor-in-non-selected-windows nil)
+  (ross/validate-setq-default cursor-in-non-selected-windows nil)
   (blink-cursor-mode -1)
 
 ;;;;; Scrolling
