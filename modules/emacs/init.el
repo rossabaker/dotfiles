@@ -798,6 +798,10 @@ VALUE is validated against SYMBOL's custom type.
 
 (use-package ethan-wspace
   :config
+  (validate-setq
+   ;; This mode requires these be off
+   require-final-newline nil
+   mode-require-final-newline nil)
   (global-ethan-wspace-mode))
 
 (use-package "executable"
