@@ -700,6 +700,7 @@ VALUE is validated against SYMBOL's custom type.
   ("C-c I" . crux-find-user-init-file)
   ("C-c d" . crux-duplicate-current-line-or-region)
   ;;("C-c e" . crux-eval-and-replace)
+  ("C-c f c" . crux-copy-file-preserve-attributes)
   ("C-c f k" . crux-delete-file-and-buffer)
   ("C-c f m" . crux-rename-file-and-buffer)
   ("C-x 4 t" . crux-transpose-windows))
