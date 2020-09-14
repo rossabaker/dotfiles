@@ -131,7 +131,7 @@ VALUE is validated against SYMBOL's custom type.
     "C-h b" "bindings")
   :bind
   ("C-h b f" . which-key-show-full-keymap)
-  ("C-h b i" . which-key-show-minor-mode)
+  ("C-h b M" . which-key-show-minor-mode)
   ("C-h b k" . which-key-show-keymap)
   ("C-h b m" . which-key-show-major-mode)
   ("C-h b t" . which-key-show-top-level))
