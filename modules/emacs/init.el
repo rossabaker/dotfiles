@@ -126,6 +126,7 @@ VALUE is validated against SYMBOL's custom type.
     "C-c f" "files"
     "C-c g" "git"
     "C-c l" "multi-line"
+    "C-c P" "packages"
     "C-c p" "projectile"
     "C-c q" "string-inflection"
     "C-c s" "search"
@@ -1078,7 +1079,17 @@ VALUE is validated against SYMBOL's custom type.
 
 (use-package title-capitalization)
 
-(use-package try)
+(use-package try
+  :commands try try-and-refresh
+  :config
+  (defun ross/try-and-maybe-refresh (&optional url-or-package)
+    "Try a package, refreshing if package-archive-contents is nil."
+    (interactive)
+    (or package-archive-contents
+        (package-refresh-contents))
+    (try url-or-package))
+  :bind
+  ("C-c P t" . ross/try-and-maybe-refresh))
 
 (use-package "uniquify"
   :config
