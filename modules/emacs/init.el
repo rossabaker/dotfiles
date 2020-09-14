@@ -383,6 +383,7 @@ VALUE is validated against SYMBOL's custom type.
   ([remap describe-variable] . helpful-variable)
   ([remap describe-key] . helpful-key)
   ([remap describe-symbol] . helpful-symbol)
+  ("C-h ." . helpful-at-point)
   :config
   ;; h/t Doom core-editor
   ;; Patch apropos buttons to call helpful instead of help
