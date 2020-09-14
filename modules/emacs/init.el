@@ -123,6 +123,7 @@ VALUE is validated against SYMBOL's custom type.
   :config
   (which-key-mode)
   (which-key-add-key-based-replacements
+    "C-c c" "code"
     "C-c f" "files"
     "C-c g" "git"
     "C-c l" "multi-line"
@@ -219,6 +220,9 @@ VALUE is validated against SYMBOL's custom type.
   :hook (compilation-filter . ross/apply-ansi-color-to-compilation-buffer-h))
 
 (use-package "compile"
+  :bind
+  ("C-c c c" . compile)
+  ("C-c c C" . recompile)
   :config
   (validate-setq
    compilation-always-kill t
@@ -660,7 +664,6 @@ VALUE is validated against SYMBOL's custom type.
 
 (use-package counsel
   :bind
-  ("C-c c" . counsel-compile)
   ("C-c f d" . counsel-dired)
   ("C-c f l" . counsel-locate)
   ("C-c f r" . counsel-recentf)
@@ -842,6 +845,8 @@ VALUE is validated against SYMBOL's custom type.
   (after-save . ross/guess-mode))
 
 (use-package flycheck
+  :bind
+  ("C-c c x" . flycheck-list-errors)
   :config
   (global-flycheck-mode)
   (setq ;; TODO doesn't validate
@@ -924,12 +929,27 @@ VALUE is validated against SYMBOL's custom type.
 
 (use-package list-environment)
 
+(use-package lsp-ivy
+  :bind
+  ("C-c c j" . lsp-ivy-workspace-symbol)
+  ("C-c c J" . lsp-ivy-global-workspace-symbol))
+
 (use-package lsp-mode
+  :preface
+  ;; Doing this up here is good for which-key integration.  Still need to bind
+  ;; the map below.
+  (setq lsp-keymap-prefix "C-c c l")
+  :bind
+  ("C-c c a" . lsp-code-action)
+  ("C-c c o" . lsp-organize-imports)
+  ("C-c c r" . lsp-rename)
   :hook
   (scala-mode . lsp)
+  (lsp-mode . lsp-enable-which-key-integration)
   :config
   (validate-setq
-   lsp-enable-snippet nil))
+   lsp-enable-snippet nil)
+  (define-key lsp-mode-map (kbd lsp-keymap-prefix) lsp-command-map))
 
 (use-package lsp-treemacs
   :bind
@@ -1117,6 +1137,12 @@ VALUE is validated against SYMBOL's custom type.
   :bind
   ("C-h r" . woman) ; rtfm
   )
+
+(use-package "xref"
+  :bind
+  ("C-c c d" . xref-find-definitions)
+  ("C-c c D" . xref-find-references)
+  ("C-c c i" . xref-find-implementations))
 
 ;; NixOS doesn't have a #!/bin/bash. We do this a lot.
 (defun ross/fix-shebang ()
