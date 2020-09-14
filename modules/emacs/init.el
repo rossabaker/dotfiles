@@ -101,7 +101,8 @@ VALUE is validated against SYMBOL's custom type.
 ;;;;; Garbage collection
 
 (use-package gcmh
-  :demand t)
+  :config
+  (gcmh-mode))
 
 ;;;; Keybindings
 
