@@ -669,7 +669,17 @@ VALUE is validated against SYMBOL's custom type.
   ("C-x C-f" . counsel-find-file)
   ("M-i" . counsel-imenu)
   ("M-x" . counsel-M-x)
-  ("M-y" . counsel-yank-pop))
+  ("M-y" . counsel-yank-pop)
+  :config
+  (dolist (m '(minibuffer-local-map
+               minibuffer-local-ns-map
+               minibuffer-local-completion-map
+               minibuffer-local-must-match-map
+               minibuffer-local-isearch-map
+               read-expression-map
+               ivy-minibuffer-map
+               ivy-switch-buffer-map))
+    (bind-key (kbd "C-s") 'counsel-minibuffer-history m)))
 
 (use-package counsel-jq)
 
