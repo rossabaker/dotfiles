@@ -21,7 +21,7 @@
 
 ;;; Code:
 
-;;;; use-package
+;;;; Bootstrap
 
 (eval-when-compile
   (require 'use-package))
@@ -132,6 +132,23 @@
 (use-package display-line-numbers-mode
   :hook
   ((prog-mode conf-mode) . display-line-numbers-mode))
+
+(use-package try
+  ;; A downside of a Nix-managed Emacs is that new packages require a
+  ;; restart. The reproducibility is generally worth it, but sometimes
+  ;; we just want to fix an unfamiliar language or try something we
+  ;; read on Emacs News.
+  :config
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+  (defun ross/package-refresh-contents-maybe ()
+    "Refresh the packages if we have no `package-archive-contents'."
+    (unless package-archive-contents
+      (package-refresh-contents)))
+  (advice-add 'try :before 'ross/package-refresh-contents-maybe)
+  :general
+  (:prefix "C-c P"
+           "" '(nil :wk "package")
+           "t" 'try))
 
 ;;;; Whitespace
 
