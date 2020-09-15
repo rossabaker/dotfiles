@@ -43,6 +43,13 @@
   :config
   (counsel-mode +1))
 
+;;;; Search
+
+(use-package swiper
+  :bind
+  ([remap isearch-forward-regexp] . swiper-isearch)
+  ([remap isearch-backward-regexp] . swiper-isearch-backward))
+
 ;;;; Version control
 
 (use-package magit
