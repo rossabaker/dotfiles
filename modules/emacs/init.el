@@ -130,7 +130,7 @@
   :hook (compilation-filter . ross/colorize-compilation-buffer))
 
 (use-package modus-operandi-theme
-  :after modus-vivendi-theme
+  :demand
   :config
   (defun ross/modus-themes-toggle ()
     "Toggle between `modus-operandi' and `modus-vivendi' themes."
