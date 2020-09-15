@@ -8,7 +8,7 @@
 ;;; Commentary:
 
 ;; Packages in this Emacs configuration are derived from
-;; Nix. `used-packages.el' introspects this file and extracts
+;; Nix.  `used-packages.el' introspects this file and extracts
 ;; Nix packages from the `use-package' statements.
 ;;
 ;; Most dependencies are on MELPA.  Those that aren't appear in the
