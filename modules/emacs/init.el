@@ -79,6 +79,11 @@
            "" '(nil :wk "git")
            "s" 'magit-status))
 
+(use-package git-gutter
+  :config
+  (setq git-gutter:update-interval 1)
+  (global-git-gutter-mode +1))
+
 ;;;; Projects
 
 (use-package projectile
