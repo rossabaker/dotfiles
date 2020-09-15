@@ -69,6 +69,7 @@
 (use-package projectile
   :config
   (setq projectile-completion-system 'ivy)
+  (which-key-add-key-based-replacements "C-c p" "projectile")
   (projectile-mode +1)
   :bind-keymap
   ("C-c p" . projectile-command-map))
