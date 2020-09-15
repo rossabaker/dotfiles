@@ -72,17 +72,28 @@
 
 ;;;; Version control
 
+(general-define-key
+ :prefix "C-c g"
+ "" '(nil :wk "git"))
+
 (use-package magit
   :config
   :general
   (:prefix "C-c g"
-           "" '(nil :wk "git")
            "s" 'magit-status))
 
 (use-package git-gutter
   :config
   (setq git-gutter:update-interval 1)
-  (global-git-gutter-mode +1))
+  (global-git-gutter-mode +1)
+  :general
+  (:prefix "C-c g h"
+           "" '(nil :wk "hunk")
+           "SPC" 'git-gutter:mark-hunk
+           "n" 'git-gutter:previous-hunk
+           "p" 'git-gutter:next-hunk
+           "s" 'git-gutter:stage-hunk
+           "r" 'git-gutter:revert-hunk))
 
 ;;;; Projects
 
