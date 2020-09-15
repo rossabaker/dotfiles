@@ -13,6 +13,10 @@
   '(use-package delight bind-key)
   "Nix packages needed by use-package itself.")
 
+(defvar ross/builtin-nix-emacs-packages
+  '(emacs)
+  "Packages we use that are built into Emacs.")
+
 (defun ross/used-packages (file)
   "Output as a Nix list all packages in use-package declarations in FILE."
   (insert-file-contents file)
@@ -27,7 +31,7 @@
       (let* ((decl (read (current-buffer)))
              (name (cadr decl)))
         (when (and (eq (car decl) 'use-package)
-                   (not (eq name 'emacs))
+                   (not (memq name ross/builtin-nix-emacs-packages))
                    (symbolp name))
           (princ (symbol-name name))
           (princ " ")))))
