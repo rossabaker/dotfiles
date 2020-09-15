@@ -73,6 +73,23 @@
   :bind-keymap
   ("C-c p" . projectile-command-map))
 
+;;;; LSP
+
+(use-package lsp-mode
+  :preface
+  (setq lsp-keymap-prefix "C-c l")
+  :hook
+  ((lsp-mode . lsp-enable-which-key-integration)))
+
+(use-package lsp-ui
+  :commands lsp-ui-mode)
+
+(use-package lsp-ivy
+  :commands lsp-ivy-workspace-symbol)
+
+(use-package lsp-treemacs
+  :commands lsp-treemacs-errors-list)
+
 ;;;; Whitespace
 
 (use-package ws-butler
