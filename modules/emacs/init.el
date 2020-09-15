@@ -53,6 +53,10 @@
   :config
   (counsel-projectile-mode +1))
 
+(use-package company
+  :config
+  (global-company-mode +1))
+
 ;;;; Search
 
 (use-package swiper
