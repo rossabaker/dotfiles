@@ -33,6 +33,12 @@
 ;; defaults.
 (use-package better-defaults)
 
+;;;; Version control
+
+(use-package magit
+  :bind
+  ("C-c g s" . magit-status))
+
 ;;;; Fin.
 
 (provide 'init)
