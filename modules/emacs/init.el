@@ -129,6 +129,10 @@
   :config
   (global-flycheck-mode +1))
 
+(use-package display-line-numbers-mode
+  :hook
+  ((prog-mode conf-mode) . display-line-numbers-mode))
+
 ;;;; Whitespace
 
 (use-package ws-butler

@@ -15,6 +15,7 @@
 
 (defvar ross/builtin-nix-emacs-packages
   '(ansi-color
+    display-line-numbers-mode
     emacs)
   "Packages we use that are built into Emacs.")
 
