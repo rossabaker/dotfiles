@@ -35,6 +35,8 @@
 
 ;;;; Keybindings
 
+(use-package general)
+
 (use-package which-key
   :config
   (which-key-mode +1))
@@ -60,9 +62,9 @@
 ;;;; Search
 
 (use-package swiper
-  :bind
-  ([remap isearch-forward-regexp] . swiper-isearch)
-  ([remap isearch-backward-regexp] . swiper-isearch-backward))
+  :general
+  ([remap isearch-forward-regexp] 'swiper-isearch)
+  ([remap isearch-backward-regexp] 'swiper-isearch-backward))
 
 ;; Necessary for projectile-ripgrep
 (use-package ripgrep
@@ -72,24 +74,23 @@
 
 (use-package magit
   :config
-  (which-key-add-key-based-replacements "C-c g" "git")
-  :bind
-  ("C-c g s" . magit-status))
+  :general
+  (:prefix "C-c g"
+           "" '(nil :wk "git")
+           "s" 'magit-status))
 
 ;;;; Projects
 
 (use-package projectile
   :config
   (setq projectile-completion-system 'ivy)
-  (which-key-add-key-based-replacements "C-c p" "projectile")
   (projectile-mode +1)
   ;; No grep. No ag. Only ripgrep.
   (define-key projectile-command-map "s" 'undefined)
-  :bind
-  (:map projectile-command-map
-        ("s" . projectile-ripgrep))
-  :bind-keymap
-  ("C-c p" . projectile-command-map))
+  :general
+  ("C-c p" '(:keymap projectile-command-map :wk "projectile"))
+  (:keymaps 'projectile-command-map
+            "s" 'projectile-ripgrep))
 
 ;;;; IDE
 
@@ -140,10 +141,11 @@
           (load-theme 'modus-vivendi t))
       (disable-theme 'modus-vivendi)
       (load-theme 'modus-operandi t)))
-  (which-key-add-key-based-replacements "C-c T" "theme")
   (load-theme 'modus-operandi t)
-  :bind
-  ("C-c T t" . 'ross/modus-themes-toggle))
+  :general
+  (:prefix "C-c T"
+           "" '(nil :wk "theme")
+           "t" '(ross/modus-themes-toggle :wk "modus-themes-toggle")))
 
 (use-package modus-vivendi-theme)
 
