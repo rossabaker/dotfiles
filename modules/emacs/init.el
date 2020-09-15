@@ -57,6 +57,9 @@
 
 (use-package counsel-projectile
   :config
+  ;; We flattened "s", so don't let counsel-projectile add more
+  (validate-setq counsel-projectile-key-bindings
+                 (assoc-delete-all "si" counsel-projectile-key-bindings #'string=))
   (counsel-projectile-mode +1))
 
 (use-package company
