@@ -26,6 +26,10 @@
 (eval-when-compile
   (require 'use-package))
 
+;; Provides validate-setq, which we'll use extensively whilst configuring other
+;; packages.
+(use-package validate)
+
 ;;;; Basic human decency
 
 ;; I am a Chicago Bears fan.  They're still my team in the 2020s, even
@@ -99,7 +103,7 @@
 
 (use-package projectile
   :config
-  (setq projectile-completion-system 'ivy)
+  (validate-setq projectile-completion-system 'ivy)
   (projectile-mode +1)
   ;; No grep. No ag. Only ripgrep.
   (define-key projectile-command-map "s" 'undefined)
@@ -203,8 +207,8 @@
                             (force-mode-line-update)))
                         ross/bell-cookie
                         (current-buffer))))
-    (setq ring-bell-function #'ross/themes-visual-bell-fn
-          visible-bell t))
+    (validate-setq ring-bell-function #'ross/themes-visual-bell-fn
+                   visible-bell t))
   (doom-modeline-mode +1)
   (column-number-mode +1)
   (size-indication-mode +1))
