@@ -151,6 +151,23 @@
 
 (use-package doom-modeline
   :config
+  (progn ;; Borrowed from doom-themes
+    (defface ross/visual-bell '((t (:inherit error)))
+      "Face to use for the mode-line on visual-bell."
+      :group 'ross/themes)
+    (defun ross/themes-visual-bell-fn ()
+      "Blink the mode-line briefly. Set `ring-bell-function' to this to use it."
+      (let ((ross/bell-cookie (face-remap-add-relative 'mode-line 'ross/visual-bell)))
+        (force-mode-line-update)
+        (run-with-timer 0.15 nil
+                        (lambda (cookie buf)
+                          (with-current-buffer buf
+                            (face-remap-remove-relative cookie)
+                            (force-mode-line-update)))
+                        ross/bell-cookie
+                        (current-buffer))))
+    (setq ring-bell-function #'ross/themes-visual-bell-fn
+          visible-bell t))
   (doom-modeline-mode +1))
 
 ;;;; Fin.
