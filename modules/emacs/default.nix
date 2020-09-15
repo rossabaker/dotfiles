@@ -23,7 +23,6 @@ let
 in
 {
   home.file = {
-    ".emacs.d/custom.el".source = ./custom.el;
     ".emacs.d/init.el".source = ./init.el;
   };
 
