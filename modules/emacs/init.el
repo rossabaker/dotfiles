@@ -56,6 +56,10 @@
   ([remap isearch-forward-regexp] . swiper-isearch)
   ([remap isearch-backward-regexp] . swiper-isearch-backward))
 
+;; Necessary for projectile-ripgrep
+(use-package ripgrep
+  :defer t)
+
 ;;;; Version control
 
 (use-package magit
@@ -71,6 +75,11 @@
   (setq projectile-completion-system 'ivy)
   (which-key-add-key-based-replacements "C-c p" "projectile")
   (projectile-mode +1)
+  ;; No grep. No ag. Only ripgrep.
+  (define-key projectile-command-map "s" 'undefined)
+  :bind
+  (:map projectile-command-map
+        ("s" . projectile-ripgrep))
   :bind-keymap
   ("C-c p" . projectile-command-map))
 
