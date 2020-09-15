@@ -64,6 +64,15 @@
   :bind
   ("C-c g s" . magit-status))
 
+;;;; Projects
+
+(use-package projectile
+  :config
+  (setq projectile-completion-system 'ivy)
+  (projectile-mode +1)
+  :bind-keymap
+  ("C-c p" . projectile-command-map))
+
 ;;;; Fin.
 
 (provide 'init)
