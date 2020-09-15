@@ -49,6 +49,10 @@
   :config
   (counsel-mode +1))
 
+(use-package counsel-projectile
+  :config
+  (counsel-projectile-mode +1))
+
 ;;;; Search
 
 (use-package swiper
