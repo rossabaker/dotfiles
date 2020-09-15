@@ -33,6 +33,16 @@
 ;; defaults.
 (use-package better-defaults)
 
+;;;; Completion
+
+(use-package ivy
+  :config
+  (ivy-mode +1))
+
+(use-package counsel
+  :config
+  (counsel-mode +1))
+
 ;;;; Version control
 
 (use-package magit
