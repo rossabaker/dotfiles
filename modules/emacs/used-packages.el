@@ -14,7 +14,8 @@
   "Nix packages needed by use-package itself.")
 
 (defvar ross/builtin-nix-emacs-packages
-  '(emacs)
+  '(ansi-color
+    emacs)
   "Packages we use that are built into Emacs.")
 
 (defun ross/used-packages (file)

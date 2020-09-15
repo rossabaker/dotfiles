@@ -118,6 +118,16 @@
   :hook
   ((prog-mode text-mode) . ws-butler-mode))
 
+;;;; Appearance
+
+(use-package ansi-color
+  :config
+  (defun ross/colorize-compilation-buffer ()
+    (when (eq major-mode 'compilation-mode)
+      (ansi-color-apply-on-region compilation-filter-start (point-max))))
+  :commands compile
+  :hook (compilation-filter . ross/colorize-compilation-buffer))
+
 ;;;; Fin.
 
 (provide 'init)
