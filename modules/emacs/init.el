@@ -73,6 +73,12 @@
   :bind-keymap
   ("C-c p" . projectile-command-map))
 
+;;;; Whitespace
+
+(use-package ws-butler
+  :hook
+  ((prog-mode text-mode) . ws-butler-mode))
+
 ;;;; Fin.
 
 (provide 'init)
