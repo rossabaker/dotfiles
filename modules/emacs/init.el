@@ -23,6 +23,8 @@
 
 ;;;; Bootstrap
 
+(eval-and-compile
+  (setq use-package-enable-imenu-support t))
 (eval-when-compile
   (require 'use-package))
 
@@ -139,6 +141,10 @@
 (use-package display-line-numbers-mode
   :hook
   ((prog-mode conf-mode) . display-line-numbers-mode))
+
+(use-package imenu
+  :general
+  ("M-i" 'imenu))
 
 (use-package try
   ;; A downside of a Nix-managed Emacs is that new packages require a
