@@ -91,7 +91,7 @@
   :bind-keymap
   ("C-c p" . projectile-command-map))
 
-;;;; LSP
+;;;; IDE
 
 (use-package lsp-mode
   :preface
@@ -107,6 +107,10 @@
 
 (use-package lsp-treemacs
   :commands lsp-treemacs-errors-list)
+
+(use-package flycheck
+  :config
+  (global-flycheck-mode +1))
 
 ;;;; Whitespace
 
