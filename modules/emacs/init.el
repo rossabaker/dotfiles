@@ -128,6 +128,25 @@
   :commands compile
   :hook (compilation-filter . ross/colorize-compilation-buffer))
 
+(use-package modus-operandi-theme
+  :after modus-vivendi-theme
+  :config
+  (defun ross/modus-themes-toggle ()
+    "Toggle between `modus-operandi' and `modus-vivendi' themes."
+    (interactive)
+    (if (eq (car custom-enabled-themes) 'modus-operandi)
+        (progn
+          (disable-theme 'modus-operandi)
+          (load-theme 'modus-vivendi t))
+      (disable-theme 'modus-vivendi)
+      (load-theme 'modus-operandi t)))
+  (which-key-add-key-based-replacements "C-c T" "theme")
+  (load-theme 'modus-operandi t)
+  :bind
+  ("C-c T t" . 'ross/modus-themes-toggle))
+
+(use-package modus-vivendi-theme)
+
 ;;;; Fin.
 
 (provide 'init)
