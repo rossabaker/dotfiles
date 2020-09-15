@@ -188,7 +188,9 @@
                         (current-buffer))))
     (setq ring-bell-function #'ross/themes-visual-bell-fn
           visible-bell t))
-  (doom-modeline-mode +1))
+  (doom-modeline-mode +1)
+  (column-number-mode +1)
+  (size-indication-mode +1))
 
 ;;;; Fin.
 
