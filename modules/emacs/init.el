@@ -33,6 +33,12 @@
 ;; defaults.
 (use-package better-defaults)
 
+;;;; Keybindings
+
+(use-package which-key
+  :config
+  (which-key-mode +1))
+
 ;;;; Completion
 
 (use-package ivy
@@ -53,6 +59,8 @@
 ;;;; Version control
 
 (use-package magit
+  :config
+  (which-key-add-key-based-replacements "C-c g" "git")
   :bind
   ("C-c g s" . magit-status))
 
