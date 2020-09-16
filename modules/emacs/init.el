@@ -257,6 +257,78 @@
             "h" 'helpful-at-point)
   ([remap describe-key] #'helpful-key))
 
+;;;; Languages
+
+;;;;; Python
+
+;; My son was showing me Python turtle.  I tried it in Emacs.  He
+;; installed Emacs of his own volition.  I guess now I have to learn a
+;; little bit of Python.
+
+;;;;;; Language servers
+
+;;;;;;; Palantir's pyls.
+
+;; Fuck ICE, and fuck Palantir.
+
+;;;;;;; Microsoft's python-language-server
+
+;; It kind of sort of works, and its corporate sponsor is moderately
+;; less complicit in caging children.  But it looks like it's on the
+;; way out: https://github.com/microsoft/python-language-server/issues/2096
+
+(use-package lsp-python-ms
+  :disabled t
+  :config
+  (defun ross/lsp-python-ms ()
+    (require 'lsp-python-ms)
+    (lsp-deferred))
+  ;; Nix packaging calls it `python-language-server'.
+  (validate-setq lsp-python-ms-executable (executable-find "python-language-server"))
+  :hook
+  (python-mode . ross/lsp-python-ms))
+
+;;;;;;; Microsoft's pylance
+
+;; This is the future of Microsoft's efforts, but is only licensed for
+;; use with Microsoft's editors.  This is an ominous development in
+;; the Era of LSP, but whatever.
+
+;;;;;;; Microsoft's pyright
+
+;; This underlies pylance, and is fully open source.  It's hard to say
+;; how much intelligence is upstream in pylance, but this works pretty
+;; well out of the box!
+
+(use-package lsp-pyright
+  :config
+  (defun ross/lsp-pyright ()
+    (require 'lsp-pyright)
+    (lsp-deferred))
+
+  ;; Irritation: the lsp-find-references are also returning *.pyi
+  ;; stubs.  The type hints we get from them are already in the docs,
+  ;; and otherwise, they just seem to get in the way of jumping to the
+  ;; source.
+  (defun ross/xref-python-stub-p (item)
+    "Return t if `item' is from a *.pyi stub."
+    (string-suffix-p ".pyi" (oref (xref-item-location item) file)))
+
+  (defun ross/filter-not-python-stub-definitions (items)
+    "Remove Python stubs from a list of xref-items."
+    (cl-remove-if #'ross/xref-python-stub-p items))
+
+  (advice-add 'lsp--locations-to-xref-items
+              :filter-return #'ross/filter-not-python-stub-definitions)
+
+  :hook
+  (python-mode . ross/lsp-pyright))
+
+;;;;;;; lsp-jedi
+
+;; Still the default in VSCode.  Installation on NixOS seems fraught, so
+;; putting this one on hold.
+
 ;;;; Fin.
 
 (provide 'init)

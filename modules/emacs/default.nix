@@ -29,7 +29,9 @@ in
   home.packages = [
     pkgs.fd
     pkgs.emacs-all-the-icons-fonts
+    pkgs.nodePackages.pyright
     pkgs.pandoc
+    (pkgs.python3.withPackages(ps: [ps.tkinter]))
     pkgs.ripgrep
   ];
 
