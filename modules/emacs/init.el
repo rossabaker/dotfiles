@@ -222,6 +222,19 @@
   (column-number-mode +1)
   (size-indication-mode +1))
 
+;;;; Docs
+
+(use-package helpful
+  :config
+  (validate-setq counsel-describe-function-function #'helpful-callable
+                 counsel-describe-symbol-function #'helpful-symbol
+                 counsel-describe-variable-function #'helpful-variable
+                 counsel-descbinds-function #'helpful-function)
+  :general
+  (:keymaps 'help-map
+            "h" 'helpful-at-point)
+  ([remap describe-key] #'helpful-key))
+
 ;;;; Fin.
 
 (provide 'init)
