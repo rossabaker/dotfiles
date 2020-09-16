@@ -170,6 +170,10 @@
            "" '(nil :wk "package")
            "t" 'try))
 
+(use-package emacs
+  :general
+  ("M-o" 'other-window))
+
 ;;;; Whitespace
 
 (use-package ws-butler
