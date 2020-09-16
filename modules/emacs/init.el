@@ -41,7 +41,10 @@
 
 ;; I can't teach my kids to pick up after themselves, but I can teach
 ;; my Emacs to.
-(use-package no-littering)
+(use-package no-littering
+  :config
+  ;; These are litter, too.
+  (validate-setq create-lockfiles nil))
 
 ;;;; Keybindings
 
