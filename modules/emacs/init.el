@@ -62,7 +62,9 @@
 
 (use-package counsel
   :config
-  (counsel-mode +1))
+  (counsel-mode +1)
+  :general
+  ([remap recentf-open-files] 'counsel-recentf))
 
 (use-package counsel-projectile
   :config
@@ -170,8 +172,17 @@
            "" '(nil :wk "package")
            "t" 'try))
 
+(use-package recentf
+  :config
+  (recentf-mode +1)
+  :general
+  (:prefix "C-c f"
+           "r" 'recentf-open-files))
+
 (use-package emacs
   :general
+  (:prefix "C-c f"
+           "" '(nil :wk "file"))
   ("M-o" 'other-window))
 
 ;;;; Whitespace

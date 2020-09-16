@@ -16,8 +16,9 @@
 (defvar ross/builtin-nix-emacs-packages
   '(ansi-color
     display-line-numbers-mode
+    emacs
     imenu
-    emacs)
+    recentf)
   "Packages we use that are built into Emacs.")
 
 (defun ross/used-packages (file)
