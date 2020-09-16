@@ -77,6 +77,10 @@
   :config
   (global-company-mode +1))
 
+(use-package company-box
+  :hook
+  (company-mode . company-box-mode))
+
 ;;;; Search
 
 (use-package swiper
