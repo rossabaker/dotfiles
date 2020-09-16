@@ -39,6 +39,10 @@
 ;; defaults.
 (use-package better-defaults)
 
+;; I can't teach my kids to pick up after themselves, but I can teach
+;; my Emacs to.
+(use-package no-littering)
+
 ;;;; Keybindings
 
 (use-package general)
