@@ -272,6 +272,19 @@
             "h" 'helpful-at-point)
   ([remap describe-key] #'helpful-key))
 
+;;;; Interpreters
+
+(defvar ross/interpreters '()
+  "An alist of known interpreters for various languages.")
+(defun ross/run-interpreter ()
+  "Run an interpreter."
+  (interactive)
+  (let ((sel (completing-read "Run interpreter: "
+                              ross/interpreters nil t)))
+    (funcall (cdr (assoc sel ross/interpreters)))))
+(general-define-key
+ "C-c a i" '(ross/run-interpreter :wk "run-interpreter"))
+
 ;;;; Languages
 
 ;;;;; Nix
@@ -283,8 +296,7 @@
   (defun ross/nix-repl-fix-echoes ()
     "Fix redundant echo of input in the Nix REPL."
     (setq comint-process-echoes t))
-  :general
-  ("C-c a r n" 'nix-repl)
+  (add-to-list 'ross/interpreters '("Nix" . nix-repl))
   :hook
   (nix-repl-mode . ross/nix-repl-fix-echoes))
 
@@ -306,9 +318,9 @@
 ;; installed Emacs of his own volition.  I guess now I have to learn a
 ;; little bit of Python.
 
-(use-package python-mode
-  :general
-  ("C-c a r p" 'run-python))
+(use-package python
+  :config
+  (add-to-list 'ross/interpreters '("Python" . run-python)))
 
 ;;;;;; Language servers
 
