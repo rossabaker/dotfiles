@@ -135,6 +135,24 @@
   (:keymaps 'projectile-command-map
             "s" 'projectile-ripgrep))
 
+;;;; Navigation
+
+(use-package emacs
+  :general
+  (:prefix "C-c f"
+           "" '(nil :wk "file"))
+  ("M-o" 'other-window))
+
+(use-package recentf
+  :config
+  (recentf-mode +1)
+  :general
+  ("C-c f r" 'recentf-open-files))
+
+(use-package imenu
+  :general
+  ("M-i" 'imenu))
+
 ;;;; IDE
 
 (use-package lsp-mode
@@ -160,10 +178,6 @@
   :hook
   ((prog-mode conf-mode) . display-line-numbers-mode))
 
-(use-package imenu
-  :general
-  ("M-i" 'imenu))
-
 (use-package try
   ;; A downside of a Nix-managed Emacs is that new packages require a
   ;; restart. The reproducibility is generally worth it, but sometimes
@@ -180,19 +194,6 @@
   (:prefix "C-c P"
            "" '(nil :wk "package")
            "t" 'try))
-
-(use-package recentf
-  :config
-  (recentf-mode +1)
-  :general
-  (:prefix "C-c f"
-           "r" 'recentf-open-files))
-
-(use-package emacs
-  :general
-  (:prefix "C-c f"
-           "" '(nil :wk "file"))
-  ("M-o" 'other-window))
 
 ;;;; Whitespace
 
