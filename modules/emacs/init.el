@@ -306,6 +306,10 @@
 ;; installed Emacs of his own volition.  I guess now I have to learn a
 ;; little bit of Python.
 
+(use-package python-mode
+  :general
+  ("C-c a r p" 'run-python))
+
 ;;;;;; Language servers
 
 ;;;;;;; Palantir's pyls.
