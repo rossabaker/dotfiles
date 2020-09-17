@@ -51,6 +51,11 @@
 (use-package general)
 
 (use-package which-key
+  :general
+  (:prefix "C-c a"
+           "" '(nil :wk "apps"))
+  (:prefix "C-c a r"
+           "" '(nil :wk "repls"))
   :config
   (which-key-mode +1))
 
@@ -268,6 +273,20 @@
   ([remap describe-key] #'helpful-key))
 
 ;;;; Languages
+
+;;;;; Nix
+
+;; Nix: the cause of, and solution to, all of life's problems.
+
+(use-package nix-mode
+  :config
+  (defun ross/nix-repl-fix-echoes ()
+    "Fix redundant echo of input in the Nix REPL."
+    (setq comint-process-echoes t))
+  :general
+  ("C-c a r n" 'nix-repl)
+  :hook
+  (nix-repl-mode . ross/nix-repl-fix-echoes))
 
 ;;;;; Python
 
