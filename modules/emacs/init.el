@@ -116,6 +116,7 @@
            "s" 'magit-status))
 
 (use-package git-gutter
+  :demand t
   :config
   (validate-setq git-gutter:update-interval 1)
   (global-git-gutter-mode +1)
