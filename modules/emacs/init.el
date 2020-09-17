@@ -292,6 +292,15 @@
 
 ;;;; Languages
 
+;;;;; Bash
+
+(defun ross/run-bash ()
+  "Run `bash' in an inferior process."
+  (interactive)
+  (let ((explicit-shell-file-name "bash"))
+    (shell (get-buffer-create "*bash*"))))
+(add-to-list 'ross/interpreters '("Bash" . ross/run-bash))
+
 ;;;;; Nix
 
 ;; Nix: the cause of, and solution to, all of life's problems.
