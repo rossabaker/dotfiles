@@ -60,6 +60,11 @@
   :config
   (ivy-mode +1))
 
+(use-package ivy-xref
+  :config
+  (validate-setq xref-show-definitions-function #'ivy-xref-show-defs
+                 xref-show-xrefs-function #'ivy-xref-show-xrefs))
+
 (use-package counsel
   :config
   (counsel-mode +1)
