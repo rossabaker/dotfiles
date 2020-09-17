@@ -179,6 +179,11 @@
   :config
   (global-flycheck-mode +1))
 
+(use-package direnv
+  :config
+  (validate-setq direnv-always-show-summary nil)
+  (direnv-mode +1))
+
 (use-package display-line-numbers-mode
   :hook
   ((prog-mode conf-mode) . display-line-numbers-mode))
