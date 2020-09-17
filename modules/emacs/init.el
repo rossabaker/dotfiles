@@ -117,7 +117,7 @@
 
 (use-package git-gutter
   :config
-  (setq git-gutter:update-interval 1)
+  (validate-setq git-gutter:update-interval 1)
   (global-git-gutter-mode +1)
   :general
   (:prefix "C-c g h"
