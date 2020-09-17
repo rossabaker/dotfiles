@@ -281,11 +281,14 @@
 
 (defvar ross/interpreters '()
   "An alist of known interpreters for various languages.")
+(defvar ross/run-interpreter-history '()
+  "History for ross/run-interpreter.")
 (defun ross/run-interpreter ()
   "Run an interpreter."
   (interactive)
   (let ((sel (completing-read "Run interpreter: "
-                              ross/interpreters nil t)))
+                              ross/interpreters nil t
+                              nil 'ross/run-interpreter-history)))
     (funcall (cdr (assoc sel ross/interpreters)))))
 (general-define-key
  "C-c a i" '(ross/run-interpreter :wk "run-interpreter"))
