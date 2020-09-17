@@ -306,11 +306,12 @@
 ;; Nix: the cause of, and solution to, all of life's problems.
 
 (use-package nix-mode
+  :init
+  (add-to-list 'ross/interpreters '("Nix" . nix-repl))
   :config
   (defun ross/nix-repl-fix-echoes ()
     "Fix redundant echo of input in the Nix REPL."
     (setq comint-process-echoes t))
-  (add-to-list 'ross/interpreters '("Nix" . nix-repl))
   :hook
   (nix-repl-mode . ross/nix-repl-fix-echoes))
 
@@ -333,7 +334,7 @@
 ;; little bit of Python.
 
 (use-package python
-  :config
+  :init
   (add-to-list 'ross/interpreters '("Python" . run-python)))
 
 ;;;;;; Language servers
