@@ -288,6 +288,18 @@
   :hook
   (nix-repl-mode . ross/nix-repl-fix-echoes))
 
+(use-package nixpkgs-fmt
+  :config
+  (defun ross/nixpkgs-fmt-dwim ()
+    (interactive)
+    (call-interactively
+     (if (region-active-p)
+         'nixpkgs-fmt-region
+       'nixpkgs-fmt-buffer)))
+  :general
+  (:keymap 'nix-mode-map
+           "C-c c f" '(ross/nixpkgs-fmt-dwim :wk nixpkgs-fmt)))
+
 ;;;;; Python
 
 ;; My son was showing me Python turtle.  I tried it in Emacs.  He
