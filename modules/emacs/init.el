@@ -129,6 +129,19 @@
            "s" 'git-gutter:stage-hunk
            "r" 'git-gutter:revert-hunk))
 
+(use-package git-gutter-fringe
+  :demand t
+  :after git-gutter
+  :config
+  (validate-setq git-gutter-fr:side 'left-fringe)
+  (define-fringe-bitmap 'git-gutter-fr:added [240] nil nil '(center repeated))
+  (define-fringe-bitmap 'git-gutter-fr:modified [240] nil nil '(center repeated))
+  (define-fringe-bitmap 'git-gutter-fr:deleted [128 192 224 240 248 252 254 255] nil nil 'bottom)
+  (setq-local git-gutter:init-function      #'git-gutter-fr:init
+              git-gutter:view-diff-function #'git-gutter-fr:view-diff-infos
+              git-gutter:clear-function     #'git-gutter-fr:clear
+              git-gutter:window-width -1))
+
 ;;;; Projects
 
 (use-package projectile
@@ -179,6 +192,16 @@
 
 (use-package flycheck
   :config
+  (validate-setq flycheck-indication-mode 'right-fringe)
+  (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
+    ;; Reverses the default double arrow for move to right fringe
+    [#b00011011
+     #b00110110
+     #b01101100
+     #b11011000
+     #b01101100
+     #b00110110
+     #b00011011])
   (global-flycheck-mode +1))
 
 (use-package direnv
@@ -226,16 +249,33 @@
 (use-package modus-operandi-theme
   :demand
   :config
+  (defmacro ross/modus-themes-format-sexp (sexp &rest objects)
+    `(eval (read (format ,(format "%S" sexp) ,@objects))))
+  (dolist (theme '("operandi" "vivendi"))
+    (ross/modus-themes-format-sexp
+     (defun ross/modus-%1$s-load-theme ()
+       (let ((colors modus-%1$s-theme-default-colors-alist))
+         (load-theme 'modus-%1$s t)
+         (set-face-attribute 'git-gutter-fr:added nil
+                             :background (cdr (assoc "bg-main" colors))
+                             :foreground (cdr (assoc "green-fringe-bg" colors)))
+         (set-face-attribute 'git-gutter-fr:modified nil
+                             :background (cdr (assoc "bg-main" colors))
+                             :foreground (cdr (assoc "yellow-fringe-bg" colors)))
+         (set-face-attribute 'git-gutter-fr:deleted nil
+                             :background (cdr (assoc "bg-main" colors))
+                             :foreground (cdr (assoc "red-fringe-bg" colors)))))
+     theme))
   (defun ross/modus-themes-toggle ()
     "Toggle between `modus-operandi' and `modus-vivendi' themes."
     (interactive)
     (if (eq (car custom-enabled-themes) 'modus-operandi)
         (progn
           (disable-theme 'modus-operandi)
-          (load-theme 'modus-vivendi t))
+          (ross/modus-vivendi-load-theme))
       (disable-theme 'modus-vivendi)
-      (load-theme 'modus-operandi t)))
-  (load-theme 'modus-operandi t)
+      (ross/modus-operandi-load-theme)))
+  (ross/modus-operandi-load-theme)
   :general
   (:prefix "C-c T"
            "" '(nil :wk "theme")
