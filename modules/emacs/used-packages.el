@@ -17,6 +17,7 @@
   '(ansi-color
     display-line-numbers-mode
     emacs
+    hl-line
     imenu
     recentf)
   "Packages we use that are built into Emacs.")

@@ -283,6 +283,10 @@
 
 (use-package modus-vivendi-theme)
 
+(use-package hl-line
+  :config
+  (global-hl-line-mode +1))
+
 (use-package doom-modeline
   :config
   (progn ;; Borrowed from doom-themes
