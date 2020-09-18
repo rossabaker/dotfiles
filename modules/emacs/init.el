@@ -56,8 +56,30 @@
            "" '(nil :wk "apps"))
   (:prefix "C-c a r"
            "" '(nil :wk "repls"))
+  (:prefix "C-c f"
+           "" '(nil :wk "file"))
+  (:prefix "C-c x"
+           "" '(nil :wk "text"))
   :config
   (which-key-mode +1))
+
+;;;; Utilities
+
+;; These are the kind of utilities we find in various starter kits and
+;; Emacs distributions.  We don't need that weight, but some of them
+;; are super useful!  Crux originated in Emacs Prelude.
+(use-package crux
+  ;;
+  :general
+  ("C-c f u" 'crux-view-url
+   "C-x 4 t" 'crux-transpose-windows
+   "C-c f k" 'crux-delete-file-and-buffer
+   "C-c f c" 'crux-copy-file-preserve-attributes
+   "C-c x d" 'crux-duplicate-current-line-or-region
+   "C-c x D" 'crux-duplicate-and-comment-current-line-or-region
+   "C-c f m" 'crux-rename-file-and-buffer
+   "C-c f w" 'crux-kill-buffer-truename
+   "M-o" 'crux-other-window-or-switch-buffer))
 
 ;;;; Completion
 
@@ -156,12 +178,6 @@
             "s" 'projectile-ripgrep))
 
 ;;;; Navigation
-
-(use-package emacs
-  :general
-  (:prefix "C-c f"
-           "" '(nil :wk "file"))
-  ("M-o" 'other-window))
 
 (use-package recentf
   :config
