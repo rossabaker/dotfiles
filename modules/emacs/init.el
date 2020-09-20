@@ -366,6 +366,53 @@
     (shell (get-buffer-create "*bash*"))))
 (add-to-list 'ross/interpreters '("Bash" . ross/run-bash))
 
+;;;;; Haskell
+
+(use-package haskell-mode
+  :after nix-sandbox
+  :config
+  (defun ross/haskell-nix-wrapper (args)
+    (apply #'ross/default-nix-wrapper (list (append args (list "--ghc-option" "-Wwarn")))))
+  (validate-setq haskell-process-wrapper-function #'ross/haskell-nix-wrapper
+                 haskell-process-log t
+                 haskell-process-show-debug-tips nil
+                 haskell-process-suggest-remove-import-lines t
+                 haskell-process-suggest-hoogle-imports t)
+  (defun ross/flycheck-haskell-hook ()
+    (setq flycheck-command-wrapper-function #'ross/default-nix-wrapper
+          flycheck-executable-find
+          (lambda (cmd)
+            (nix-executable-find (nix-current-sandbox) cmd))))
+  ;; This one grinds everything to a halt.
+  (setq-default flycheck-disabled-checkers '(haskell-stack-ghc))
+  :hook
+  (haskell-mode . interactive-haskell-mode)
+  (haskell-mode . ross/flycheck-haskell-hook)
+  :general
+  (:keymaps 'haskell-mode-map
+            :prefix "C-c m"
+            "" '(nil :wk "haskell")
+            "t" 'haskell-session-change-target)
+  (:keymaps 'haskell-mode-map
+            :prefix "C-c m g"
+            "" '(nil :wk "go")
+            "i" 'haskell-navigate-imports
+            "I" 'haskell-navigate-imports-return)
+  (:keymaps 'haskell-mode-map
+            :prefix "C-c m r"
+            "" '(nil :wk "interactive")
+            "r" 'haskell-interactive-bring))
+
+(use-package ormolu
+  :config
+  (defun ross/ormolu-format-dwim ()
+    (interactive)
+    "Format region or buffer with ormolu."
+    (crux-with-region-or-buffer ormolu-format-buffer))
+  :general
+  (:keymaps 'haskell-mode-map
+            "C-c m f" '(ross/ormolu-format-dwim :wk "ormolu-format-dwim")))
+
 ;;;;; Nix
 
 ;; Nix: the cause of, and solution to, all of life's problems.
@@ -391,6 +438,14 @@
   :general
   (:keymap 'nix-mode-map
            "C-c c f" '(ross/nixpkgs-fmt-dwim :wk nixpkgs-fmt)))
+
+(use-package nix-sandbox
+  :config
+  (defun ross/default-nix-wrapper (args)
+    (append
+     (append (list "nix-shell" "--command")
+             (list (mapconcat 'identity args " ")))
+     (list (nix-current-sandbox)))))
 
 ;;;;; Python
 
