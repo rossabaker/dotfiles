@@ -521,6 +521,28 @@
 ;; Still the default in VSCode.  Installation on NixOS seems fraught, so
 ;; putting this one on hold.
 
+;;;;; Scala
+
+(use-package scala-mode
+  :general
+  (:keymaps 'scala-mode-map
+            :prefix "C-m"
+            "" '(nil :wk "scala"))
+  :hook
+  (scala-mode . lsp))
+
+(use-package sbt-mode
+  :commands sbt-start sbt-command
+  :general
+  (:keymaps 'scala-mode-map
+            :prefix "C-m b"
+            "" '(nil :wk "sbt")
+            "b" 'sbt-start))
+
+(use-package lsp-metals
+  :config
+  (validate-setq lsp-metals-treeview-show-when-views-received nil))
+
 ;;;; Fin.
 
 (provide 'init)
