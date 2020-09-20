@@ -394,6 +394,7 @@
   (:keymaps 'haskell-mode-map
             :prefix "C-c m"
             "" '(nil :wk "haskell")
+            "h" 'hoogle
             "t" 'haskell-session-change-target)
   (:keymaps 'haskell-mode-map
             :prefix "C-c m g"
