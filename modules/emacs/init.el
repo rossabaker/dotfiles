@@ -388,6 +388,8 @@
   :hook
   (haskell-mode . interactive-haskell-mode)
   (haskell-mode . ross/flycheck-haskell-hook)
+  (haskell-mode . subword-mode)
+  (haskell-cabal-mode . subword-mode)
   :general
   (:keymaps 'haskell-mode-map
             :prefix "C-c m"
@@ -425,6 +427,7 @@
     "Fix redundant echo of input in the Nix REPL."
     (setq comint-process-echoes t))
   :hook
+  (nix-mode . subword-mode)
   (nix-repl-mode . ross/nix-repl-fix-echoes))
 
 (use-package nixpkgs-fmt
@@ -529,7 +532,8 @@
             :prefix "C-m"
             "" '(nil :wk "scala"))
   :hook
-  (scala-mode . lsp))
+  (scala-mode . lsp)
+  (scala-mode . subword-mode))
 
 (use-package sbt-mode
   :commands sbt-start sbt-command
