@@ -57,6 +57,7 @@
 
 (use-package which-key
   :general
+  ("C-x C-z" nil) ;; C-z is sufficient, and even that only helps in tty
   (:prefix "C-c a"
            "" '(nil :wk "apps"))
   (:prefix "C-c a r"
