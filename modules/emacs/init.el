@@ -424,14 +424,12 @@
             "r" 'haskell-interactive-bring))
 
 (use-package ormolu
+  :after crux
   :config
-  (defun ross/ormolu-format-dwim ()
-    (interactive)
-    "Format region or buffer with ormolu."
-    (crux-with-region-or-buffer ormolu-format-buffer))
+  (crux-with-region-or-buffer ormolu-format-region)
   :general
   (:keymaps 'haskell-mode-map
-            "C-c m f" '(ross/ormolu-format-dwim :wk "ormolu-format-dwim")))
+            "C-c m f" 'ormolu-format-region))
 
 ;;;;; Nix
 
