@@ -84,7 +84,10 @@
    "C-c x D" 'crux-duplicate-and-comment-current-line-or-region
    "C-c f m" 'crux-rename-file-and-buffer
    "C-c f w" 'crux-kill-buffer-truename
-   "M-o" 'crux-other-window-or-switch-buffer))
+   "M-o" 'crux-other-window-or-switch-buffer
+   [remap move-beginning-of-line] 'crux-move-beginning-of-line
+   "M-m" nil ;; obsolete with remapping of move-beginning-of-line
+   ))
 
 ;;;; Completion
 
