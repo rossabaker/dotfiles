@@ -573,9 +573,7 @@ Switch to most recent buffer otherwise."
             "" '(nil :wk "sbt")
             "b" 'sbt-start))
 
-(use-package lsp-metals
-  :config
-  (validate-setq lsp-metals-treeview-show-when-views-received nil))
+(use-package lsp-metals)
 
 ;;;;; YAML
 
