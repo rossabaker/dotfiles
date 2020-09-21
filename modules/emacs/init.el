@@ -206,6 +206,21 @@
   :general
   ("M-i" 'imenu))
 
+(use-package ace-window
+  :config
+  (defun ross/ace-window-or-switch-buffer ()
+    ;; Like crux-other-window-or-switch-buffer, but with ace
+    "Call `other-window' if more than one window is visible.
+Switch to most recent buffer otherwise."
+    (interactive)
+    (if (one-window-p)
+        (switch-to-buffer nil)
+      (call-interactively 'ace-window)))
+  (validate-setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  :general
+  ([remap other-window] 'ace-window
+   "M-o" '(ross/ace-window-or-switch-buffer :wk ace-window-or-switch-buffer)))
+
 ;;;; IDE
 
 (use-package lsp-mode
