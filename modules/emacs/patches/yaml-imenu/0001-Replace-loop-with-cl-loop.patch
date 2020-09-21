@@ -1,0 +1,25 @@
+From 616bd0d18eddfb16c30ff0ed0bf21cab2f1647c6 Mon Sep 17 00:00:00 2001
+From: "Ross A. Baker" <ross@rossabaker.com>
+Date: Mon, 21 Sep 2020 15:26:34 -0400
+Subject: [PATCH] Replace loop with cl-loop
+
+---
+ yaml-imenu.el | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/yaml-imenu.el b/yaml-imenu.el
+index 372636f..6676792 100644
+--- a/yaml-imenu.el
++++ b/yaml-imenu.el
+@@ -100,7 +100,7 @@
+     (widen)
+     (goto-char (point-min))
+     (let ((currlinum 1))
+-      (loop for (key . value) in alist
++      (cl-loop for (key . value) in alist
+             collect (cons (symbol-name key)
+                           (if (numberp value)
+                               (let ((diff (- value currlinum)))
+-- 
+2.28.0
+

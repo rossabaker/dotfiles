@@ -33,6 +33,7 @@ in
     pkgs.pandoc
     (pkgs.python3.withPackages(ps: [ps.tkinter]))
     pkgs.ripgrep
+    pkgs.ruby # TODO for yamllint-mode. Feels heavy.
   ];
 
   programs.emacs = {
@@ -82,6 +83,9 @@ in
               cp *.el $out/share/emacs/site-lisp/
             '';
           };
+          yaml-imenu = withPatches super.yaml-imenu [
+            ./patches/yaml-imenu/0001-Replace-loop-with-cl-loop.patch
+          ];
         };
   };
 }

@@ -577,6 +577,14 @@ Switch to most recent buffer otherwise."
   :config
   (validate-setq lsp-metals-treeview-show-when-views-received nil))
 
+;;;;; YAML
+
+(use-package yaml-mode)
+
+(use-package yaml-imenu
+  :config
+  (yaml-imenu-enable))
+
 ;;;; Fin.
 
 (provide 'init)
