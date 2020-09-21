@@ -239,8 +239,15 @@ Switch to most recent buffer otherwise."
   :commands lsp-treemacs-errors-list)
 
 (use-package flycheck
+  :after nix-sandbox
   :config
-  (validate-setq flycheck-indication-mode 'right-fringe)
+  (validate-setq flycheck-command-wrapper-function
+                 (lambda (argv)
+                   (apply 'nix-shell-command (nix-current-sandbox)
+                          (list (mapconcat 'shell-quote-argument argv " "))))
+                 flycheck-executable-find
+                 (lambda (cmd) (nix-executable-find (nix-current-sandbox) cmd))
+                 flycheck-indication-mode 'right-fringe)
   (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
     ;; Reverses the default double arrow for move to right fringe
     [#b00011011
@@ -401,20 +408,15 @@ Switch to most recent buffer otherwise."
 ;;;;; Haskell
 
 (use-package haskell-mode
-  :after nix-sandbox
   :config
-  (defun ross/haskell-nix-wrapper (args)
-    (apply #'ross/default-nix-wrapper (list (append args (list "--ghc-option" "-Wwarn")))))
-  (validate-setq haskell-process-wrapper-function #'ross/haskell-nix-wrapper
+  (validate-setq haskell-process-wrapper-function
+                 (lambda (argv)
+                   (apply 'nix-shell-command (nix-current-sandbox)
+                          (list (mapconcat 'shell-quote-argument argv " "))))
                  haskell-process-log t
                  haskell-process-show-debug-tips nil
                  haskell-process-suggest-remove-import-lines t
                  haskell-process-suggest-hoogle-imports t)
-  (defun ross/flycheck-haskell-hook ()
-    (setq flycheck-command-wrapper-function #'ross/default-nix-wrapper
-          flycheck-executable-find
-          (lambda (cmd)
-            (nix-executable-find (nix-current-sandbox) cmd))))
   ;; This one grinds everything to a halt.
   (setq-default flycheck-disabled-checkers '(haskell-stack-ghc))
   :hook
@@ -475,11 +477,8 @@ Switch to most recent buffer otherwise."
 
 (use-package nix-sandbox
   :config
-  (defun ross/default-nix-wrapper (args)
-    (append
-     (append (list "nix-shell" "--command")
-             (list (mapconcat 'identity args " ")))
-     (list (nix-current-sandbox)))))
+  (defun ross/default-nix-wrapper (cmd)
+    (apply 'nix-shell-command (nix-current-sandbox) command)))
 
 ;;;;; Python
 
