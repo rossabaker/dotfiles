@@ -64,6 +64,8 @@
            "" '(nil :wk "repls"))
   (:prefix "C-c f"
            "" '(nil :wk "file"))
+  (:prefix "C-c j"
+           "" '(nil :wk "jump"))
   (:prefix "C-c x"
            "" '(nil :wk "text"))
   :config
@@ -105,7 +107,8 @@
   :config
   (counsel-mode +1)
   :general
-  ([remap recentf-open-files] 'counsel-recentf))
+  ([remap recentf-open-files] 'counsel-recentf
+   "C-c j o" 'counsel-outline))
 
 (use-package counsel-projectile
   :config
