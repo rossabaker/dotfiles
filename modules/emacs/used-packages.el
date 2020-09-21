@@ -15,6 +15,7 @@
 
 (defvar ross/builtin-nix-emacs-packages
   '(ansi-color
+    auth-source
     display-line-numbers-mode
     emacs
     hl-line

@@ -51,6 +51,12 @@
   ;; These are litter, too.
   (validate-setq create-lockfiles nil))
 
+;;;; Security
+
+(use-package auth-source
+  :config
+  (validate-setq auth-sources '("~/.authinfo.gpg")))
+
 ;;;; Keybindings
 
 (use-package general)
@@ -148,6 +154,11 @@
   :general
   (:prefix "C-c g"
            "s" 'magit-status))
+
+(use-package forge
+  :after magit
+  :general
+  ("C-c g f" 'forge-dispatch))
 
 (use-package git-gutter
   :demand t

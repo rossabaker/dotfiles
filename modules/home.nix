@@ -98,6 +98,12 @@ rec {
     git = {
       enable = true;
       extraConfig = {
+        github = {
+          "user" = "rossabaker";
+        };
+        gitlab = {
+          "user" = "rossabaker";
+        };
         url = {
           "git@github.com" = { insteadOf = "gh"; };
         };
