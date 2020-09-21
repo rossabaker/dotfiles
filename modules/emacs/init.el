@@ -32,6 +32,11 @@
 ;; packages.
 (use-package validate)
 
+;;;; Personal
+
+(validate-setq user-full-name "Ross A. Baker"
+               user-mail-address "ross@rossabaker.com")
+
 ;;;; Basic human decency
 
 ;; I am a Chicago Bears fan.  They're still my team in the 2020s, even
