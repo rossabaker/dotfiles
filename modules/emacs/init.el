@@ -197,6 +197,11 @@
   :general
   ("C-c f r" 'recentf-open-files))
 
+(use-package avy
+  :general
+  ("C-c j j" 'avy-goto-char-timer)
+  ("C-c j l" 'avy-goto-line))
+
 (use-package imenu
   :general
   ("M-i" 'imenu))
