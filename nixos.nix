@@ -39,6 +39,8 @@ in
 
   services.dbus.packages = [ pkgs.gnome3.dconf ];
 
+  services.fwupd.enable = true;
+
   services.logind.lidSwitchExternalPower = "ignore";
 
   services.tlp.enable = true;
