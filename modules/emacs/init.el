@@ -432,7 +432,6 @@ Switch to most recent buffer otherwise."
   (setq-default flycheck-disabled-checkers '(haskell-stack-ghc))
   :hook
   (haskell-mode . interactive-haskell-mode)
-  (haskell-mode . ross/flycheck-haskell-hook)
   (haskell-mode . subword-mode)
   (haskell-cabal-mode . subword-mode)
   :general
