@@ -628,6 +628,14 @@ Switch to most recent buffer otherwise."
 ;; Still the default in VSCode.  Installation on NixOS seems fraught, so
 ;; putting this one on hold.
 
+;;;;; Rust
+
+(use-package rustic
+  :hook
+  (rust-mode . subword-mode)
+  :general
+  ("C-c m f" 'rustic-format-buffer))
+
 ;;;;; Scala
 
 (use-package scala-mode
