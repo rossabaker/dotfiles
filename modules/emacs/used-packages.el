@@ -18,6 +18,7 @@
     auth-source
     display-line-numbers-mode
     emacs
+    flyspell
     hl-line
     imenu
     recentf)

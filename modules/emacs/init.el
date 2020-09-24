@@ -316,6 +316,22 @@ Switch to most recent buffer otherwise."
   :hook
   ((prog-mode text-mode) . ws-butler-mode))
 
+;;;;; Spelling
+
+(use-package flyspell
+  :hook
+  (prog-mode . flyspell-prog-mode)
+  (text-mode . flyspell-mode))
+
+(use-package flyspell-correct
+  :after flyspell
+  :general
+  (:keymaps 'flyspell-mode-map
+            "C-;" 'flyspell-correct-wrapper))
+
+(use-package flyspell-correct-ivy
+  :after flyspell-correct)
+
 ;;;; Appearance
 
 (use-package ansi-color
