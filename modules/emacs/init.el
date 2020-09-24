@@ -68,6 +68,8 @@
            "" '(nil :wk "apps"))
   (:prefix "C-c a r"
            "" '(nil :wk "repls"))
+  (:prefix "C-c d"
+           "" '(nil :wk "directory"))
   (:prefix "C-c f"
            "" '(nil :wk "file"))
   (:prefix "C-c j"
@@ -278,9 +280,16 @@ Switch to most recent buffer otherwise."
   (global-flycheck-mode +1))
 
 (use-package direnv
+  :demand t
   :config
   (validate-setq direnv-always-show-summary nil)
-  (direnv-mode +1))
+  (direnv-mode +1)
+  :general
+  (:prefix "C-c d e"
+           "" '(nil :wk "direnv")
+           "a" 'direnv-allow
+           "e" 'direnv-update-environment
+           "d" 'direnv-update-directory-environment))
 
 (use-package display-line-numbers-mode
   :hook
