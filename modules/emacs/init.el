@@ -620,6 +620,12 @@ Switch to most recent buffer otherwise."
   :config
   (yaml-imenu-enable))
 
+;;;; Other tools
+
+;;;;; Docker
+
+(use-package dockerfile-mode)
+
 ;;;; Fin.
 
 (provide 'init)
