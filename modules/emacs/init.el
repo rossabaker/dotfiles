@@ -121,7 +121,8 @@
   (counsel-mode +1)
   :general
   ([remap recentf-open-files] 'counsel-recentf
-   "C-c j o" 'counsel-outline))
+   "C-c j o" 'counsel-outline
+   "C-c f l" 'counsel-locate))
 
 (use-package counsel-projectile
   :config
