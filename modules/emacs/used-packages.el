@@ -21,7 +21,8 @@
     flyspell
     hl-line
     imenu
-    recentf)
+    recentf
+    savehist)
   "Packages we use that are built into Emacs.")
 
 (defun ross/used-packages (file)

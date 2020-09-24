@@ -209,12 +209,6 @@
 
 ;;;; Navigation
 
-(use-package recentf
-  :config
-  (recentf-mode +1)
-  :general
-  ("C-c f r" 'recentf-open-files))
-
 (use-package avy
   :general
   ("C-c j j" 'avy-goto-char-timer)
@@ -331,6 +325,21 @@ Switch to most recent buffer otherwise."
 
 (use-package flyspell-correct-ivy
   :after flyspell-correct)
+
+;;;; History
+
+(use-package recentf
+  :config
+  (recentf-mode +1)
+  :general
+  ("C-c f r" 'recentf-open-files))
+
+(use-package savehist
+  :config
+  (validate-setq savehist-save-minibuffer-history t
+                 savehist-additional-variables '(kill-ring
+                                                 mark-ring global-mark-ring
+                                                 search-ring regexp-search-ring)))
 
 ;;;; Appearance
 
