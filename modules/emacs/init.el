@@ -221,6 +221,8 @@
   ("C-c j l" 'avy-goto-line))
 
 (use-package imenu
+  :config
+  (validate-setq imenu-auto-rescan t)
   :general
   ("M-i" 'imenu))
 
