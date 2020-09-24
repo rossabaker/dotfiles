@@ -132,6 +132,7 @@
 
 (use-package company
   :config
+  (setq company-show-numbers t)
   (global-company-mode +1))
 
 (use-package company-box
