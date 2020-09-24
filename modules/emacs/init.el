@@ -423,6 +423,13 @@ Switch to most recent buffer otherwise."
   (column-number-mode +1)
   (size-indication-mode +1))
 
+(use-package rainbow-delimiters
+  :config
+  ;; Show them off
+  (ignore '((((((((())))))))))
+  :hook
+  (prog-mode . rainbow-delimiters-mode))
+
 ;;;; Docs
 
 (use-package helpful
