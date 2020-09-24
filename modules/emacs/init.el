@@ -150,7 +150,7 @@
 
 (use-package magit
   :config
-  (validate-setq magit-clone-default-directory "~/src")
+  (validate-setq magit-clone-default-directory "~/src/")
   :general
   (:prefix "C-c g"
            "s" 'magit-status))
