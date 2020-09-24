@@ -400,6 +400,10 @@ Switch to most recent buffer otherwise."
   :config
   (global-hl-line-mode +1))
 
+(use-package hl-todo
+  :config
+  (global-hl-todo-mode +1))
+
 (use-package doom-modeline
   :config
   (progn ;; Borrowed from doom-themes
