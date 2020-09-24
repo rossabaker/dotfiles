@@ -160,6 +160,7 @@
   (validate-setq magit-clone-default-directory "~/src/")
   :general
   (:prefix "C-c g"
+           "g" 'magit-dispatch
            "s" 'magit-status))
 
 (use-package forge
