@@ -598,6 +598,20 @@ Switch to most recent buffer otherwise."
 
 (use-package lsp-metals)
 
+;;;; Formats
+
+;;;;; JSON
+
+(use-package json-mode)
+
+(use-package jq-format
+  :after crux
+  :config
+  (crux-with-region-or-buffer jq-format-json-region)
+  :general
+  (:keymaps 'json-mode-map
+            "C-c m f" 'jq-format-json-region))
+
 ;;;;; YAML
 
 (use-package yaml-mode)
