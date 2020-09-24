@@ -450,6 +450,12 @@ Switch to most recent buffer otherwise."
             "" '(nil :wk "interactive")
             "r" 'haskell-interactive-bring))
 
+(use-package lsp-haskell
+ :config
+ (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
+ :hook
+ (haskell-mode . lsp))
+
 (use-package ormolu
   :after crux
   :config
