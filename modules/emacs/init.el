@@ -77,6 +77,13 @@
   :config
   (which-key-mode +1))
 
+(use-package quick-yes
+  ;; The common approach is to reset `yes-or-no-p' to `y-or-n-p`, but
+  ;; the distinction exists for a reason: `yes-or-no-p` is for weightier
+  ;; questions.  This package preserves the distinction so we have to
+  ;; stop and think, but allows a terser M-y and M-n to answer.
+  )
+
 ;;;; Utilities
 
 ;; These are the kind of utilities we find in various starter kits and
