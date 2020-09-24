@@ -159,7 +159,8 @@
 
 (use-package magit
   :config
-  (validate-setq magit-clone-default-directory "~/src/")
+  (validate-setq magit-clone-default-directory "~/src/"
+                 magit-save-repository-buffers 'dontask)
   :general
   (:prefix "C-c g"
            "g" 'magit-dispatch
