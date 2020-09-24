@@ -305,7 +305,12 @@ Switch to most recent buffer otherwise."
            "" '(nil :wk "package")
            "t" 'try))
 
-;;;; Whitespace
+;;;; Editing
+
+(use-package emacs
+  :after crux
+  :config
+  (crux-with-region-or-line kill-region))
 
 (use-package ws-butler
   :hook
