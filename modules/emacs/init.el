@@ -310,6 +310,11 @@ Switch to most recent buffer otherwise."
   :hook
   ((prog-mode text-mode) . ws-butler-mode))
 
+(use-package editorconfig
+  ;; This is a polite default.
+  :config
+  (editorconfig-mode +1))
+
 ;;;;; Spelling
 
 (use-package flyspell
