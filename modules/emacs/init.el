@@ -105,7 +105,8 @@
    "M-o" 'crux-other-window-or-switch-buffer
    [remap move-beginning-of-line] 'crux-move-beginning-of-line
    "M-m" nil ;; obsolete with remapping of move-beginning-of-line
-   ))
+   [(shift return)] 'crux-smart-open-line
+   [(control shift return)] 'crux-smart-open-line-above))
 
 ;;;; Completion
 
