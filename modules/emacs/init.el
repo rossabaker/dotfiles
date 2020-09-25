@@ -635,7 +635,11 @@ Switch to most recent buffer otherwise."
   (:keymaps 'rustic-mode-map
             :prefix "C-c m"
             "" '(nil :wk "rust")
-            "f" 'rustic-format-buffer))
+            "f" 'rustic-format-buffer)
+  (:keymaps 'rustic-compilation-mode-map
+            :prefix "C-c m"
+            "" '(nil :wk "rustic-compilation")
+            "RET" 'rustic-compile-send-input))
 
 ;;;;; Scala
 
