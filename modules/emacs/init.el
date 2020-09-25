@@ -632,7 +632,10 @@ Switch to most recent buffer otherwise."
   :hook
   (rust-mode . subword-mode)
   :general
-  ("C-c m f" 'rustic-format-buffer))
+  (:keymaps 'rustic-mode-map
+            :prefix "C-c m"
+            "" '(nil :wk "rust")
+            "f" 'rustic-format-buffer))
 
 ;;;;; Scala
 
