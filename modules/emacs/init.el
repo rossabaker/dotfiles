@@ -244,8 +244,11 @@ Switch to most recent buffer otherwise."
 ;;;; IDE
 
 (use-package lsp-mode
+  :after direnv
   :preface
   (setq lsp-keymap-prefix "C-c l")
+  ;; Experimental workaround to https://github.com/wbolster/emacs-direnv/issues/17,
+  (advice-add 'lsp :before 'direnv-update-environment)
   :hook
   ((lsp-mode . lsp-enable-which-key-integration)))
 
@@ -259,15 +262,8 @@ Switch to most recent buffer otherwise."
   :commands lsp-treemacs-errors-list)
 
 (use-package flycheck
-  :after nix-sandbox
   :config
-  (validate-setq flycheck-command-wrapper-function
-                 (lambda (argv)
-                   (apply 'nix-shell-command (nix-current-sandbox)
-                          (list (mapconcat 'shell-quote-argument argv " "))))
-                 flycheck-executable-find
-                 (lambda (cmd) (nix-executable-find (nix-current-sandbox) cmd))
-                 flycheck-indication-mode 'right-fringe)
+  (validate-setq flycheck-indication-mode 'right-fringe)
   (define-fringe-bitmap 'flycheck-fringe-bitmap-double-arrow
     ;; Reverses the default double arrow for move to right fringe
     [#b00011011
@@ -488,11 +484,7 @@ Switch to most recent buffer otherwise."
 
 (use-package haskell-mode
   :config
-  (validate-setq haskell-process-wrapper-function
-                 (lambda (argv)
-                   (apply 'nix-shell-command (nix-current-sandbox)
-                          (list (mapconcat 'shell-quote-argument argv " "))))
-                 haskell-process-log t
+  (validate-setq haskell-process-log t
                  haskell-process-show-debug-tips nil
                  haskell-process-suggest-remove-import-lines t
                  haskell-process-suggest-hoogle-imports t)
@@ -558,11 +550,6 @@ Switch to most recent buffer otherwise."
   :general
   (:keymap 'nix-mode-map
            "C-c c f" '(ross/nixpkgs-fmt-dwim :wk nixpkgs-fmt)))
-
-(use-package nix-sandbox
-  :config
-  (defun ross/default-nix-wrapper (cmd)
-    (apply 'nix-shell-command (nix-current-sandbox) command)))
 
 ;;;;; Python
 
