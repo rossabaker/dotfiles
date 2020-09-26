@@ -444,6 +444,7 @@ Switch to most recent buffer otherwise."
 ;;;; Docs
 
 (use-package helpful
+  :demand t
   :config
   (validate-setq counsel-describe-function-function #'helpful-callable
                  counsel-describe-symbol-function #'helpful-symbol
