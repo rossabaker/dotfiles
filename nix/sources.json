@@ -71,6 +71,18 @@
         "url": "https://github.com/NixOS/nixpkgs-channels/archive/2a35f664394b379e0c0785cc769ff6ccc791be39.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "nixpkgs-ashkitten": {
+        "branch": "init-glimpse",
+        "description": "Nix Packages collection",
+        "homepage": null,
+        "owner": "ashkitten",
+        "repo": "nixpkgs",
+        "rev": "fad2b09e33336d3383b298bada4f61f42f4a5c3b",
+        "sha256": "1bx7rm2nfq7f0bmbpzw25ly0z74qgxd3i4k7gnfrkcajd0x2ahhz",
+        "type": "tarball",
+        "url": "https://github.com/ashkitten/nixpkgs/archive/fad2b09e33336d3383b298bada4f61f42f4a5c3b.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "title-capitalization.el": {
         "branch": "master",
         "description": "Proper English title capitalization of a marked region",

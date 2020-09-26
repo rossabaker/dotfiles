@@ -6,6 +6,7 @@
 let
   sources = import ../nix/sources.nix;
   niv = import sources.niv {};
+  pkgs-ashkitten = import sources.nixpkgs-ashkitten {};
 in
 rec {
   imports = [
@@ -43,6 +44,7 @@ rec {
       pkgs.dhall
       pkgs.gitAndTools.gh
       pkgs.gitter
+      pkgs-ashkitten.glimpse
       pkgs.gnome3.dconf # gtk doesn't configure without it
       pkgs.gnupg
       pkgs.hasklig
