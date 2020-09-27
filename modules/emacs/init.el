@@ -314,7 +314,9 @@ Switch to most recent buffer otherwise."
 (use-package emacs
   :after crux
   :config
-  (crux-with-region-or-line kill-region))
+  (crux-with-region-or-line kill-region)
+  :general
+  ("C-x k" 'kill-this-buffer))
 
 (use-package ws-butler
   :hook
