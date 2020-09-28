@@ -122,8 +122,8 @@
     initExtra = ''
       ${pkgs.feh}/bin/feh --bg-fill -s ${../wallpapers/mandelbrot.png}
 
-      # I have ThinkPads. Remap PrtSc to menu.
-      ${pkgs.xorg.xmodmap}/bin/xmodmap -e "keycode 107 = Super_R"
+      # I have ThinkPads. Remap PrtSc to Hyper.
+      ${pkgs.xorg.xmodmap}/bin/xmodmap -e "keycode 107 = Hyper_R" -e "add mod3 = Hyper_R"
     '';
   };
 }
