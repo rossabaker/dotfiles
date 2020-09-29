@@ -59,6 +59,18 @@
         "url": "https://github.com/nmattia/niv/archive/29ddaaf4e099c3ac0647f5b652469dfc79cd3b53.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "nix-haskell-tags": {
+        "branch": "master",
+        "description": "Generate a tags file for Haskell projects with Nix",
+        "homepage": null,
+        "owner": "shajra",
+        "repo": "nix-haskell-tags",
+        "rev": "2124f1016bd3b7ff23c3457f87a370346de17951",
+        "sha256": "1g1ra2b9ibi3f2l5ffpynka8f56amlinsdmg0yp9968smjglidqg",
+        "type": "tarball",
+        "url": "https://github.com/shajra/nix-haskell-tags/archive/2124f1016bd3b7ff23c3457f87a370346de17951.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "nixpkgs": {
         "branch": "nixos-unstable",
         "description": "A read-only mirror of NixOS/nixpkgs tracking the released channels. Send issues and PRs to",

@@ -7,6 +7,7 @@ let
   sources = import ../nix/sources.nix;
   niv = import sources.niv {};
   pkgs-ashkitten = import sources.nixpkgs-ashkitten {};
+  nix-haskell-tags = import sources.nix-haskell-tags;
 in
 rec {
   imports = [
@@ -48,6 +49,7 @@ rec {
       pkgs.gnome3.dconf # gtk doesn't configure without it
       pkgs.gnupg
       pkgs.hasklig
+      nix-haskell-tags.nix-haskell-tags-exe
       pkgs.jq
       pkgs.material-design-icons
       pkgs.metals

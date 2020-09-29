@@ -515,10 +515,40 @@ Switch to most recent buffer otherwise."
             "r" 'haskell-interactive-bring))
 
 (use-package lsp-haskell
- :config
- (setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
- :hook
- (haskell-mode . lsp))
+  :config
+  (validate-setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
+  ;; xref backends don't compose.  This creates one that first consults the
+  ;; xref-lsp backend for the latest information from the language server,
+  ;; and then falls through to etags for library definitions.
+  (defun ross/xref-lsp-etags-backend () 'ross/lsp-etags)
+  (cl-defmethod xref-backend-identifier-at-point ((_backend (eql ross/lsp-etags)))
+    (xref-backend-identifier-at-point 'xref-lsp))
+  (cl-defmethod xref-backend-identifier-completion-table ((_backend (eql ross/lsp-etags)))
+    (xref-backend-identifier-completion-table 'xref-lsp))
+  (cl-defmethod xref-backend-definitions ((_backend (eql ross/lsp-etags)) identifier)
+    (or
+     (xref-backend-definitions 'xref-lsp identifier)
+     (xref-backend-definitions 'etags identifier)))
+  (cl-defmethod xref-backend-references ((_backend (eql ross/lsp-etags)) identifier)
+    (or
+     ;; HLS doesn't yet support textDocument/references
+     ;; (xref-backend-references 'xref-lsp identifier))
+     (xref-backend-references 'etags identifier)))
+  (cl-defmethod xref-backend-apropos ((_backend (eql ross/lsp-etags)) pattern)
+    (append
+     ;; HLS doesn't yet support workspace/symbol
+     ;; (xref-backend-apropos 'xref-lsp pattern))
+     (xref-backend-apropos 'etags pattern)))
+  (defun ross/xref-add-lsp-etags-backend ()
+    (add-hook 'xref-backend-functions #'ross/xref-lsp-etags-backend nil t))
+  :hook
+  (haskell-mode . lsp)
+  ;; lsp-managed-mode installs the lsp backend.  We need to
+  ;; come after that, or it won't fall through to us, either.
+  (lsp-managed-mode . ross/xref-add-lsp-etags-backend)
+  :general
+  (:keymaps 'interactive-haskell-mode-map
+            "M-." 'xref-find-definitions))
 
 (use-package ormolu
   :after crux
