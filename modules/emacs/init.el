@@ -134,6 +134,10 @@
                  (assoc-delete-all "si" counsel-projectile-key-bindings #'string=))
   (counsel-projectile-mode +1))
 
+(use-package ivy-rich
+  :config
+  (ivy-rich-mode +1))
+
 (use-package company
   :config
   (setq company-show-numbers t)
@@ -438,6 +442,11 @@ Switch to most recent buffer otherwise."
   (ignore '((((((((())))))))))
   :hook
   (prog-mode . rainbow-delimiters-mode))
+
+(use-package all-the-icons-ivy-rich
+  :ensure t
+  :config
+  (all-the-icons-ivy-rich-mode +1))
 
 ;;;; Docs
 
