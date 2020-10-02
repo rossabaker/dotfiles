@@ -303,11 +303,7 @@ Switch to most recent buffer otherwise."
     "Refresh the packages if we have no `package-archive-contents'."
     (unless package-archive-contents
       (package-refresh-contents)))
-  (advice-add 'try :before 'ross/package-refresh-contents-maybe)
-  :general
-  (:prefix "C-c P"
-           "" '(nil :wk "package")
-           "t" 'try))
+  (advice-add 'try :before 'ross/package-refresh-contents-maybe))
 
 ;;;; Editing
 
