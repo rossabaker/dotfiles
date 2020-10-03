@@ -39,7 +39,7 @@ in
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacsUnstable;
+    package = pkgs.emacsGcc;
     extraPackages = epkgs: (used-packages epkgs) ++ extraSystemPackages;
 
     overrides = self: super:
