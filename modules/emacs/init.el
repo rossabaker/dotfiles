@@ -521,7 +521,7 @@ Switch to most recent buffer otherwise."
 
 (use-package lsp-haskell
   :config
-  (validate-setq lsp-haskell-process-path-hie "haskell-language-server-wrapper")
+  (validate-setq lsp-haskell-server-path "haskell-language-server-wrapper")
   ;; xref backends don't compose.  This creates one that first consults the
   ;; xref-lsp backend for the latest information from the language server,
   ;; and then falls through to etags for library definitions.
