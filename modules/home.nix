@@ -5,7 +5,6 @@
 
 let
   sources = import ../nix/sources.nix;
-  niv = import sources.niv {};
   pkgs-ashkitten = import sources.nixpkgs-ashkitten {};
   nix-haskell-tags = import sources.nix-haskell-tags;
 in
@@ -38,7 +37,6 @@ rec {
     ];
 
     packages = [
-      niv.niv
       pkgs.aspell
       pkgs.aspellDicts.en
       pkgs.bashInteractive
@@ -53,6 +51,7 @@ rec {
       pkgs.jq
       pkgs.material-design-icons
       pkgs.metals
+      pkgs.niv
       pkgs.sbt-extras
       pkgs.siji
       pkgs.slack
