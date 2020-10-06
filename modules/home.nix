@@ -7,6 +7,7 @@ let
   sources = import ../nix/sources.nix;
   pkgs-ashkitten = import sources.nixpkgs-ashkitten {};
   nix-haskell-tags = import sources.nix-haskell-tags;
+  er-nix = import sources.er-nix;
 in
 rec {
   imports = [
@@ -56,7 +57,7 @@ rec {
       pkgs.siji
       pkgs.slack
       pkgs.unifont
-    ];
+    ] ++ builtins.attrValues er-nix.tools.haskell-language-servers;
 
     sessionVariables = {
       ALTERNATE_EDITOR = "";

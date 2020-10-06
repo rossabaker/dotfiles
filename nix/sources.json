@@ -17,10 +17,10 @@
         "homepage": null,
         "owner": "EarnestResearch",
         "repo": "er-nix",
-        "rev": "a6567dc41beeb80bd517ae3f3de6c7003de3220b",
-        "sha256": "110rpkv4dyvsswjfzsl9gdy3ylgp1w60byagwz0gsv73lhhl2i6h",
+        "rev": "b6b4f25bd51e42a285bbdd3b55d4139b1c52e35f",
+        "sha256": "10qj744srxvz9bbxrjsh3g1rpki2lc255dfj1r8c7kvdn031ry3r",
         "type": "tarball",
-        "url": "https://github.com/EarnestResearch/er-nix/archive/a6567dc41beeb80bd517ae3f3de6c7003de3220b.tar.gz",
+        "url": "https://github.com/EarnestResearch/er-nix/archive/b6b4f25bd51e42a285bbdd3b55d4139b1c52e35f.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "goto-line-faster.el": {
