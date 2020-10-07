@@ -7,6 +7,7 @@ in
     buildInputs = [
       fd
       gnumake
+      git
       jq
       niv
       nixpkgs-fmt
