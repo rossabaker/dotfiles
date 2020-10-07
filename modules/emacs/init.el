@@ -252,6 +252,8 @@ Switch to most recent buffer otherwise."
   :after direnv
   :preface
   (setq lsp-keymap-prefix "C-c l")
+  :config
+  (validate-setq lsp-file-watch-threshold 2000) ;; http4s got big, yo
   ;; Experimental workaround to https://github.com/wbolster/emacs-direnv/issues/17,
   (advice-add 'lsp :before 'direnv-update-environment)
   :hook
