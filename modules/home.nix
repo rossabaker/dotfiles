@@ -114,6 +114,7 @@ rec {
       };
       ignores = [
         ".bloop"
+        ".bsp/"
         ".direnv/"
         ".metals"
       ];
