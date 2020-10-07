@@ -205,6 +205,18 @@
               git-gutter:clear-function     #'git-gutter-fr:clear
               git-gutter:window-width -1))
 
+(use-package git-link
+  :config
+  (validate-setq git-link-use-commit t)
+  (add-to-list 'git-link-remote-alist '("gh" git-link-github))
+  (add-to-list 'git-link-commit-remote-alist '("gh" git-link-github))
+  :general
+  (:prefix "C-c g l"
+           "" '(nil :wk "link")
+           "l" 'git-link
+           "c" 'git-link-commit
+           "h" 'git-link-homepage))
+
 ;;;; Projects
 
 (use-package projectile
