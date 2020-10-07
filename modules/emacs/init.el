@@ -732,6 +732,15 @@ Switch to most recent buffer otherwise."
 
 (use-package pdf-tools)
 
+;;;;; Shitposting
+
+(use-package imgur
+  :defer t)
+(use-package meme
+  :commands
+  meme
+  meme-file)
+
 ;;;; Fin.
 
 (provide 'init)

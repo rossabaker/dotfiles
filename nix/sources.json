@@ -47,6 +47,30 @@
         "url": "https://github.com/rycee/home-manager/archive/0006da1381b87844c944fe8b925ec864ccf19348.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
+    "imgur.el": {
+        "branch": "master",
+        "description": "A simple library for uploading pictures to imgur",
+        "homepage": null,
+        "owner": "larsmagne",
+        "repo": "imgur.el",
+        "rev": "4f972d46f9ba4f15d37de5a64fdd2da6a427d035",
+        "sha256": "0pm465zrk016vmwlrskcjh7177f8hih6z9zdlvnmhmlk777bjmgm",
+        "type": "tarball",
+        "url": "https://github.com/larsmagne/imgur.el/archive/4f972d46f9ba4f15d37de5a64fdd2da6a427d035.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "meme": {
+        "branch": "master",
+        "description": "An Emacs meme generator",
+        "homepage": "https://lars.ingebrigtsen.no/2016/06/27/an-emacs-meme-generator/",
+        "owner": "larsmagne",
+        "repo": "meme",
+        "rev": "eb66ec0eac2f3e0e2eed1d9681d31e62a514a501",
+        "sha256": "08pcij4ff5lmm78qy8wmjbzz5cq0df3zapvsxffcl9xf5096rgil",
+        "type": "tarball",
+        "url": "https://github.com/larsmagne/meme/archive/eb66ec0eac2f3e0e2eed1d9681d31e62a514a501.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "nix-haskell-tags": {
         "branch": "master",
         "description": "Generate a tags file for Haskell projects with Nix",

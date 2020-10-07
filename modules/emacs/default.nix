@@ -27,6 +27,7 @@ in
   };
 
   home.packages = [
+    pkgs.corefonts
     pkgs.fd
     pkgs.emacs-all-the-icons-fonts
     pkgs.jq
@@ -57,6 +58,24 @@ in
             installPhase = ''
               mkdir -p $out/share/emacs/site-lisp
               cp *.el $out/share/emacs/site-lisp/
+            '';
+          };
+          imgur = stdenv.mkDerivation {
+            name = "imgur";
+            src = sources."imgur.el";
+            installPhase = ''
+              mkdir -p $out/share/emacs/site-lisp
+              cp *.el $out/share/emacs/site-lisp/
+            '';
+          };
+          meme = stdenv.mkDerivation {
+            name = "meme";
+            src = sources.meme;
+            installPhase = ''
+              mkdir -p $out/share/emacs/site-lisp
+              cp *.el $out/share/emacs/site-lisp/
+              mkdir -p $out/share/emacs/site-lisp/images
+              cp images/* $out/share/emacs/site-lisp/images
             '';
           };
           quick-yes =
