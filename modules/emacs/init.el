@@ -728,6 +728,10 @@ Switch to most recent buffer otherwise."
 
 (use-package dockerfile-mode)
 
+;;;;; PDF
+
+(use-package pdf-tools)
+
 ;;;; Fin.
 
 (provide 'init)
