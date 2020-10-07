@@ -1,20 +1,14 @@
 { sources ? import ./nix/sources.nix }:
 
 let
-  overlay = _: pkgs: {
-    niv = import sources.niv {};
-  };
-  pkgs = import sources.nixpkgs {
-    overlays = [ overlay ];
-    config = {};
-  };
+  pkgs = import sources.nixpkgs {};
 in
   with pkgs; pkgs.mkShell {
     buildInputs = [
       fd
       gnumake
       jq
-      niv.niv
+      niv
       nixpkgs-fmt
     ];
   }
