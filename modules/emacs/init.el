@@ -716,6 +716,13 @@ Switch to most recent buffer otherwise."
 
 ;;;; Formats
 
+;;;;; Dhall
+
+(use-package dhall-mode
+  :config
+  (validate-setq dhall-format-arguments '("--ascii")
+                 dhall-use-header-line nil))
+
 ;;;;; JSON
 
 (use-package json-mode)
