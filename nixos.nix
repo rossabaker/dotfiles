@@ -41,6 +41,8 @@ in
 
   services.fwupd.enable = true;
 
+  services.locate.enable = true;
+
   services.logind.lidSwitchExternalPower = "ignore";
 
   services.tlp.enable = true;
