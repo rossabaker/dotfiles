@@ -323,6 +323,11 @@ Switch to most recent buffer otherwise."
       (package-refresh-contents)))
   (advice-add 'try :before 'ross/package-refresh-contents-maybe))
 
+(use-package compile
+  :config
+  (validate-setq compilation-scroll-output t
+                 compilation-auto-jump-to-first-error t))
+
 ;;;; Editing
 
 (use-package emacs

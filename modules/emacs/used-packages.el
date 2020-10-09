@@ -16,6 +16,7 @@
 (defvar ross/builtin-nix-emacs-packages
   '(ansi-color
     auth-source
+    compile
     display-line-numbers-mode
     emacs
     flyspell
