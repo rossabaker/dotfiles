@@ -64,7 +64,6 @@
 (use-package which-key
   :general
   ("C-x C-z" nil) ;; C-z is sufficient, and even that only helps in tty
-  ("C-c C-g" 'minibuffer-keyboard-quit)
   (:prefix "C-c a"
            "" '(nil :wk "apps"))
   (:prefix "C-c a r"
@@ -451,7 +450,11 @@ Switch to most recent buffer otherwise."
                         ross/bell-cookie
                         (current-buffer))))
     (validate-setq ring-bell-function #'ross/themes-visual-bell-fn
-                   visible-bell t))
+                   visible-bell t
+                   ;; This is problematic in a terminal client in a
+                   ;; tty, but we don't do that often, and it's not
+                   ;; *that* problematic.
+                   doom-modeline-icon (or (daemonp) (display-graphic-p))))
   (doom-modeline-mode +1)
   (column-number-mode +1)
   (size-indication-mode +1))
