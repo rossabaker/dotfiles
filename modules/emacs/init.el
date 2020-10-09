@@ -374,6 +374,11 @@ Switch to most recent buffer otherwise."
 
 ;;;; Appearance
 
+(use-package emacs
+  :config
+  (validate-setq use-dialog-box nil
+                 use-file-dialog nil))
+
 (use-package ansi-color
   :config
   (defun ross/colorize-compilation-buffer ()
