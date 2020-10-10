@@ -466,6 +466,14 @@ Switch to most recent buffer otherwise."
   :config
   (global-hl-todo-mode +1))
 
+(use-package highlight-escape-sequences
+  :config
+  (hes-mode +1))
+
+(use-package highlight-numbers
+  :hook
+  (prog-mode . highlight-numbers-mode))
+
 (use-package doom-modeline
   :config
   (progn ;; Borrowed from doom-themes
