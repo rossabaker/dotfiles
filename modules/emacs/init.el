@@ -76,6 +76,8 @@
            "" '(nil :wk "file"))
   (:prefix "C-c j"
            "" '(nil :wk "jump"))
+  (:prefix "C-c s"
+           "" '(nil :wk "search"))
   (:prefix "C-c x"
            "" '(nil :wk "text"))
   :config
@@ -136,6 +138,17 @@
   (validate-setq counsel-projectile-key-bindings
                  (assoc-delete-all "si" counsel-projectile-key-bindings #'string=))
   (counsel-projectile-mode +1))
+
+(use-package counsel-web
+  :config
+  (validate-setq counsel-web-search-action #'browse-url
+                 counsel-web-engine 'google)
+  :general
+  (:prefix "C-c s w"
+           "" '(nil :wk "counsel-web")
+           "w" 'counsel-web-suggest
+           "s" 'counsel-web-search
+           "." 'counsel-web-thing-at-point))
 
 (use-package ivy-rich
   :config
