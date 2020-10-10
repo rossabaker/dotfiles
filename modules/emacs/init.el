@@ -501,9 +501,12 @@ Switch to most recent buffer otherwise."
   (prog-mode . rainbow-delimiters-mode))
 
 (use-package all-the-icons-ivy-rich
-  :ensure t
   :config
   (all-the-icons-ivy-rich-mode +1))
+
+(use-package all-the-icons-dired
+  :hook
+  (dired-mode . all-the-icons-dired-mode))
 
 ;;;; Docs
 
