@@ -233,6 +233,10 @@
            "c" 'git-link-commit
            "h" 'git-link-homepage))
 
+(use-package gitconfig-mode)
+
+(use-package gitignore-mode)
+
 ;;;; Projects
 
 (use-package projectile
