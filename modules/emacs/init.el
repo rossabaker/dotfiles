@@ -70,6 +70,8 @@
            "" '(nil :wk "repls"))
   (:prefix "C-c d"
            "" '(nil :wk "directory"))
+  (:prefix "C-c e"
+           "" '(nil :wk "emacs"))
   (:prefix "C-c f"
            "" '(nil :wk "file"))
   (:prefix "C-c j"
@@ -125,7 +127,8 @@
   :general
   ([remap recentf-open-files] 'counsel-recentf
    "C-c j o" 'counsel-outline
-   "C-c f l" 'counsel-locate))
+   "C-c f l" 'counsel-locate
+   "C-c e l" 'counsel-find-library))
 
 (use-package counsel-projectile
   :config
