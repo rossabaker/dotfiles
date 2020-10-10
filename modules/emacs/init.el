@@ -328,6 +328,35 @@ Switch to most recent buffer otherwise."
   (validate-setq compilation-scroll-output t
                  compilation-auto-jump-to-first-error t))
 
+;;;; Dired
+
+(use-package dired
+  :config
+  (validate-setq dired-dwim-target t))
+
+(use-package dired-hide-dotfiles
+  :general
+  (:keymaps 'dired-mode-map
+            "." 'dired-hide-dotfiles-mode)
+  :hook
+  (dired-mode  . dired-hide-dotfiles-mode))
+
+(use-package diredfl
+  :config
+  (diredfl-global-mode +1))
+
+;; TODO look into dired-async-mode. I don't really have that problem,
+;; but the cool kids all seem to use it.
+
+(use-package dired-git-info
+  :general
+  (:keymaps 'dired-mode-map
+            ")" 'dired-git-info-mode))
+
+(use-package dired-recent
+  :config
+  (dired-recent-mode +1))
+
 ;;;; Editing
 
 (use-package emacs

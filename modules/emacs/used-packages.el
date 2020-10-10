@@ -17,6 +17,7 @@
   '(ansi-color
     auth-source
     compile
+    dired
     display-line-numbers-mode
     emacs
     flyspell
