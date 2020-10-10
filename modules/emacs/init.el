@@ -508,6 +508,12 @@ Switch to most recent buffer otherwise."
   :hook
   (prog-mode . rainbow-delimiters-mode))
 
+(use-package rainbow-mode
+  :config
+  (ignore "red" "orange" "yellow" "green" "blue" "indigo" "violet")
+  :hook
+  (prog-mode . rainbow-mode))
+
 (use-package all-the-icons-ivy-rich
   :config
   (all-the-icons-ivy-rich-mode +1))
