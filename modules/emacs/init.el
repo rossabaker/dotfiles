@@ -379,6 +379,7 @@ Switch to most recent buffer otherwise."
   :after crux
   :config
   (crux-with-region-or-line kill-region)
+  (minibuffer-depth-indicate-mode +1)
   :general
   ("C-x k" 'kill-this-buffer))
 
