@@ -810,7 +810,7 @@ Switch to most recent buffer otherwise."
 (use-package scala-mode
   :general
   (:keymaps 'scala-mode-map
-            :prefix "C-m"
+            :prefix "C-c m"
             "" '(nil :wk "scala"))
   :hook
   (scala-mode . lsp)
@@ -820,7 +820,7 @@ Switch to most recent buffer otherwise."
   :commands sbt-start sbt-command
   :general
   (:keymaps 'scala-mode-map
-            :prefix "C-m b"
+            :prefix "C-c m b"
             "" '(nil :wk "sbt")
             "b" 'sbt-start))
 
