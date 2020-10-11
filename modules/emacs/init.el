@@ -83,6 +83,9 @@
   :config
   (which-key-mode +1))
 
+(use-package free-keys
+  :commands free-keys)
+
 (use-package quick-yes
   ;; The common approach is to reset `yes-or-no-p' to `y-or-n-p`, but
   ;; the distinction exists for a reason: `yes-or-no-p` is for weightier
