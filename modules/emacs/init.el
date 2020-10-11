@@ -391,6 +391,16 @@ Switch to most recent buffer otherwise."
   :hook
   ((prog-mode text-mode) . ws-butler-mode))
 
+(use-package smart-hungry-delete
+  :demand t
+  :config
+  (smart-hungry-delete-add-default-hooks)
+  :general
+  ([remap delete-char] 'smart-hungry-delete-forward-char
+   [remap delete-forward-char] 'smart-hungry-delete-forward-char
+   [remap delete-backward-char] 'smart-hungry-delete-backward-char
+   [remap backward-delete-char-untabify] 'smart-hungry-delete-backward-char))
+
 (use-package editorconfig
   ;; This is a polite default.
   :config
