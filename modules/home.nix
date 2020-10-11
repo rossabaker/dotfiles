@@ -117,6 +117,7 @@ rec {
         ".bsp/"
         ".direnv/"
         ".metals"
+        "metals.sbt"
       ];
       userEmail = "ross@rossabaker.com";
       userName = "Ross A. Baker";
