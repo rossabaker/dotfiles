@@ -406,6 +406,19 @@ Switch to most recent buffer otherwise."
   :config
   (editorconfig-mode +1))
 
+(use-package copy-as-format
+  :general
+  (:prefix "C-c x f"
+           "" '(nil :wk "copy-as-format")
+           "g" 'copy-as-format-github
+           "l" 'copy-as-format-gitlab
+           "h" 'copy-as-format-html
+           "j" 'copy-as-format-jira
+           "m" 'copy-as-format-markdown
+           "o" 'copy-as-format-org-mode
+           "r" 'copy-as-format-rst
+           "s" 'copy-as-format-slack))
+
 ;;;;; Spelling
 
 (use-package flyspell
