@@ -6,7 +6,6 @@ let
     gmail = "https://mail.google.com/mail/u/0";
     work-gcalendar = "https://calendar.google.com/b/1/r";
     work-gmail = "https://mail.google.com/mail/u/1";
-    youtube-tv = "https://tv.youtube.com";
   };
   chrome-app = name: url: pkgs.writeScriptBin "${name}" ''
     #!${pkgs.stdenv.shell}

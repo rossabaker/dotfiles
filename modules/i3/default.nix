@@ -83,7 +83,6 @@
             ];
             "${ws.media}" = [
               { class = "^Spotify$"; }
-              { instance = "^tv.youtube.com$"; }
             ];
           };
           gaps = {
