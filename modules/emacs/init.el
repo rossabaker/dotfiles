@@ -86,6 +86,11 @@
 (use-package free-keys
   :commands free-keys)
 
+(use-package keyfreq
+  :config
+  (keyfreq-mode +1)
+  (keyfreq-autosave-mode +1))
+
 (use-package quick-yes
   ;; The common approach is to reset `yes-or-no-p' to `y-or-n-p`, but
   ;; the distinction exists for a reason: `yes-or-no-p` is for weightier
