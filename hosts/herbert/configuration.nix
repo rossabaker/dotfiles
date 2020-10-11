@@ -53,7 +53,8 @@ in
   services.cron = {
     enable = true;
     systemCronJobs = [
-      "30 1 * * * root ${clamscan-job}/bin/clamscan-job"
+      # This is burning an entire CPU, all day!
+      # "30 1 * * * root ${clamscan-job}/bin/clamscan-job"
     ];
   };
 
