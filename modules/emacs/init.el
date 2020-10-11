@@ -828,6 +828,10 @@ Switch to most recent buffer otherwise."
 
 ;;;; Formats
 
+;;;;; CSV
+
+(use-package csv-mode)
+
 ;;;;; Dhall
 
 (use-package dhall-mode
