@@ -70,9 +70,6 @@
             }
           ];
           assigns = {
-            "${ws.www}" = [
-              { instance = "^google-chrome$"; }
-            ];
             "${ws.code}" = [
               { class = "^Emacs$"; }
             ];
