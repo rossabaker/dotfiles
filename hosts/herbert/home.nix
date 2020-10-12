@@ -68,7 +68,7 @@
 
     git ={
       signing = {
-        key = "0x0CACC3F315F745F1";
+        key = "0x3A7B55A76AB4493D";
         signByDefault = true;
       };
     };
