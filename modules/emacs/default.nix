@@ -40,7 +40,7 @@ in
 
   programs.emacs = {
     enable = true;
-    package = pkgs.emacsGcc;
+    package = pkgs.emacs27;
     extraPackages = epkgs: (used-packages epkgs) ++ extraSystemPackages;
 
     overrides = self: super:
