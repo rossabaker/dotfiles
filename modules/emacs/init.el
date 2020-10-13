@@ -287,6 +287,10 @@ Switch to most recent buffer otherwise."
   ([remap other-window] 'ace-window
    "M-o" '(ross/ace-window-or-switch-buffer :wk ace-window-or-switch-buffer)))
 
+(use-package smartscan
+  :config
+  (smartscan-mode +1))
+
 ;;;; IDE
 
 (use-package lsp-mode
