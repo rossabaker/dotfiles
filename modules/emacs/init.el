@@ -394,9 +394,12 @@ Switch to most recent buffer otherwise."
 
 (use-package emacs
   :after crux
+  :custom
+  (minibuffer-eldef-shorten-default t) ;; This one requires customization hooks!!!
   :config
   (crux-with-region-or-line kill-region)
   (minibuffer-depth-indicate-mode +1)
+  (minibuffer-electric-default-mode +1)
   :general
   ("C-x k" 'kill-this-buffer))
 
