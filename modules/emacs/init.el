@@ -870,6 +870,15 @@ Switch to most recent buffer otherwise."
 
 (use-package pdf-tools)
 
+;;;;; Restclient
+
+(use-package restclient)
+
+(use-package company-restclient
+  :after restclient
+  :config
+  (add-to-list 'company-backends 'company-restclient))
+
 ;;;;; Shitposting
 
 (use-package imgur
