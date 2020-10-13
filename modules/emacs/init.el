@@ -892,6 +892,11 @@ Switch to most recent buffer otherwise."
   meme
   meme-file)
 
+;;;;; Window managers
+
+;; Most of mine is in Nix, but, eh, this is nice for viewing.
+(use-package i3wm-config-mode)
+
 ;;;; Fin.
 
 (provide 'init)
