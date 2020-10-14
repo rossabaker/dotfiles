@@ -393,15 +393,22 @@ Switch to most recent buffer otherwise."
 ;;;; Editing
 
 (use-package emacs
-  :after crux
+  :demand t
   :custom
   (minibuffer-eldef-shorten-default t) ;; This one requires customization hooks!!!
   :config
-  (crux-with-region-or-line kill-region)
+  (defun ross/kill-region-or-backward-kill-word (arg)
+    "Kills the region if active, or else kills backward a word. The latter behavior is similar to Readline's C-w."
+    (interactive "*p")
+    (if (and transient-mark-mode
+             mark-active)
+        (kill-region (region-beginning) (region-end))
+      (backward-kill-word arg)))
   (minibuffer-depth-indicate-mode +1)
   (minibuffer-electric-default-mode +1)
   :general
-  ("C-x k" 'kill-this-buffer))
+  ("C-x k" 'kill-this-buffer
+   "C-w" '(ross/kill-region-or-backward-kill-word :wk "kill-region-or-backward-kill-word")))
 
 (use-package ws-butler
   :hook
