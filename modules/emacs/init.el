@@ -843,6 +843,21 @@ Switch to most recent buffer otherwise."
 
 (use-package lsp-metals)
 
+;;;;; Typescript
+
+(use-package typescript-mode
+  :mode ("\\.ts\\'" . typescript-mode))
+
+(use-package ts-comint)
+
+(use-package tide
+  :disabled t ;; This is a mess in my 5-minute hack
+  :ensure t
+  :after (typescript-mode company flycheck)
+  :hook
+  ((typescript-mode . tide-setup)
+   (typescript-mode . tide-hl-identifier-mode)))
+
 ;;;; Formats
 
 ;;;;; CSV

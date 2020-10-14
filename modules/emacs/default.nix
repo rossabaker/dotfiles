@@ -31,7 +31,9 @@ in
     pkgs.fd
     pkgs.emacs-all-the-icons-fonts
     pkgs.jq
+    pkgs.nodejs
     pkgs.nodePackages.pyright
+    pkgs.nodePackages.tsun
     pkgs.pandoc
     (pkgs.python3.withPackages(ps: [ps.tkinter]))
     pkgs.ripgrep
