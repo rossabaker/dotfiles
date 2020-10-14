@@ -408,6 +408,7 @@ Switch to most recent buffer otherwise."
   (minibuffer-electric-default-mode +1)
   :general
   ("C-x k" 'kill-this-buffer
+   "C-h" 'delete-backward-char
    "C-w" '(ross/kill-region-or-backward-kill-word :wk "kill-region-or-backward-kill-word")))
 
 (use-package ws-butler
@@ -599,6 +600,7 @@ Switch to most recent buffer otherwise."
                  counsel-describe-variable-function #'helpful-variable
                  counsel-descbinds-function #'helpful-function)
   :general
+  ("C-c h" '(:keymap help-map :wk "help")) ; Frees up C-h as backspace
   (:keymaps 'help-map
             "h" 'helpful-at-point)
   ([remap describe-key] #'helpful-key))
