@@ -31,6 +31,10 @@ rec {
   home = {
     file = {
       ".stack/config.yaml".source = ../config/stack/config.yaml;
+      ".sbt" = {
+        source = ../config/sbt;
+        recursive = true;
+      };
     };
 
     keyboard.options = [
