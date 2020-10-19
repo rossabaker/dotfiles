@@ -443,6 +443,18 @@ Switch to most recent buffer otherwise."
            "r" 'copy-as-format-rst
            "s" 'copy-as-format-slack))
 
+(use-package string-inflection
+  :general
+  (:prefix "C-c x i"
+           "" '(nil :wk "string-inflection")
+           "c" '(string-inflection-lower-camelcase :wk "fooBar")
+           "C" '(string-inflection-camelcase :wk "FooBar")
+           "_" '(string-inflection-underscore :wk "foo_bar")
+           "u" '(string-inflection-capital-underscore :wk "Foo_Bar")
+           "U" '(string-inflection-upcase :wk "FOO_BAR")
+           "-" '(string-inflection-kebab-case :wk "foo-bar")
+           "t" '(string-inflection-toggle :wk "toggle")))
+
 ;;;;; Spelling
 
 (use-package flyspell
