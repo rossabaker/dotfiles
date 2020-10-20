@@ -613,6 +613,13 @@ Switch to most recent buffer otherwise."
   (display-fill-column-indicator-mode . ross/disable-fill-column-indicator-maybe)
   (read-only-mode . ross/disable-fill-column-indicator-maybe))
 
+(use-package dimmer
+  :config
+  (dimmer-configure-company-box)
+  (dimmer-configure-magit)
+  (dimmer-configure-which-key)
+  (dimmer-mode +1))
+
 ;;;; Docs
 
 (use-package helpful
