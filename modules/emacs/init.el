@@ -519,7 +519,9 @@ Switch to most recent buffer otherwise."
                              :foreground (cdr (assoc "yellow-fringe-bg" colors)))
          (set-face-attribute 'git-gutter-fr:deleted nil
                              :background (cdr (assoc "bg-main" colors))
-                             :foreground (cdr (assoc "red-fringe-bg" colors)))))
+                             :foreground (cdr (assoc "red-fringe-bg" colors)))
+         (set-face-attribute 'fill-column-indicator nil
+                             :foreground (cdr (assoc "bg-alt" colors)))))
      theme))
   (defun ross/modus-themes-toggle ()
     "Toggle between `modus-operandi' and `modus-vivendi' themes."
@@ -601,6 +603,15 @@ Switch to most recent buffer otherwise."
 (use-package all-the-icons-dired
   :hook
   (dired-mode . all-the-icons-dired-mode))
+
+(use-package display-fill-column-indicator
+  :config
+  (defun ross/disable-fill-column-indicator-maybe ()
+    (setq-local display-fill-column-indicator (not buffer-read-only)))
+  :hook
+  (prog-mode . display-fill-column-indicator-mode)
+  (display-fill-column-indicator-mode . ross/disable-fill-column-indicator-maybe)
+  (read-only-mode . ross/disable-fill-column-indicator-maybe))
 
 ;;;; Docs
 

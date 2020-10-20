@@ -18,6 +18,7 @@
     auth-source
     compile
     dired
+    display-fill-column-indicator
     display-line-numbers-mode
     emacs
     flyspell
