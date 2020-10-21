@@ -578,7 +578,13 @@ Switch to most recent buffer otherwise."
                    ;; This is problematic in a terminal client in a
                    ;; tty, but we don't do that often, and it's not
                    ;; *that* problematic.
-                   doom-modeline-icon (or (daemonp) (display-graphic-p))))
+                   doom-modeline-icon (or (daemonp) (display-graphic-p))
+                   doom-modeline-height 30))
+  (progn
+    ;; Looks like I'm still suffering from https://github.com/seagle0128/doom-modeline/issues/271
+    (defun ross/doom-modeline-font-height-hack (orig-fn &rest args)
+      (/ (apply orig-fn args) 2))
+    (advice-add 'doom-modeline--font-height :around 'ross/doom-modeline-font-height-hack))
   (doom-modeline-mode +1)
   (column-number-mode +1)
   (size-indication-mode +1))
