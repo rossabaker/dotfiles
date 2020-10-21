@@ -74,7 +74,7 @@
 
   services = {
     picom = {
-      enable = true;
+      enable = false;
       fade = true;
       fadeSteps = [ "0.05" "0.02" ];
       shadow = true;
