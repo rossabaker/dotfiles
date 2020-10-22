@@ -929,6 +929,14 @@ Switch to most recent buffer otherwise."
 
 ;;;; Other tools
 
+;;;;; Calendar
+
+(use-package calendar
+  :config
+  (setq calendar-latitude 39.92
+        calendar-longitude -86.05
+        calendar-location-name "Indianapolis, IN"))
+
 ;;;;; Docker
 
 (use-package dockerfile-mode)

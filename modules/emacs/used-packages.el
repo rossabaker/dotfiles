@@ -16,6 +16,7 @@
 (defvar ross/builtin-nix-emacs-packages
   '(ansi-color
     auth-source
+    calendar
     compile
     dired
     display-fill-column-indicator
