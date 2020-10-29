@@ -38,6 +38,7 @@ in
     (pkgs.python3.withPackages(ps: [ps.tkinter]))
     pkgs.ripgrep
     pkgs.ruby # TODO for yamllint-mode. Feels heavy.
+    pkgs.terraform
   ];
 
   programs.emacs = {

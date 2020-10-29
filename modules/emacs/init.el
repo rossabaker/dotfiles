@@ -972,6 +972,20 @@ Switch to most recent buffer otherwise."
 ;; Most of mine is in Nix, but, eh, this is nice for viewing.
 (use-package i3wm-config-mode)
 
+;;;;; Infrastructure
+
+(use-package terraform-mode
+  :mode ("\\.tf\\'" . terraform-mode)
+  :general
+  (:keymaps 'terraform-mode-map
+            :prefix "C-c m"
+            "" '(nil :wk "terraform")
+            "f" 'terraform-format-buffer))
+
+(use-package company-terraform
+  :config
+  (company-terraform-init))
+
 ;;;; Fin.
 
 (provide 'init)
