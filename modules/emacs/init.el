@@ -430,6 +430,10 @@ Switch to most recent buffer otherwise."
   :config
   (editorconfig-mode +1))
 
+(use-package dtrt-indent
+  :hook
+  (prog-mode . dtrt-indent-mode))
+
 (use-package copy-as-format
   :general
   (:prefix "C-c x f"
