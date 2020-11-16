@@ -8,5 +8,5 @@ in
   home.packages = [
     pkgs.zoom-us
     er-nix.pkgs.okta-aws-login
-  ];
+  ] ++ builtins.attrValues er-nix.tools.hopenpgp-tools;
 }
