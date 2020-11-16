@@ -57,7 +57,9 @@ rec {
       pkgs.material-design-icons
       pkgs.metals
       pkgs.niv
-      pkgs.sbt-extras
+      (pkgs.sbt.override {
+        jre = pkgs.openjdk8;
+      })
       pkgs.siji
       pkgs.slack
       pkgs.unifont
