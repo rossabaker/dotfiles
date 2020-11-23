@@ -57,6 +57,7 @@ rec {
       pkgs.material-design-icons
       pkgs.metals
       pkgs.niv
+      pkgs.nix-prefetch-git
       (pkgs.sbt.override {
         jre = pkgs.openjdk8;
       })
