@@ -35,7 +35,15 @@ in
   };
 
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+  };
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
+    extraModules = [ pkgs.pulseaudio-modules-bt ];
+  };
+  services.blueman.enable = true;
 
   services.dbus.packages = [ pkgs.gnome3.dconf ];
 
