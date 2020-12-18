@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "a2b1dcb3eebd559ead7265f47c426ed0ee066a34",
-        "sha256": "0v9mnlcfcfsykv98cbpxnf32sq9kk3z6fw2x033nn46jkqw33ml4",
+        "rev": "001083a8a3b2e59758fd6ddf4842bce341a372d6",
+        "sha256": "0xcdifclkqxz5m9hydhc17zmzycnhi7cnwvwyas5jd58gpaa9gs9",
         "type": "tarball",
-        "url": "https://github.com/nix-community/emacs-overlay/archive/a2b1dcb3eebd559ead7265f47c426ed0ee066a34.tar.gz",
+        "url": "https://github.com/nix-community/emacs-overlay/archive/001083a8a3b2e59758fd6ddf4842bce341a372d6.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "er-nix": {
@@ -17,10 +17,10 @@
         "homepage": null,
         "owner": "EarnestResearch",
         "repo": "er-nix",
-        "rev": "c38f7dcc9005c2ec68daab741a56f787981478b5",
-        "sha256": "0fv3mpkmc2whrb8av6yiv64n5pyj960dq3dn9hz8vmcbqfbr2cpq",
+        "rev": "d8d129d099c9587eb30ec7554fff1a293bf02703",
+        "sha256": "1ckwwn0v26sx8cchzgq88syl9dgpcxb92a7477s2bi639ngnmfy9",
         "type": "tarball",
-        "url": "https://github.com/EarnestResearch/er-nix/archive/c38f7dcc9005c2ec68daab741a56f787981478b5.tar.gz",
+        "url": "https://github.com/EarnestResearch/er-nix/archive/d8d129d099c9587eb30ec7554fff1a293bf02703.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "goto-line-faster.el": {
@@ -41,10 +41,10 @@
         "homepage": "",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "b6ed605d4a5a75fae25132e4f1da15f3fd635bc1",
-        "sha256": "0676d5mrsk2szpxirmpjrdqhzapfy6qrxbicw0wpnrjy1mrhs699",
+        "rev": "66a68b4a58f7c554bd7746acd51ff7cc02840b0a",
+        "sha256": "16c54als3qlhrsq9akm9cdm1y50d7czsny7nnn7dprp3ry2agpdb",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/b6ed605d4a5a75fae25132e4f1da15f3fd635bc1.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/66a68b4a58f7c554bd7746acd51ff7cc02840b0a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "imgur.el": {
@@ -53,10 +53,10 @@
         "homepage": null,
         "owner": "larsmagne",
         "repo": "imgur.el",
-        "rev": "f98b628b9e62c6d9cc0cc15a9996b1046154f17b",
-        "sha256": "0b6y3i9gwadfq6ayh5k9i3ms730lqmdahqb19gfkgad52fazqv6b",
+        "rev": "02e0ce9fc3a8d5febd61246fc4e586004d4de610",
+        "sha256": "0lxi1riv5vl6dmva3rbz8a33mxm1h7vxd43ipdj0p1hirsa4nphh",
         "type": "tarball",
-        "url": "https://github.com/larsmagne/imgur.el/archive/f98b628b9e62c6d9cc0cc15a9996b1046154f17b.tar.gz",
+        "url": "https://github.com/larsmagne/imgur.el/archive/02e0ce9fc3a8d5febd61246fc4e586004d4de610.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "meme": {
@@ -65,10 +65,10 @@
         "homepage": "https://lars.ingebrigtsen.no/2016/06/27/an-emacs-meme-generator/",
         "owner": "larsmagne",
         "repo": "meme",
-        "rev": "8c5ec3e33a99466263c64ad71da292c55ec4ee5a",
-        "sha256": "01xvmlsqmyki760iq5gxm6rani6g160136cfn0vnjdicwx9ka21v",
+        "rev": "77b0f760e72e67b7d3d774bb6c01f302ba247369",
+        "sha256": "0nyndag4cjsqdmx9ajf5w65x7821mv4cvj1y88ij6dprl554pr0b",
         "type": "tarball",
-        "url": "https://github.com/larsmagne/meme/archive/8c5ec3e33a99466263c64ad71da292c55ec4ee5a.tar.gz",
+        "url": "https://github.com/larsmagne/meme/archive/77b0f760e72e67b7d3d774bb6c01f302ba247369.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nix-haskell-tags": {
