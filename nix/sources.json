@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "001083a8a3b2e59758fd6ddf4842bce341a372d6",
-        "sha256": "0xcdifclkqxz5m9hydhc17zmzycnhi7cnwvwyas5jd58gpaa9gs9",
+        "rev": "bb5eda17cc8e11dc5943fcaa2cd4b703da4a1286",
+        "sha256": "04483gx58fj0cv7m6l12c93fb4zwdw304zm57hzdgw7fyz5b7wsl",
         "type": "tarball",
-        "url": "https://github.com/nix-community/emacs-overlay/archive/001083a8a3b2e59758fd6ddf4842bce341a372d6.tar.gz",
+        "url": "https://github.com/nix-community/emacs-overlay/archive/bb5eda17cc8e11dc5943fcaa2cd4b703da4a1286.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "er-nix": {
@@ -17,10 +17,10 @@
         "homepage": null,
         "owner": "EarnestResearch",
         "repo": "er-nix",
-        "rev": "d8d129d099c9587eb30ec7554fff1a293bf02703",
-        "sha256": "1ckwwn0v26sx8cchzgq88syl9dgpcxb92a7477s2bi639ngnmfy9",
+        "rev": "d8e3fe4d6e2ceaf49ecb20430eb54c96a1f471e7",
+        "sha256": "0ryb82djca5zp4fbd3im4ay1s3mc25qh8wgvp2fp5kjamsgcsb8p",
         "type": "tarball",
-        "url": "https://github.com/EarnestResearch/er-nix/archive/d8d129d099c9587eb30ec7554fff1a293bf02703.tar.gz",
+        "url": "https://github.com/EarnestResearch/er-nix/archive/d8e3fe4d6e2ceaf49ecb20430eb54c96a1f471e7.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "goto-line-faster.el": {
@@ -41,10 +41,10 @@
         "homepage": "",
         "owner": "rycee",
         "repo": "home-manager",
-        "rev": "66a68b4a58f7c554bd7746acd51ff7cc02840b0a",
-        "sha256": "16c54als3qlhrsq9akm9cdm1y50d7czsny7nnn7dprp3ry2agpdb",
+        "rev": "3627ec4de58d7fbda13c82dfec94eace10198f23",
+        "sha256": "1dxhgsg7081c50h8z146lrhx6aj6f4h905f45im7ilj6c3q4z0z9",
         "type": "tarball",
-        "url": "https://github.com/rycee/home-manager/archive/66a68b4a58f7c554bd7746acd51ff7cc02840b0a.tar.gz",
+        "url": "https://github.com/rycee/home-manager/archive/3627ec4de58d7fbda13c82dfec94eace10198f23.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "imgur.el": {
