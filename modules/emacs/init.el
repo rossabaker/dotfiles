@@ -957,15 +957,6 @@ Switch to most recent buffer otherwise."
   :config
   (add-to-list 'company-backends 'company-restclient))
 
-;;;;; Shitposting
-
-(use-package imgur
-  :defer t)
-(use-package meme
-  :commands
-  meme
-  meme-file)
-
 ;;;;; Window managers
 
 ;; Most of mine is in Nix, but, eh, this is nice for viewing.
