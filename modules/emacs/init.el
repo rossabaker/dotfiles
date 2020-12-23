@@ -124,7 +124,6 @@
 
 (use-package ivy
   :config
-  (setf (alist-get t ivy-sort-matches-functions-alist) 'ivy--shorter-matches-first)
   (ivy-mode +1))
 
 (use-package ivy-xref
