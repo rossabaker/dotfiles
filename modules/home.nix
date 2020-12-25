@@ -45,6 +45,7 @@ rec {
       pkgs.aspell
       pkgs.aspellDicts.en
       pkgs.bashInteractive
+      pkgs.cachix
       pkgs.dhall
       pkgs.gitAndTools.gh
       pkgs.gitter

@@ -25,6 +25,3 @@ hm-switch:
 
 format:
 	fd '\.nix$$' -X nixpkgs-fmt
-
-cachix-install:
-	nix-env -iA cachix -f https://cachix.org/api/v1/install
