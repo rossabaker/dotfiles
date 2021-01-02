@@ -13,22 +13,6 @@
   '(use-package delight bind-key)
   "Nix packages needed by use-package itself.")
 
-(defvar ross/builtin-nix-emacs-packages
-  '(ansi-color
-    auth-source
-    calendar
-    compile
-    dired
-    display-fill-column-indicator
-    display-line-numbers-mode
-    emacs
-    flyspell
-    hl-line
-    imenu
-    recentf
-    savehist)
-  "Packages we use that are built into Emacs.")
-
 (defun ross/used-packages (file)
   "Output as a Nix list all packages in use-package declarations in FILE."
   (insert-file-contents file)
@@ -41,10 +25,11 @@
     (while (re-search-forward re nil t)
       (goto-char (match-beginning 0))
       (let* ((decl (read (current-buffer)))
-             (name (cadr decl)))
+             (name (cadr decl))
+	     (args (cddr decl))
+	     (normalized (use-package-normalize-keywords name args)))
         (when (and (eq (car decl) 'use-package)
-                   (not (memq name ross/builtin-nix-emacs-packages))
-                   (symbolp name))
+		   (car (plist-get normalized :ensure)))
           (princ (symbol-name name))
           (princ " ")))))
   (princ "] "))
