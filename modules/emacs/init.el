@@ -67,6 +67,18 @@
   :ensure
   :bind ("C-c g s" . magit-status))
 
+;;;; Languages
+
+;;;;; Scala
+
+(use-package scala-mode
+  :ensure
+  :interpreter ("scala" . scala-mode))
+
+(use-package sbt-mode
+  :ensure
+  :commands sbt-start sbt-command)
+
 ;;;; Packages
 
 (use-package try
