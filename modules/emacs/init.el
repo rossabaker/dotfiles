@@ -55,6 +55,11 @@
   :hook
   (after-init-hook . selectrum-mode))
 
+(use-package selectrum-prescient
+  :ensure
+  :hook
+  (selectrum-mode-hook . selectrum-prescient-mode))
+
 ;;;; Packages
 
 (use-package try
