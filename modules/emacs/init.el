@@ -24,6 +24,8 @@
 ;;;; Bootstrap
 
 (eval-when-compile
+  ;; The default "-hook" impairs ripgreppability and help contexts
+  (setq use-package-hook-name-suffix nil)
   (require 'use-package))
 
 ;;;; Personal
@@ -44,7 +46,7 @@
 (use-package selectrum
   :ensure t
   :hook
-  (after-init  . selectrum-mode))
+  (after-init-hook . selectrum-mode))
 
 ;;;; Packages
 
