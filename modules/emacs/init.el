@@ -51,14 +51,15 @@
 ;;;; Completion
 
 (use-package selectrum
-  :ensure t
-  :hook
-  (after-init-hook . selectrum-mode))
+  :ensure
+  :config
+  (selectrum-mode))
 
 (use-package selectrum-prescient
   :ensure
-  :hook
-  (selectrum-mode-hook . selectrum-prescient-mode))
+  :after selectrum
+  :config
+  (selectrum-prescient-mode))
 
 ;;;; Packages
 
