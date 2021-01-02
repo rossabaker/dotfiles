@@ -41,6 +41,13 @@
   (ido-mode nil) ;; Never ido
   )
 
+(use-package no-littering
+  ;; Don't shit where you eat.
+  :ensure
+  :custom
+  (auto-save-file-name-transforms
+      `((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
+
 ;;;; Completion
 
 (use-package selectrum
