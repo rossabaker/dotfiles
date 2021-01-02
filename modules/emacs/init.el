@@ -31,6 +31,11 @@
 (setq user-full-name "Ross A. Baker"
       user-mail-address "ross@rossabaker.com")
 
+;;;; Better Defaults
+
+(use-package better-defaults
+  :ensure)
+
 (provide 'init)
 
 ;;; init.el ends here
