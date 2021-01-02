@@ -34,7 +34,10 @@
 ;;;; Better Defaults
 
 (use-package better-defaults
-  :ensure)
+  :ensure
+  :config
+  (ido-mode nil) ;; Never ido
+  )
 
 ;;;; Completion
 
