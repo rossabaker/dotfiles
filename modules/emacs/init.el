@@ -61,6 +61,12 @@
   :config
   (selectrum-prescient-mode))
 
+;;;; Version control
+
+(use-package magit
+  :ensure
+  :bind ("C-c g s" . magit-status))
+
 ;;;; Packages
 
 (use-package try
