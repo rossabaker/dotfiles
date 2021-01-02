@@ -36,6 +36,22 @@
 (use-package better-defaults
   :ensure)
 
+;;;; Packages
+
+(use-package try
+  :ensure
+  ;; A downside of a Nix-managed Emacs is that new packages require a
+  ;; restart. The reproducibility is generally worth it, but sometimes
+  ;; we just want to fix an unfamiliar language or try something we
+  ;; read on Emacs News.
+  :config
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+  (defun ross/package-refresh-contents-maybe ()
+    "Refresh the packages if we have no `package-archive-contents'."
+    (unless package-archive-contents
+      (package-refresh-contents)))
+  (advice-add 'try :before 'ross/package-refresh-contents-maybe))
+
 (provide 'init)
 
 ;;; init.el ends here
