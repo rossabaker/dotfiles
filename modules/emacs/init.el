@@ -36,6 +36,13 @@
 (use-package better-defaults
   :ensure)
 
+;;;; Completion
+
+(use-package selectrum
+  :ensure t
+  :hook
+  (after-init  . selectrum-mode))
+
 ;;;; Packages
 
 (use-package try
