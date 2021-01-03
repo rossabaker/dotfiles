@@ -85,6 +85,11 @@
   :ensure
   :commands sbt-start sbt-command)
 
+;;;; Formats
+
+(use-package yaml-mode
+  :ensure)
+
 ;;;; Packages
 
 (use-package try
