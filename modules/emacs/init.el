@@ -61,6 +61,12 @@
   :config
   (selectrum-prescient-mode))
 
+;;;; Projects
+
+(use-package project
+  ;; There have been advances since the one in Emacs 27.1.
+  :ensure t)
+
 ;;;; Version control
 
 (use-package magit
